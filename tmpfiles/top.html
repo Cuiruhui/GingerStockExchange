@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>顶部</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link  rel="stylesheet"  type="text/css" href="css/layout.css">
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript">
+var stocksVal,stocksCookieVal,mid,freeID,freeNAME,buylistID,st
+var stockType=0;
+var stockOpen=0;
+var num_min=[var.num_min];
+var news_s,userinf_s,get_stock,get_buy,show_s,user_cs;
+var sverDATE= new Date("[var.mdate]"); 
+</script>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	news("#news");
+	refresh_index();
+	//refresh_cancash();
+	show_time();
+});
+
+
+
+</script>
+<base target="stockMain" />
+
+</head>
+<body>
+
+<div class="header-fixed" id="header-fixed">
+<div class="header_info">
+	<div class="marginauto relative">
+
+		<div id="header-top" class="">
+		<div class="post">
+			<ul class="welcome">
+								
+                <li>欢迎您：[var.xltm.user_info.username]&nbsp;&nbsp;&nbsp;|</li>
+                <li><a href="javascript:void(0);" class="btn" target="_top" onclick="if(confirm('确定要注销登录吗？')){top.location.href='login_from.php?type=logout&client=false';return false;}else{return false;}">注销</a></li>		 
+			</ul>
+
+		</div>
+        <div id="news" style="width:730px; height:25px; overflow:hidden; float:left;">
+            <ul class="welcome">
+                <font color="#FF0000"><li>[[cr.add_time]][cr.title;block=li]</li></font> 
+            </ul>
+        </div>
+		</div>
+	</div>	
+</div>
+
+<div id="header">
+	<div class="header_logo">
+		<ul class="menu">
+
+			<a href="hanqing.php" id="menu1" >行情中心</a>
+
+			<a href="deal.php" class="curr" id="menu1" >建仓明细</a>
+		
+			<a id="menu5" href="user.php" >帐户资料</a>
+            
+            <a href="message.php" id="menu4">收件箱</a>
+             <a id="menu5" href="wypayment.php" >网银入金</a>
+            <!--<a id="menu5" href="payment.php" >快捷入金</a>-->
+			 <a id="menu5" href="saoma.php" >扫码入金</a>
+			<a href="payment.php?type=log" id="menu5" >入金明细</a>
+
+			<a href="order.php"  id="menu1" >快速下单</a>
+		
+
+
+			
+             <span id="sound_msg" style="display:none;"></span>
+		</ul>
+
+		<div class="menu-adv adv" id="MENU_ADV">
+				<div class="adv_page page">
+				<ul> </ul>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,39 @@
+2017-05-09 12:03:55 112.224.2.6 insert into `buy_trust` set user='uceshi',code='000005',type='sz',name='&auml;&cedil;ñ&ccedil;&ordm;&ordf;&aelig;òü&aelig;&ordm;ê',trust_type='1',buy_type='1',price='5.47',app='2',num='65',money='35555',agent='daili',stock_trust_date='2017-05-09',stock_trust_time='2017-05-09 12:03:55'
+2017-05-09 12:03:55 112.224.2.6 insert into `buy_deal` set user='uceshi',stock_code='000005',stock_type='sz',stock_name='&auml;&cedil;ñ&ccedil;&ordm;&ordf;&aelig;òü&aelig;&ordm;ê',bull_price='5.47',bull_num='65',can_sell_num='65',bull_trust_id='12876',bull_trust_date='2017-05-09',bull_trust_time='2017-05-09 12:03:55',buy_type='1',bull_money='35555',bull_cost='0.002',sell_cost='0.002',bull_cost_money='71.11',save_cost='0.0004',agent='daili',agent_bull_money='113.78',agent_ret='80',dc_num='2',dc_money='71.11'
+2017-05-09 12:03:55 112.224.2.6 UPDATE `buy_trust` set stock_deal_time='2017-05-09 12:03:55' where id='12876'
+2017-05-09 13:29:22 112.224.2.6 insert into `buy_trust` set user='uceshi',code='000001',type='sz',name='&aring;&sup1;&sup3;&aring;&reg;â&eacute;ì&para;&egrave;&iexcl;å',trust_type='1',buy_type='1',price='8.63',app='2',num='1',money='863',agent='daili',stock_trust_date='2017-05-09',stock_trust_time='2017-05-09 13:29:22'
+2017-05-09 13:29:22 112.224.2.6 insert into `buy_deal` set user='uceshi',stock_code='000001',stock_type='sz',stock_name='&aring;&sup1;&sup3;&aring;&reg;â&eacute;ì&para;&egrave;&iexcl;å',bull_price='8.63',bull_num='1',can_sell_num='1',bull_trust_id='12878',bull_trust_date='2017-05-09',bull_trust_time='2017-05-09 13:29:22',buy_type='1',bull_money='863',bull_cost='0.002',sell_cost='0.002',bull_cost_money='1.73',save_cost='0.0004',agent='daili',agent_bull_money='1.38',agent_ret='80',dc_num='0',dc_money='0'
+2017-05-09 13:29:22 112.224.2.6 UPDATE `buy_trust` set stock_deal_time='2017-05-09 13:29:22' where id='12878'
+2017-05-09 15:19:07 Database error message: Unknown column 'undefined' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-05-09 15:19:33 Database error message: Unknown column 'undefined' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-05-09 15:19:36 Database error message: Unknown column 'undefined' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-05-09 15:19:36 Database error message: Unknown column 'undefined' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-05-09 15:19:37 Database error message: Unknown column 'undefined' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-05-09 15:19:37 Database error message: Unknown column 'undefined' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-05-09 15:19:37 Database error message: Unknown column 'undefined' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-05-09 15:19:37 Database error message: Unknown column 'undefined' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-05-09 15:19:37 Database error message: Unknown column 'undefined' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-05-09 15:19:38 Database error message: Unknown column 'undefined' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-05-09 15:19:38 Database error message: Unknown column 'undefined' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php

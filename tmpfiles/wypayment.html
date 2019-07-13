@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link  rel="stylesheet"  type="text/css" href="css/layout.css">	
+	<title>在线入金</title>
+    <script src="js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+    <script language="javascript">
+                     function checks()
+                     {
+                      if(reform.money.value=="")
+                       {
+                         alert("请输入充值金额!");
+                         reform.money.focus();
+                         return false;
+                       }else if(parseFloat(reform.money.value)< [var.r6])
+                       {
+                         alert("充值金额不能小于[var.r6]元!");
+                         reform.money.focus();
+                         return false;
+                       }else if(reform.payvia.value=="")
+                       {
+                         alert("请选择支付方式!");
+                         reform.payvia.focus();
+                         return false;
+                       }else
+                       {
+                        reform.fsubmit.value=" 正在提交您的支付信息.. ";
+                        reform.fsubmit.disabled=true;
+                        return true;
+                    
+                       }
+                     }
+                    function Isnum()
+                    {
+                      return ((event.keyCode >= 48) && (event.keyCode <= 57));
+                    }
+
+                     function checkm()
+                    {
+                        var fm1 = document.getElementById('fm1');
+						
+							if(isNaN(fm1.money.value)){
+								alert("请正确输入金额！");
+								return false	
+								}
+						
+                        if (fm1.money.value< [var.r6])
+                        {
+                            alert('存入金额至少为[var.r6]元');
+                            return false
+                        }
+                        else
+                        {
+
+                            fm1.submit();
+                            return true;
+                        }
+                    }
+                    
+
+                    
+                    </script>
+</head>
+<body>
+
+
+<div id="main_content" class="full">
+		<div class="breadcrumbs">
+			<span class="breadcrumbs_left breadcrumbs_radius"></span>
+			<span class="breadcrumbs_right breadcrumbs_radius"></span>
+			<div class="title user public_bg"></div>
+			<div class="currbread">
+				<span class="breadico public_bg"></span>
+				<a href="javascript:;">您当前的位置：</a>&gt;
+				<a href="user.php">我的帐户</a>&gt;
+				<a href="javascript:;">在线入金</a>
+			</div> 
+		</div>
+		<div class="page_content">
+			<div class="page_top">
+				<div class="page_menu">
+				<ul>
+					<li><a href="user.php">基本信息</a>|</li>
+					<li><a href="pwd.php">修改密码</a>|</li>
+					<li><a href="payment.php" class="public_bg">在线入金</a>|</li>
+                    <li><a href="payment.php?type=log" >存款记录</a>|</li>
+                    <li><a href="atm.php">申请提款</a>|</li>
+                    <li><a href="atm.php?type=log">提款记录</a>|</li>
+                    <li><a href="message.php" >收件箱</a></li>
+                    
+				</ul>
+			</div>			<div class="page_search">
+
+			</div>
+			<div class="clear"></div>
+			</div>
+			<div class="page_table relative page_height page_table_padding page_users">
+
+
+				
+                    
+                                <form name="fm1" id="fm1"  method="post" action="saoma.php?type=add" target="_self">
+                    
+                    
+                    
+                            <table width="99%"  border="0" align="center" cellpadding="3" cellspacing="1" class="table table-type1 table_padding table_nborder table_tleft tcolor">
+                            <tr>
+                              <th colspan="4">会员在线充值</th>
+                            </tr>
+                                    <tr class="even">
+                                      <td height="26" align="center" class="fb12"  style="text-align: left; line-height: 25px; font-size:12px;" colspan="4">
+                                       1.输入充值金额后，用手机银行或网银将资金转入下方银行账号！<br>
+  2.转账完成后点击下方支付完成提交!<br>
+  注意:充值过程中请记下订单号,如有任何充值不成功的情况请第一时间联系客服! </span>                                        </td>
+                                    </tr>                  
+                                        
+                                        <tr>
+                                          <td width="100" height="26" align="right"><strong>会员帐号<span class="textalign">：</span></strong></td>
+                                          <td align="left"><span class="style5">
+                                            [var.currentusername]
+                                            <a href="payment.php?type=log">存款历史</a>
+                                            <input name="username" type="hidden" id="username" value="[var.currentusername]" />
+						<input name="orderno" type="hidden" id="orderno" value="[var.order_no]" />
+                                        	 <input name="agent" type="hidden" value="[var.agent]" />
+                                 
+                                          </span> 　                                           </td>
+                                          </tr>
+                                        <tr class="even">
+					  <td height="23" align="right" class="fb12">
+                                            <strong>银行帐名<span class="textalign">：</span></strong></td>
+					  <td align="left"><strong>[var.cardname]</strong></td>
+					</tr>
+					<tr>
+					  <td height="23" align="right" class="fb12">
+                                            <strong>银行卡号<span class="textalign">：</span></strong></td>
+					  <td align="left"><strong>[var.cardno]</strong></td>
+			
+					</tr>
+					<tr>
+					  <td height="23" align="right" class="fb12">
+                                            <strong>支行名称<span class="textalign">：</span></strong></td>
+					  <td align="left"><strong>[var.bankname]</strong></td>
+			
+					</tr>
+                                          <td height="23" align="right" class="fb12">
+                                            <strong>充值金额<span class="textalign">：</span></strong></td>
+                                          <td align="left">
+                                            <input name="money" type="text" class="input" id="money" onKeyPress="Isnum();" size="10">                        
+                                            元(充值金额不能小于<font color="#FF0000">
+                                            [var.r6]
+                    </font>元)</td>
+                                          </tr>
+                                       
+                                        
+										
+										
+										
+										
+
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										<tr>
+                                        <td></td>
+                                        <td> <input  name="image"  type="hidden"  border="0"  value="在线支付"    onclick="checkm()"  class="button3"/></td>
+                                        </tr>
+					
+										
+										
+										
+					<tr>
+					<td></td>
+					<td height="23">
+                                        <input name="image" type="button" value="支付完成提交" onclick="checkm()" class="button3" border="0">
+                                        </td>
+                                        <td> </td>
+                                        </tr>
+                                      </table>
+                                </form>
+                    <br><br>
+
+
+
+
+
+
+                    
+                    <div id="info" style="display:none;">
+                     <p><img src="./images/i.gif" border="0" align="absmiddle" />&nbsp;存款完成前请不要关闭此窗口。完成存款后请根据你的情况点击下面的按钮：</p>
+                     <p><b>请在新开页面完成付款后再选择。</b></p>
+                     <p>&nbsp;</p>
+                     <p align="center"><input type="button" id="btnOKpay" name="btnOKpay" value="已完成付款">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="btnFail" name="btnFail" value="付款遇到问题" /></p>
+                     <p style="height:35px; line-height:35px;"><a href="javascript:void(0);" id="back" style="color:#0077FF;">
+                        返回重新输入付款金额</a></p>
+                    </div>
+
+
+
+			</div>				
+			</div> <!--page_table end-->
+
+		</div> <!--page_content end-->
+	</div>
+
+
+</body>
+</html>

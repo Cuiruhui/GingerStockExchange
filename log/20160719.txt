@@ -1,0 +1,2 @@
+2016-07-19 11:08:18 199.27.128.135 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='20.15',sell_cost_money='1209',dc_money='0',sell_money='604500',sell_trust_id='12867',sell_gain='-28800',gain='-31275.6',agent_sell_money='0',sell_trust_date='2016-07-19',sell_trust_time='2016-07-19 11:08:18' where id='00005796'
+2016-07-19 11:08:18 199.27.128.135 UPDATE `user_users` set money=money+604500+-28800-1209-0-0,cash=cash+-28800-1209-0-0 where username='ceshi'

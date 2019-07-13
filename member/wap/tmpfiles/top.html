@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>顶部</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+var stocksVal,stocksCookieVal,mid,freeID,freeNAME,buylistID,st
+var stockType=0;
+var stockOpen=0;
+var num_min=[var.num_min];
+var news_s,userinf_s,get_stock,get_buy,show_s,user_cs;
+var sverDATE= new Date("[var.mdate]"); 
+</script>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	news("#news");
+	refresh_index();
+	//refresh_cancash();
+	show_time();
+});
+
+var color = 1;
+var s,t,m,b;
+$(document).ready(function(){
+	//s = setInterval(note,1000);
+	//t= setInterval(serverTime,1000);
+	m = setInterval(sysMessage,5000);
+	b = setInterval(sysBC,20000);
+	mon = setInterval(sysMoney,5000);
+});
+
+var sysMessage = function(){
+	clearInterval(m);
+	//res = ajaxUrl('./ajax.php?type=message');
+	$.ajax({
+		type: 'GET',
+		url: './ajax.php?type=message',
+		cache: false,
+		success:function(res){
+			if(parseInt(res)>0)
+			{
+				$('#sound_msg').html('<EMBED src="./wav/3.wav" hidden="true" volume="0" type="audio/x-ms-wma" />');
+				$('#a_msg').css('color','#ff0000');
+			}
+			else
+			{
+				$('#a_msg').css('color','#C7CBCF');
+			}
+			$('#a_msg').html('短信[' + res + ']');
+			m = setInterval(sysMessage,5000);
+		}
+	});
+}
+
+var sysMoney = function(){
+	clearInterval(mon);
+	$.ajax({
+		type: 'GET',
+		url: './ajax.php?type=money',
+		cache: false,
+		success:function(res){
+			$('#a_money').css('color','#FFFF00');
+			$('#a_money').html(res);
+			mon = setInterval(sysMoney,5000);
+		}
+	});
+}
+var sysBC = function(){
+	clearInterval(b);
+	//res = ajaxUrl('./ajax.php?type=baocang');
+	$.ajax({
+		type: 'GET',
+		url: './ajax.php?type=baocang',
+		cache: false,
+		success:function(res){
+			if(parseInt(res)>0)
+			{
+				$('#sound_bc').html('<EMBED src="./wav/1.wav" hidden="true" volume="0" type="audio/x-ms-wma" />');
+				$('#a_bc').css('color','#ff0000');
+			}
+			else
+			{
+				$('#a_bc').css('color','#C7CBCF');
+			}
+			$('#a_bc').html('爆仓[' + res + ']');
+			b = setInterval(sysBC,20000);
+		}
+	});
+}
+
+</script>
+<base target="mainFrame" />
+</head>
+<body>
+<div id="sound_msg" style="display:none"></div>
+<div id="sound_bc" style="display:none;"></div>
+ <table width="100%" border="0" cellpadding="0" cellspacing="0" class="top"> 
+    <tr>
+      <td width="120"><img src="./images/stock_buy.png" width="140" height="50" /></td>
+      <td>
+	  您好，<strong><font color="#FFFF00">[var.xltm.user_info.username] </font></strong>([var.xltm.user_info.realname])&nbsp;
+	  可用保证金：<span style="color:#FFFF00">￥<span id="a_money">0.00</span></span>元（<a href="payment.php" target="stockMain" style="color:#FFFF00;">充值</a>）&nbsp;&nbsp;
+	  <img src="./images/amr_ico.gif" border="0" align="absmiddle" /><a href="message.php" id="a_msg" style="color:#C7CBCF;"  target="stockMain">短信[0]</a>&nbsp;<a href="message.php" id="a_bc" style="color:#C7CBCF;" target="stockMain">爆仓[0]</a><br />
+  	  </td>
+      <td><a href="stock_lists.php" class="btn" target="stockMain">沪深股票</a>
+        <a href="news.php" class="btn" target="stockMain">公告大厅</a>
+        <a href="user.php" class="btn" target="stockMain">会员资料</a>
+		<a href="javascript:void(0);" class="btn" target="_top" onclick="if(confirm('确定要注销登录吗？')){top.location.href='login_from.php?type=logout&client=[var.client]';return false;}else{return false;}">注销</a>	    </td> 
+    </tr> 
+</table> 
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="25" background="images/topbar.gif"><div id="all_count"><div id="load_text"></div>
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+		  	<td><span id="liveTime">0-0-0 0:0:0</span>&nbsp;&nbsp;
+	   <span id="open" style="color:#FF0000;"></span>&nbsp;&nbsp;</td>
+            <td height="22" nowrap="nowrap"><div id="dpName_0"></div></td>
+            <td height="22" align="right" nowrap="nowrap"><div id="dpCurr_0">..</div></td>
+            <td height="22" align="right" nowrap="nowrap"><div id="dpDiff_0">..</div></td>
+            <td height="22" align="right" nowrap="nowrap"><div id="dbPoint_0">..</div></td>
+            <td height="22" align="center" nowrap="nowrap"><div id="dp_turnover_0">..</div></td>
+            <td height="22" nowrap="nowrap"><div id="dpName_1"></div></td>
+            <td height="22" align="right" nowrap="nowrap"><div id="dpCurr_1">..</div></td>
+            <td height="22" align="right" nowrap="nowrap"><div id="dpDiff_1">..</div></td>
+            <td height="22" align="right" nowrap="nowrap"><div id="dbPoint_1">..</div></td>
+            <td height="22" align="center" nowrap="nowrap"><div id="dp_turnover_1">..</div></td>
+          </tr>
+        </table>
+    </div></td>
+    <td background="images/topbar.gif">	<div id="news"> 
+	  <ul> 
+		<li>[[cr.add_time]][cr.title;block=li]</li> 
+	  </ul> 
+    </div> 
+   </td>
+  </tr>
+</table>
+</body>
+</html>
+
+

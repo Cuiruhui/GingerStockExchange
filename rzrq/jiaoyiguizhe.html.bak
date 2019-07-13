@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>腾煌国际融资融券投资，股票T+0交易、股票开户、股票T+0、股票技巧、股票投资、做多做空、股票交流、股票配资</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content=" 腾煌国际融资融券投资业有限公司自2013年起立足香港，面向全球市场，为全球客户提供7*24不间断的金融投资交易服务。公司拥有经验丰富的专家团队，可靠而便捷的股票买卖服务，协助客户投资增值。腾煌国际融资融券投资业有限公司属证券投资行业，香港牌照编号为1859326，是香港合法经营的平台交易商。
+
+腾煌国际融资融券投资业有限公司是目前唯一经政府批准可于全球范围内进行提供股票T+0买卖的交易平台。有着严密的规章制度和严谨的监管制度等诸多优势，用以确保属下会员公司的每个客户均可获得公平公正的交易过程。
+
+本公司身为股票投资的其中一员，一直以来积极致力于促进股票交易的推广并严格遵守证券法的各项严格交易流程，以此加强客户对黄金市场的认识及增加客户投资的信心，并协助客户投资成功获取利益。
+
+“诚信至上”是我们的宗旨，“专业服务”是我们的保证。 我们将不断努力，做到更好。" />
+<meta name="description" content="腾煌国际融资融券投资，股票T+0交易、股票开户、股票T+0、股票技巧、股票投资、做多做空、股票交流、股票配资" />
+
+<link href="xingwancss/wpstyle.css" rel="stylesheet" type="text/css" />
+<link href="xingwancss/page.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="xingwancss/jquery.js"></script>
+<script type="text/javascript" src="xingwancss/script_top.js"></script>
+<script type="text/javascript" src="xingwancss/jquery.jslides.js"></script>
+<script type="text/javascript" src="xingwancss/swfobject.js"></script>
+<script type="text/javascript" src="xingwancss/function.js"></script>
+</head>
+
+<body>
+<script language="JavaScript" type="text/JavaScript"> 
+
+(function($) {
+$.extend({       
+urlGet:function()
+{
+  var aQuery = window.location.href.split("?");  //取得Get参数
+  var aGET = new Array();
+  if(aQuery.length > 1)
+  {
+    var aBuf = aQuery[1].split("&");
+    for(var i=0, iLoop = aBuf.length; i<iLoop; i++)
+    {
+      var aTmp = aBuf[i].split("=");  //分离key与Value
+      aGET[aTmp[0]] = aTmp[1];
+    }
+  }
+  return aGET;
+ }
+})
+})(jQuery);
+
+
+
+
+ $(document).ready(function(e) {
+
+	 var GET = $.urlGet(); //获取URL的Get参数
+	 var s = GET['s']; //取得id的值
+	 var t_url = "gp.070609.net"; //系统地址
+
+	
+
+	 if(s){
+		 var xu_url ="http://"+ t_url+"/reg.php?utype=1&agent="+s;
+	     var zs_url ="http://"+ t_url+"/reg.php?utype=1&agent="+s;
+		 $(".exzhzz_ok , .exkkbzs_1 , .xn_reg").attr('href',xu_url);
+		 $(".exzhqk_ok , .exkkbzs_2 , .zs_reg").attr('href',zs_url);
+		 $(".exnavShow-exprocedures").find("a").eq(1).attr('href',zs_url);
+	     $(".exnavShow-exprocedures").find("a").eq(2).attr('href',xu_url);
+		}
+
+	
+
+
+
+});
+ </script>
+
+
+<div class="extop_t w h30">
+	<div class="extop_t_all">
+  	<div class="fl">欢迎您<a href="http://wanmeicelue.com/reg.php" class="zs_reg"  target="_blank">开通标准账户</a></div>
+    <div class="fr">
+      <ul>
+	    <li><a href="#" class="hrefs" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://wanmeicelue.com');">设为首页</a></li>
+        <li><a href="javascript:window.external.AddFavorite('http://wanmeicelue.com', '腾煌国际融资融券投资')">加入收藏</a></li>
+        <li id="site-exnav" data-widget="dropdown"><a href="#map">网站导航</a><b></b></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="extop_m w" >
+	<div class="extop_m_all">
+  	<div class="extop_m_logo fl"><img src="/images/logo.jpg" title="金旺金融投资"/></div>
+    <div class="extop_m_m fl"><img src="/images/20132014.jpg" title="最活跃平台交易商"/></div>
+    <div class="extop_m_m fl">
+      <ul class="time" style="    line-height: 22px;
+    font-size: 12px;
+    color: #999;">
+      <li>东京:<span id="tytime"></span></li>
+      <li>香港:<span id="hktime"></span></li>
+      <li>纽约:<span id="nytime"></span></li>
+      <li>伦敦:<span id="ldtime"></span></li>
+      <script language="javascript">
+      showtime();
+      </script>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="wplist">
+<div class="exlist w">
+	<div class="exlist_all mainNav">
+    <ul class="exnav clearfix"  style="float:left;">
+      <li ><a href="/index.php">首 页</a></li>
+      
+     <li ><a href="/xinwen.php">新闻</a></li>
+	   <li class="index_on"><a href="/rzrq/jiaoyiguizhe.html">规则</a></li>
+	    <li ><a href="/rzrq/zijin.html">信誉</a></li>
+		<li ><a href="/rzrq/huodong.html">活动</a></li>
+		  <li ><a href="/rzrq/down.html">下载</a></li>
+
+		 <li ><a href="/rzrq/hangqing.html">行情</a></li>
+            
+    </ul> 
+  </div>
+  
+  </div>
+</div>
+
+<script type="text/javascript"> 
+  function changeImg(){ 
+  	var a=document.getElementById("validateImg");
+  	a.src='http://wanmeicelue.com/validate.php?'+Math.random();
+  }
+</script>
+<div class="exmid w pt15">
+	<div class="exmid_all">
+  	<div class="exmid_l fl">
+  	  <script type="text/javascript" src="http://qt.gtimg.cn/q=sh000001,sz399001,sh000300,sz399006"></script>
+		<script type="text/javascript">
+                  $(function(){
+                    
+                        //上证指数  
+                        var sh000001=v_sh000001.split("~");
+                        $("#quote-stock").children("li").eq(0).find(".red").html("<span class='titles'>"+sh000001[3]+","+"</span>  "+sh000001[31]+","+sh000001[32]+"%");
+                        $("#quote-stock").children("li").eq(0).find(".jye").html("成交额："+Math.round(sh000001[37]/10000)+"亿<br> 高："+sh000001[33]+" 低："+sh000001[34]);
+                        
+                        //深圳成指  
+                        var sz399001=v_sz399001.split("~");
+                        $("#quote-stock").children("li").eq(1).find(".red").html("<span class='titles'>"+sz399001[3]+","+"</span>  "+sz399001[31]+","+sz399001[32]+"%");
+                        $("#quote-stock").children("li").eq(1).find(".jye").html("成交额："+Math.round(sz399001[37]/10000)+"亿<br> 高："+sz399001[33]+" 低："+sz399001[34]);
+                        
+                        //沪深300
+                        var sh000300=v_sh000300.split("~");
+                        $("#quote-stock").children("li").eq(2).find(".red").html("<span class='titles'>"+sh000300[3]+","+"</span>  "+sh000300[31]+","+sh000300[32]+"%");
+                        $("#quote-stock").children("li").eq(2).find(".jye").html("成交额："+Math.round(sh000300[37]/10000)+"亿<br> 高："+sh000300[33]+" 低："+sh000300[34]);
+                        
+                        //创业板指
+                        var sz399006=v_sz399006.split("~");
+                        $("#quote-stock").children("li").eq(3).find(".red").html("<span class='titles'>"+sz399006[3]+","+"</span>  "+sz399006[31]+","+sz399006[32]+"%");
+                        $("#quote-stock").children("li").eq(3).find(".jye").html("成交额："+Math.round(sz399006[37]/10000)+"亿<br> 高："+sz399006[33]+" 低："+sz399006[34]);
+                  })
+                      
+                </script>
+<script type="text/javascript" src="http://hq.sinajs.cn/?func=getData._hq_cron();&list=sh600000,sh600004,sh600005,sh600006,sh600007"></script>
+<script type="text/javascript">
+	var S = {
+    node : 'hs_a',
+    page : 1,
+    num : 20,
+    sort : 'symbol',
+    asc : 1,
+    _s_r_a : 'init',
+    cmarket: 'Market_Center.getHQNodeStockCount',//沪深  
+    market: 'Market_Center.getHQNodeData',  // 沪深
+    stocknum :0,
+    center : 'HQ'
+  };
+createGridView(hq_str_sh600000.split(","),'sh600000');
+createGridView(hq_str_sh600004.split(","),'sh600004');
+createGridView(hq_str_sh600005.split(","),'sh600005');
+createGridView(hq_str_sh600006.split(","),'sh600006');
+createGridView(hq_str_sh600007.split(","),'sh600007');
+$("#list_grid").html(grid);
+			var grid = '';
+              /*动态创建 HTML*/
+              function createGridView(data,gpm){
+                var colors;
+				var i = 1;//循环出来的
+                  grid += i%2 == 0 ? '<tr>':'<tr class="odd" rowstocktag="data">';
+                  grid += '<td class="cade">'+gpm+'</td>';
+                  grid += '<td>' + data[0] + '</td>';
+				  grid += '<td><span class=" left"></span><b id="trade_sh000001">' + data[3] + '</b></td>';
+				   
+				  //判断涨跌颜色
+				  if(data[3]-data[2]>0){
+					  colors = 'red'; 
+				  }else if(data[3]-data[2]<0){
+					  colors = 'green'; 
+				  }else{
+					  colors = 'green'; 
+				  }
+				  var pricechange = toDecimal(data[3]-data[2]);
+                  grid += '<td class="' + colors + '" id="pricechange_sh000001">' + pricechange.toString() + '</td>';
+				  
+				  var zdf = toDecimal((data[3]-data[2])/data[2]*100);
+                  grid += '<td class="' + colors + '" id="changepercent_sh000001">' + zdf.toString() + '%</td>';
+                  grid += '<td class="buy">' + data[6] + '</td>';//买入价格
+                  grid += '<td class="sell">' + data[7] + '</td>';
+                  grid += '<td>' + data[2] + '</td>';
+                  grid += '<td>' + data[1] + '</td>';
+                  grid += '<td>' + data[4] + '</td>';
+                  grid += '<td>' + data[5] + '</td>';
+                  grid += '<td id="valume_sh000001">' +  data[8] + '</td>';
+				  var amount =  toDecimal(data[9]/10000);
+                  grid += '<td id="amount_sh000001">' + amount + '</td>';
+                  grid += '</tr>';
+				
+                
+              }
+			  
+			//四舍五入保留2位小数  
+			function toDecimal(x) {   
+            var f = parseFloat(x);               
+			if (isNaN(f)) {   
+                return;               
+				}              
+				f = Math.round(x*100)/100;              
+				return f;           
+				} 
+</script>   
+      
+     
+      <div class="exzjnews pt10">
+			<div class="exzjnews_t">
+        	<div class="exzjnews_t_l">交易须知</div>
+        	</div>
+      	<!--开始左侧内容-->
+		<div class="exzjnews_s">
+            <div class="ex_qa_t"><a name="1003" id="1003"></a>交易规则</div>
+            <div class="ex_qa_c">
+		
+		      <p >在本网进行股票交易之杠杆比例为 10 ，例如：账号资金存入1万元，就等于可用操作资金10万元。 <br />
+		        系统于盘中随时检核会员【可用保证金】情况，若盘中该值低于70%，系统将会自动提示会员及时充值以免影响会员的权益。 <br />
+		        系统于每日收盘后：1、计算会员当日盈亏状况；2、删除当日未成交的委托单；3、扣除当日留仓费（留仓费率0.0010&#8240; /天）；4、自动平仓7天前的留仓单。 <br />
+		        【建仓时间】 <br />
+		        上午： 09:35 至 11:25　下午： 13:05 至 14:55 <br />
+		        【平仓时间】 <br />
+		        上午： 09:35 至 11:25　下午： 13:05 至 14:55 <br />
+		        【出款时间】 <br />
+		        下午：15:00-18:00（100元起出款） <br />
+		        【限制出款】 <br />
+		        股票留仓、当天入款、开市未建仓或建仓量未达到充值总额20%的均不出款处理。 <br />
+		        【交易费用】 <br />
+		        1. 手续费：建仓：2&#8240;　平仓：2&#8240;　留仓：1&#8240;　提现收取3%手续费（注：按成交总额收取） <br />
+		        2. 点差费：融资融券利息，统一收取5&#8240;。 <br />
+		        3. 点差费在建仓或平仓时均会提示，请注意核对。 <br />
+		        【建仓规则】 <br />
+		        1. 交易标的：沪深A股（中小板、创业板）不包含上市未满100天新股、*ST股、S*ST股； <br />
+		        2. 持仓时间：新单15分钟限制平仓操作(平仓视为异常交易)，持仓30分钟后可平仓。注:系统休市时间不计算持仓时间； <br />
+		        3. 交易限制：&#9312;个股当天涨跌幅7%、ST股涨跌幅3.5%，交易系统不予建立新单；&#9313;股票价格&#8805;100元的、股票价格&#8804;3元的属异常股，暂不提供交易； <br />
+		        4. 单只股票单用户持仓+委托笔数大于3笔后不允许建仓； <br />
+		        5. 本系统报价软体及下单方式与各股票交易所同步 ( 如有疑义请参考 大智慧金融交易终端超赢机构版及大智慧 Level-2高速行情分析系统付费版本 ) ，所有交易成交价以本系统买、卖价为依据，买卖的商品以公司的产品列表为主。 <br />
+		        6. 可买卖产品，系统依商品市场交易状况，自动判定。 交易商品会因交易量异常或特殊情况在建仓时收取手续费点差（点差1&#8240;为加收成交金额千分之一，点差2&#8240;为加收成交金额千分之二依此类推）, 点差商品会因交易量随时做调整，敬请关注 ! <br />
+		        7. 下单方式：市价 / 委托价。1手=100 股。 <br />
+		        8. 下单时每产生一笔交易单均视为新单，如原持仓600123(兰花科创)10手，现又买入10手600123，系统不会自动将两条记录合并产生20手的600123持股。 <br />
+		        9. 下单后，请到委托查询界面，确认下单是否成功。 <br />
+		        10. 股票如当日留仓不能要求更改为平仓。 <br />
+		        11. 盘中休巿时间停止交易。 <br />
+		        12. 客户平台上所见之股票即时价格仅供下单参考并非成交价格，下单后有纪录下单买卖时间供市场比对。 <br />
+		        13. 会员下单后不接受任何理由撤单。 <br />
+		        【平仓规则】 <br />
+		        1. 收盘结算价：以各股票交易所收盘价为结算依据。 <br />
+		        2. 交易所公告暂停交易之个股（含停牌）以第2个交易日收盘价自动平仓。 <br />
+		        3. 如个股因特殊原因当日涨、跌幅超过10%时，下单成交价如逾10%不论赢亏一律以10%结算，所有数据以盘后修正为准。该股收盘亦以10%计价平仓结算。 <br />
+		        4. 如遇增资、减资(增、减发股份)个股，依增、减发股份上市流通前之最后价格平仓结算。 <br />
+		        5. 每日收盘时尚未平仓的持股以其进仓价与当日收盘价比较，其价差若大于百分之二十(无论盈亏)，该股以当日收盘价平仓结算，不得异议。 <br />
+		        6. 如因特殊状况造成前一交易日之收盘价与当前交易日之平盘价不相等之个股，一律依前一交易日之收盘价平仓。 <br />
+		        7. 除权除息：对于持仓股票进行除权/除息（上市公司发放股息红利的日子）时，客户需在前一日自行平仓，否则系统将以除权/除息前一日的收盘价进行强行平仓。 <br />
+		        8. 如遇个股连续2日涨跌停板，为保证共同利益，系统即自动止赢止损，并以第二个涨跌停价格自动平仓。 <br />
+		        【委托平仓】 <br />
+		        若遇网络延迟或系统故障导致数据中断与延误，如客户无法操作，可及时联系在线客服，进行委托平仓，平仓价格以成交价格为准，不接受委托平仓。 <br />
+		        【爆仓规则】 <br />
+		        当客户保证金亏损至70%时，系统自动平仓及时止损。(爆仓比例达到70%，系统自动发出警报提示)建议及时加大本金防止爆仓。（注：如遇股价波动较大时，不可避免爆仓比例超出70%。客户需遵照市场价格成交。） <br />
+		        【留仓规则】 <br />
+		        1. 所有未平仓单采取自动留仓，留仓最大时限为7天 <br />
+		        2. 留仓费按实际留仓时间计算。留仓天数到期，未于约定时间内交收，系统自动以到期当日收盘价自动平仓。 <br />
+		        3. 留仓费：留仓总额的0.0010&#8240;/天，按收盘价计算。 <br />
+		        【停牌规则】 <br />
+		        交易股票如遇连续暂停交易（含停牌）2个交易日，则以停牌前一交易日的收盘价进行平仓操作； <br />
+		        【复牌规则】 <br />
+		        股票复牌后3个交易日内不予建立新单； <br />
+		        【退市警示】 <br />
+		        如股票被实施退市风险警示特别处理，交易系统将对该股票实行退市风险警示的公告日之当日或前一日，对该股票留仓单收盘后予以强制平仓，不得有异议。 <br />
+		        【附加】 <br />
+		        　
+		        1、以下情况属于违规操作： <br />
+		        　　
+		        &#9312;.建仓如遇一只股票同时买涨和买跌。处理方式：第二个方向按照买入价强行平仓； <br />
+		        　　
+		        &#9313;.锁仓订单占所有订单比例大于或等于30%，定性为异常下单。处理方式：回收建仓权限； <br />
+		        　　
+		        &#9314;.一个会员注册两个(含)以上账号。处理方式：若同一会员/IP同时注册两个(含)以上账号操作，一经发现冻结所有账号，清空所有操作数据，没收本金及所有赢利； <br />
+		        　 
+		        <br />
+		        　
+		        2、违规处罚方法： <br />
+		        　　
+		        &#9312;.若异常账户总亏损达到本金的10%，可提取全部剩余本金； <br />
+		        　　
+		        &#9313;.若异常账户总亏损未达到本金的10%，将扣除本金的10%作为异常账户处理费用，扣除之后本金可以进行提取； <br />
+		        　　
+		        &#9314;.若异常账户为盈利，且本金已成功出金，账户资金将不能进行任何提取，若本金未全部提取，扣除客户本金10%的异常账户处理费用之外，剩余本金可申请提款，当天盈利一概不允许提款； <br />
+		        【违规说明】 <br />
+		        如有客户账户涉及使用委托他人操盘或采用不正当行为，进行非法投注，包括但不限于异常下单、异常关联账户、集团账户、集团单行为、拖拉机账户、一人多户或者多人一户等非法操作，系统将取消所有注单并视情况是否退还手续费。 <br />
+		        开户时未填写真实账户资料提款时无法输入正确提款验证码。腾煌国际融资融券有权锁定异常账户，冻结资金，不得有异议； <br />
+		        【系统断线或异常处理方式】 <br />
+		        如遇天灾或人力无法抗拒之因素导致本系统异常处理如下： <br />
+		        1. 网路断线或资讯源异常 &#9658; 异常之个股暂停收单，未成交委托单全部取消。 <br />
+		        2. 盘中发生错价 &#9658; 以本系统修正后为依据，更正错价。 <br />
+		        3. 系统恢复正常，以即时讯息公告恢复正常交易。 <br />
+		        4. 个股异常、满仓或因故停止交易，本系统可不接受新单，随时强制平仓结算。 <br />
+		        5. 本系统断线超过 30 分钟或是遭受黑客攻击，无法营运时，为维护会员权益，当日成交股票将以下午15:00 收盘价平仓结算，不得异议。 <br />
+		        【其它说明】 <br />
+		        1. 帐务保留15天，如需更长时间请自行备份。 <br />
+		        2. 忘记密码或输入五次错误，系统会自动上锁，请通知联系客服解锁，更新密码。 <br />
+		        3. 客户若有任何问题，请于第一时间反应给客服，超过当日 17 ： 00 后则不予受理。 <br />
+		        4. 本交易规则如有未尽事宜，可视状况随时调整。腾煌国际融资融券保留规则和条款的最终解释权。 </p>
+</div>
+        </div>
+		
+		
+		<!--左侧内容结束-->
+	  
+	  
+	  
+	  
+	  
+      </div>
+     
+    </div>
+    <div class="exmid_r fr">
+    	<div class="ex_kf"><a href="http://wpa.qq.com/msgrd?v=3&uin=1931398361&site=qq&menu=yes" target="_blank" class="ex_kf_cn exgd_0"></a></div>
+      <div class="exkstd" style=" height:144px;">
+      	<div class="exkstd_t">快速通道</div>
+        <div class="exkstd_more">
+       <a href="/rzrq/zijin.html" class="exkstd_0 exgd_1" title="">腾煌国际优势</a>
+         
+          <a href="/rzrq/jiaoyiguizhe.html" class="exkstd_1 exgd_1" title="">交易细则</a>
+          <a href="/reg.php" class="exkstd_2 exgd_1" title="">开户流程</a>
+          <a href="/rzrq/down.html" class="exkstd_3 exgd_1" title="">平台安装</a>
+        </div>
+      </div>
+      <div class="exright_news pt10">
+      	<div class="exright_news_t">公司公告</div>
+        <div class="exright_news_s">
+          <div class="exright_news_p"><a href="http://wanmeicelue.com/reg.php"><img src="/wpimages/news_1.jpg" width="344" height="51" /></a></div>
+                      <div class="exright_news_c">
+					<h2><a href="" title="<font color='#FF0000'>腾煌国际融资融券投资隆重推出客户推荐奖赏计划！</font>"><font color='#FF0000'>腾煌国际融资融券投资隆重推出客户推荐奖赏计划！</font></a></h2>
+                腾煌国际融资融券投资 隆重推出客户推荐奖赏计划，以回馈客户...
+
+                      </div>
+          <div class="exright_news_ss">
+          	<ul> 
+			<li><a href="" title="腾煌国际融资融券投资隆重举行双重奖赏计划！">腾煌国际融资融券投资隆重举行双重奖赏计划！</a></li><li><a href="" title="腾煌国际融资融券投资提醒：提防利用以本公司名义进行宣传！">腾煌国际融资融券投资提醒：提防利用以本公司名义进行宣传！</a></li>
+			<li><a href="" title="查看更多公司公告">查看更多公司公告...</a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+    <div class="exmt4 pt10">
+      	<div class="exmt4_t">
+        	<div class="exmt4_l">客户端下载</div>
+          <div class="title5a" id="ee1" onmouseover="javascript:doClick5(this)">电脑版</div>
+          <div class="title5b" id="ee2" onmouseover="javascript:doClick5(this)">手机版</div>
+        </div>
+        <div class="exmt4_content">
+        	<span style="display: block;" id="e1">
+          	<div class="exmt4_pc">
+            	<div class="exmt4_pc_down"><a href="/rzrq/down.html" title="软件下载" target="_blank"></a></div>
+            </div>
+          </span>
+     			<span style="display: none;" id="e2">
+          	<div class="exmt4_phone">
+            	<div class="exmt4_phone_down"><a href="/rzrq/down.html" title="软件下载"></a></div>
+            </div>
+          </span>
+        </div>
+      
+      </div>
+   <div class="excontact pt10">
+      	<div class="excontact_t">客服中心</div>
+ <div style=" padding-top:4px;border:1px #CCCCCC solid;">  
+<ul style=" padding-top:7px;"> 
+			<li  style="margin-top:10px; margin-left:10px;"><a href="http://wpa.qq.com/msgrd?v=3&uin=1931398361&site=qq&menu=yes" target="_blank">客服QQ：1931398361</a></li>
+			<li style="margin-top:10px;margin-left:10px;">联系地址：香港中环港景街一号国际金融中心一期2801</li>
+            </ul>
+      </div>
+      
+  </div>
+</div></div>
+<div class="exdownall pt20">
+	<div class="exdown_map">
+  	<div class="exdown_map_all">
+    	
+      <div class="exdown_show">
+      	<div class="exdown_show_t">关于融创</div>
+        <ul>
+        	<li><a href="" >公司简介</a></li>
+          <li><a href="" >最新公告</a></li>
+          <li><a href="" >优惠活动</a></li>
+          <li><a href="" >联系我们</a></li>
+        </ul>
+      </div>
+      <div class="exdown_show">
+      	<div class="exdown_show_t">交易软件</div>
+        <ul>
+        	<li><a href="/rzrq/down.html" >电脑客户端</a></li>
+			<li><a href="/rzrq/down.html" >手机客户端</a></li>
+        </ul>
+		</div>
+      </div>
+    </div>
+  </div>
+		<div  style="width:100%; height:126px; text-align:center;">
+	
+	
+	<div class="footer container-main">
+        
+        <div class="text" style="padding-top:12px; padding-bottom:12px;">
+            <p>腾煌国际融资融券在线客服很乐意为您的任何询问进行解答</p>
+            <p class="copyright">All Rights Reserved © 2018 腾煌国际融资融券 版权所有</p>
+        </div>
+        <div class="text-center"><img src="./yatai_files/foot.png" border="0" alt="0"><br><br><br></div>
+    </div>
+	
+
+  </div>
+</div>
+
+</body>
+</html>

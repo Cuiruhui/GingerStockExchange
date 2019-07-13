@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="融资融券交易系统">
+  <title>在线入金</title>
+  <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="./js/new/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+  <script language="javascript">
+
+
+ function checkm()
+
+{
+
+	 var fm1 = document.getElementById('fm1');
+
+	if (fm1.p3_Amt.value< [var.r6])
+
+	{
+
+		$("form").submit( function () { 
+  return false; 
+} );
+
+		alert('存入金额至少为[var.r6]元');
+		fm1.p3_Amt.focus();
+
+
+	
+		return false;
+
+	}
+
+	else
+
+	{
+
+	
+		 fm1.action = fm1.action + '&ka_type=ICBC&p3_Amt=' + fm1.p3_Amt.value;
+	
+
+		//alert(fm1.action);
+		//tb_show("在线存款","#TB_inline?width=480&height=200&inlineId=info",false);
+
+		$("#fm1").submit();
+
+		fm1.submit();
+
+		return true;
+
+	}
+
+}
+
+
+
+$(function(){
+
+	//付款完成，返回付款历史页面
+
+	$('#btnOKpay').click(function(){
+
+		self.location.href='payment.php?type=log';
+
+	});
+
+	$('#btnFail').click(function(){
+
+		self.location.href='payment.php?type=fail';
+
+	});
+
+	$('#back').click(function(){
+
+		tb_remove();
+
+		self.location.href='payment.php';
+
+	});	
+
+})
+
+
+
+function Isnum()
+{
+  return ((event.keyCode >= 48) && (event.keyCode <= 57));
+}
+
+</script>
+</head>
+<script>
+  var arr = []
+  $(function(){
+    $('#money').keyup(function(){
+      $('#money2 td').each(function(i,e){
+        if(i != 0){
+          $(this).text('')
+        }
+        if(i==9 || i==8){
+          $(this).text(0);
+        }
+      })
+      arr = $(this).val().split('')
+      var length = arr.length
+      for (var i=0;i<length;i++)
+      {
+        var pos = 8 - ( length - i) 
+        $('#money2 td').eq(pos).text(arr[i])
+      }
+    })
+  })
+</script>
+<body style="background:#FFF;">
+  <div class="onpay-container">
+    <!-- <div class="onpay-head">
+      <div class="onpay-title">
+        <span class="onpay-span">交易商：Rin</span>
+      </div>
+      <img src="./img/X.png">
+    </div> -->
+    <div class="onpay-content">
+      <form class="form-horizontal" action="payment.php?type=add&f_k_uid=[var.kuserid]&f_k_usertime=[var.kusertime]&unique=[var.kunique]&username=[var.currentusername]&orderno=[var.orderno]&agent=[var.agent]&addtime=[var.timexi]"  method=post name=fm1 target="_blank" id=fm1>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">出/入金</label>
+          <div class="col-sm-3">
+            <select class="form-control">
+              <option>银证转账</option>
+            </select>
+          </div>
+          <label class="col-sm-1 control-label">划转金额</label>
+          <div class="col-sm-3">
+            <input type="text" id="money" name="p3_Amt" id="p3_Amt" value="0" class="form-control" placeholder="请输入划转金额" maxlength="9">
+          </div>
+          <div class="col-sm-3">
+            <button type="submit" name="submit" onClick="checkm()" value="在线支付" id="submit-form" class="btn btn-info btn-sure">确定</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">银行</label>
+          <div class="col-sm-3">
+         <input name="bank" type="text" id="bank" class="form-control" value="[var.Edit.bank]" readonly>
+          </div>
+          <label class="col-sm-1 control-label">开户行</label>
+          <div class="col-sm-3">
+            <input class="form-control" name="bankname" type="text" id="bankname" value="[var.Edit.bankname]" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">银行卡号</label>
+          <div class="col-sm-3">
+            <input class="form-control" name="bankno" type="text" id="bankno" value="[var.Edit.bankno]" readonly>
+          </div>
+          <label class="col-sm-1 control-label">开户名</label>
+          <div class="col-sm-3">
+            <input class="form-control" name="bankrealname" type="text" id="bankrealname" value="[var.Edit.realname]" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-12 control-label prompt">
+            提示：<span style="color:#D14E00;">入金金额不能小于<font color="#FF0000">[var.r6]</font>元，开户名不能修改(若想修改帐户名请联系管理员)</span>
+          </label>
+          <div class="col-sm-12">
+            <table class="table table-bordered onpay-table">
+              <tr>
+                <th>金额</th>
+                <th>百</th>
+                <th>十</th>
+                <th>万</th>
+                <th>千</th>
+                <th>百</th>
+                <th>十</th>
+                <th>元</th>
+                <th>角</th>
+                <th>分</th>
+              </tr>
+              <tr id="money2" class="onpay-money">
+                <td>￥</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<style>
+body {
+    font-family: "Microsoft YaHei" ! important;
+  }
+  .onpay-container {
+    width: 100%;
+    height: 100%;
+  }
+  .onpay-head {
+    width: 100%;
+    height: 45px;
+    background-color: #D14E00;
+  }
+  .onpay-head img {
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .onpay-title {
+    float: left;
+    padding: 10px;
+  }
+  .onpay-span {
+    color: #fff;
+  }
+  .onpay-content {
+    margin-top: 30px;
+  }
+  .btn-sure {
+    width: 150px;
+  }
+  .prompt {
+    text-align:left !important; 
+    margin-left: 145px !important;
+  }
+  .onpay-table{
+    width: 75%;
+    margin: 20px auto;
+  }
+  .onpay-money{
+    background-color: #D14E00;
+    color: #fff;
+  }
+</style>
+
+</html>

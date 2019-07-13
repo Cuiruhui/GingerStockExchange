@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户持仓(历史)</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px; font-size:12px;}
+</style>
+<script type="text/javascript" src="./tips/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./tips/jquery.poshytip.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#tips_user').poshytip({
+		className: 'tip-violet',
+		bgImageFrameSize: 9
+	});
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+});
+</script>
+</head>
+<body> 
+<table width="98%" align="center" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF" style="margin-top:5px;border:1px solid #CCCCCC;">
+  <tr bgcolor="#F5F5F5">
+    <td><img src="./images/dot13.gif" border="0" align="absmiddle" hspace="3" />当前位置：代理平台 &gt; 下线 会员持仓(历史)</td>
+  </tr>
+  <tr>
+    <td width="70%" height="30" bgcolor="#F5F5F5"><form name="form1" method="post" action="">指定上线用户名<a href="javascript:void(0);" id="tips_user" title="小贴士:若要查询某一时间段内的所有用户持仓记录,此处可放空!">(?)</a>：
+    <input name="username" type="text" id="username" value="[var.username]" size="15">
+    &nbsp;&nbsp;从
+    <input name="start_date" type="text" id="start_date" class="datepicker" value="[var.start_date]" size="12">
+    到
+    <input name="end_date" type="text" id="end_date" class="datepicker" value="[var.end_date]" size="12">
+    <input type="submit" name="Submit" value="查询" class="button3">&nbsp;&nbsp;<a href="referrals_deal.php">查询当天持仓单</a>  </form></td>
+  </tr>
+</table>
+<table width='98%' border='0' align="center" cellpadding='3' cellspacing='1' bgcolor="#CCCCCC" class="mybox">
+  <tr align='center'>
+    <th>订单号</th>
+    <th>下单日期</th>
+    <th>用户名</th>
+    <th>代码/名称</th>
+    <th>类型</th>
+    <th>留仓数量(手)</th>
+    <th>手续费</th>
+    <th>留仓天数/手续费</th>
+    <th>留仓价</th>
+    <th>现价</th>
+    <th>盈亏</th>
+    <th>操作</th>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td>[tr.deal_id;block=tr;]</td>
+    <td>[tr.bull_trust_date]</td>
+    <td><a href="javascript:ShowUserInfo('[tr.username]');">[tr.username]</a></td>
+    <td><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_code]/[tr.stock_name]</a></td>
+    <td>[tr.buy_type;if [val]=1;then '<font color=red>买升</font>';else '<font color=green>买跌</font>'] </td>
+    <td>[tr.save_num]</td>
+    <td>[tr.cost_bull_money;frm='0.00']</td>
+    <td>[tr.save_day]/[tr.cost_save_money;frm='0.00']</td>
+    <td>[tr.save_price;frm='0.00']</td>
+    <td>[tr.cur_price;frm='0.00']</td>
+    <td>[tr.gain;frm='0.00']</td>
+    <td><input type="button" name="Submit2" value="平仓" class="button3" onClick="return sale_buy('[tr.deal_id]');" /></td>
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td>[tr.deal_id;block=tr;]</td>
+    <td>[tr.bull_trust_date]</td>
+    <td><a href="javascript:ShowUserInfo('[tr.username]');">[tr.username]</a></td>
+    <td><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_code]/[tr.stock_name]</a></td>
+    <td >[tr.buy_type;if [val]=1;then '<font color=red>买升</font>';else '<font color=green>买跌</font>'] </td>
+    <td >[tr.save_num]</td>
+    <td>[tr.cost_bull_money;frm='0.00']</td>
+    <td>[tr.save_day]/[tr.cost_save_money;frm='0.00']</td>
+    <td>[tr.save_price;frm='0.00']</td>
+    <td>[tr.cur_price;frm='0.00']</td>
+    <td>[tr.gain;frm='0.00']</td>
+    <td><input type="button" name="Submit22" value="平仓" class="button3" onClick="return sale_buy('[tr.deal_id]');" /></td>
+  </tr>
+  <tr align='center'>
+    <td height="50" colspan="12" class="nodata">[tr;block=tr;nodata]暂无符合条件持仓记录.</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

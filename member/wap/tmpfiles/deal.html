@@ -1,0 +1,209 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>持股/卖出</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./css/skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox td {padding:3px; line-height:18px;}
+</style>
+<script type="text/javascript" src="./tips/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/cookie.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./tips/jquery.poshytip.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	showgain();
+	$('#tips_gain,#tips_gain1,#tips_cost,#tips_cc').poshytip({
+		className: 'tip-violet',
+		bgImageFrameSize: 9
+	});
+});
+</script>
+</head>
+<body style="background-color: #FFFBFF" > 
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF" class="mybox" style="border:1px solid #cccccc;" >
+  <tr bgcolor="#F5F5F5">
+    <td colspan="2">会员帐号：</td>
+    <td>姓名：</td>
+    <td >可用额度：</td>
+  </tr>
+  <tr >
+    <td colspan="2"><span class="gray">[var.xltm.user_info.username]</span></td>
+    <td><span class="gray">[var.xltm.user_info.realname]</span></td>
+    <td><span class="money" style="display:inline;">￥[var.canmoney;frm='0.00']</span></td>
+  </tr>
+  <tr  bgcolor="#F5F5F5">
+    <td>买入手续费：</td>
+    <td>卖出手续费：</td>
+    <td>留仓费率</td>
+    <td>日期：</td>
+  </tr>
+  <tr>
+    <td><span class="gray">[var.cost_bull]‰</span></td>
+    <td><span class="gray">[var.cost_sell]‰</span></td>
+    <td><span class="gray">[var.cost_save]‰ /天 </span></td>
+    <td><span class="gray">[var.xltm.sys_date]</span></td>
+  </tr>
+</table>
+
+
+
+
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="mybox" style="margin-top:10px;">
+  <tr>
+    <th colspan="7">平仓单</th>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+  	<td align="center" bgcolor="#FFFFFF">订单号</td>
+    <td align="center" bgcolor="#FFFFFF">代码/名称</td>
+    <td align="center">买价</td>
+    <td align="center">卖价</td>
+    <td align="center">升/跌</td>
+    <td align="right">数量</td>
+    <td align="right">盈亏<a id='tips_gain1' href="javascript:void(0);" title="1、买升计算公式:盈亏=卖出金额-买入金额-买入手续费-卖出手续费-留仓费-点差费 <br />2、买跌计算公式:盈亏=买入金额-卖出金额-买入手续费-卖出手续费-留仓费-点差费">(?)</a></td>
+  </tr>
+  
+  
+  
+  <tr bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+  	<td align="center">[tr.id;block=tr;ondata=event_sum;aggregate=gain:sum]</td>
+    <td align="center"><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_code] / [tr.stock_name]</a></td>
+    <td align="right">[tr.bull_price;frm='0.00']</td>
+    
+    <td align="right">[tr.sell_price;frm='0.00']</td>
+    <td align="center">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+    <td align="right">[tr.bull_num]</td>
+    
+    <td align="right">[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+  
+  	<td align="center">[tr.id;block=tr;ondata=event_sum;aggregate=gain:sum]</td>
+    <td align="center"><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_code;block=tr;ondata=event_sum] / [tr.stock_name]</a></td>
+    <td align="right">[tr.bull_price;frm='0.00']</td>
+    
+    <td align="right">[tr.sell_price;frm='0.00']</td>
+    <td align="center">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+    <td align="right">[tr.bull_num]</td>
+    
+    <td align="right">[tr.gain;frm='0.00']</td>
+  </tr>
+  
+  
+  <tr align="center" bgcolor="#FFFFFF">
+    <td height="30" colspan="7" class="gray">[tr;block=tr;nodata]暂无符合条件的记录.</td>
+  </tr>
+  <tr align="right" bgcolor="#FFFFFF">
+    <td height="30" colspan="7"><span id="pcgain" style="display:none;">[tr.gain:sum]</span>平仓盈亏小计：<span class="money1">[tr.gain:sum;if [val] >0;then '<font color=red>';else '<font color=green>']￥[tr.gain:sum;frm='0.00']</font></span></td>
+  </tr>
+</table>
+
+
+
+
+
+
+<table width="98%"  border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" class="mybox" style="margin-top:10px;">
+  <tr>
+    <th colspan="10">留仓和持仓单</th>
+  </tr>
+  <tr align="center" bgcolor="#C5E2FB">
+    <td>订单号</td>
+    
+    <td>代码/名称</td>
+    <td>升/跌</td>
+    <td align="right">成交价</td>
+    <td align="right">数量</td>
+    <td align="right">成交金额</td>
+    
+    <td align="right">可卖(手)</td>
+    
+    
+    <td align="right">现价</td>
+    <td align="right">盈亏<a id='tips_gain' href="javascript:void(0);" title="1、买升计算公式:盈亏=卖出金额-买入金额-买入手续费-留仓费-点差费 <br />2、买跌计算公式:盈亏=买入金额-卖出金额-买入手续费-留仓费-点差费<br />3、盈亏数值仅做参考，最终以日报数据为准。">(?)</a></td>
+    <td >操作</td>
+  </tr>
+  <tr bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td align="center" id="inf_[tr1.#]" value="[tr1.bull_price],[tr1.buy_type],[tr1.bull_num],[tr1.bull_cost_money],[tr1.sell_cost],[tr1.save_money],[tr1.dc_money]">[tr1.id;block=tr;ondata=E_buy1]</td>
+    
+    <td align="center"><a href="javascript:ShowKline('[tr1.stock_code]');">[tr1.stock_code] / [tr1.stock_name]</a></td>
+    <td align="center">[tr1.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+    <td align="right">[tr1.bull_price;frm='0.00']</td>
+    <td align="right">[tr1.bull_num]</td>
+    <td align="right">[tr1.bull_money;frm='0.00']</td>
+    
+    <td align="right">[tr1.can_sell_num]</td>
+    
+    
+    <td align="right" id="cur_price_[tr1.#]">--</td>
+    <td align="right" id="gain_[tr1.#]">--</td>
+    <td align="center"><input type="button" name="Submit" value="平仓" onClick="sale_buy('[tr1.stock_code]','[tr1.stock_name]','[tr1.bull_num]','[tr1.id]','[var.xltm.config.sel_max_time]','[var.xltm.config.cost_sell_limit]');" class="button3" [tr1.candeal] /></td>
+  </tr>
+  <tr bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td align="center" id="inf_[tr1.#]" value="[tr1.bull_price],[tr1.buy_type],[tr1.bull_num],[tr1.bull_cost_money],[tr1.sell_cost],[tr1.save_money],[tr1.dc_money]">[tr1.id;block=tr;ondata=E_buy1]</td>
+    
+    <td align="center"><a href="javascript:ShowKline('[tr1.stock_code]');">[tr1.stock_code] / [tr1.stock_name]</a></td>
+    <td align="center">[tr1.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+    <td align="right">[tr1.bull_price;frm='0.00']</td>
+    <td align="right">[tr1.bull_num]</td>
+    <td align="right">[tr1.bull_money;frm='0.00']</td>
+    
+    <td align="right">[tr1.can_sell_num]</td>
+    
+    
+    <td align="right" id="cur_price_[tr1.#]">--</td>
+    <td align="right" id="gain_[tr1.#]">--</td>
+    <td align="center"><input type="button" name="Submit" value="平仓" onClick="sale_buy('[tr1.stock_code]','[tr1.stock_name]','[tr1.bull_num]','[tr1.id]','[var.xltm.config.sel_max_time]','[var.xltm.config.cost_sell_limit]');" class="button3" [tr1.candeal] /></td>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF">
+    <td  colspan="10"><span class="gray">[tr1;block=tr;nodata]暂无留仓和持仓单.</span></td>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF">
+    <td  colspan="4" align="right"><a href="javascript:void(0);" id="tips_cc" title="留仓/持仓金额=当前价 * 数量(手) * 100">(?)</a>留仓总金额：<span id="span_lcmoney" class="money1">￥0.00</span></td>
+  <td  colspan="2" align="right">留仓盈亏小计：<br />盈亏合计：</td>
+  <td  colspan="4" align="left"><span id="span_lcgain" class="money1">￥0.00</span><br />
+    <span id="span_gain" class="money1">￥0.00</span></td>
+  </tr>
+</table>
+
+
+
+
+
+
+<table width="98%"  border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" class="mybox" style="margin-top:10px;">
+  <tr>
+    <th colspan="4">汇总信息</th>
+  </tr>
+  <tr align="center" bgcolor="#C5E2FB">
+    <td height="20">本日损益</td>
+    <td>留仓费</td>
+    <td>本日净利</td>
+    <td>本日余额</td>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td id="brsy">&nbsp;</td>
+    <td id="lcf">&nbsp;</td>
+    <td id="brjl">&nbsp;</td>
+    <td id="brye">&nbsp;</td>
+   </tr>
+  <tr align="center" bgcolor="#C5E2FB">
+    <td>本日交易量</td>
+    <td>本月交易量</td>
+    <td>保证金</td>
+    <td>可用额度</td>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td>[var.today_trade_money;frm='0,000.00']</td>
+    <td>[var.month_trade_money;frm='0,000.00']</td>
+    <td>[var.xltm.user_info.cash;frm='0.00']</td>
+    <td>[var.canmoney;frm='0.00']</td>
+  </tr>
+</table>
+
+</body>
+</html>

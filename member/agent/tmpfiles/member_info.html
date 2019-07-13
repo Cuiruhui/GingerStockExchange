@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>会员[var.user.username]的详细信息</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="mybox">
+  <tr>
+    <th colspan="4" id="title">会员信息</th>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td width="20%" align="right" bgcolor="#FFFFFF">会员帐号:</td>
+    <td width="30%" bgcolor="#FFFFFF" class="gray">[var.user.username]</td>
+    <td width="20%" align="right" bgcolor="#FFFFFF">姓名:</td>
+  <td width="30%" bgcolor="#FFFFFF" class="gray">[var.user.realname]</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td width="20%" align="right" bgcolor="#FFFFFF">帐号类型:</td>
+    <td width="30%" bgcolor="#FFFFFF" class="gray">[var.user.demo;if [val]=0;then '<font color=red>正式</font>';else '试玩'] </td>
+    <td width="20%" align="right" bgcolor="#FFFFFF">手机:</td>
+  <td width="30%" bgcolor="#FFFFFF" class="gray">[var.user.mobile]</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td width="20%" align="right" bgcolor="#FFFFFF">保证金:</td>
+    <td width="30%" bgcolor="#FFFFFF" class="gray">[var.user.cash;frm='0.00']</td>
+    <td width="20%" align="right" bgcolor="#FFFFFF">可用保证金:</td>
+  <td width="30%" bgcolor="#FFFFFF" class="gray">[var.user.cancash;frm='0.00']</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td align="right" bgcolor="#FFFFFF">本月交易金额:</td>
+    <td bgcolor="#FFFFFF" class="gray">[var.user.trade_money_month;frm='0.00']</td>
+    <td align="right" bgcolor="#FFFFFF">总交易金额:</td>
+    <td bgcolor="#FFFFFF" class="gray">[var.user.trade_money_total;frm='0.00']</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td align="right" bgcolor="#FFFFFF">贡献手续费:</td>
+    <td bgcolor="#FFFFFF" class="gray">[var.user.cost_total;frm='0.00']</td>
+    <td align="right" bgcolor="#FFFFFF">贡献留仓费:</td>
+    <td bgcolor="#FFFFFF" class="gray">[var.user.save_money_total;frm='0.00']</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td width="20%" align="right" bgcolor="#FFFFFF">注册时间:</td>
+    <td width="30%" bgcolor="#FFFFFF" class="gray">[var.user.regdate;frm='yyyy/mm/dd']</td>
+    <td width="20%" align="right" bgcolor="#FFFFFF">最后登录时间:</td>
+  <td width="30%" bgcolor="#FFFFFF" class="gray">[var.user.last_login;frm='mm-dd/hh:nn']</td>
+  </tr>
+</table>
+<table width="98%"  border="0" align="center" cellpadding="1" cellspacing="1" class="mybox">
+  <tr>
+    <td align="center"><a href="javascript:window.parent.ymPrompt.doHandler('error',true);"><img src="./images/btn_close.gif" border="0" alt="关闭窗口" /></a></td>
+  </tr>
+</table>
+</body>
+</html>

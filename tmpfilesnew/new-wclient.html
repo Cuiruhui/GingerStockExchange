@@ -1,0 +1,613 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>client</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <link href="../css/skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+  <link href="../css/new-wclient.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript"src="../js/new/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="./js/me_function.js"></script>
+  <script type="text/javascript" src="./js/cookie.js"></script>
+  <script type="text/javascript" src="./js/ymPrompt.js"></script>
+  <script type="text/javascript" src="./js/SuggestServer_3_0_16.js" charset="gb2312"></script>
+  <script type="text/javascript" src="../js/new/layer.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+   		setInterval(chicang, 1500);
+		
+       setInterval(sysBC, 7000);
+	   setInterval(sysMoney,3000);
+       zhishu();
+       setInterval(zhishu, 15000);
+	   setInterval(getstockname, 7000);
+	   setInterval(GetQuote, 7000);
+
+       var suggestServer = new SuggestServer();
+       suggestServer.bind({
+         "input": "buy_code",
+         "value": "@2@",
+         "type": "",
+         "max": 10,
+         "width": 250,
+         "head": ["选项", "代码", "中文名称"],
+         "body": [-1, 2, 4],
+         "fix": { "ie6": [0, - 1], "ie7": [0, - 1], "firefox": [1, 1] },
+         "callback": null
+       });
+
+       var initStockCode = '600000';
+       $('#buy_code').val(initStockCode);
+       getstockname();
+		
+	$(document).keyup(function () {
+		getstockname();
+
+      });
+		
+		
+      $("#suoping").click(function () {
+		url='suoping.php?username='+'[var.xltm.user_info.username]';
+         ymPrompt.win({  message: url, width: 1100,maskAlphaColor: '#000',maskAlpha: 0.8,  titleBar: false,height: 600, maxBtn: false,btn: null, iframe: true, winPos: [50, 50], handler: null });
+
+      });
+
+
+      // $("#zijin").click(function () {
+
+      //   ymPrompt.win({ title: '在线入金', message: "online_pay.php", width: 800, height: 420, maxBtn: true, iframe: true, winPos: [200, 80], handler: null });
+
+      // });
+
+      // $("#jiaoge").click(function () {
+
+      //   ymPrompt.win({ title: '交割清单', message: "trade_detail.php", width: 800, height: 420, maxBtn: true, iframe: true, winPos: [200, 80], handler: null });
+
+      // });
+
+      // $("#xiugai").click(function () {
+
+      //   ymPrompt.win({ title: '修改密码', message: "pwd.php", width: 800, height: 420, maxBtn: true, iframe: true, winPos: [200, 80], handler: null });
+
+      // });
+
+      // $("#chujin").click(function () {
+
+      //   ymPrompt.win({ title: '在线出金', message: "atm.php", width: 800, height: 420, maxBtn: true, iframe: true, winPos: [200, 80], handler: null });
+
+      // });
+	  $("#can_bull_down").click(function () {
+         $('#can_bull_down').attr('disabled', 'true');		 
+         var bull_code = $('#buy_code').val();
+         var bull_name = $('#buy_name').text();
+         var price_type = $("input[name='price_type']:checked").val();
+         var buy_type = 2;
+         var bull_price = $('#buy_price').text();
+		 //var bull_price = ($('#buy_price').val() - parseFloat(a)).toFixed(2);
+		 //var bull_price = $(parseFloat('#buy_price') - 0.01).text();
+         var bull_num = $('#bull_num').val();
+         if (bull_code == '' || bull_code == '代码/名称/拼音') {
+           parent.ymPrompt.errorInfo({ title: '下单', message: "请输入要买入的股票代码.", handler: function () { $('#buy_code').focus(); } });
+           $('#can_bull_down').removeAttr("disabled");
+
+           return false;
+         }
+         
+         if (bull_num < 1) {
+           parent.ymPrompt.errorInfo({ title: '下单', message: "请输入买入数量.", handler: function () { $('#bull_num').focus(); } });
+           $('#can_bull_down').removeAttr("disabled");
+
+           return false;
+         }
+         if (bull_num > 0 && bull_code) {
+           $.post("buy.php", { type: "bull", code: '' + bull_code + '', buy_type: '' + buy_type + '', price_type: '' + price_type + '', buy_type: '' + buy_type + '', buy_num: '' + bull_num + '', buys_price: '' + bull_price + '' },
+             function (data) {
+               res = data.split('|');
+               if (res[0] == 'true') {
+                 if (res[1].indexOf('当日委托查询') != -1) {
+                   parent.ymPrompt.succeedInfo({ title: '下单成功', message: res[1], handler: function () {  $('#can_bull_down').removeAttr("disabled"); } });
+                  
+                 }
+                 else {
+                   parent.ymPrompt.succeedInfo({ title: '下单成功', message: res[1], handler: function () { $('#can_bull_down').removeAttr("disabled"); } });
+                  
+                 }
+               }
+               else {
+                 parent.ymPrompt.errorInfo({ title: '下单失败', message: res[1], handler: function () { $('#can_bull_down').removeAttr("disabled"); } });
+              }
+               //$('#Msg').html(data);
+             });
+        }
+         return false;
+       });
+	  
+
+      $("#can_bull_up").click(function () {
+         $('#can_bull_up').attr('disabled', 'true');
+		 
+		 var a = 0.01;
+
+         var bull_code = $('#buy_code').val();
+         var bull_name = $('#buy_name').text();
+         var price_type = $("input[name='price_type']:checked").val();
+         var buy_type = 1;
+		 
+		 //var bull_price = (parseFloat('#buy_price') + parseFloat(a)).toFixed(2);
+         var bull_price = $('#buy_price').text();
+         var bull_num = $('#bull_num').val();
+         if (bull_code == '' || bull_code == '代码/名称/拼音') {
+           parent.ymPrompt.errorInfo({ title: '下单', message: "请输入要买入的股票代码.", handler: function () { $('#buy_code').focus(); } });
+           $('#can_bull_up').removeAttr("disabled");
+
+           return false;
+         }
+        
+         if (bull_num < 1) {
+           parent.ymPrompt.errorInfo({ title: '下单', message: "请输入买入数量.", handler: function () { $('#bull_num').focus(); } });
+           $('#can_bull_up').removeAttr("disabled");
+
+           return false;
+         }
+         if (bull_num > 0 && bull_code) {
+           $.post("buy.php", { type: "bull", code: '' + bull_code + '', buy_type: '' + buy_type + '', price_type: '' + price_type + '', buy_type: '' + buy_type + '', buy_num: '' + bull_num + '', buys_price: '' + bull_price + '' },
+             function (data) {
+               res = data.split('|');
+               if (res[0] == 'true') {
+                 if (res[1].indexOf('当日委托查询') != -1) {
+                   parent.ymPrompt.succeedInfo({ title: '下单成功', message: res[1], handler: function () { $('#can_bull_up').removeAttr("disabled"); } });
+                   
+                 }
+                 else {
+                   parent.ymPrompt.succeedInfo({ title: '下单成功', message: res[1], handler: function () { $('#can_bull_up').removeAttr("disabled"); } });
+                   
+                 }
+               }
+               else {
+                 parent.ymPrompt.errorInfo({ title: '下单失败', message: res[1], handler: function () { $('#can_bull_up').removeAttr("disabled"); } });
+              }
+               //$('#Msg').html(data);
+             });
+        }
+         return false;
+       });
+
+      // layer弹出层
+      // 资金转账
+      $('#rujin').on('click', function(){
+        layer.open({
+        type: 2,
+        title: '在线入金',
+        maxmin: false,
+        shadeClose: true,
+        area : ['1000px' , '520px'],
+        content: 'payment.php'
+        });
+      });
+	  $('#hangqing').on('click', function(){
+        layer.open({
+        type: 2,
+        title: '实时行情',
+        maxmin: false,
+        shadeClose: true,
+        area : ['1100px' , '600px'],
+        content: 'hanqing.php'
+        });
+      });
+      $('#chujin').on('click', function(){
+        layer.open({
+        type: 2,
+        title: '在线出金',
+        maxmin: false,
+        shadeClose: true,
+        area : ['1000px' , '520px'],
+        content: 'atm.php'
+        });
+      });
+      // 交割清单
+      $('#jiaoge').on('click', function(){
+        layer.open({
+        type: 2,
+        title: '交割清单',
+        maxmin: false,
+        shadeClose: true,
+        area : ['1100px' , '650px'],
+        content: 'trade_detail.php'
+        });
+      });
+      // 修改密码
+      $('#xiugai').on('click', function(){
+        layer.open({
+        type: 2,
+        title: '修改密码',
+        maxmin: false,
+        shadeClose: true, 
+        area : ['800px' , '520px'],
+        content: 'pwd.php'
+        });
+      });
+    });
+
+
+    function addcode(code) {
+      $('#buy_code').val(code);
+      getstockname();
+    }
+
+    function zhishu() {
+
+      $.ajax({
+        type: 'GET',
+        url: './ajax.php?type=zhishu',
+		timeout: 3000,
+        success: function (res) {
+
+          sh = res.split("#");
+          sharr = sh[0].split(",");
+          szarr = sh[1].split(",");
+          shb = parseInt(sharr[4]);
+          szb = parseInt(szarr[4]);
+
+          $("#sh").html(shb);
+          $("#sz").html(szb);
+
+
+
+        }
+      });
+    }
+	
+	function sysMoney() {
+	
+		$.ajax({
+		 type: 'GET',
+		 url: './ajax.php?type=moneyall',
+		 cache: false,
+		success:function(res){
+		
+		info_data = res.split('^');						
+		$('#a_money').html(info_data[0]);
+		$('#a_zZymoney').html(info_data[1]);
+		$('#a_kyMoney').html(info_data[2]);
+		mon = setInterval(sysMoney,1000);
+			}
+		});
+	}
+	
+	
+	
+
+    function sale_buy(code, name, num, id, limit_time, limit_cost) {
+      var cansell = false;
+      var cancontinue = true;
+      var dourl = 'sell.php?stockcode=' + code + '&stockname=' + name + '&num=' + num + '&id=' + id;
+      //判断股票是否可卖
+      $.ajax({
+        url: 'buy.php?type=buytime&id=' + id,
+        type: 'GET',
+        async: false,
+        success: function (data) {
+          if (data.indexOf('休市中') != -1) {
+			layer.msg('休市中，不能买卖股票');
+            cancontinue = false;
+          }
+          else if (data.indexOf('true') != -1) {
+            cansell = true;
+            dourl += '&cansell=true';
+          }
+        }
+      });
+
+      if (!cancontinue) return;
+      if (!cansell) {
+        dourl += "&cansell=false";
+        if (confirm) 
+		{
+         layer.msg('系统提示：该股票买入时间不足15分钟，禁止交易'); 
+		 cancontinue = false;
+        }
+      }
+      else {
+        //parent.ymPrompt.win({ message: dourl, width: 800, height: 420, winPos: [200, 80], title: '平仓股票' + name + '[' + code + ']', iframe: true, handler: chicang })
+      layer.open({
+      type: 2,
+      title: ['平仓股票' + name + '[' + code + ']'],
+      maxmin: false,
+      shadeClose: true,
+      area : ['700px' , '430px'],
+      content: [dourl],
+	  end: chicang (),
+      });
+	  }
+    }
+
+    function sysBC() {
+
+      //res = ajaxUrl('./ajax.php?type=baocang');
+      $.ajax({
+        type: 'GET',
+        url: 'ajax.php?type=baocang',
+        cache: false,
+        success: function (res) {
+          if (parseInt(res) > 0) {
+		    layer.msg('您已爆仓，亏损额度大于保证金90%');
+            cancontinue = false;
+          }
+          else {
+
+          }
+
+
+        }
+      });
+    }
+
+
+
+    function getstockname() {
+      code = $('#buy_code').val();
+      if (code.length == 6) {
+        $.ajax({
+          type: 'GET',
+          url: 'ajax.php?type=getstockname&stockcode=' + code,
+		  timeout: 3000,
+          success: function (res) {
+            if (res.indexOf(',') != -1) {
+              //alert(res);
+              stock = res.split(',');
+              $('#buy_name').html(stock[2]);
+              $('#buy_dc').html(stock[9] + ' ‰');
+			  
+			 $('#yunxu').html( ''+(parseInt(stock[6]) > 0 ? '允许' : '禁止')+'');
+			  $('#yunxu2').html( ''+(parseInt(stock[7]) > 0 ? '允许' : '禁止')+'');
+			   $('#yunxu3').html( ''+(parseInt(stock[5]) > 0 ? '允许' : '禁止')+'');
+			  
+              if (stock[3] == '1' || stock[4] == '1') //停牌或关盘
+              {
+
+                $('#can_bull_up').attr('disabled', 'true');
+				$('#can_bull_down').attr('disabled', 'true');
+				
+              }
+              if (stock[7] == '0') {
+                $('#can_bull_up').attr('disabled', 'true');
+              }
+              if (stock[8] == '0') {
+                $('#can_bull_down').attr('disabled', 'true');
+              }
+
+              if (stock[3] != '1') {
+
+                //获取行情数据
+                GetQuote(stock[0], stock[1]);
+              }
+            }
+          }
+        });
+      }
+    }
+
+    function GetQuote(t, c) {
+      $.ajax({
+        type: 'GET',
+        url: "ajax.php?type=quoteclient&stocktype=" + t + "&stockcode=" + c,
+		timeout: 5000,
+        success: function (res) {
+          if (res.indexOf(',') != -1) {
+            quote = res.split(',');
+            if (quote.length != 33) {
+              //	parent.ymPrompt.alert({title:'系统提示',message:quote[0]+'股票可能退市了！'});
+              //	return false;
+            }
+            zt_rate = quote[1].toLowerCase().indexOf('st') != -1 ? 1.05 : 1.1;
+            dt_rate = quote[1].toLowerCase().indexOf('st') != -1 ? 0.95 : 0.9;
+            //当前可用额度
+            var cancash = parseFloat($('#spn_cancash').html());
+            //最多可以买多少手
+            var cannum = Math.floor(cancash / (100 * parseFloat(quote[4])));
+			
+            $('#canbuy').html(cannum);
+            //当前价
+            $('#price').html(quote[4]);
+            $('#buy_price').html(quote[4]);
+			$('#buy_price3').html('￥'+quote[4]);
+
+            //最新价
+            $('#buys_price').val(quote[4]);
+            $('#cur_price').html('<font color="' + (parseFloat(quote[4]) > parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[4] + '</font>');
+            $('#kp_price').html('<font color="' + (parseFloat(quote[2]) > parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[2] + '</font>');
+            $('#hight_price').html('<font color="' + (parseFloat(quote[5]) > parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[5] + '</font>');
+            $('#lower_price').html('<font color="' + (parseFloat(quote[6]) > parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[6] + '</font>');
+            $('#yes_price').html(quote[3]);
+            cur_zd = parseFloat(quote[4] - quote[3]).toFixed(2);
+            cur_zdf = parseFloat(cur_zd * 100 / quote[3]).toFixed(2);
+            cur_zd = '<font color="' + (cur_zd > 0 ? '#ff0000' : '#287938') + '">' + cur_zd + '</font>';
+            cur_zdf = '' + cur_zdf + '';
+            $('#zd').html(cur_zd);
+		
+			
+			 $('#buy_name1').html(quote[1]);
+			  $('#buy_name2').html(quote[1]);
+			 $('#buy_code1').html(quote[0]);
+			 $('#buy_price1').html(quote[4]);
+			 $('#sell_1_price1').html(quote[4]);
+			
+            $('#zdf').html(cur_zdf);
+            $('#zcj_num').html(Math.floor(quote[9] / 100));
+            $('#zcj_price').html(parseFloat(quote[10] / 10000).toFixed(2));
+            $('#zt_price').html('<font color="#ff0000">' + parseFloat(quote[3] * zt_rate).toFixed(2) + '</font>');
+            $('#dt_price').html('<font color="#287938">' + parseFloat(quote[3] * dt_rate).toFixed(2) + '</font>');
+
+			var a = "0.01";
+			
+            var buyprice = (parseFloat(quote[4]) + parseFloat(a)).toFixed(3);
+			var sellprice = (parseFloat(quote[4]) - parseFloat(a)).toFixed(3);
+			
+            $('#sell_1_price').html(buyprice);
+            $('#sell_1_num').html(Math.floor(quote[21] / 100));
+
+            $('#buy_1_num').html(Math.floor(quote[11] / 100));
+            $('#buy_1_price').html(sellprice);
+           
+
+          }
+        }
+      });
+    }
+	
+	function chicang() {
+
+      $.ajax({
+        type: 'GET',
+        url: './ajax.php?type=chicang',
+        success: function (res) {
+			     
+          $("#chicang").html(res);
+
+
+
+        }
+      });
+    }
+	
+  </script>
+  <body style="background-color:#000000;font-family:"微软雅黑";">
+    <div id="head" style="height:158px; width:100%;">
+      <div id="top" style="height:40px; width:100%;position:relative;background-color: #1E1E1E;">
+        <div class="logo-name test">
+          <!-- <img src="img/new-logo.png"/> -->
+          <span class="logo-font">融通融资融券系统          </span>
+        </div>
+        <div class="logo-content">
+          <div class="ctt-dro" style="float:left;"><marquee direction="left" behavior="scroll" scrollamount="8" scrolldelay="300"><font size=4 color="#FF0000">温馨提示：股市有风险入市需谨慎，欢迎使用融通国际融资融券系统</font></marquee></div>
+          <div class="ctt-nav opre"><img id="closed"; src="img/X.png" /></div>
+          <div class="ctt-nav opre"><img id="smaller"; src="img/smaller.png" /></div>
+          <div class="ctt-nav opre" id="logout"><a onclick="self.location='./wlogin.php'">[注销]</a></div>
+          <div class="ctt-nav">[var.xltm.user_info.username]</div>
+          <div class="ctt-nav"><img src="img/tou.png" /></div>
+          <div class="ctt-nav opre" id="lock"><a onclick="window.location='./suoping.php?username=[var.xltm.user_info.username]'">锁屏</a></div>
+          <div class="ctt-nav"><img src="img/toushua.png" /></div>
+          <div class="ctt-nav opre" id="refrash"><a onclick="self.location='./wclient.php'">刷新</a></div>
+        </div>
+      </div>
+      <div style="height:1px; width:100%; background-color: #990000;"></div>
+      <div id="top2" style="height:108px; width:99%; background-color: #333333; margin-top:6px;margin-left:8px;">
+        <div style="width:7%; height:108px; padding:10px 2px 2px 10px; float:left;">
+          <img src="img/touxiang.png" />
+        </div>
+        <div style="width:91%; height:108px; padding:1px; float:left;">
+          <div style="height:53px;-webkit-app-region: drag;">
+            <font size="+3" style="font-size: 20px;line-height:53px;">[var.xltm.user_info.username]</font>
+          </div>
+          <div style="height:1px; background-color:#000000;"></div>
+          <div style="height:53px; padding:6px;padding-top: 15px;">
+            <div style=" float:left; width:20%;">客户状态：
+              <font color=red>已连接</font>
+            </div>
+            <div style=" float:left;width:20%;">
+			<div style="float:left;">保证金：</div>
+              <div style="float:left;color:red"><span id="a_money">--</span>元</div>
+            </div>
+            <div style=" float:left;width:20%;">
+              <div style="float:left;">可用额度：</div>
+              <div style="float:left; color:red"><span id="a_kyMoney">--</span>元</div>
+            </div>
+            <div style=" float:left;width:20%;">
+			<div  style="float:left;">上证指数：</div>
+			<div id="sh" style="float:left;"></div></div>
+				<div style=" float:left;width:20%;">
+				<div  style="float:left;">深圳指数：</div>
+				<div id="sz" style="float:left;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="content" style="height:328px; width:100%; background-color: #000000; padding-top:12px;">
+      <div id="content1" style="height:320px; width:40%; background-color: #333333; float:left; margin-left:8px;">
+        <div style=" height:40px; padding:5px 0 0 0;" id="imm">
+          <img src="img/bg1.png" style="margin-left:5px;" />
+          <!-- <span class="serach-ind">搜索</span>
+          <input type="text" class="search-input" placeholder="代码/名称"> -->
+          <img src="img/hangqing.png" id="hangqing" style="float: right;margin-right: 10px;cursor: pointer;"/>
+        </div>
+        <!-- <iframe name="myFrame" id="myFrame" src="wstock_lists.php" height="270px;" width="99%"></iframe> -->
+        <div class="table-auto">
+          <table class="table table-hover">
+            <iframe name="myFrame" id="myFrame" src="wstock_lists.php" height="270px;" width="99%"></iframe>
+          </table>
+        </div>
+      </div>
+      <div id="content2" style="height:320px; width:30%; background-color: #333333; float:left; margin-left:12px;">
+        <form name="orderfrm" id="orderfrm" action="" method="post">
+          <div style=" height:40px; padding:5px 0 0 0;" id="imm">
+            <img class="opre-img" src="img/rujin.png" id="rujin"/>
+            <img class="opre-img" src="img/chujin.png" id="chujin"/>
+            <img class="opre-img"src="img/jiaoge.png" id="jiaoge"/>
+            <img class="opre-img"src="img/xiugaimima.png" id="xiugai"/>
+          </div>
+
+
+
+          <div style="height:1px; background-color:#000000;"></div>
+          <div style="height: 250px;margin-top: 5px;">
+            <div style=" height:40px; margin-left:36px;">股票代码:<input name="buy_code" type="text" id="buy_code" style=" border:0;height:25px;width:150px; margin-left:45px;position:relative; background-color:#000000;color: #FFFFFF;"
+                value="代码/名称/拼音" size="10" maxlength="12" onBlur="getstockname();" /></div>
+            <div style=" height:40px;margin-left:36px;">股票名称:<span id="buy_name" style="margin-left:45px;color:#6E630C"></span></div>
+			<div style=" height:40px;margin-left:36px;">市价:<span id="buy_price" style="margin-left:75px;"></span></div>	
+            <div style=" height:40px;margin-left:36px;">手数:<input id="bull_num" name="bull_num" type="text" size="12" maxlength="5" style="border:0;height:25px;width:150px; margin-left:75px;position:relative; background-color:#000000;color:#FF0000;"/> 
+			</div>
+            <div style=" height:40px;margin-left:36px;">最大手数:<span id="canbuy" style="margin-left:45px;">手</span><span id='spn_cancash' style='display:none;'>[var.cancash]</span></div>
+            <div style=" height:40px;text-align:center;">
+              <div class="btn-data" id="can_bull_up">开(多)仓</div>
+              <div class="btn-data" id="can_bull_down">开(空)仓</div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div id="content3" style="height:320px; width:27%; background-color: #333333; float: left;margin-left:12px;line-height:26px;">
+        <div style=" height:50px; padding:5px 0 0 0;"><img src="img/bg2.png" style="margin-left:5px;" /></div>
+        <div style=" height:268px;margin-top:-30px;font-size:14px;">
+          <div class="price-index">
+            <div class="price-num"><span id="buy_price3"></span></div>
+            <div class="price-name"><span id="buy_name1"></span>股份行情</div>
+          </div>
+          <div class="price-detail">
+            <div>
+              <div class="detail-line">交易号<span>--</span></div>
+              <div class="detail-line">股票名称<span id="buy_name2" style="color:#6E630C;"></span></div>
+              <div class="detail-line">股票代码<span id="buy_code1" style="color:#425E71;"></span></div>
+            </div>
+            <div>
+              <div class="detail-line">最新价<span id="buy_price1"></span></div>
+              <div class="detail-line">买价(多)<span id="sell_1_price"></span></div>
+              <div class="detail-line">卖价(空)<span id="buy_1_price"></span></div>
+            </div>
+            <div>
+              <div class="detail-line">卖价<span id="sell_1_price1">--</span></div>
+            </div>
+            <div>
+              <div class="detail-line">多<span style="color:#21E321;margin-left: 40px;" id="yunxu">--</span></div>
+              <div class="detail-line">空<span style="color:#21E321;margin-left: 40px;" id="yunxu2">--</span></div>
+              <div class="detail-line">交易禁止<span style="color:#B00406;" id="yunxu3">--</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="tail" class="info-tail" style="background-color: #333333; ">
+      <div class="info-title">
+        <img src="img/bg4.png" style="margin: 10px;float:left;"/>
+        <span></span>
+      </div>
+      <table class="table table-hover table-striped" id="chicang">
+       </table>
+    </div>
+
+  </body>
+
+</html>

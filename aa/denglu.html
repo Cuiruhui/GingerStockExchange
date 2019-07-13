@@ -1,0 +1,86 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>系统欢迎您</title>
+<link rel="stylesheet" type="text/css" href="http://system.2218189.cn/style/login.css" />
+<script type="text/javascript" src="http://system.2218189.cn/js/noright.js"></script>
+<script type="text/javascript"> 
+  function changeImg(){ 
+  	var a=document.getElementById("validateImg");
+  	a.src='http://system.2218189.cn/validate.php?'+Math.random();
+  }
+
+  function loginSub()
+  {
+  	var username = document.loginForm.username.value;
+  	var password = document.loginForm.password.value;
+  	var validate = document.loginForm.validate.value;
+	if(username == null || username == '' || username.length ==0){
+		alert("用户名不能为空");
+		document.loginForm.username.select();
+		return false;
+	}
+	else if(password == null || password == '' || password.length ==0){
+		alert("密码不能为空");
+		document.loginForm.password.select();
+		return false;
+	}
+
+	else if(validate == null || validate == '' || validate.length ==0){
+		alert("请输入验证码");
+		document.loginForm.validate.select();
+		return false;
+	}
+	document.loginForm.submit();
+  }
+</script>
+</head>
+<body class="bg">
+<form id="loginForm" name="loginForm" action="http://system.2218189.cn/login_from.php?type=login" method="post">
+  <div class="main">
+  	<table width="382" height="308" border="0" align="center" cellpadding="0" cellspacing="0" background="../images/bg_login.jpg">
+  <tr>
+    <td valign="bottom"><table width="100%" border="0" cellpadding="2" cellspacing="0" class="loginT">
+      <tr>
+        <td width="120" height="35"><div align="right" class="font">用户名：</div></td>
+        <td><input  type="text" id="username" name="username" class="inputW font" /></td>
+        </tr>
+      <tr>
+        <td height="35"><div align="right" class="font">密　码：</div></td>
+        <td><input  type="password" id="password" name="password" class="inputW font" /></td>
+        </tr>
+      <tr>
+        <td height="35"><div align="right" class="font">验证码：</div></td>
+        <td><table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td><input  type="text" id="validate" name="validate" class="inputW font w95" onkeydown="if(event.keyCode==13){loginSub();}"/></td>
+              <td>&nbsp;<img align="middle" id="validateImg" name="validateImg" src="http://system.2218189.cn/validate.php" /></td>
+              <td><a href="#" onclick="changeImg();" style="text-decoration: none; color:#fff;">&nbsp;看不清</a></td>
+            </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center" style="height:50px;">
+		
+		<input type="button" onclick="loginSub();"   id="submitbutton" name="submitbutton" value="登 录" class="btn1"  onmouseout="this.className='btn1'" onmouseover="this.className='btn2'">
+            
+            <input name="client" type="hidden" id="client" value="false" /> 
+			
+			       </td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<div class="copyright">
+   Copyright © 2010 - 2017
+  </div>
+   
+
+</div>
+
+</form>
+</body>
+</html>
+

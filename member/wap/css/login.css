@@ -1,0 +1,103 @@
+body
+{
+	background:#f8fcff;
+	margin:0;
+	padding:0;
+}
+
+body, p, td, th, li
+{
+	font-family: Arial, Helvetica, sans-serif,"宋体";
+	font-size:12px;
+	line-height:18px;
+	color:#333333;
+}
+
+a:link, a:visited
+{
+	color:#1e6899;
+	text-decoration:none;
+}
+
+a:hover, a:active
+{
+	color:#0095d9;
+	text-decoration:none;
+}
+a.one:link, a.one:visited
+{   color:#ba2636;
+	text-decoration:underline;
+}
+
+a.one:hover, a.one:active
+{
+    color:#ba2636;
+	text-decoration:underline;
+}
+.bg{
+ width:100%;
+ background:#f8fcff url(../images/topBg.gif) repeat-x;
+}
+.main{
+  width:811px;
+  height:446px;
+  margin:22px auto;
+  margin-top:100px;
+  overflow:hidden;
+  background:url(../images/loginBg.jpg) no-repeat;
+}
+.copyright{
+  color:#666666;
+  text-align:center;
+  margin:0px auto;
+}
+.T_right{
+  float:right;
+  margin-top:37px;
+  margin-right:45px;
+  _margin-right:23px;
+  color:#1e6899;
+}
+.loginT{
+  position:relative;
+  left:240px;
+  top:165px;
+}
+
+.pad_0{padding:0px;}
+.loginT td select{ width:155px; font-size:14px; height:22px; font-family:"宋体";}
+.font{font-size:14px;font-family:"宋体";}
+.inputW{width:166px;height:24px; line-height:24px; border:1px solid #b8b8b8;}
+.w96{ width:96px;height:18px;}
+.w95{width:100px;}
+
+.btn1{
+  border: 0px none;
+  background: transparent url(../images/btn-pic.gif ) repeat scroll -93px 0px; 
+  line-height: 33px;
+  height: 33px; 
+  width:80px;
+  font-weight: bold;
+  color:#1664ac;
+  font-size:14px;
+  font-family:"宋体";
+  cursor:pointer;
+  margin-top:3px;
+}
+.btn2{
+  border: 0px none;
+  background: transparent url(../images/btn-pic.gif ) repeat scroll 0px 0px; 
+  line-height: 33px;
+  height: 33px; 
+  width:80px;
+  font-weight: bold;
+  color:#1664ac;
+  font-size:14px;
+  font-family:"宋体";
+  cursor:pointer;
+  margin-top:3px;
+}
+.margL{margin-left:10px;}
+.gray{color:#666666;}
+
+

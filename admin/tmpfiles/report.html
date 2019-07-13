@@ -1,0 +1,101 @@
+<script type="text/javascript">
+$(function() {
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+});
+
+$(document).ready(function() {
+	$("#reportForm").validate({
+		rules: {
+			start_date: {
+				required: true,
+                dateISO: true
+			},
+			end_date: {
+				required: true,
+                dateISO: true
+			}
+		},
+		messages: {
+			start_date: {
+				required: "请输入一个开始日期.",
+				dateISO: "请输一个正确的日期 例如:2009-02-03."
+			},
+			end_date: {
+				required: "请输入一个结束日期.",
+				dateISO: "请输一个正确的日期 例如:2009-02-03."
+			}
+		},
+		errorLabelContainer: $("#errorTo"),
+		wrapper: 'li',
+		submitHandler: function(form) {
+			$('#reportForm').AjaxLoad({
+				event:'submit',
+				link:'report.php',
+				method:'GET',
+				target: '#account_main',
+				loading_target:'#load_text',
+				loading_txt:'查询中,请稍后...',
+				params:'type=agent',
+				forms:'#reportForm'
+			});
+		}
+	});
+});
+function chg_date(range,num1,num2){
+	if(range=='t' || range=='w' || range=='lw' || range=='r'){
+		FrmData.date_start.value ='[var.xltm.sys_date]';
+		FrmData.date_end.value =FrmData.date_start.value;
+	}
+
+	if(range!='t'){
+		if(FrmData.date_start.value!=FrmData.date_end.value){
+			FrmData.date_start.value ='[var.xltm.sys_date]';
+			FrmData.date_end.value =FrmData.date_start.value;
+		}
+		var aStartDate = FrmData.date_start.value.split('-');
+		var newStartDate = new Date(parseInt(aStartDate[0], 10),parseInt(aStartDate[1], 10) - 1,parseInt(aStartDate[2], 10) + num1);
+		FrmData.date_start.value = newStartDate.getFullYear()+ '-' + padZero(newStartDate.getMonth() + 1)+ '-' + padZero(newStartDate.getDate());
+		var aEndDate = FrmData.date_end.value.split('-');
+		var newEndDate = new Date(parseInt(aEndDate[0], 10),parseInt(aEndDate[1], 10) - 1,parseInt(aEndDate[2], 10) + num2);
+		FrmData.date_end.value = newEndDate.getFullYear()+ '-' + padZero(newEndDate.getMonth() + 1)+ '-' + padZero(newEndDate.getDate());
+	}
+}
+</script>
+<link href="./style/report.css" rel="stylesheet" type="text/css">
+<link href="./style/date_input.css" rel="stylesheet" type="text/css">
+<div id="errorTo"></div>
+<table width="100%" border="0" cellspacing="1" cellpadding="2" class="table1">
+  <tr class="row_ls">
+    <td><table width="500" border="0" cellpadding="2" cellspacing="1" class="report">
+      <tr class="report_title">
+        <td colspan="2">报表查询</td>
+      </tr>
+      <form id="reportForm" action="" method="post">
+        <tr class="report_tr">
+          <td width="18%" align="right">查询类型:</td>
+          <td width="82%"><select name="sell" size="1" id="sell">
+		     <option value="-1">全 部</option>
+              <option value="1">已平仓</option>
+              <option value="0">未平仓</option>
+            </select>          </td>
+        </tr>
+        <tr class="report_tr">
+          <td align="right">帐号类型:</td>
+          <td><select name="demo" size="1" id="demo">
+            <option value="-1">全 部</option>
+            <option value="0" selected>正式</option>
+            <option value="1">试玩</option>
+                              </select></td>
+        </tr>
+        <tr class="report_tr">
+          <td align="right">查询日期:</td>
+          <td><input name="start_date" type="text" id="start_date" value="[var.xltm.sys_date]" size="10" />
+            至
+            <input name="end_date" type="text" id="end_date" value="[var.xltm.sys_date]" size="10" />
+            <input class="button" type="submit" name="button" value="查询" /></td>
+        </tr>
+      </form>
+    </table></td>
+  </tr>
+</table>

@@ -1,0 +1,178 @@
+/*base.css start*/
+
+html,
+body {
+	font-family: "Microsoft YaHei", "微软雅黑", "宋体", Arial, Helvetica, sans-serif;
+	;
+}
+
+body {
+	/*background-color: #f7f7f7;*/
+	-webkit-touch-callout: none;
+	/*禁止用户长按出现系统菜单栏*/
+	-webkit-user-select: none/*禁止用户选择粘贴*/
+}
+
+html,
+body,
+div,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+p,
+input,
+article {
+	padding: 0;
+	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-weight: normal;
+	font-style: normal;
+}
+
+ul,
+li,
+dl,
+dt,
+dd {
+	list-style: none;
+}
+
+aside,
+footer,
+header,
+nav,
+section {
+	display: block;
+}
+
+a {
+	text-decoration: none;
+	outline: none;
+}
+
+a:active {
+	outline: none;
+}
+
+* {
+	-webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+
+img {
+	vertical-align: middle;
+	/*移动端样式*/
+}
+
+
+/*文字不模糊*/
+
+@media screen and (max-device-width:320px) {
+	body {
+		-webkit-text-size-adjust: none;
+	}
+}
+
+@media screen and (max-device-width:480px) {
+	body {
+		-webkit-text-size-adjust: none;
+	}
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:2) {
+	body {
+		-webkit-text-size-adjust: none;
+	}
+}
+
+@media only screen and (min-device-width:768px) and (max-device-width:1024px) {
+	body {
+		-webkit-text-size-adjust: none;
+	}
+}
+
+
+/*公用类名*/
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+
+/*文字处理样式   当文字需要隐藏时调用此类名*/
+
+.text-nowrap {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.tabslider li:before {
+	left: 0;
+	top: 0;
+	content: '';
+	position: absolute;
+	width: 200%;
+	height: 200%;
+	border-bottom: 1px #dddddd solid;
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transform: scale(0.5, 0.5);
+	-ms-transform: scale(0.5, 0.5);
+	-o-transform: scale(0.5, 0.5);
+	transform: scale(0.5, 0.5);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.ovH {
+	overflow: hidden;
+}
+
+.fL {
+	float: left;
+}
+
+.fR {
+	float: right;
+}
+
+.tL {
+	text-align: left;
+}
+
+.tR {
+	text-align: right;
+}
+.tC{
+	text-align: center;
+}
+
+/*颜色公用————字体*/
+
+
+/*清楚伪类*/
+.clear-before:before {
+	border: none !important;
+}
+:last-child{
+	border-bottom: 0!important;
+{ 

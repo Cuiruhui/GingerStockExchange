@@ -1,0 +1,127 @@
+<script type="text/javascript">
+var params='agent=[var.agent]&login2=[var.login2]&login3=[var.login3]&start_date=[var.start_date]&end_date=[var.end_date]&sell=[var.sell]';
+$(document).ready(function() {
+	$('.navigate').AjaxLoad({
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+		target: '#account_main',
+		params:'&'+params,
+		method:'GET'
+	});
+	$('.ToUser').AjaxLoad({
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+		target: '#account_main',
+		params:'type=view&'+params,
+		method:'GET'
+	});
+	$('#ToBack').AjaxLoad({
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+		target: '#account_main',
+		method:'GET'
+	});
+});
+</script>
+<style type="text/css">
+<!--
+.ToUser {
+	color: #0000FF;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.navigate {
+	font-weight: bold;
+	color: #0000FF;
+	text-decoration: underline;
+	cursor: pointer;
+}
+-->
+</style>
+<table border="0" cellpadding="2" cellspacing="1" class="table1">
+  <tr class="row_ls">
+          <td colspan="11">
+           <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="20"><div class="navigate" value="report.php">报表查询</div></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td>&nbsp;</td>
+              <td><div class="navigate" value="report.php?type=agent">股东</div></td>
+              <td>&nbsp;</td>
+              <td><b>[var.agent]</b></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td><div class="navigate" value="report.php?type=login2">总代理</div></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td>&nbsp;</td>
+              <td><b>[var.login2]</b></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td><div class="navigate" value="report.php?type=login3">代理商</div></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td>&nbsp;</td>
+              <td><b>[var.login3]</b></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td>&nbsp;<b>会员</b></td>
+              <td>&nbsp;类型:</td>
+              <td>&nbsp;[var.sell;if [val]=1;then '已平仓';else '未平仓']</td>
+              <td>&nbsp;日期:</td>
+              <td>&nbsp;[var.start_date] 至 [var.end_date]</td>
+              <td>&nbsp;</td>
+              <td width="80" align="right"><span id="ToBack" value="report.php?type=login3&agent=[var.agent]&login2=[var.login2]&login3=[var.login3]&start_date=[var.start_date]&end_date=[var.end_date]&sell=[var.sell]">返回上页</span></td>
+            </tr>
+           </table>          </td>
+  </tr>
+        <tr class="row_title">
+          <td width="60" align="center">会员账号</td>
+          <td width="60" align="center">交易数</td>
+          <td width="60" align="center">买入金额</td>
+          <td width="60" align="center">卖出金额</td>
+          <td width="70" align="center">会员手续费</td>
+          <td width="60" align="center">点差费</td>
+          <td width="60" align="center">留仓费</td>
+          <td width="60" align="center">股票盈亏</td>
+          <td width="60" align="center">本级盈利</td>
+          <td width="60" align="center">上级交收</td>
+        </tr>
+        <tr class="row1_odd">
+          <td align="center"><div class="ToUser" value="report.php?member=[tr.username;block=tr;aggregate=count:sum,bull_money:sum,sell_money:sum,t_cost:sum,dc_money:sum,save_money:sum,gain:sum,t_gain:sum,up:sum]">[tr.username]</div></td>
+          <td align="right">[tr.count]</td>
+          <td align="right">[tr.bull_money;frm='0.00']</td>
+          <td align="right">[tr.sell_money;frm='0.00']</td>
+          <td align="right">[tr.t_cost;frm='0.00']</td>
+          <td align="right">[tr.dc_money;frm='0.00']</td>
+          <td align="right">[tr.save_money;frm='0.00']</td>
+          <td align="right">[tr.gain;frm='0.00']</td>
+          <td align="right">[tr.t_gain;frm='0.00']</td>
+          <td align="right">[tr.sj][tr.up;frm='0.00']</td>
+  </tr>
+        <tr class="row1_even">
+          <td align="center"><div class="ToUser" value="report.php?member=[tr.username;block=tr;aggregate=count:sum,bull_money:sum,sell_money:sum,t_cost:sum,dc_money:sum,save_money:sum,gain:sum,t_gain:sum,up:sum]">[tr.username]</div></td>
+          <td align="right" class="row1_even">[tr.count]</td>
+          <td align="right" class="row1_even">[tr.bull_money]</td>
+          <td align="right" class="row1_even">[tr.sell_money;frm='0.00']</td>
+          <td align="right">[tr.t_cost;frm='0.00']</td>
+          <td align="right">[tr.dc_money;frm='0.00']</td>
+          <td align="right">[tr.save_money;frm='0.00']</td>
+          <td align="right">[tr.gain;frm='0.00']</td>
+          <td align="right">[tr.t_gain;frm='0.00']</td>
+          <td align="right">[tr.sj][tr.up;frm='0.00']</td>
+  </tr>
+  <tr class="totla_row">
+    <td class="totla_row">合计总数:</td>
+          <td align="right" class="totla_row">[tr.count:sum]</td>
+          <td align="right" class="totla_row">[tr.bull_money:sum;frm='0.00']</td>
+          <td align="right" class="totla_row">[tr.sell_money:sum;frm='0.00']</td>
+          <td align="right">[tr.t_cost:sum;frm='0.00']</td>
+          <td align="right">[tr.dc_money:sum;frm='0.00']</td>
+          <td align="right">[tr.save_money:sum;frm='0.00']</td>
+          <td align="right">[tr.gain:sum;frm='0.00']</td>
+          <td align="right">[tr.t_gain:sum;frm='0.00']</td>
+          <td align="right">[tr.up:sum;frm='0.00']</td>
+  </tr>
+      </table>

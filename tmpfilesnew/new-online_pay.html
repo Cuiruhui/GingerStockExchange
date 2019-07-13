@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="融资融券交易系统">
+  <title>在线出金</title>
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="../js/new/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+  <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+  <script type="text/javascript">
+
+$(document).ready(function() {
+
+	var isdemo = [var.isdemo];
+
+	if(isdemo==1)
+
+	{
+
+		//tb_show("系统提示","#TB_inline?width=400&height=120&inlineId=prohibit",false);
+
+		parent.ymPrompt.alert({title:'申请出金',message:'试玩帐户不能进行“申请出金”操作！请您注册我们的正式帐号！'});
+
+		$('#btnAtm').attr('value','试玩帐号不能提款操作');
+
+		$('#btnAtm').attr('disabled','true');
+
+		$('#money').attr('disabled','true');
+
+		$('#bank').attr('disabled','true');
+
+		$('#bankname').attr('disabled','true');
+
+		$('#bankno').attr('disabled','true');
+
+		$('#bankrealnam').attr('disabled','true');
+
+		$('#atmpwd').attr('disabled','true');
+
+	}
+
+	
+
+	$("#btnOK").click(function(){
+
+		tb_remove();
+
+	});
+
+	
+
+	$("#btnReg").click(function(){
+
+		tb_remove();
+
+		top.location.href='reg.php?utype=1';
+
+	});
+
+	$("#AtmForm").validate({
+
+		rules: {
+
+			money: {required:true, number:true, range:[1,[var.usercancash]]},
+
+			bankname: {required: true},
+
+			bankrealname: {required: true},
+
+			bankno: {required:true},
+
+			atmpwd: {required:true, number:true,remote: "atm.php?type=check_atmpwd"}
+
+		},
+
+		messages: {
+
+			money: {required: "请输入要出金的金额.", range: "出金金额必须在1-[var.usercancash]之间"},
+
+			bankname: {required: "请输入帐户开户行信息."},
+
+			bankrealname: {required: "请输入帐户名."},
+
+			bankno: {required:"请输入银行帐号."},
+
+			atmpwd: {required:"请输入出金密码.",number:"出金密码必须是数字.",remote:"你输入的出金密码不正确."}
+
+		},
+
+		//errorLabelContainer: $("#errorTo"),
+
+		//wrapper: 'li',
+
+		submitHandler: function(form) {
+
+			form.submit();
+
+		}
+
+	});
+
+});
+
+</script>
+</head>
+<script>
+  var arr = []
+  $(function(){
+    $('#money').keyup(function(){
+      $('#money2 td').each(function(i,e){
+        if(i != 0){
+          $(this).text('')
+        }
+        if(i==9 || i==8){
+          $(this).text(0);
+        }
+      })
+      arr = $(this).val().split('')
+      var length = arr.length
+      for (var i=0;i<length;i++)
+      {
+        var pos = 8 - ( length - i) 
+        $('#money2 td').eq(pos).text(arr[i])
+      }
+    })
+  })
+</script>
+<body style="background:#FFF;-webkit-app-region: drag;">
+  <div class="onpay-container">
+    <!-- <div class="onpay-head">
+      <div class="onpay-title">
+        <span class="onpay-span">交易商：Rin</span>
+      </div>
+      <img src="./img/X.png">
+    </div> -->
+    <div class="onpay-content">
+      <form class="form-horizontal" id="AtmForm" method="post" action="atm.php?type=AddAtm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">出/入金</label>
+          <div class="col-sm-3">
+            <select class="form-control">
+              <option>证银转账</option>
+            </select>
+          </div>
+          <label class="col-sm-1 control-label">划转金额</label>
+          <div class="col-sm-3">
+            <input name="money" type="text" id="money" value="0" class="form-control" maxlength="9">
+          </div>
+          <div class="col-sm-3">
+            <button type="submit" name="Submit" id='btnAtm' value="确认出金"class="btn btn-info btn-sure">确定</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">银行</label>
+          <div class="col-sm-3">
+            <input name="bank" type="text" id="bank" class="form-control" value="[var.Edit.bank]" readonly>
+          </div>
+          <label class="col-sm-1 control-label">开户行</label>
+          <div class="col-sm-3">
+            <input class="form-control" name="bankname" type="text" id="bankname" value="[var.Edit.bankname]" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">银行卡号</label>
+          <div class="col-sm-3">
+            <input name="bankno" type="text" id="bankno" class="form-control" value="[var.Edit.bankno]" readonly>
+          </div>
+          <label for="inputEmail3" class="col-sm-1 control-label">开户名</label>
+          <div class="col-sm-3">
+            <input class="form-control" name="bankrealname" type="text" id="bankrealname" value="[var.realname]" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">出金密码</label>
+          <div class="col-sm-3">
+            <input class="form-control" name="atmpwd" type="password" id="atmpwd" placeholder="请输入出金密码">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-12 control-label prompt">
+            提示：<span style="color:#D14E00;">资金将提取至您绑定在融资融券平台的银行卡账户。出金提交成功后，请耐心等待客服审核</span>
+          </label>
+          <div class="col-sm-12">
+            <table class="table table-bordered onpay-table">
+              <tr>
+                <th>金额</th>
+                <th>百</th>
+                <th>十</th>
+                <th>万</th>
+                <th>千</th>
+                <th>百</th>
+                <th>十</th>
+                <th>元</th>
+                <th>角</th>
+                <th>分</th>
+              </tr>
+              <tr id="money2" class="onpay-money">
+                <td>￥</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<style>
+body {
+    font-family: "Microsoft YaHei" ! important;
+  }
+  .onpay-container {
+    width: 100%;
+    height: 100%;
+  }
+  .onpay-head {
+    width: 100%;
+    height: 45px;
+    background-color: #D14E00;
+  }
+  .onpay-head img {
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .onpay-title {
+    float: left;
+    padding: 10px;
+  }
+  .onpay-span {
+    color: #fff;
+  }
+  .onpay-content {
+    margin-top: 30px;
+  }
+  .btn-sure {
+    width: 150px;
+  }
+  .prompt {
+    text-align:left !important; 
+    margin-left: 145px !important;
+  }
+  .onpay-table{
+    width: 75%;
+    margin: 20px auto;
+  }
+  .onpay-money{
+    background-color: #D14E00;
+    color: #fff;
+  }
+</style>
+
+</html>

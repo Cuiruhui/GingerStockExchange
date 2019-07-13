@@ -1,0 +1,224 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="极客"></meta>
+<meta name="description" content=""></meta>
+<link rel="Shortcut Icon" href="http://www.jkjy88.com/Static/default/images/favicon.ico">
+<link href="http://www.jkjy88.com/Static/default/css/pagestyle.css" rel="stylesheet" type="text/css" />
+
+<link href="http://www.jkjy88.com/Static/default/css/shipan.css" rel="stylesheet" type="text/css" />
+<link href="http://www.jkjy88.com/Static/default/css/lrtk2.css" type="text/css" rel="stylesheet">
+
+<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/jquery.js"></script>
+<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/jquery.kinMaxShow-1.1.min.js" ></script>
+<script type="text/javascript" src="http://www.jkjy88.com/Static/lhgdialog-4.2.0/lhgdialog.js?skin=iblue"></script>
+<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/global.js"></script>
+	<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/msgbox.js"></script>
+<script type="text/javascript">
+var ROOT = '';
+function loginout()
+{
+	$.get("/index/user/loginout.html",function(result){
+		window.location.reload();
+		});
+}
+</script>
+
+<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/gerensort.js"></script>
+<script src="http://www.jkjy88.com/Static/default/js/jquery.kinMaxShow-1.1.min.js" type="text/javascript"></script>
+
+<title>平台简介</title>
+</head>
+<body>
+
+<!------头部------->
+<div class="pagehead">
+    <div class="w1000">
+        <div class="pagehead_left"><a href="http://www.jkjy88.com/index/index/index.html"><img class="logo" src="http://www.jkjy88.com/Static/default/images/logo.jpg" /></a></div>
+        <div class="pagehead_left2"><img class="logo" src="http://www.jkjy88.com/Static/default/images/ggy.png" /></div>
+        <!------头部右侧内容------->
+        <div class="pagehead_right">
+            <!------头部右侧电话------->
+            <div class="phone">
+                <span><img src="http://www.jkjy88.com/Static/default/images/top_phoneicon.png" /></span>
+                <span class="phonebig">0591-83259166</span>
+                <span class="phonesmall">服务时间  ( 9:00-17:00 )</span>
+            </div>
+            <!------头部右侧导航------->
+            <div class="load">
+                <!--<span class="load_button"><a href="/index/user/registerx.html">注册</a></span>-->
+                <!--<span class="load_button"><a href="/index/help/index/id/8.html">帮助</a></span>-->
+                <span class="load_button"><a href="http://www.jkjy88.com/index/usercenter/pay.html">登陆</a></span>
+                <!--<span class="load_button"><a href="/index/usercenter/index.html">个人中心</a></span>-->
+
+                                    <span class="pub_button tuichu"><a href="javascript:;" onclick="loginout()">注册</a></span>            	            </div>
+        </div>
+    </div>
+</div>
+<div class="clearborth"></div>
+<!------导航------->
+<div class="menu ">
+    <div class="w1000">
+        <ul id="nav">
+            <li style=" border-left:none" class="active">
+                <a href="index.php">
+                    <p class="big">首页</p>
+                    <p class="small text_arial">Home</p>
+                </a>            </li>
+            <li >
+                <a href="order.php">
+                    <p><span class="big">A股T+0</span><span> <img src="http://www.jkjy88.com/Static/default/images/more.png" /></span></p>
+                    <p class="small text_arial">My Security</p>
+                </a>
+                <ul>
+                    <li><a href="/index/stock/index.html">我的交易</a></li>
+                    <li><a href="/index/stock/pool.html">券源中心</a></li>
+                    <!--<li><a href="/index/index/daren.html">达人大赛</a></li>-->
+                    <!--<li><a href="/index/help/index/id/247.html">规则介绍</a></li>-->
+                </ul>
+            </li>
+            <li >
+                <a href="jianjie.html">
+                    <p><span class="big">关于我们</span><span> <img src="http://www.jkjy88.com/Static/default/images/more.png" /></span></p>
+                    <p class="small text_arial">Tutorial</p>
+                </a>
+                <ul>
+                    <li><a href="jianjie.html">平台简介</a></li>
+                    <li><a href="zhinan.html">使用指南</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#nav li').hover(function() {
+            $('ul', this).slideDown(200);
+            $(this).children('a:first').addClass("hov");
+        }, function() {
+            $('ul', this).slideUp(100);
+            $(this).children('a:first').removeClass("hov");
+        });
+    });
+</script>
+
+<div class="clearborth"></div>
+
+    <div class="nbody">
+        <div class="nw1000">
+            <div class="content">
+                <div class="news_left">
+                    <div class="big">帮助中心</div>
+                    <div class="small">Guidelines</div>
+                    <div class="subNavBox">
+                    <div class="subNav currentDd currentDt">关于我们</div>
+                        <ul class="navContent" style="display:block" >
+                            <li ><a class="ada" href="/index/help/index/id/242.html" >平台简介</a></li>                        </ul><div class="subNav ">使用指南</div>
+                        <ul class="navContent"  >
+                            <li ><a  href="/index/help/index/id/251.html" >A股指引</a></li><li ><a  href="/index/help/index/id/364.html" >期货指引</a></li><li ><a  href="/index/help/index/id/247.html" >规则介绍</a></li><li ><a  href="/index/help/index/id/366.html" >玩法说明</a></li><li ><a  href="/index/help/index/id/248.html" >极豆规则</a></li><li ><a  href="/index/help/index/id/357.html" >推广赚钱</a></li><li ><a  href="/index/help/index/id/250.html" >积分规则</a></li><li ><a  href="/index/help/index/id/152.html" >法律声明</a></li><li ><a  href="/index/help/index/id/301.html" >免责声明</a></li>                        </ul>                    </div>
+                </div>
+                <!------右侧内容------->
+                <div class="news_right">
+                    <div class="homediv">
+                        <span><a href="/index/index/index.html">极客平台首页</a> > <a href="/index/help/index/id/8.html">帮助中心</a> > <a class="hsa">平台简介</a></span>
+                        <span><img src="http://www.jkjy88.com/Static/default/images/home.png" width="17" height="17" /></span>
+                    </div>
+
+                    <div class="wenzhang">
+                        <div class="wenzhang_fenlei">平台简介</div>
+                        <div class="cont">
+                            <p>短线交易提供了最大的财务回报，同时也体现了对交易者最大的挑战。交易者必须不停地专注和警觉，还要有严格的计划。-------《短线交易秘诀》拉里·威廉斯。</p><p>对某项事物一如既往地专注之人，谓之“极客”。我们在寻找对短线交易极尽心力的极客。我们致力于打造短线交易极客投资、交流互动平台。极客期望通过积极的交流，帮助更多的民间投资精英磨砺自己的心志，严格自己的交易纪律，优化自己的短线交易模式，最终为这个市场所认同而获得极大的成就满足感！</p><p><strong>极客理念：</strong></p><p>跟随市场，嗅觉敏锐，战胜自我。</p><p><strong>极客价值观：</strong></p><p>勇于挑战，勇于认错，用铁的纪律规范短线交易策略，做市场的弄潮儿。</p><p><strong>极客愿景：</strong></p><p>希望交易的世界更为精彩，无限的交流碰撞出短线交易的火花，不断的提高交易乃至处事修养，实现人生的回报。</p><p><br/></p>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<div class="clearborth"></div>
+<!------底部------->
+<div class="footer" style="margin-top:0">
+	<div class="w1000">
+        <div class="footcaleft">
+            <ul>
+                <li class="top">关于我们</li>
+                <li><a href="/index/help/index/id/242.html">公司简介</a></li>
+                <!--<li><a href="/index/help/index/id/243.html">关于我们</a></li>-->
+                <!--<li><a href="/index/help/index/id/5.html">联系我们</a></li>-->
+            </ul>
+        </div>
+        <div class="footcaleft foothelp">
+            <ul>
+                <li class="top">使用指南</li>
+                <li><a href="/index/help/index/id/247.html">规则介绍</a></li>
+                <!--<li><a href="/index/help/index/id/8.html">常见问题</a></li>-->
+            </ul>
+        </div>
+        <div class="footcaleft">
+            <img class="weixing-ma" src="http://www.jkjy88.com/Static/default/images/qqqun.jpg" alt="加入QQ群" />
+            <p>欢迎加入QQ群528260324</p>
+        </div>
+        <div class="footcb">
+        	<div class="contact">
+            	<div class="phone">客服电话（每天9:00-17:00）<p class="text_red number">0591-83259166</p></div>
+                <div class="mail">客服邮箱：jikejiaoyi@163.com</div>
+            </div>
+            <div class="w2">
+       	  		<!--<img src="/Static/default/images/wx.jpg" alt="微信二维码" />-->
+                <!--<p>&nbsp;&nbsp;扫描添加微信号</p>-->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--暂时去掉
+<div class="footer1">
+ <div class="footer11">合作机构：
+ 	</div>
+</div>-->
+<div class="footer2">
+    <!--<div class="w1000" style="display: none">-->
+        <!--<div class="left2">-->
+            <!--<span>关注我们</span>-->
+            <!--<a class="txwb" href="#"></a>-->
+            <!--<a class="xlwb" href="#"></a>-->
+            <!--<a class="txwx" href="#"></a>-->
+        <!--</div>-->
+        <!--<div class="footcc">-->
+              <!--<dd>-->
+                  <!--<img src="/Static/default/images/m01.png" />-->
+                  <!--<img src="/Static/default/images/m02.png" />-->
+                  <!--&lt;!&ndash;<img src="/Static/default/images/m03.png" />&ndash;&gt;-->
+                  <!--<img src="/Static/default/images/m04.png" />-->
+                  <!--<img src="/Static/default/images/m05.png" />-->
+              <!--</dd>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--客服QQ-->
+    <div class="w1000">
+        <table width="1000" class="kf_qq" align="center" style="text-align:center;">
+            <tr>
+                <td>
+                    <i class="online" ><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><img src="http://www.jkjy88.com/Static/default/images/mqq.png" alt="qq" title="马上交谈" /> 在线客服1：123456789</a></i>
+                </td><td>
+                    <i class="online" ><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><img src="http://www.jkjy88.com/Static/default/images/mqq.png" alt="qq" title="马上交谈" /> 在线客服2：123456789</a></i>
+                </td>               <!--<td><img src="/Static/default/images/mqq1.png" alt="qq" /> 在线客服3：QQ576669885</td>-->
+                <!--<td><img border="0" src="http://wpa.qq.com/pa?p=2:3027829426:41" alt="点击这里给我发消息" title="点击这里给我发消息"/>在线客服5：QQ576669885</td>-->
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="footer3">
+    <div class="footer33"><p>
+	<br />
+</p></div>
+</div>
+
+</body>
+</html>

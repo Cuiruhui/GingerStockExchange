@@ -1,0 +1,1140 @@
+﻿body .icon-home:before {
+    display: block;
+}
+
+#btn_back {
+    display: none;
+}
+
+.IndexSearch {
+    padding: 5px 10px;
+    background: #ff9900;
+}
+
+    .IndexSearch .SearchBg {
+        background: #fff;
+        border-radius: 5px;
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        position: relative;
+        padding: 2px 0;
+        overflow: hidden;
+    }
+
+        .IndexSearch .SearchBg .SearchType {
+            color: #ff9900;
+            position: absolute;
+            top: 2px;
+            left: 0;
+            width: 65px;
+            height: 36px;
+            line-height: 36px;
+            background: #fff;
+            border-radius: 5px 0 0 5px;
+            padding: 0 20px 0 10px;
+            border-right: 1px solid #eee;
+            font-size: 16px;
+        }
+
+            .IndexSearch .SearchBg .SearchType:before {
+                border-radius: 50%;
+                height: 18px;
+                width: 18px;
+                background: #ff9900;
+                position: absolute;
+                display: block;
+                top: 50%;
+                right: 10px;
+                margin-top: -9px;
+                content: ' ';
+            }
+
+            .IndexSearch .SearchBg .SearchType:after {
+                border: solid #fff;
+                border-width: 0 0 2px 2px;
+                content: ' ';
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                margin-top: -5px;
+                width: 6px;
+                height: 6px;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                display: block;
+            }
+
+        .IndexSearch .SearchBg .SearchInput {
+            height: 36px;
+            width: 100%;
+            font-size: 14px;
+            text-indent: 105px;
+            color: #ccc;
+        }
+
+            .IndexSearch .SearchBg .SearchInput:before {
+                color: #ccc;
+                content: "G";
+                font-family: "iconic";
+                font-size: 14px;
+                margin-right: 5px;
+            }
+
+        .IndexSearch .SearchBg .submit_btn {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 40px;
+            line-height: 40px;
+            width: 60px;
+            background: #2182cc;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            font-size: 16px;
+            width: 100px;
+            text-align: center;
+        }
+
+    .IndexSearch .TypeItem {
+        position: absolute;
+        z-index: 9999;
+        left: 15px;
+        display: none;
+        border: solid #ff9900;
+        border-width: 1px 1px 0;
+    }
+
+        .IndexSearch .TypeItem div {
+            color: #ff9900;
+            height: 40px;
+            line-height: 40px;
+            background: #fff;
+            border-bottom: 1px solid #ff9900;
+            font-size: 14px;
+            text-align: center;
+        }
+
+/* 选项卡 */
+.tab_title {
+    clear: both;
+}
+
+    .tab_title ul, li {
+        list-style: none outside none;
+        margin: 0;
+    }
+
+    .tab_title ul {
+        width: 100%;
+        padding: 0;
+    }
+
+    .tab_title li {
+        background: #f5f5f5;
+        float: left;
+        font-size: 15px;
+        font-weight: bold;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        width: 50%;
+        display: block;
+        color: #ccc;
+        cursor: pointer;
+    }
+
+        .tab_title li.active {
+            height: 34px;
+            border-top: 1px solid #dddddd;
+            background: #2182cc;
+            color: #ffffff;
+        }
+
+.tab_list {
+    width: 100%;
+    margin: 0;
+    left: 0;
+    position: relative;
+}
+
+.tab_content {
+    overflow: hidden;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    clear: both;
+}
+
+.list .item {
+    position: relative;
+    border-bottom: 1px solid #cccccc;
+    line-height: 20px;
+    height: 52px;
+    color: #333333;
+    padding-left: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+    .list .item:after {
+        position: absolute;
+        content: ' ';
+        top: 50%;
+        right: 15px;
+        margin-top: -4px;
+        width: 6px;
+        height: 6px;
+        border: #999999 solid;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        border-width: 2px 2px 0 0;
+        display: block;
+    }
+
+    .list .item .short {
+        margin: 8px 0 0 0;
+        font-size: 14px;
+        color: #2E3437;
+        width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #2e3437;
+    }
+
+    .list .item .SimpleContent {
+        margin: 5px 0 8px 0;
+        font-size: 12px;
+        color: #999;
+        width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+.tab_more {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    background: #fff;
+    color: #ff9900;
+    display: block;
+}
+
+/* 热门职位 */
+#hotJobs {
+    margin-bottom: 30px;
+}
+
+.hotJobs_content {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    clear: both;
+    background-color: #f5f5f5;
+}
+
+    .hotJobs_content .job_list {
+        float: left;
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin: 8px 0 8px 0;
+    }
+
+        .hotJobs_content .job_list a {
+            margin: 5px 3px 5px 3px;
+            display: inline-block;
+            width: 18%;
+            text-align: center;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            border: 1px solid #2276DD;
+            background-color: #ffffff;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 13px;
+            color: #2276DD;
+        }
+
+        .hotJobs_content .job_list .seletd {
+            background-color: #2276DD;
+        }
+
+        .hotJobs_content .job_list .seletd {
+            color: #FFFFFF;
+        }
+
+
+/* 首页标题 */
+.index_title {
+    width: 95%;
+    height: 20px;
+    margin: auto;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 2px;
+    font-size: 14px;
+    color: #0066CC;
+    font-weight: bold;
+    position: relative;
+}
+
+    .index_title:before {
+        left: 0;
+        top: 2px;
+        height: 16px;
+        width: 0;
+        border: #f17d16 solid;
+        border-width: 0 2px 0 2px;
+        content: ' ';
+        position: absolute;
+    }
+
+    .index_title span {
+        font-size: 16px;
+        margin-left: 10px;
+    }
+/* 首页搜索 */
+.search_input {
+    position: relative;
+    width: 100%;
+    height: 38px;
+    color: #333;
+    font-size: 14px;
+    background: #FFF;
+    border: 1px solid #c9c9c9;
+    outline: none;
+    padding: 0 70px 0 32px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 0 5px 5px 5px;
+    font-size: 12px;
+}
+/*查询窗口*/
+
+.selectbox1 {
+    width: 53px;
+    height: 34px;
+    line-height: 34px;
+    border: none;
+    display: block;
+    cursor: pointer;
+    color: #333;
+    background: #efefef;
+    padding-left: 12px;
+    position: relative;
+    font-size: 14px;
+}
+
+.selectbox-wrapper {
+    position: absolute;
+    right: 2px;
+    width: 66px;
+    border: 1px solid #ccc;
+    border-top: none;
+    margin-top: 0;
+    position: absolute;
+    text-align: left;
+    background-color: #ffffff;
+}
+
+    .selectbox-wrapper ul, ol, li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+        .selectbox-wrapper ul li {
+            padding-left: 10px;
+            cursor: pointer;
+            line-height: 30px;
+            font-size: 14px;
+        }
+
+            .selectbox-wrapper ul li.selected {
+                background-color: #eee;
+            }
+
+.shake_btn {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+    line-height: 40px;
+}
+
+/* 选项卡 */
+.tab_title1 {
+    clear: both;
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+    .tab_title1 .select {
+        font-size: 15px;
+        width: 80px;
+        float: left;
+        border: 1px solid #c9c9c9;
+        border-bottom: none;
+        height: 33px;
+        line-height: 33px;
+        background-color: #ffffff;
+        text-align: center;
+        border-radius: 3px 3px 0 0;
+        font-weight: bold;
+    }
+
+    .tab_title1 .selected {
+        background-color: #E6E6E6;
+        color: #898989;
+    }
+
+.DownLoadTips {
+    height: 50px;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    display: none;
+}
+
+    .DownLoadTips .TipsClose {
+        font-style: normal;
+        font-size: 28px;
+        width: 56px;
+        height: 56px;
+        border-radius: 28px;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        text-align: center;
+        line-height: 86px;
+        top: -38px;
+        left: -30px;
+        position: absolute;
+        background: #828282;
+        color: #fff;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    .DownLoadTips .AppLogo {
+        position: absolute;
+        left: 25px;
+        top: 0;
+        width: 50px;
+        height: 50px;
+    }
+
+    .DownLoadTips .AppTitle {
+        width: 180px;
+        height: 50px;
+        position: absolute;
+        left: 85px;
+        top: 0;
+        line-height: 25px;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .DownLoadTips .BtnDownLoad {
+        text-decoration: none;
+        font-size: 14px;
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        color: #fff;
+        text-align: center;
+        position: absolute;
+        top: 9px;
+        right: 10px;
+    }
+
+/*急聘职位*/
+.jjobtitle {
+    background-color: #ffffff;
+    padding-left: 15px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    position: relative;
+}
+
+    .jjobtitle .more {
+        position: absolute;
+        top: -1px;
+        right: 0px;
+        background-color: #FF8800;
+        width: 55px;
+        height: 32px;
+        text-align: center;
+    }
+
+        .jjobtitle .more:before {
+            content: ' ';
+            -webkit-transform: skew(-20deg);
+            -moz-transform: skew(-20deg);
+            -o-transform: skew(-20deg);
+            position: absolute;
+            left: -10px;
+            top: 0px;
+            background-color: #FF8800;
+            width: 20px;
+            height: 32px;
+        }
+
+        .jjobtitle .more a {
+            color: #ffffff;
+            font-size: 15px;
+        }
+
+.jjobcontent {
+    background-color: #fff;
+    padding-bottom: 20px;
+}
+
+    .jjobcontent a {
+        display: block;
+        width: 44%;
+        border-radius: 3px;
+        float: left;
+        color: #666;
+        padding: 10px 0;
+        font-size: 12px;
+        line-height: 20px;
+        position: relative;
+        background: #f4f4f4;
+    }
+
+        .jjobcontent a:after {
+            border: 1px solid #f4f4f4;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            content: "";
+            height: 99%;
+            width: 99%;
+            border-radius: 3px;
+        }
+
+        .jjobcontent a:nth-of-type(4n), .jjobcontent a:nth-of-type(4n+1) {
+            background: #fff;
+        }
+
+        .jjobcontent a:nth-of-type(odd) {
+            margin: 10px 2% 0 4%;
+        }
+
+        .jjobcontent a:nth-of-type(even) {
+            margin: 10px 4% 0 2%;
+        }
+
+        .jjobcontent a span {
+            padding: 0 10px;
+            font-style: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+        }
+
+            .jjobcontent a span b {
+                color: #2182cc;
+                font-size: 14px;
+            }
+
+    .jjobcontent .more {
+        border-radius: 3px;
+        font-size: 14px;
+        color: #ff9900;
+        background: #fff;
+        text-align: center;
+        margin-top: 10px;
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        width: 100%;
+        clear: both;
+        margin: 10px 0 0 0 !important;
+        padding: 0 !important;
+    }
+
+        .jjobcontent .more:after {
+            border: none !important;
+        }
+
+.FuncMenu {
+    background: #fff;
+    padding: 0 0 10px;
+    border-bottom: 1px solid #eee;
+}
+
+    .FuncMenu a {
+        float: left;
+        width: 25%;
+        text-align: center;
+        color: #666;
+        font-size: 12px;
+    }
+
+    .FuncMenu .YyyIcon:before {
+        color: #2182cc;
+        font-family: 'iconic';
+        content: "\e058";
+        font-size: 35px;
+        background: #F5F5F5;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 56px;
+        display: block;
+        margin: 10px auto 5px;
+    }
+
+    .FuncMenu .NearJobIcon:before {
+        color: #2182cc;
+        font-family: 'iconic';
+        content: "\e050";
+        font-size: 32px;
+        background: #F5F5F5;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px;
+        display: block;
+        margin: 10px auto 5px;
+        text-indent: -2px;
+    }
+
+    .FuncMenu .JobFairIcon:before {
+        color: #2182cc;
+        font-family: 'iconic';
+        content: "\e122";
+        font-size: 36px;
+        background: #F5F5F5;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 48px;
+        display: block;
+        margin: 10px auto 5px;
+        text-indent: -2px;
+    }
+
+    .FuncMenu .YouLikeIcon:before {
+        color: #2182cc;
+        font-family: 'iconic';
+        content: "\e078";
+        font-size: 32px;
+        background: #F5F5F5;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 52px;
+        display: block;
+        margin: 10px auto 5px;
+        text-indent: -2px;
+    }
+
+    .FuncMenu .GjssIcon:before {
+        color: #2182cc;
+        font-family: 'iconic';
+        content: "\e053";
+        font-size: 26px;
+        background: #F5F5F5;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 52px;
+        display: block;
+        margin: 10px auto 5px;
+    }
+
+    .FuncMenu .BkIcon:before {
+        color: #2182cc;
+        font-family: 'iconic';
+        content: "\e051";
+        font-size: 34px;
+        background: #F5F5F5;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 48px;
+        display: block;
+        margin: 10px auto 5px;
+        text-indent: -2px;
+    }
+
+    .FuncMenu .ZxIcon:before {
+        color: #2182cc;
+        font-family: 'iconic';
+        content: "\e052";
+        font-size: 32px;
+        background: #F5F5F5;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 46px;
+        display: block;
+        margin: 10px auto 5px;
+        text-indent: -2px;
+    }
+
+    .FuncMenu .WjfIcon:before {
+        color: #2182cc;
+        font-family: 'iconic';
+        content: "\e075";
+        font-size: 32px;
+        background: #F5F5F5;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 52px;
+        display: block;
+        margin: 10px auto 5px;
+        text-indent: 2px;
+    }
+
+    .FuncMenu .ZsIcon:before {
+        color: #2182cc;
+        font-family: 'iconic';
+        content: "\e059";
+        font-size: 28px;
+        background: #F5F5F5;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 56px;
+        display: block;
+        margin: 10px auto 5px;
+        text-indent: 1px;
+    }
+
+    .FuncMenu .CircleIcon:before {
+        color: #2182cc;
+        font-family: 'iconic';
+        content: "\e126";
+        font-size: 32px;
+        background: #F5F5F5;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 56px;
+        display: block;
+        margin: 10px auto 5px;
+        text-indent: 0;
+    }
+
+    .FuncMenu .PkIcon:before {
+        color: #fff;
+        font-family: 'v1';
+        content: "\B019";
+        font-size: 26px;
+        background: #ff9900;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 52px;
+        display: block;
+        margin: 10px auto 5px;
+        text-indent: 2px;
+    }
+
+.Gg {
+    overflow: hidden;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 70px;
+    position: relative;
+    background: #fff;
+    font-size: 14px;
+    margin: 0 0 1px;
+}
+
+    .Gg .Title {
+        color: #ff9900;
+        width: 60px;
+        border-right: 1px solid #eee;
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+        position: absolute;
+        left: 0;
+        top: 5px;
+        text-indent: 0;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .Gg img {
+        width: 38px;
+        margin-top: 7px;
+    }
+
+    .Gg a {
+        color: #2182cc;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 98%;
+    }
+
+.HotJob {
+    margin: 0 0 20px;
+    background: #fff;
+}
+
+    .HotJob .JobContent {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+        .HotJob .JobContent a {
+            margin: 5px;
+            display: inline-block;
+            width: 20%;
+            text-align: center;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            background-color: #ffffff;
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+            color: #666;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .HotJob .JobContent a.True {
+            color: #ff9900;
+            border: 1px solid #ff9900;
+        }
+
+.NTitle {
+    position: relative;
+    height: 30px;
+}
+
+    .NTitle .Sign {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        background-color: #2182cc;
+        padding-right: 10px;
+        height: 30px;
+        line-height: 30px;
+        color: #fff;
+        font-size: 16px;
+        text-indent: 10px;
+    }
+
+        .NTitle .Sign:after {
+            content: ' ';
+            -webkit-transform: skew(-20deg);
+            -moz-transform: skew(-20deg);
+            -o-transform: skew(-20deg);
+            position: absolute;
+            right: -6px;
+            top: 0;
+            background-color: #2182cc;
+            width: 12px;
+            height: 30px;
+        }
+
+    .NTitle .More {
+        color: #2182cc;
+        border-left: 1px solid #eee;
+        width: 45px;
+        float: right;
+        padding-left: 10px;
+        height: 25px;
+        line-height: 26px;
+        -webkit-line-height: 26px;
+        font-size: 14px;
+        margin-top: 2px;
+    }
+
+    .NTitle .Sign1 {
+        color: #ff9900;
+        float: right;
+        height: 25px;
+        line-height: 25px;
+        font-size: 14px;
+        margin-top: 2px;
+        padding: 0 10px;
+    }
+
+        .NTitle .Sign1.Pan:before {
+            color: #ff9900;
+            font-family: 'iconic';
+            content: "\e079";
+            font-size: 14px;
+            margin-right: 5px;
+        }
+
+        .NTitle .Sign1.TipsIcon:before {
+            color: #ff9900;
+            font-family: 'iconic';
+            content: "\e080";
+            font-size: 14px;
+            margin-right: 5px;
+        }
+
+.JpJob {
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+    .JpJob .NTitle .Sign {
+        background: #ff9900;
+    }
+
+        .JpJob .NTitle .Sign:after {
+            background: #ff9900;
+        }
+
+    .JpJob .Content {
+        padding: 10px 15px 5px;
+        line-height: 28px;
+        display: block;
+        position: relative;
+    }
+
+        .JpJob .Content:nth-of-type(odd) {
+            background: #fff;
+        }
+
+        .JpJob .Content:nth-of-type(even) {
+            background: #f4f4f4;
+        }
+
+        .JpJob .Content .Money {
+            position: absolute;
+            top: 9px;
+            right: 15px;
+            font-size: 18px;
+            color: #2182cc;
+            line-height: 30px;
+        }
+
+        .JpJob .Content .JobName {
+            color: #2d2d2d;
+            font-size: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 65%;
+            display: block;
+        }
+
+        .JpJob .Content .EntName {
+            color: #909090;
+            font-size: 13px;
+            float: left;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 65%;
+            overflow: hidden;
+        }
+
+        .JpJob .Content .Region {
+            font-size: 13px;
+            color: #8f8f8f;
+            float: right;
+        }
+
+            .JpJob .Content .Region:before {
+                content: "\e069";
+                font-family: "iconic";
+                font-size: 15px;
+                color: #ff9900;
+                margin-right: 5px;
+            }
+
+    .JpJob .More1 {
+        border-radius: 3px;
+        font-size: 14px;
+        color: #ff9900;
+        background: #fff;
+        text-align: center;
+        margin-top: 10px;
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        width: 100%;
+        clear: both;
+        margin: 10px 0 0 0 !important;
+        padding: 0 !important;
+    }
+
+        .JpJob .More1:after {
+            border: none !important;
+        }
+
+.IndustryContent {
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.IndustryList {
+    padding: 10px;
+}
+
+    .IndustryList .Item {
+        width: 48%;
+        border: 1px solid #ccc;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        display: block;
+        text-align: center;
+        margin: 5px 0;
+        border-radius: 3px;
+        color: #666;
+        background: #fff;
+    }
+
+.Citybutton {
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    color: #bababa;
+    height: 36px;
+    position: relative;
+    background: #fff;
+    border: 1px solid #C9C9C9;
+    width: 55px;
+    position: absolute;
+    top: 0;
+    right: 75px;
+    padding-left: 20px;
+    background-color: #E6E6E6;
+}
+
+    .Citybutton input {
+        font-size: 12px;
+        padding: 8px 0;
+        background-color: #E6E6E6;
+    }
+
+
+    .Citybutton:after {
+        position: absolute;
+        content: ' ';
+        top: 50%;
+        right: 8px;
+        margin-top: -4px;
+        width: 3px;
+        height: 3px;
+        border: #999999 solid;
+        -webkit-transform: rotate(135deg);
+        -moz-transform: rotate(135deg);
+        -o-transform: rotate(135deg);
+        border-width: 2px 2px 0 0;
+        display: block;
+    }
+
+.FullSearchBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #f5f5f5;
+    display: none;
+    z-index: 999;
+}
+
+    .FullSearchBg .SearchBar {
+        padding: 10px 15px;
+        position: relative;
+        background: #fff;
+    }
+
+        .FullSearchBg .SearchBar:before {
+            content: "\0047";
+            font-family: "iconic";
+            font-size: 20px;
+            color: #999;
+            position: absolute;
+            top: 20px;
+            left: 25px;
+        }
+
+
+        .FullSearchBg .SearchBar .SearchInput {
+            height: 40px;
+            width: 100%;
+            font-size: 14px;
+            color: #666;
+            background: #f5f5f5;
+            border-radius: 5px;
+            text-indent: 37px;
+        }
+
+        .FullSearchBg .SearchBar .SearchBtn {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 5px 0 10px;
+            width: 60px;
+            background: #2182cc;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            font-size: 16px;
+            width: 75px;
+            text-align: center;
+        }
+
+    .FullSearchBg .TabItem {
+        float: left;
+        color: #888;
+        background: #f5f5f5;
+        width: 50%;
+        text-align: center;
+        height: 35px;
+        line-height: 35px;
+        font-size: 15px;
+        border-top: 1px solid #2182cc;
+    }
+
+        .FullSearchBg .TabItem.Selected {
+            background: #fff;
+        }

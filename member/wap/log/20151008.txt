@@ -1,0 +1,9 @@
+2015-10-08 21:14:58 Database error message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-30,30' at line 1
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2015-10-08 21:23:34 Database error message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-30,30' at line 1
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2015-10-08 21:23:36 Database error message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-30,30' at line 1
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php

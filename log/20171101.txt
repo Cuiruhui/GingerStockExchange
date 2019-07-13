@@ -1,0 +1,70 @@
+2017-11-01 10:15:38 113.87.187.14 insert into `buy_trust` set user='u1234567',code='000001',type='sz',name='&aring;&sup1;&sup3;&aring;&reg;‰&eacute;“&para;&egrave;&iexcl;Œ',trust_type='1',buy_type='1',price='11.54',app='2',num='10',money='11540',agent='hongyi',stock_trust_date='2017-11-01',stock_trust_time='2017-11-01 10:15:38'
+2017-11-01 10:15:38 113.87.187.14 insert into `buy_deal` set user='u1234567',stock_code='000001',stock_type='sz',stock_name='&aring;&sup1;&sup3;&aring;&reg;‰&eacute;“&para;&egrave;&iexcl;Œ',bull_price='11.54',bull_num='10',can_sell_num='10',bull_trust_id='13660',bull_trust_date='2017-11-01',bull_trust_time='2017-11-01 10:15:38',buy_type='1',bull_money='11540',bull_cost='0.005',sell_cost='0.005',bull_cost_money='57.7',save_cost='0.0004',agent='hongyi',agent_bull_money='13.85',agent_ret='20',dc_num='1',dc_money='11.54'
+2017-11-01 10:15:38 113.87.187.14 UPDATE `buy_trust` set stock_deal_time='2017-11-01 10:15:38' where id='13660'
+2017-11-01 14:23:19 Database error message: Access denied for user 'vzb05ljr38_ypab'@'localhost' (using password: YES)
+SQL = 
+URL = /user_info.php
+2017-11-01 14:23:19 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:19 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:19 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:25 Database error message: Access denied for user 'vzb05ljr38_ypab'@'localhost' (using password: YES)
+SQL = 
+URL = /user_info.php
+2017-11-01 14:23:25 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:25 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:25 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:31 Database error message: Access denied for user 'vzb05ljr38_ypab'@'localhost' (using password: YES)
+SQL = 
+URL = /user_info.php
+2017-11-01 14:23:31 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:31 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:31 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:37 Database error message: Access denied for user 'vzb05ljr38_ypab'@'localhost' (using password: YES)
+SQL = 
+URL = /user_info.php
+2017-11-01 14:23:37 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:37 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:37 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:42 Database error message: Access denied for user 'vzb05ljr38_ypab'@'localhost' (using password: YES)
+SQL = 
+URL = /user_info.php
+2017-11-01 14:23:42 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:42 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:23:42 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-11-01 14:28:52 183.18.34.105 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='7.89',sell_cost_money='1.58',dc_money='4.64',sell_money='789',sell_trust_id='13511',sell_gain='-138',gain='-172.4',agent_sell_money='0',sell_trust_date='2017-11-01',sell_trust_time='2017-11-01 14:28:52' where id='00006111'
+2017-11-01 14:28:52 183.18.34.105 UPDATE `user_users` set money=money+789+-138-1.58-0-0,cash=cash+-138-1.58-0-0 where username='uceshi'
+2017-11-01 14:42:28 183.18.34.105 insert into `buy_trust` set user='uceshi',code='600111',type='sh',name='&aring;Œ—&aelig;–&sup1;&ccedil;&uml;€&aring;œŸ',trust_type='1',buy_type='1',price='14.51',app='2',num='1',money='1451',agent='daili',stock_trust_date='2017-11-01',stock_trust_time='2017-11-01 14:42:28'
+2017-11-01 14:42:28 183.18.34.105 insert into `buy_deal` set user='uceshi',stock_code='600111',stock_type='sh',stock_name='&aring;Œ—&aelig;–&sup1;&ccedil;&uml;€&aring;œŸ',bull_price='14.51',bull_num='1',can_sell_num='1',bull_trust_id='13512',bull_trust_date='2017-11-01',bull_trust_time='2017-11-01 14:42:28',buy_type='1',bull_money='1451',bull_cost='0.002',sell_cost='0.002',bull_cost_money='2.9',save_cost='0.0004',agent='daili',agent_bull_money='3.48',agent_ret='80',dc_num='1',dc_money='1.45'
+2017-11-01 14:42:28 183.18.34.105 UPDATE `buy_trust` set stock_deal_time='2017-11-01 14:42:28' where id='13512'
+2017-11-01 17:21:59 183.18.34.105 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='14.49',sell_cost_money='2.9',dc_money='1.45',sell_money='1449',sell_trust_id='13513',sell_gain='-2',gain='-9.25',agent_sell_money='0',sell_trust_date='2017-11-01',sell_trust_time='2017-11-01 17:21:59' where id='00006112'
+2017-11-01 17:21:59 183.18.34.105 UPDATE `user_users` set money=money+1449+-2-2.9-0-0,cash=cash+-2-2.9-0-0 where username='uceshi'

@@ -1,0 +1,88 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<meta name="keywords" content=""></meta>
+	<meta name="description" content=""></meta>
+
+<link rel="Shortcut Icon" href="http://www.jkjy88.com/Static/default/images/favicon.ico">
+<link href="http://www.jkjy88.com/Static/default/css/pagestyle.css" rel="stylesheet" type="text/css" />
+
+<link href="http://www.jkjy88.com/Static/default/css/personal.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/jquery.js"></script>
+<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/jquery.kinMaxShow-1.1.min.js" ></script>
+<script type="text/javascript" src="http://www.jkjy88.com/Static/lhgdialog-4.2.0/lhgdialog.js?skin=iblue"></script>
+<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/global.js"></script>
+	<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/msgbox.js"></script>
+<script type="text/javascript">
+var ROOT = '';
+function loginout()
+{
+	$.get("/index/user/loginout.html",function(result){
+		window.location.reload();
+		});
+}
+</script>
+
+
+
+<title>会员登录</title>
+</head>
+<body style="background:#6f9ccb">
+
+
+
+	<div class="nbody_login">
+		<div class="nw1000">
+	    	<div class="logodiv11">
+				<!--<a href="/index/index/index.html"><img class="logo" src="/Static/default/images/logo_login.png" /></a>--> <!--暂时关闭20150922-->
+			</div>
+	        <div class="clearborth"></div> 
+	        <div class="logdiv">
+	        	<div class="titname">用户登录</div>
+	            <div class="logdcon">
+	                <div class=" login logson">
+	                    <form method="post" action="login_from.php?type=login" name="page_login_form" id="page_login_form">
+	                    <dl>
+							<span>账户：</span>
+							<input id="username" name="username" class="stxt" onclick="if(this.value=='请输入账户') this.value=''" onblur="if(this.value=='') this.value='请输入账户'" autocomplete="off" value="" />
+						</dl>
+	                    <dl>
+							<span>密 码：</span>
+							<input id="password" name="password" class="stxt" value="" type="password" placeholder="请输入密码" />
+						</dl>
+						<div class="link22" style="font-size:12px;">
+							<div style="float:left; width:50%">
+								<!--<input class="schb" name="auto_login" type="checkbox" /> 下次自动登录-->
+								
+							</div>
+							<div style="float:right;width:40%; text-align:right">
+								<!--<a href="/index/user/getpassword.html">忘记密码</a>-->
+							</div>
+						</div>
+						<div class="link22" style="width:100%; margin:0 auto">
+							<!--<div class="pub_button1 pub_quxiao"><input class="pub_button_input1" type="reset" value="取 消" /></div>-->
+							<div class="pub_button pub_queding"><input class="pub_button_input" type="submit" id="user-login-submit" value="登 陆" style="margin-left: 0px;" /></div>
+						</div>
+						</form>
+						<div class="link22" style="font-size:12px; text-align:right; margin-top:40px">
+							还不是会员?<a href="/index/user/register.html">免费注册</a>
+						</div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="clearborth"></div> 
+
+
+
+	<div class="footer3">
+	    <div class="footer33"></div>
+	</div>
+
+</body>
+</html>

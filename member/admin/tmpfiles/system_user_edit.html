@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>管理员管理_编辑</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#regform").validate({
+		rules: {
+			alias: "required",
+			password_confirm: {
+				rangelength: [4,10],
+				equalTo: "#password"
+			}
+		},
+		messages: {
+			alias: "[<b>账号名称</b>]:不能为空.",
+			password_confirm: {
+				rangelength: jQuery.format("[<b>登陆密码</b>]:请输入 {0} 至 {1} 位字符."),
+				equalTo: "[<b>登陆密码</b>] 与 [<b>确认密码</b>] 不一致,请重新输入."
+			}
+		},
+		focusCleanup: true,//被验证的元素获得焦点时移除错误信息
+		success: function(label){
+			label.html("<span style=\"color:green\">填写正确！</span>").addClass("success");
+		},
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+	$('#btnBack').click(function(){
+		history.go(-1);
+	});
+});
+</script>
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <tr class="row_title"> 
+    <td colspan="2"><b>修改管理员</b></td> 
+  </tr> 
+  <tr class="row_ls"> 
+    <td width="15%" align="right">登陆账号:</td> 
+    <td width="85%"><input name="username" type="text" id="username" value="[var.Edit.username]" size="15" style="width:100px;" disabled /></td> 
+  </tr> 
+  <form id="regform" action="system_user.php?type=editsubmit" method="post"> 
+    <tr class="row_ls"> 
+      <td align="right">账号名称:</td> 
+      <td><input name="alias" type="text" id="alias" value="[var.Edit.alias]" size="15" style="width:100px;" /> 
+        <font color="#999999">输入范围 [var.xltm.config.user_name_min] 至 [var.xltm.config.user_name_max] 位字符</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">登陆密码:</td> 
+      <td><input name="password" type="password" id="password" size="15" style="width:100px;" /> 
+        <font color="#999999">不修改密码则不用输入</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">确认密码:</td> 
+      <td><input name="password_confirm" type="password" id="password_confirm" size="15" style="width:100px;" /> 
+        <font color="#999999">输入范围 [var.xltm.config.min_password] 至 [var.xltm.config.max_password] 位字符</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="center">&nbsp;</td> 
+      <td><input type="submit" name="btnEnter" class="btn1" id="btnEnter" value="确定修改" /> 
+&nbsp;        <input type="button" name="btnBack" id="btnBack" class="btn1" value="返　回" />
+<input name="id" type="hidden" id="id" value="[var.Edit.id]"></td> 
+    </tr> 
+  </form> 
+</table> 
+</body>
+</html>

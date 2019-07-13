@@ -1,0 +1,26 @@
+注意：这二个接口适合路径是   你的网址/stock/   这种方式的  比如http://100.yh98.com/stock/
+         如果是其他网址打开网站，就得改程序了
+
+
+
+易宝密钥设置是在   yeepay/merchantProperties.php上设置
+智付密钥设置是在   dinpay_key.php上设置
+
+
+
+二个接口如何切换   方法是你直接用记事本打开payment.php 拉到代码最下面，找到以下代码
+
+
+//	$xltm->tpls->LoadTemplate("./tmpfiles/payment_dinpay.html");  //这是智付的
+
+ 	$xltm->tpls->LoadTemplate("./tmpfiles/payment_yeepay.html");  //这是易宝的
+
+
+上面表示正在使用易宝的，如果你要使用智付，就去掉// ，然后下面易宝上加上//,如下所示
+
+	$xltm->tpls->LoadTemplate("./tmpfiles/payment_dinpay.html");  //这是智付的
+
+ //	$xltm->tpls->LoadTemplate("./tmpfiles/payment_yeepay.html");  //这是易宝的
+
+
+其他的都不用动，后台接口设置不要关闭

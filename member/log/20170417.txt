@@ -1,0 +1,12 @@
+2017-04-17 10:11:23 Database error message: Unknown column 'is_man' in 'field list'
+SQL = SELECT * FROM `user_config`
+URL = /member/order.php
+2017-04-17 10:11:56 Database error message: Unknown column 'is_man' in 'field list'
+SQL = SELECT * FROM `user_config`
+URL = /member/order.php
+2017-04-17 10:12:25 Database error message: Unknown column 'is_man' in 'field list'
+SQL = SELECT * FROM `user_config`
+URL = /member/order.php
+2017-04-17 10:12:31 Database error message: Unknown column 'is_man' in 'field list'
+SQL = SELECT * FROM `user_config`
+URL = /member/order.php

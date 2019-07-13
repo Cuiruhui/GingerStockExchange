@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>代理商面板</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript">
+if(top.location.href!=self.location.href)
+{
+	top.location.href=self.location.href;
+}
+var news_s;
+$(document).ready(function(){
+	news("#news");
+	//document.all("mainframe").style.height = document.body.scrollHeight-90;
+});
+</script>
+</head>
+<body> 
+<div id="index_top"> 
+  <table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+    <tr>
+      <td width="11%"><img src="./images/stock_buy.gif" width="140" height="50" /></td>
+      <td width="29%" align="center">&nbsp;        </td>
+      <td width="60%" align="right"><div id="all_count"></div></td> 
+    </tr> 
+  </table> 
+</div> 
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" class="topbar">
+  <tr>
+    <td width="155" height="25">&nbsp;&nbsp;登录名：<strong>[var.xltm.user_info.username]</strong>&nbsp;</td>
+    <td>	<div id="news"> 
+	  <ul> 
+		<li>[[news.add_time]][news.title;block=li]</li> 
+	  </ul> 
+    </div> 
+   </td>
+  </tr>
+</table>
+<div id="stock_main"> 
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="#AA9E39" class="main"> 
+    <tr> 
+      <td width="155" valign="top"> 
+	  <div class="leftmenu"> 
+          <h5>常用功能</h5> 
+          <ul> 
+            <li><a href="news.php" target="mainframe">公告列表</a></li> 
+            <li><a href="lowercash.php" target="mainframe">信誉预警</a></li> 
+            <li><a href="member.php" target="mainframe">会员管理</a></li> 
+          </ul> 
+          <h5>报表查询</h5> 
+          <ul> 
+		  	<!--<li><a href="income.php" target="mainframe" style="color:#ff0000; font-weight:bold;">我的收益</a></li>--> 
+            <li><a href="deal.php" target="mainframe">会员持仓(当天)</a></li> 
+			<li><a href="deal_history.php" target="mainframe">会员持仓(历史)</a></li>
+            <li><a href="sell.php" target="mainframe">会员平仓单(当天)</a></li> 
+			<li><a href="sell_history.php" target="mainframe">会员平仓单(历史)</a></li>
+			<li><a href="user_bill.php" target="mainframe">用户帐单查询</a></li>
+            <li><a href="user_pay.php" target="mainframe">支付记录</a></li> 
+            <li><a href="user_atm.php" target="mainframe">提款记录</a></li> 
+          </ul> 
+		  <h5>下线管理</h5> 
+		  <ul>
+		    <li><a href="referrals_deal.php" target="mainframe">下线持仓(当天)</a></li>
+			<li><a href="referrals_deal_history.php" target="mainframe">下线持仓(历史)</a></li>
+			<li><a href="referrals_sell.php" target="mainframe">下线平仓</a></li>
+		  </ul>
+		  <h5>代理系统</h5> 
+		  <ul>
+		    <li><a href="agent_info.php" target="mainframe">代理信息</a></li>
+			<li><a href="logout.php" target="_top" onClick="if(confirm('确定注销登录吗？')){return true;}else{return false;}">注销登录</a></li>
+		  </ul>
+        </div> 
+		</td> 
+      <td valign="top" bgcolor="#FFFFFF">
+	  <iframe width="100%" height="500" id="mainframe" name="mainframe" frameborder="0" scrolling="auto" src="lowercash.php"></iframe>
+	  <div id='html'></div>
+	  </td> 
+    </tr>
+  </table> 
+</div> 
+</body>
+</html>

@@ -1,0 +1,225 @@
+<script type="text/javascript" src="../js/jquery.date_input.js"></script>
+<script type="text/javascript" src="../js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+	$('#dateList span').AjaxLoad({
+		target:'#html',
+		loading_target:'#load_text',
+		loading_txt:'数据加载中...'
+	});
+	$("#reportForm").validate({
+		rules: {
+			start_date: {
+				required: true,
+				dateISO: true
+			},
+			end_date: {
+				required: true,
+				dateISO: true
+			}
+		},
+		messages: {
+			start_date: {
+				required: "请输入一个开始日期.",
+				dateISO: "请输一个正确的日期 例如:2009-02-03."
+			},
+			end_date: {
+				required: "请输入一个结束日期.",
+				dateISO: "请输一个正确的日期 例如:2009-02-03."
+			}
+		},
+		errorLabelContainer: $("#errorTo"),
+		wrapper: 'li',
+		submitHandler: function(form) {
+			$('#reportForm').AjaxLoad({
+				event:'submit',
+				link:'report.php',
+				method:'GET',
+				target: '#main',
+				loading_target:'#load',
+				loading_txt:'请稍后...',
+				params:'type=all',
+				forms:'#reportForm'
+			});
+		}
+	});
+});
+function chg_date(range,num1,num2){
+	if(range=='t' || range=='w' || range=='lw' || range=='r'){
+		reportForm.start_date.value ='[var.xltm.sys_date]';
+		reportForm.end_date.value =reportForm.start_date.value;
+	}
+
+	if(range!='t'){
+		if(reportForm.start_date.value!=reportForm.end_date.value){
+			reportForm.start_date.value ='[var.xltm.sys_date]';
+			reportForm.end_date.value =reportForm.start_date.value;
+		}
+		var aStartDate = reportForm.start_date.value.split('-');
+		var newStartDate = new Date(parseInt(aStartDate[0], 10),parseInt(aStartDate[1], 10) - 1,parseInt(aStartDate[2], 10) + num1);
+		//alert('ddd'+((newStartDate.getMonth() + 1)));
+		reportForm.start_date.value = newStartDate.getFullYear()+ '-' + (newStartDate.getMonth() + 1)+ '-' + (newStartDate.getDate());
+		var aEndDate = reportForm.end_date.value.split('-');
+		var newEndDate = new Date(parseInt(aEndDate[0], 10),parseInt(aEndDate[1], 10) - 1,parseInt(aEndDate[2], 10) + num2);
+		reportForm.end_date.value = newEndDate.getFullYear()+ '-' + (newEndDate.getMonth() + 1)+ '-' + (newEndDate.getDate());
+	}
+}
+</script>
+<style type="text/css">
+<!--
+.date_selector, .date_selector * {
+  width: auto;
+  height: auto;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+}
+.date_selector {
+	border: 1px solid #bbb;
+	padding: 5px;
+	margin: -1px 0 0 0;
+	position: absolute;
+	z-index: 100000;
+	display: none;
+	background-color: #A6D2FF;
+}
+.date_selector_ieframe {
+  position: absolute;
+  z-index: 99999;
+  display: none;
+}
+  .date_selector .nav {
+    width: 17.5em; /* 7 * 2.5em */
+  }
+  .date_selector .month_nav, .date_selector .year_nav {
+    margin: 0 0 3px 0;
+    padding: 0;
+    display: block;
+    position: relative;
+    text-align: center;
+  }
+  .date_selector .month_nav {
+    float: left;
+    width: 55%;
+  }
+  .date_selector .year_nav {
+    float: right;
+    width: 35%;
+    margin-right: -8px; /* Compensates for cell borders */
+  }
+  .date_selector .month_name, .date_selector .year_name {
+    font-weight: bold;
+    line-height: 20px;
+  }
+  .date_selector .button {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    line-height: 17px;
+    font-weight: bold;
+    color: #003C78;
+    text-align: center;
+    font-size: 120%;
+    overflow: hidden;
+    border: 1px solid #F2F2F2;
+  }
+    .date_selector .button:hover, .date_selector .button.hover {
+      background: none;
+      color: #003C78;
+      cursor: pointer;
+      border-color: #ccc;
+    }
+  .date_selector .prev {
+    left: 0;
+  }
+  .date_selector .next {
+    right: 0;
+  }
+  .date_selector table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    clear: both;
+  }
+    .date_selector th, .date_selector td {
+      width: 2.5em;
+      height: 2em;
+      padding: 0;
+      text-align: center;
+      color: black;
+    }
+    .date_selector td {
+      border: 1px solid #ccc;
+      line-height: 2em;
+      text-align: center;
+      white-space: nowrap;
+      color: #003C78;
+      background: white;
+    }
+    .date_selector td.today {
+      background: #FFFEB3;
+    }
+    .date_selector td.unselected_month {
+      color: #ccc;
+    }
+    .date_selector td.selectable_day {
+      cursor: pointer;
+    }
+    .date_selector td.selected {
+      background: #D8DFE5;
+      font-weight: bold;
+    }
+    .date_selector td.selectable_day:hover, .date_selector td.selectable_day.hover {
+      background: #003C78;
+      color: white;
+    }
+.span_data {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: outset;
+	border-right-style: outset;
+	border-bottom-style: outset;
+	border-left-style: outset;
+	color: #0000FF;
+	background-color: #E6E6E6;
+	font-size: 9pt;
+	padding-top: 1px;
+	padding-right: 3px;
+	padding-bottom: 1px;
+	padding-left: 3px;
+	cursor: pointer;
+}
+-->
+</style>
+<div id="errorTo"></div>
+<table width="700" border="0" cellspacing="1" cellpadding="2" id="go_main">
+  <tr>
+    <td colspan="6" id="title">报表查询</td>
+  </tr>
+  <form id="reportForm" action="" method="post">
+  <tr>
+    <td width="160" align="right">查询日期:</td>
+      <td width="540" colspan="5"><input name="start_date" type="text" id="start_date" value="[var.start_date]" size="10" />
+        至
+        <input name="end_date" type="text" id="end_date" value="[var.end_date]" size="10" />
+          <input type="submit" name="button" id="reportForm" value="查询" />
+          <span class="span_data" onClick="chg_date('t',0,0)">今天</span> <span class="span_data" onClick="chg_date('l',-1,-1)">昨天</span> <span class="span_data" onClick="chg_date('n',1,1)">明天</span> <span class="span_data" onClick="chg_date('w',-[var.week1],6-[var.week1])">本周</span> <span class="span_data" onClick="chg_date('lw',-[var.week1]-7,6-[var.week1]-7)">上周</span></td>   
+  </tr>
+  <tr>
+  <td align="right">查询类型:</td>
+  <td colspan="5"><select name="sell" size="1" id="sell">
+    <option value="-1">全 部</option>
+    <option value="1">已平仓</option>
+    <option value="0">未平仓</option>
+  </select>
+    <input name="demo" type="hidden" id="demo" value="0"> </td>
+  </tr></form>
+</table>

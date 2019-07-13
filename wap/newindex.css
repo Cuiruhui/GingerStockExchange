@@ -1,0 +1,82 @@
+.tabslider li {
+  padding: 0.6rem 0.6rem 0.6rem 0;
+  margin-left: 0.6rem;
+  position: relative;
+}
+.tabslider li a {
+  display: block;
+  width: 100%;
+  color: #333333;
+  text-decoration: none;
+  font-size: 0.72rem;
+  line-height: 1.08rem;
+  text-align: justify;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.tabslider li a:visited {
+  color: #333333;
+}
+.tabslider li a:hover {
+  color: #999999;
+}
+.tabslider li a:active {
+  color: #666666;
+}
+.tabslider li span {
+  display: block;
+  color: #999999;
+  text-align: left;
+  font-size: 0.48rem;
+  margin-top: 0.32rem;
+}
+.yb-ul li {
+  margin-left: 0 !important;
+  padding-left: 0.6rem;
+}
+.yb-ul-title {
+  width: 100%;
+  line-height: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+.yb-ul-title .zq-name {
+  font-size: 0.56rem;
+  margin-right: 0.4rem;
+}
+.yb-ul-title .zq-name img {
+  width: 0.8rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  margin-right: 0.32rem;
+  margin-top: -3px;
+}
+.yb-ul-title .hy-b {
+  margin-top: 0 !important;
+  font-size: 0.48rem;
+  color: #ffffff;
+  background: #4990e2;
+  border-radius: 4px;
+  width: 1.6rem;
+  text-align: center;
+}
+.yb-ul-title .pro-name {
+  font-size: 0.48rem;
+  margin-top: 0 !important;
+}
+.yb-ul-title .pro-name img {
+  width: 0.48rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
+  margin-left: 0.16rem;
+  margin-top: -3px;
+}
+.view-more {
+  background: #f7f7f7;
+  font-size: 0.48rem;
+  padding: 0.5rem 0;
+  color: #4a90e2;
+}

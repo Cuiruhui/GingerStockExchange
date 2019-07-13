@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>股票代码管理</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.ajaxify.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/jquery.formCheckbox_choose.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#btnAdd').click(function(){
+		self.location.href='stock.php?type=add';
+	});
+	$('#btnClearAll').click(function(){
+		if(confirm('确定清除所有股票的点差数？'))
+		{
+			self.location.href='stock.php?type=all';
+		}
+	});
+	$('#stop_pai,#se_bu,#updown').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+	$('.get').AjaxLoad({
+		event:'click',
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+		target: '#html'
+	});
+});
+</script>
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <thead> 
+    <tr class="row_ls"> 
+      <td colspan="10" valign="top"><table border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td height="20"><input type="button" name="btnAdd" id="btnAdd" value="新增股票" class="btn1" /></td> 
+            <td width="40" align="right">停牌:</td> 
+            <form id="frmSearch" name="frmSearch" method="get" action="stock.php"> 
+              <td width="40"> <select name="stop_pai" id="stop_pai"> 
+                  <option value="0" [var.stop_pai;if [var.stop_pai]=0; then 'selected="selected"'; else '';]>全部</option> 
+                  <option value="1" [var.stop_pai;if [var.stop_pai]=1; then 'selected="selected"'; else '';]>停牌</option> 
+                  <option value="2" [var.stop_pai;if [var.stop_pai]=2; then 'selected="selected"'; else '';]>无停牌</option> 
+                  <!--<option>[var.stop_pai;ope=html;select]</option>--> 
+                </select> </td> 
+              <td width="40" align="right">买卖:</td> 
+              <td width="40"> <select name="se_bu" id="se_bu"> 
+                  <option value="0" [var.se_bu;if [var.se_bu]=0; then 'selected="selected"'; else '';]>全部</option> 
+                  <option value="1" [var.se_bu;if [var.se_bu]=1; then 'selected="selected"'; else '';]>禁买</option> 
+                  <option value="2" [var.se_bu;if [var.se_bu]=2; then 'selected="selected"'; else '';]>禁卖</option> 
+                  <option value="3" [var.se_bu;if [var.se_bu]=3; then 'selected="selected"'; else '';]>禁买与禁卖</option> 
+                  <!--<option>[var.se_bu;ope=html;select]</option>--> 
+                </select> </td> 
+              <td width="40" align="right">升跌:</td> 
+              <td width="40"> <select name="updown" id="updown"> 
+                  <option value="all" [var.updown;if [var.updown]='all'; then 'selected="selected"'; else '';]>全部</option> 
+                  <option value="canup" [var.updown;if [var.updown]='canup'; then 'selected="selected"'; else '';]>可买升</option> 
+                  <option value="notup" [var.updown;if [var.updown]='notup'; then 'selected="selected"'; else '';]>禁买升</option> 
+                  <option value="candown" [var.updown;if [var.updown]='candown'; then 'selected="selected"'; else '';]>可买跌</option> 
+                  <option value="notdown" [var.updown;if [var.updown]='notdown'; then 'selected="selected"'; else '';]>禁买跌</option> 
+                  <!--<option>[var.updown;ope=html;select]</option>--> 
+                </select> </td> 
+              <td height="20"> &nbsp;查询: 
+                <input name="search" type="text" id="search" value="[var.search]" size="10" /> </td> 
+              <td height="20"><input name="btnSearch" class="btn1" id='btnSearch' type="submit" value="查 询" /></td> 
+            </form> 
+            <td height="20">&nbsp;</td> 
+            <td height="20">&nbsp;</td> 
+          </tr> 
+        </table></td> 
+    </tr> 
+    <tr class="row_title"> 
+      <td width="20" align="center"></td> 
+      <td width="30" align="center">ID</td> 
+      <td width="70" align="center">代码</td> 
+      <td width="70" align="center">名称</td> 
+      <td width="60" align="center">拼音</td> 
+      <td width="60" align="center">类型</td> 
+      <td width="70" align="center">板块</td> 
+      <td width="80" align="center">停牌时间</td> 
+      <td width="30" align="center">点差</td> 
+      <td width="200" align="right">设置</td> 
+    </tr> 
+  <form method="post" id="dclist" name="dclist" action="stock.php?"> 
+    <input name="PageNum" type="hidden" value="[var.PageNum]" /> 
+    <tr class="row1_odd"> 
+      <td align="center"><input name="dcID[]" type="checkbox" id="dcID[]" value="[tr.id;block=tr;ondata=stock_event]" /></td> 
+      <td align="center">[tr.id]</td> 
+      <td align="center">[tr.code]</td> 
+      <td align="center">[tr.name]</td> 
+      <td align="center">[tr.pinyin]</td> 
+      <td align="center">[tr.type;if [val]=sh;then '上证';else '深证']</td> 
+      <td align="center">[tr.bk_lists]</td> 
+      <td align="center">[tr.stop_date]</td> 
+      <td align="center">[tr.dc]</td> 
+      <td align="right"><span class="get" id="up_[tr.id]" value="stock.php?type=up&id=[tr.id]" target="#up_[tr.id]">[tr.up;htmlconv=no]</span> <span class="get" id="down_[tr.id]" value="stock.php?type=down&id=[tr.id]" target="#down_[tr.id]">[tr.down;htmlconv=no]</span> <span class="get" id="bull_[tr.id]" value="stock.php?type=bull&id=[tr.id]" target="#bull_[tr.id]">[tr.bull;htmlconv=no]</span> <span class="get" id="sell_[tr.id]" value="stock.php?type=sell&id=[tr.id]" target="#sell_[tr.id]">[tr.sell;htmlconv=no]</span> <span class="get" id="stop_[tr.id]" value="stock.php?type=stop&id=[tr.id]" target="#stop_[tr.id]">[tr.stop;htmlconv=no]</span> <span class="get" id="off_[tr.id]" value="stock.php?type=off&id=[tr.id]" target="#off_[tr.id]">[tr.off;htmlconv=no]</span> <a href="stock.php?type=edit&id=[tr.id]">修改</a> <a href="stock.php?type=del&id=[tr.id]" onClick="if(confirm('确定要删除股票：[tr.name]([tr.code])吗？')){return true;}else{return false;}">删除</a></td> 
+    </tr> 
+    <tr class="row1_even"> 
+      <td align="center"><input name="dcID[]" type="checkbox" id="dcID[]" value="[tr.id;block=tr;ondata=stock_event]" /></td> 
+      <td align="center">[tr.id]</td> 
+      <td align="center">[tr.code]</td> 
+      <td align="center">[tr.name]</td> 
+      <td align="center">[tr.pinyin]</td> 
+      <td align="center">[tr.type;if [val]=sh;then '上证';else '深证']</td> 
+      <td align="center">[tr.bk_lists]</td> 
+      <td align="center">[tr.stop_date]</td> 
+      <td align="center">[tr.dc]</td> 
+      <td align="right"><span class="get" id="up_[tr.id]" value="stock.php?type=up&id=[tr.id]" target="#up_[tr.id]">[tr.up;htmlconv=no]</span> <span class="get" id="down_[tr.id]" value="stock.php?type=down&id=[tr.id]" target="#down_[tr.id]">[tr.down;htmlconv=no]</span> <span class="get" id="bull_[tr.id]" value="stock.php?type=bull&id=[tr.id]" target="#bull_[tr.id]">[tr.bull;htmlconv=no]</span> <span class="get" id="sell_[tr.id]" value="stock.php?type=sell&id=[tr.id]" target="#sell_[tr.id]">[tr.sell;htmlconv=no]</span> <span class="get" id="stop_[tr.id]" value="stock.php?type=stop&id=[tr.id]" target="#stop_[tr.id]">[tr.stop;htmlconv=no]</span> <span class="get" id="off_[tr.id]" value="stock.php?type=off&id=[tr.id]" target="#off_[tr.id]">[tr.off;htmlconv=no]</span> <a href="stock.php?type=edit&id=[tr.id]">修改</a> <a href="stock.php?type=del&id=[tr.id]" onClick="if(confirm('确定要删除股票：[tr.name]([tr.code])吗？')){return true;}else{return false;}">删除</a></td> 
+    </tr> 
+    <tr class="nodata"> 
+      <td height="50" colspan="10" align="center">[tr;block=tr;nodata]没有符合条件的记录!!</td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td colspan="10"><a href="javascript:void(0);" onclick="$('#dclist').formCheckbox_choose({value:1})">全选</a> <a href="javascript:void(0);" onclick="$('#dclist').formCheckbox_choose({value:-1})">反选</a> <a href="javascript:void(0);" onclick="$('#dclist').formCheckbox_choose({value:0})">取消</a> 设置点差:
+        <input name="dc_num" type="text" id="dc_num" value="0" size="4" maxlength="5" /> 
+        <input type="submit" name="btnSet" id="btnSet" value="设　置" class="btn1" /> 
+        <input type="button" class="btn2" id="btnClearAll" name="btnClearAll" value="清空所有点差" title="清空所有股票点差" /></td> 
+    </tr> 
+    <tr align="center" class="row_ls"> 
+      <td colspan="10"><table border="0" align="center" cellpadding="2" cellspacing="0" class="pagelist"> 
+          <tr align="center" > 
+            <td><a id='page_first' href="[var..script_name]?stop_pai=[var.stop_pai]&se_bu=[var.se_bu]&updown=[var.updown]&search=[var.search]&PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td> 
+            <td><a id='page_prev' href="[var..script_name]?stop_pai=[var.stop_pai]&se_bu=[var.se_bu]&updown=[var.updown]&search=[var.search]&PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td> 
+            <td><a id='page_page' href="[var..script_name]?stop_pai=[var.stop_pai]&se_bu=[var.se_bu]&updown=[var.updown]&search=[var.search]&PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td> 
+            <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td> 
+            <td><a id='page_next' href="[var..script_name]?stop_pai=[var.stop_pai]&se_bu=[var.se_bu]&updown=[var.updown]&search=[var.search]&PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td> 
+            <td><a id='page_last' href="[var..script_name]?stop_pai=[var.stop_pai]&se_bu=[var.se_bu]&updown=[var.updown]&search=[var.search]&PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td> 
+          </tr> 
+        </table></td> 
+    </tr> 
+  </form> 
+  </thead> 
+   </table> 
+</body>
+</html>

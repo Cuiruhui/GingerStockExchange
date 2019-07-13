@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link  rel="stylesheet"  type="text/css" href="css/layout.css">
+    <title>左侧记录</title>
+
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		m = setInterval(sysMessage,5000);
+		b = setInterval(sysBC,5000);
+		mon = setInterval(sysMoney,1000);
+			
+	
+	});
+
+
+	var sysMoney = function(){
+				clearInterval(mon);
+				$.ajax({
+					type: 'GET',
+					url: './ajax.php?type=moneyall',
+					cache: false,
+					success:function(res){
+						info_data = res.split('^');
+						
+						
+						
+						$('#a_money').html(info_data[0]);
+						$('#a_zZymoney').html(info_data[1]);
+						$('#a_kyMoney').html(info_data[2]);
+						$('#a_baoCangXs').html(info_data[3]);
+						
+
+						$('#liveTime').html(info_data[4]);
+
+						mon = setInterval(sysMoney,1000);
+					}
+				});
+			}
+
+var sysMessage = function(){
+	clearInterval(m);
+	//res = ajaxUrl('./ajax.php?type=message');
+	$.ajax({
+		type: 'GET',
+		url: './ajax.php?type=message',
+		cache: false,
+		success:function(res){
+			if(parseInt(res)>0)
+			{
+				$('#sound_msg').html('<EMBED src="./wav/3.wav" hidden="true" volume="0" type="audio/x-ms-wma" />');
+				$('#a_msg').css('color','#ff0000');
+			}
+			else
+			{
+				$('#a_msg').css('color','#C7CBCF');
+			}
+			$('#a_msg').html('短信[' + res + ']');
+			m = setInterval(sysMessage,5000);
+		}
+	});
+}	
+
+var sysBC = function(){
+	clearInterval(b);
+	//res = ajaxUrl('./ajax.php?type=baocang');
+	$.ajax({
+		type: 'GET',
+		url: './ajax.php?type=baocang',
+		cache: false,
+		success:function(res){
+			if(parseInt(res)>0)
+			{
+				$('#sound_bc').html('<EMBED src="./wav/1.wav" hidden="true" volume="0" type="audio/x-ms-wma" />');
+				$('#a_bc').css('color','#ff0000');
+			}
+			else
+			{
+				$('#a_bc').css('color','#C7CBCF');
+			}
+			$('#a_bc').html('爆仓[' + res + ']');
+			b = setInterval(sysBC,10000);
+		}
+	});
+}
+
+
+
+
+function set1(){
+		$('#tab1').click(function(){
+			$("#tab1").removeClass("").addClass("curr");
+			$("#tab2").removeClass("curr").addClass("");
+	
+			$("#tab_c1").removeClass("hide").addClass("");
+			$("#tab_c2").removeClass("").addClass("hide");
+			sh_show = 1;
+			});
+		}
+
+	function set2(){
+		$('#tab2').click(function(){
+			$("#tab1").removeClass("curr").addClass("");
+			$("#tab2").removeClass("").addClass("curr");
+		
+			$("#tab_c1").removeClass("").addClass("hide");
+			$("#tab_c2").removeClass("hide").addClass("");
+			sh_show = 0;
+			});
+		}
+
+function format_2num(num){
+	num = Math.round(num *100);
+	return num/100;
+}
+
+	function loadStckinfo()
+			{
+					//var code = sh_show ? 'sh000001' : 'sz399001';
+				$.ajax({
+												type: 'GET',
+												url: "ajax.php?type=quoteall",
+												success:function(res)
+												{
+													eval(res);
+													//console.log(res);
+													quote = hq_str_sh000001.split(',');
+														//console.log(quote);
+														
+															
+																	$('#sh_nowprice').html(format_2num(parseFloat(quote[3])));	 //当前价格
+																
+																	zhangdiee = format_2num((parseFloat(quote[3])) - (parseFloat(quote[2])));	
+																
+																	zhangdifu = ((((parseFloat(quote[3])) - (parseFloat(quote[2]))) / (parseFloat(quote[2]))))*100;
+																
+													
+																
+																	$('#sh_zhangdie').html(zhangdiee.toFixed(2)); //涨跌额
+																	
+																	$('#sh_zhangfu').html(zhangdifu.toFixed(2)+'%');  //涨跌幅
+																		
+																	$('#sh_open').html(format_2num(parseFloat(quote[1])));	  //今开盘
+																	
+																	$('#sh_preclose').html(format_2num(parseFloat(quote[2])));	  //昨收盘
+																
+																	$('#sh_high').html(format_2num(parseFloat(quote[4])));	  //最高价
+																	
+																	$('#sh_low').html(format_2num(parseFloat(quote[5])));   //最低价
+																	
+																	$('#sh_amount').html(parseInt(parseInt(quote[9])/10000));  //成交额
+															
+																	$('#sh_vol').html(parseInt(parseInt(quote[8])/100));    //成交量手
+																
+															
+															
+														quote = hq_str_sz399001.split(',');
+										
+															
+																	$('#sz_nowprice').html(format_2num(parseFloat(quote[3])));	 //当前价格
+																
+																	zhangdiee = format_2num((parseFloat(quote[3])) - (parseFloat(quote[2])));	
+																
+																	zhangdifu = ((((parseFloat(quote[3])) - (parseFloat(quote[2]))) / (parseFloat(quote[2]))))*100;
+																
+													
+																
+																	$('#sz_zhangdie').html(zhangdiee.toFixed(2)); //涨跌额
+																	
+																	$('#sz_zhangfu').html(zhangdifu.toFixed(2)+'%');  //涨跌幅
+																		
+																	$('#sz_open').html(format_2num(parseFloat(quote[1])));	  //今开盘
+																	
+																	$('#sz_preclose').html(format_2num(parseFloat(quote[2])));	  //昨收盘
+																
+																	$('#sz_high').html(format_2num(parseFloat(quote[4])));	  //最高价
+																	
+																	$('#sz_low').html(format_2num(parseFloat(quote[5])));   //最低价
+																	
+																	$('#sz_amount').html(parseInt(parseInt(quote[9])/10000));  //成交额
+															
+																	$('#sz_vol').html(parseInt(parseInt(quote[8])/100));    //成交量手
+															
+																	
+															
+			
+													
+												}
+											});		
+				
+				if(IsOpen == 1){
+				window.setTimeout('loadStckinfo()', 20000);
+				}
+			}
+
+
+	loadStckinfo();
+
+
+
+	
+	</script>
+
+    <base target="stockMain" />
+</head>
+<body>
+<div id="sound_msg" style="display:none"></div>
+<div id="sound_bc" style="display:none"></div>
+<div id="test" style="padding:20px;"></div>
+
+
+
+
+<div id="sidebar" class="">
+		<div class="sidebar_list">
+	<div class="sidebar_top">
+		<h3 class="username">[var.xltm.user_info.realname] ：欢迎您!</h3>
+	</div>
+	<div class="sidebar_con">
+		<div class="">
+				<p class="curr" ><span id="liveTime" style="font-size: 14px; ">--</span></p>
+				<p>账户资金：<span id="a_money" class="l_zMoney">--</span>元</p>
+				<p class="curr">占用资金：<span id="a_zZymoney" class="l_zZymoney">--</span>&nbsp;元</p>
+				<p>可用额度：<span class="l_kyMoney" id="a_kyMoney">--</span>元 </p>
+				<!--<p class="curr">爆仓比例：<span class="l_baoCangXs" id="a_baoCangXs">--</span>% (系统：90%)</p>-->
+
+			<span id="sound_baoCangXs" style="display: none;"></span>&nbsp;&nbsp;
+			<a href="message.php" id="a_msg" style="color:#C7CBCF;">短信[0]</a>&nbsp;<a href="message.php" id="a_bc" style="color:#C7CBCF;">爆仓[0]</a><br>
+			<div class="clear"></div>
+		</div>
+		<div id="left_muen">
+	
+			<a href="stock_lists.php" >行情中心</a>
+			<a href="order.php" >快速下单</a>
+			<a href="deal.php" >持仓明细</a>
+			<a href="entrust.php" >委托单</a>
+			
+			<a href="atm.php" >申请提款</a>
+			<a href="pwd.php" >修改密码</a>
+			<a href="rules.php" >交易规则</a>
+			<a href="news.php" >系统公告</a>
+			<!--<a href="meigu.php" >美股(开发中)</a>-->
+			
+
+		</div>
+		
+		
+		
+	
+        
+        
+        <div class="sidebar_border sidebar_border2">
+                    <div class="tab">
+                                <span class="curr" id="tab1" onClick="set1();">上证指数</span>
+                    |			<span class="" id="tab2" onClick="set2();">深证成指</span>
+                  
+                    </div>
+                    <div id="cjzhishu">
+
+                    
+                    
+                        <div class="tabCon" id="tab_c1">
+                                <p>最新价：<span id="sh_nowprice">--</span></p>
+                                <p class="curr">涨跌额：<span id="sh_zhangdie">--</span>  涨跌幅:<span id="sh_zhangfu">--</span></p>
+                                <p>今开盘：<span id="sh_open">--</span><br>  昨收盘：<span id="sh_preclose">--</span></p>
+                                <p class="curr">最高价：<span id="sh_high">--</span> <br> 最低价：<span id="sh_low">--</span> </p>
+                                <p>总成交额（万元）：<br><span class="sh_amount" id="sh_amount" >--</span></p>
+                                <p class="curr">总成交量（手）：<span class="sh_vol" id="sh_vol">--</span></p>
+                        </div>
+                    
+                        <div class="tabCon hide" id="tab_c2">
+                                <p>最新价：<span id="sz_nowprice">--3</span></p>
+                                <p class="curr">涨跌额：<span id="sz_zhangdie">--</span>  涨跌幅:<span id="sz_zhangfu">--</span></p>
+                                <p>今开盘：<span id="sz_open">--</span>  <br>昨收盘：<span id="sz_preclose">--</span></p>
+                                <p class="curr">最高价：<span id="sz_high">--</span> <br> 最低价：<span id="sz_low">--</span> </p>
+                                <p>总成交额（万元）：<br><span class="sz_amount" id="sz_amount">--</span></p>
+                                <p class="curr">总成交量（手）：<span class="sz_vol" id="sz_vol">--</span></p>
+                        </div>
+                	</div>
+                   
+                
+        </div>	
+        
+    
+    
+ 
+		
+		
+	</div>
+	</div>		
+   
+</div>
+    
+ </body>
+</html>

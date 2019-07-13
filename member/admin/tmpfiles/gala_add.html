@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>休市安排_新增</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<link href="./style/date_input.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#gala_date").date_input();
+	$("#AddFrom").validate({
+		rules: {
+			gala_date: {
+				required: true,
+                dateISO: true
+			}
+		},
+		messages: {
+			start_date: {
+				required: "请输入一个开始日期.",
+				dateISO: "请输一个正确的日期 例如:2009-02-03."
+			}
+		},
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+	$('#btnBack').click(function(){
+		self.location.href='gala.php';
+	});
+	
+});
+</script>
+
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <form id="AddFrom" action="gala.php?type=AddFrom" method="post"> 
+    <tr class="row_title"> 
+      <td colspan="2"><b>新增休市安排</b></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td width="15%" align="right">休市日期:</td> 
+      <td width="85%"><input name="gala_date" type="text" id="gala_date" class="datepicker" value="[var.xltm.sys_date]" size="15" /></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">休市说明:</td> 
+      <td><input name="Description" type="text" id="Description" style="width:500px;" /></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="center">&nbsp;</td> 
+      <td><input type="submit" name="btnEnter" class="btn1" id="btnEnter" value="确定新增" />&nbsp;<input type="button" name="btnBack" id="btnBack" value="返回列表" class="btn1" /></td> 
+    </tr> 
+  </form> 
+</table> 
+</body>
+</html>

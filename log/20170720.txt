@@ -1,0 +1,2432 @@
+2017-07-20 12:08:56 117.158.202.184 insert into `buy_trust` set user='u999',code='600593',type='sh',name='&aring;&curren;&sect;&egrave;&iquest;ž&aring;œ&pound;&auml;&ordm;š',trust_type='1',buy_type='1',price='23.69',app='2',num='5',money='11845',agent='daili',stock_trust_date='2017-07-20',stock_trust_time='2017-07-20 12:08:55'
+2017-07-20 12:08:56 117.158.202.184 insert into `buy_deal` set user='u999',stock_code='600593',stock_type='sh',stock_name='&aring;&curren;&sect;&egrave;&iquest;ž&aring;œ&pound;&auml;&ordm;š',bull_price='23.69',bull_num='5',can_sell_num='5',bull_trust_id='13174',bull_trust_date='2017-07-20',bull_trust_time='2017-07-20 12:08:55',buy_type='1',bull_money='11845',bull_cost='0.002',sell_cost='0.002',bull_cost_money='23.69',save_cost='0.0004',agent='daili',agent_bull_money='18.95',agent_ret='80',dc_num='0',dc_money='0'
+2017-07-20 12:08:56 117.158.202.184 UPDATE `buy_trust` set stock_deal_time='2017-07-20 12:08:55' where id='13174'
+2017-07-20 12:09:05 117.158.202.184 insert into `buy_trust` set user='u999',code='600593',type='sh',name='&aring;&curren;&sect;&egrave;&iquest;ž&aring;œ&pound;&auml;&ordm;š',trust_type='1',buy_type='1',price='23.69',app='2',num='10',money='23690',agent='daili',stock_trust_date='2017-07-20',stock_trust_time='2017-07-20 12:09:05'
+2017-07-20 12:09:05 117.158.202.184 insert into `buy_deal` set user='u999',stock_code='600593',stock_type='sh',stock_name='&aring;&curren;&sect;&egrave;&iquest;ž&aring;œ&pound;&auml;&ordm;š',bull_price='23.69',bull_num='10',can_sell_num='10',bull_trust_id='13175',bull_trust_date='2017-07-20',bull_trust_time='2017-07-20 12:09:05',buy_type='1',bull_money='23690',bull_cost='0.002',sell_cost='0.002',bull_cost_money='47.38',save_cost='0.0004',agent='daili',agent_bull_money='37.9',agent_ret='80',dc_num='0',dc_money='0'
+2017-07-20 12:09:05 117.158.202.184 UPDATE `buy_trust` set stock_deal_time='2017-07-20 12:09:05' where id='13175'
+2017-07-20 12:09:16 117.158.202.184 insert into `buy_trust` set user='u999',code='600593',type='sh',name='&aring;&curren;&sect;&egrave;&iquest;ž&aring;œ&pound;&auml;&ordm;š',trust_type='1',buy_type='1',price='23.69',app='2',num='111',money='262959',agent='daili',stock_trust_date='2017-07-20',stock_trust_time='2017-07-20 12:09:16'
+2017-07-20 12:09:16 117.158.202.184 insert into `buy_deal` set user='u999',stock_code='600593',stock_type='sh',stock_name='&aring;&curren;&sect;&egrave;&iquest;ž&aring;œ&pound;&auml;&ordm;š',bull_price='23.69',bull_num='111',can_sell_num='111',bull_trust_id='13176',bull_trust_date='2017-07-20',bull_trust_time='2017-07-20 12:09:16',buy_type='1',bull_money='262959',bull_cost='0.002',sell_cost='0.002',bull_cost_money='525.92',save_cost='0.0004',agent='daili',agent_bull_money='420.74',agent_ret='80',dc_num='0',dc_money='0'
+2017-07-20 12:09:16 117.158.202.184 UPDATE `buy_trust` set stock_deal_time='2017-07-20 12:09:16' where id='13176'
+2017-07-20 12:09:35 117.158.202.184 insert into `buy_trust` set user='u999',code='600593',type='sh',name='&aring;&curren;&sect;&egrave;&iquest;ž&aring;œ&pound;&auml;&ordm;š',trust_type='1',buy_type='1',price='23.69',app='2',num='1111',money='2631959',agent='daili',stock_trust_date='2017-07-20',stock_trust_time='2017-07-20 12:09:35'
+2017-07-20 12:09:35 117.158.202.184 insert into `buy_deal` set user='u999',stock_code='600593',stock_type='sh',stock_name='&aring;&curren;&sect;&egrave;&iquest;ž&aring;œ&pound;&auml;&ordm;š',bull_price='23.69',bull_num='1111',can_sell_num='1111',bull_trust_id='13177',bull_trust_date='2017-07-20',bull_trust_time='2017-07-20 12:09:35',buy_type='1',bull_money='2631959',bull_cost='0.002',sell_cost='0.002',bull_cost_money='5263.92',save_cost='0.0004',agent='daili',agent_bull_money='4211.14',agent_ret='80',dc_num='0',dc_money='0'
+2017-07-20 12:09:35 117.158.202.184 UPDATE `buy_trust` set stock_deal_time='2017-07-20 12:09:35' where id='13177'
+2017-07-20 13:01:12 117.158.202.184 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='25.72',sell_cost_money='25.72',dc_money='64.3',sell_money='12860',sell_trust_id='13178',sell_gain='1015',gain='883.03',agent_sell_money='0',sell_trust_date='2017-07-20',sell_trust_time='2017-07-20 13:01:12' where id='00005955'
+2017-07-20 13:01:12 117.158.202.184 UPDATE `user_users` set money=money+12860+1015-25.72-0-64.3,cash=cash+1015-25.72-0-64.3 where username='u999'
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:13:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:14:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /
+2017-07-20 14:14:22 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-07-20 14:16:29 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:16:29 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:29 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:29 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:29 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:16:29 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:29 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:29 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:29 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:16:30 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:16:44 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:00 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:17:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:22:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:00 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:23:01 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:25:55 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /
+2017-07-20 14:25:55 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:19 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:44 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:46 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:46 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:46 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:46 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:51 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:28:51 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:51 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:51 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:28:55 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /
+2017-07-20 14:28:55 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-07-20 14:28:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /
+2017-07-20 14:28:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-07-20 14:29:17 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /
+2017-07-20 14:29:17 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-07-20 14:30:38 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:30:53 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:08 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:09 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:31:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:31:43 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:32:10 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:32:10 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:32:10 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:32:10 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:33:57 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:34:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:34:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:34:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:34:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:39 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:39:40 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:41:13 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:41:13 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:41:13 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:41:13 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:41:13 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:41:13 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:41:13 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:41:13 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:02 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /
+2017-07-20 14:44:02 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-07-20 14:44:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /
+2017-07-20 14:44:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-07-20 14:44:17 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:44:17 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:17 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:17 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:17 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:44:17 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:17 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:17 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:18 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:44:33 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:43 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:49 Database error message: Too many connections
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:49 Database error message: Too many connections
+SQL = 
+URL = /user_info.php
+2017-07-20 14:44:51 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:44:58 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:45:07 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:45:45 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:45:59 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:20 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:46:21 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:41 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-20 14:47:42 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php

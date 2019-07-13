@@ -1,0 +1,42 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>游戏规则</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/noright.js"></script>
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+$(document).ready(function(){
+	//parent.document.all("mainframe").style.height=document.body.scrollHeight; 
+	//parent.document.all("mainframe").style.width=document.body.scrollWidth; 
+});
+</script>
+<style type="text/css">
+<!--
+.style1 {color: #FF0000}
+.style2 {color: #0000FF}
+-->
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	//设置滚动条
+	if($.browser.msie&&$.browser.version=="6.0"&&$("html")[0].scrollHeight>$("html").height())
+		$("html").css("overflowY","scroll");
+});
+</script>
+</head>
+
+<body>
+<table width="98%"  border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC" class="mybox">
+  <tr>
+    <th><strong>游戏规则</strong></th>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF">[var.system_rule;htmlconv=no]</td>
+  </tr>
+</table>
+</body>
+</html>

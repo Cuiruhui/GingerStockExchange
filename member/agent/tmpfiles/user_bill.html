@@ -1,0 +1,100 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户帐单</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px; font-size:12px;}
+</style>
+<script type="text/javascript" src="./tips/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./tips/jquery.poshytip.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#tips_user').poshytip({
+		className: 'tip-violet',
+		bgImageFrameSize: 9
+	});
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+});
+</script>
+</head>
+<body> 
+<table width="98%" align="center" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF" style="margin-top:5px;border:1px solid #CCCCCC;">
+  <tr bgcolor="#F5F5F5">
+    <td colspan="2"><img src="./images/dot13.gif" border="0" align="absmiddle" hspace="3" />当前位置：代理平台 &gt; [var.demo;if [val]=0;then '正式用户';else '试玩帐号'] &gt; 汇总帐单([var.start_date] 至 [var.end_date])</td>
+  </tr>
+  <tr>
+    <td width="30%" height="30" bgcolor="#F5F5F5">&nbsp;<input name="btnFormalUsers" type="button" id="btnFormalUsers" value="按正式用户查询" onClick="document.location.href='?demo=0';" class="button3">
+      <input name="btnDemoUsers" type="button" id="btnDemoUsers" value="按试玩用户查询" onClick="document.location.href='?demo=1';" class="button3"></td>
+  <td width="70%" bgcolor="#F5F5F5"><form name="form1" method="post" action="">
+    &nbsp;&nbsp;&nbsp;指定用户<a href="javascript:void(0);" id="tips_user" title="小贴士:若要查询某一时间段内的所有用户汇总帐单,此处可放空!">(?)</a>：
+    <input name="username" type="text" id="username" value="[var.username]" size="15" />
+    &nbsp;&nbsp;从
+    <input name="start_date" type="text" id="start_date" class="datepicker" value="[var.start_date]" size="12">
+    到
+    <input name="end_date" type="text" id="end_date" class="datepicker" value="[var.end_date]" size="12">
+    <input type="submit" name="Submit" value="查询" class="button3">&nbsp;&nbsp;
+  </form></td>
+  </tr>
+</table>
+<table width='98%' border='0' align="center" cellpadding='3' cellspacing='1' bgcolor="#CCCCCC" class="mybox">
+  <tr align='center'>
+    <th>ID</th>
+    <th>帐单日期</th>
+    <th>用户名</th>
+    <th>交易量</th>
+    <th>当月交易量</th>
+    <th>留仓量</th>
+    <th>交易手续费</th>
+    <th>留仓费</th>
+    <th>当日损益</th>
+    <th>当日净利</th>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td>[tr.id;block=tr;ondata=event_load;aggregate=save_money_total:sum,cost_trade_money_total:sum,cost_save_money_total:sum,today_gain:sum,gain:sum]</td>
+    <td>[tr.bill_date]</td>
+    <td><a href="javascript:ShowUserInfo('[tr.username]');">[tr.username]</a></td>
+    <td>[tr.today_trade_money_total;frm='0.00']</td>
+    <td>[tr.month_trade_money_total;frm='0.00']</td>
+    <td>[tr.save_money_total;frm='0.00']</td>
+    <td>-[tr.cost_trade_money_total;frm='0.00']</td>
+    <td>-[tr.cost_save_money_total;frm='0.00']</td>
+    <td>[tr.today_gain;frm='0.00']</td>
+    <td>[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td>[tr.id;block=tr;;ondata=event_load;aggregate=save_money_total:sum,cost_trade_money_total:sum,cost_save_money_total:sum,today_gain:sum,gain:sum]</td>
+    <td>[tr.bill_date]</td>
+    <td><a href="javascript:ShowUserInfo('[tr.username]');">[tr.username]</a></td>
+    <td>[tr.today_trade_money_total;frm='0.00']</td>
+    <td >[tr.month_trade_money_total;frm='0.00']</td>
+    <td >[tr.save_money_total;frm='0.00']</td>
+    <td >-[tr.cost_trade_money_total;frm='0.00']</td>
+    <td>-[tr.cost_save_money_total;frm='0.00']</td>
+    <td>[tr.today_gain;frm='0.00']</td>
+    <td>[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td height="50" colspan="10" bgcolor="#FFFFFF">[tr;block=tr;nodata]<span class="gray">暂无符合条件持仓记录.</span></td>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td colspan="3" align="right">合计：</td>
+    <td>[tr.save_money_total:sum;frm='0.00']</td>
+    <td >-</td>
+    <td >-</td>
+    <td >[tr.cost_trade_money_total:sum;frm='0.00']</td>
+    <td>[tr.cost_save_money_total:sum;frm='0.00']</td>
+    <td>[tr.today_gain:sum;frm='0.00']</td>
+    <td>[tr.gain:sum;frm='0.00']</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>数据统计</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<link href="./style/date_input.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.ajaxify.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<style>
+.table1 td {font-size:14px; padding:5px;}
+.style1 {
+	color: #FF0000;
+	font-size:16px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.style2 {
+	color: #0000FF;
+	font-size:16px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.style3 {
+	color: #CC0033;
+	font-size:16px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.style4 {
+	color: #FF9933;
+	font-size:16px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+</style>
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <thead> 
+    <tr align="center" class="row_title">
+      <td height="25" colspan="4">数据总览</td>
+    </tr>
+    <tr class="row1_even"> 
+      <td width="20%" height="25" align="right">目前开市状态:</td> 
+      <td width="30%" height="25">[var.open_shi]</td> 
+      <td width="20%" height="25" align="right">开市时间:</td> 
+      <td width="30%" height="25">上午:[var.xltm.config.open_AM_Start] 至 [var.xltm.config.open_AM_End]　下午:[var.xltm.config.open_PM_Start] 至 [var.xltm.config.open_PM_End]</td> 
+    </tr> 
+    <tr class="row1_odd"> 
+      <td height="25" align="right">代理商人数:</td> 
+      <td height="25">[var.online1] 人</td> 
+      <td height="25" align="right">会员人数:</td> 
+      <td height="25">[var.online4] 人</td> 
+    </tr> 
+    <tr class="row1_even"> 
+      <td height="25" align="right">用户充值金额:</td> 
+      <td height="25" colspan="3"><font class="style1">[var.allpay;frm='0,000.00']</font>(总)　<font class="style2">[var.monthpay;frm='0,000.00']</font>(月)　<font class="style3">[var.weekpay;frm='0,000.00']</font>(周)　<font class="style4">[var.daypay;frm='0,000.00']</font>(日)</td> 
+    </tr> 
+    <tr class="row1_odd"> 
+      <td height="25" align="right">盈亏(已出帐)<a href="javascript:void(0);" title="已出帐:已经卖出的股票盈亏+持仓股票(买入手续费、点差费、留仓费)！">(?)</a>:</td> 
+      <td height="25" colspan="3"><font class="style1">[var.alluseragin;frm='0,000.00']</font>(总)　<font class="style2">[var.monthuseragin;frm='0,000.00']</font>(月)　<font class="style3">[var.weekuseragin;frm='0,000.00']</font>(周)　<font class="style4">[var.dayuseragin;frm='0,000.00']</font>(日)</td> 
+    </tr> 
+    <tr class="row1_even"> 
+      <td height="25" align="right">当前留仓单:</td> 
+      <td height="25">[var.bull_count]</td> 
+      <td height="25" align="right">当前留仓金额:</td> 
+      <td height="25"><font class="style1">[var.bull_money;frm='0,000.00']</font></td> 
+    </tr>
+    <tr class="row1_odd">
+      <td height="25" align="right">总交易次数:</td>
+      <td height="25">[var.trust_time]</td>
+      <td height="25" align="right">总交易金额:</td>
+      <td height="25"><font class="style1">[var.total_money;frm='0,000.00']</font></td>
+    </tr> 
+  </thead> 
+</table> 
+</body>

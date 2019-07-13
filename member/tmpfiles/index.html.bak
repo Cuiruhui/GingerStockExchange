@@ -1,0 +1,22 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>股票T+0交易系统 沪深A股最具权威的T+0交易平台_交易速度快_稳定性强_信誉高！</title>
+<link href="style/style.css" rel="stylesheet" type="text/css">
+<link href="css/skin/ymPrompt.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="js/ymPrompt.js"></script>
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<frameset rows="78,*" cols="*" frameborder="NO" border="0" framespacing="0">
+  <frame src="top.php?client=[var.client]" name="topFrame" scrolling="NO" noresize>
+  <frameset cols="170,*" frameborder="NO" border="0" framespacing="0">
+    <frame src="left.php" name="leftFrame" frameborder="no" scrolling="auto" noresize>
+    <frame src="stock_lists.php" name="stockMain" id="stockMain" frameborder="no" scrolling="auto">
+  </frameset>
+</frameset>
+<noframes>
+<body>您的浏览器不支持框架</body></noframes>
+</html>

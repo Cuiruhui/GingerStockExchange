@@ -1,0 +1,146 @@
+<script type="text/javascript">
+$('.page').AjaxLoad({
+	event:'click',
+	loading_target:'#loadtxt',
+	loading_txt:'数据加载中...',
+	params:'type=trust',
+	target: '#account_main'
+});
+$.ajax({
+	type: "GET",
+	url: 'account.php?type=Get_trust&page=[var.PageNum]&PageSize=[var.PageSize]&get_app=[var.app]&rand='+Math.random(),
+	success: function(data){
+		var stocks = data.split('|*|');
+		for(var i=1; i<stocks.length-1; i++){
+			var content = stocks[i];
+			var id = content.split(',')[0]; //代码
+			var curr_f = content.split(',')[5]; //买入价
+			if(parseFloat(curr_f)>0){
+				$('#price_'+id).html(curr_f);
+			}else{
+				$('#price_'+id).html('停牌');
+			}
+		}
+	}
+});
+$('#get_app').AjaxLoad({
+	event:'change',
+	method:'GET',
+	target: '#account_main',
+	loading_target:'#loadtxt',
+	loading_txt:'处理中,请稍后...',
+	link:'account.php',
+	params:'type=trust&demo=[var.demo]',
+	forms:'#formApp'
+});
+
+$('#demo').AjaxLoad({
+	event:'change',
+	method:'GET',
+	target: '#account_main',
+	loading_target:'#loadtxt',
+	loading_txt:'处理中,请稍后...',
+	link:'account.php',
+	params:'type=trust&get_app=[var.app]',
+	forms:'#formApp'
+});
+
+function cancel_buy(code,name,buy_id)
+{
+	var txt = '确定要撤销 ['+code+'] '+name+' 的委托交易??';
+	$.prompt(txt,{
+		callback: function(v,m,f){
+			if(v){
+				$.ajax({
+					url:'account.php?type=trust&act=CancelForm&id='+buy_id,
+					type:'GET',
+					timeout:3000,
+					success:function(data){
+						$("#account_main").html(data);
+					}
+				}
+				)
+			}else{}
+		},
+		buttons: { '确定':true, '取消': false  }
+	});
+}
+</script>
+<table width="100%" border="0" cellpadding="2" cellspacing="1" class="table1" id="trust_list">
+<tr class="row_title">
+  <td width="10%" align="center">ID</td>
+  <td width="8%" align="right">用户</td>
+  <td width="10%" align="center">委托时间</td>
+  <td width="7%" align="right">代码</td>
+  <td width="9%" align="right">名称</td>
+  <td width="7%" align="right">委托价</td>
+  <td width="6%" align="right">当前价</td>
+  <td width="6%" align="center">升/跌</td>
+  <td width="8%" align="right">数量(手)</td>
+  <td width="11%" align="right">发生金额</td>
+  <td width="8%" align="center">委托类型</td>
+  <td width="10%" align="right">撤销</td>
+</tr>
+<thead>   
+<tr class="row_ls">
+<form action="" id="formApp" method="get">
+  <td colspan="12">委托交易单状态:<select name="get_app" id="get_app" size="1">
+    <option value="">全部</option>
+    <option value="1">未交易</option>
+    <option value="2">已交易</option>
+    <option value="3">已撤销</option>
+    <option>[var.app;ope=html;select]</option>
+    </select>　帐号类型:<select name="demo" id="demo" size="1">
+    <option value="-1">全部</option>
+    <option value="0">正式</option>
+    <option value="1">试玩</option>
+    <option>[var.demo;ope=html;select]</option>
+    </select></td></form>
+  </tr>
+</thead>
+<tbody id="buy_tr">
+        <tr class="row1_odd" value="[tr.type][tr.code]">
+          <td align="center">[tr.id;block=tr;ondata=trust_event]</td>
+          <td align="right">[tr.user]</td>
+          <td align="center">[tr.stock_trust_time;frm='hh:nn:ss']</td>
+          <td align="right">[tr.type][tr.code]</td>
+          <td align="right">[tr.name]</td>
+          <td align="right"><font color="#FF0000">[tr.price]</font></td>
+          <td align="right" id="price_[tr.id]"><font color="#FF0000">&nbsp;</font></td>
+          <td align="center">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+          <td align="right">[tr.num]</td>
+          <td align="right">[tr.money;frm='0,000.00']</td>
+          <td align="center">[tr.trust_type;if [val]=1;then '买入';else '卖出']</td>
+          <td align="right">[tr.Success]<span onClick="javascript:cancel_buy('[tr.code]','[tr.name]','[tr.id]');" id="cancel_[tr.id]"[tr.CancelBut;magnet=span;mtype=m]>撤销</span>&nbsp;</td>
+    </tr>
+        <tr class="row1_even" value="[tr.type][tr.code]">
+          <td align="center">[tr.id;block=tr;ondata=trust_event]</td>
+          <td align="right">[tr.user]</td>
+          <td align="center">[tr.stock_trust_time;frm='hh:nn:ss']</td>
+          <td align="right">[tr.type][tr.code]</td>
+          <td align="right">[tr.name]</td>
+          <td align="right" ><font color="#FF0000">[tr.price]</font></td>
+          <td align="right" id="price_[tr.id]"><font color="#FF0000">&nbsp;</font></td>
+          <td align="center">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+          <td align="right">[tr.num]</td>
+          <td align="right">[tr.money;frm='0,000.00']</td>
+          <td align="center">[tr.trust_type;if [val]=1;then '买入';else '卖出']</td>
+          <td align="right">[tr.Success]<span onClick="javascript:cancel_buy('[tr.code]','[tr.name]','[tr.id]');" id="cancel_[tr.id]"[tr.CancelBut;magnet=span;mtype=m]>撤销</span>&nbsp;</td>
+    </tr>
+</tbody>
+        <tr class="row_ls">
+         <td align="center" colspan="12">[tr;block=tr;nodata]目前没有符合条件的委托交易记录.</td>
+  </tr>
+        <tr class="row_ls">
+          <td colspan="12" [var.showPage;magnet=tr;mtype=m]><table border="0" align="right" cellpadding="2" cellspacing="0">
+            <tr align="center" >
+              <td><span style="background-color:#A8DFFF; " class="page" id='page_first' value="[var..script_name]?PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</span></td>
+              <td><span style="background-color:#A8DFFF; " class="page" id='page_prev' value="[var..script_name]?PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</span></td>
+              <td><span style="background-color:#A8DFFF; " class="page" id='page_page' value="[var..script_name]?PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</span></td>
+              <td><div style="border-style:inset; border-width:1px; border-top-width:1px; border-left-width:1px; border-right-width:1px; border-bottom-width:1px; background-color:#A8DFFF; height:16px;width : 15px; ">[nv.page;block=td;currpage]</div></td>
+              <td><span style="background-color:#A8DFFF; " class="page" id='page_next' value="[var..script_name]?PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</span></td>
+              <td><span style="background-color:#A8DFFF; " class="page" id='page_last' value="[var..script_name]?PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</span></td>
+            </tr>
+          </table></td>
+        </tr>
+</table>

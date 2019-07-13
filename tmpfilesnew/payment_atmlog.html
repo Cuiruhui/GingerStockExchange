@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>提现历史</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/noright.js"></script>
+</head>
+<body> 
+<table width="99%"  border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" class="mybox"> 
+  <tr> 
+    <th colspan="8">提款历史记录</th> 
+  </tr> 
+  <tr align="center" bgcolor="#C5E2FB"> 
+    <td>提交日期</td> 
+    <td align="right">金额</td> 
+    <td>银行</td> 
+    <td>开户行</td> 
+    <td>帐号/姓名</td> 
+    <td>状态</td> 
+  <td>处理时间</td>
+  </tr> 
+  <tr align="center" bgcolor="#ffffff" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';"> 
+    <td>[tr.add_time;block=tr;ondata=event_row]</td> 
+    <td align="right">￥[tr.money;frm='0,000.00']</td> 
+    <td>[tr.bank]</td> 
+    <td>[tr.bankname]</td> 
+    <td>[tr.bankno]&nbsp;[tr.bankrealname]</td> 
+    <td>[tr.status]</td> 
+  <td>[tr.pay_time]</td>
+  </tr> 
+  <tr align="center" bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';"> 
+    <td>[tr.add_time;block=tr;ondata=event_row]</td> 
+    <td align="right">￥[tr.money;frm='0,000.00']</td> 
+    <td>[tr.bank]</td> 
+    <td>[tr.bankname]</td> 
+    <td>[tr.bankno]&nbsp;[tr.bankrealname]</td> 
+    <td>[tr.status]</td> 
+  <td>[tr.pay_time]</td>
+  </tr> 
+  <tr align="center" bgcolor="#FFFFFF"> 
+    <td colspan="7" height="100">[tr;block=tr;nodata]<span class="gray">暂无提款记录.</span></td> 
+  </tr> 
+</table> 
+</body>
+</html>

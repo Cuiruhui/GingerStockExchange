@@ -1,0 +1,2 @@
+2017-12-23 10:52:59 14.119.194.208 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='12.69',sell_cost_money='190.35',dc_money='763.20',sell_money='126900',sell_trust_id='13545',sell_gain='-300',gain='-2011.35',agent_sell_money='0',sell_trust_date='2017-12-23',sell_trust_time='2017-12-23 10:52:59' where id='00006129'
+2017-12-23 10:52:59 14.119.194.208 UPDATE `user_users` set money=money+126900+-300-190.35-0-0,cash=cash+-300-190.35-0-0 where username='uceshi'

@@ -1,0 +1,1057 @@
+@import url("wpbase.css")/*tpa=http://www.jrjr.hk/skin/2015/wpinc/wpbase.css*/;
+/**ÉÏ·½**/
+.extop_t{background-color:#F2F2F2; border-bottom:1px #E5E5E5 solid; margin:0 auto; overflow:hidden}
+.extop_t_all{width:1100px; margin:0 auto; overflow:hidden; line-height:30px; color:#999}
+.extop_t_all a,.extop_t_all a:link{text-decoration:none; color:#999;}
+.extop_t_all a:hover{text-decoration:none; color:#da241c}
+.extop_t_all .fl a{padding-right:12px}
+.extop_t_all .fr ul{list-style-type:none}
+.extop_t_all .fr ul li{float:left;padding-left:12px;}
+.extop_t_all .fr ul li a{ float:left}
+
+.extop_m{ background-color:#FFF; height:110px; margin:0 auto; overflow:hidden}
+.extop_m_all{width:1100px; margin:0 auto; overflow:hidden; height:75px; padding:17px 0 18px 0;}
+.extop_m_logo{width:420px; height:75px}
+.extop_m_m{width:189px; height:75px; padding-left:108px;}
+.extop_m_tel{width:383px; height:22px; line-height:22px; padding-top:53px; background:url("../wpimages/tel.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/tel.jpg*/ no-repeat right top}
+.extop_m_tel li{height:22px; line-height:22px; font-size:12px; color:#999; float:right; padding-left:12px}
+
+.window-head { width:100%;position:fixed; z-index:99990; left:0; top:0; background-color:#FEE6B8; display: none;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.20);
+-moz-box-shadow: 0 0 5px rgba(0,0,0,.20);
+box-shadow: 0 0 5px rgba(0,0,0,.20);}
+
+.exlist{ background-color:#FEE6B8; height:42px; margin:0 auto; overflow:hidden;}
+.exlist_all{width:1100px; margin:0 auto; overflow:hidden; height:42px;}
+/*
+#wplist{height:42px;text-align:center;background-color: #fff;z-index:10000;position:relative;width: 100%; top: auto; left: auto; z-index: 10000;}
+#wplist .exlist{zoom:1;display:inline-block;}*/
+
+
+.exnav{height:42px;float:right;margin:0px;}
+.exnav li{float:left;height:42px;line-height:42px; width:100px; background:url("../wpimages/liston.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/liston.jpg*/ no-repeat 0 0;}
+.exnav li:hover{background:url("../wpimages/liston.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/liston.jpg*/ no-repeat 0 -42px;}
+.exnav li:hover a{color:#fff;}
+.exnav li a{font-family:'Î¢ÈíÑÅºÚ';font-weight:600;font-size:15px; color:#555555; line-height:42px; text-align:center;display:block; text-decoration:none;text-shadow: 0 1px 0 #fdeccb;}
+.exnav li a:hover{text-decoration:none;text-shadow:none;}
+.exnav li.current{background:#ac0026;}
+.exnav li.current a{color:#fff;text-shadow:none}
+.exnav li.index a{display:block;padding-left:15px;background: url("../wpimages/homeicon_hov2.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/homeicon_hov2.png*/ no-repeat 25%;}
+.exnav li.index a:hover{display:block;padding-left:15px;background: url("../wpimages/homeicon_hov.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/homeicon_hov.png*/ no-repeat 25%;}
+
+.exnav li.index_on{background:url("../wpimages/liston.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/liston.jpg*/ no-repeat 0 -42px;;color:#fff;}
+.exnav li.index_on a{color:#fff;text-shadow:none }
+.exnav li.index_on a:hover{color:#fff;text-shadow:none}
+.exnav li.index_on a{display:block;padding-left:15px;background: url("../wpimages/homeicon_hov.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/homeicon_hov.png*/ no-repeat 25%;}
+
+.exnav li.list_on{background:url("../wpimages/liston.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/liston.jpg*/ no-repeat 0 -42px;;color:#fff;}
+.exnav li.list_on a{color:#fff;text-shadow:none }
+.exnav li.list_on a:hover{color:#fff;text-shadow:none}
+
+.exnavShow-exabout{background:url("../wpimages/exnavshow_bg.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/exnavshow_bg.png*/ repeat;width:100%;position:absolute; text-align:center;z-index:999;display:none;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15);}
+.exnavShow-exprocedures{background:url("../wpimages/exnavshow_bg.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/exnavshow_bg.png*/ repeat;width:100%;position:absolute; text-align:center;z-index:999;display:none;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15);}
+.exnavShow-exdeposit{background:url("../wpimages/exnavshow_bg.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/exnavshow_bg.png*/ repeat;width:100%;position:absolute; text-align:center;z-index:999;display:none;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15);}
+.exnavShow-exprice{background:url("../wpimages/exnavshow_bg.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/exnavshow_bg.png*/ repeat;width:100%;position:absolute; text-align:center;z-index:999;display:none;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15);}
+.exnavShow-exqa{background:url("../wpimages/exnavshow_bg.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/exnavshow_bg.png*/ repeat;width:100%;position:absolute; text-align:center;z-index:999;display:none;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15);}
+.exnavShow-exschool{background:url("../wpimages/exnavshow_bg.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/exnavshow_bg.png*/ repeat;width:100%;position:absolute; text-align:center;z-index:999;display:none;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15);}
+.exnavShow-exsafety{background:url("../wpimages/exnavshow_bg.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/exnavshow_bg.png*/ repeat;width:100%;position:absolute; text-align:center;z-index:999;display:none;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15);}
+.exnavShow-exactivity{background:url("../wpimages/exnavshow_bg.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/exnavshow_bg.png*/ repeat;width:100%;position:absolute; text-align:center;z-index:999;display:none;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15);}
+.exnavShow-exdown{background:url("../wpimages/exnavshow_bg.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/exnavshow_bg.png*/ repeat;width:100%;position:absolute; text-align:center;z-index:999;display:none;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15);}
+.exnavShow-excontact{background:url("../wpimages/exnavshow_bg.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/exnavshow_bg.png*/ repeat;width:100%;position:absolute; text-align:center;z-index:999;display:none;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15);}
+
+.exnavShowwrap{width:1100px;margin:0 auto; height:140px; padding:5px 0;font-family: 'Î¢ÈíÑÅºÚ';}
+.exnavShow-exabout .exnavList{ padding-left:90px;float:left}
+.exnavShow-exprocedures .exnavList{ padding-left:190px;float:left}
+.exnavShow-exdeposit .exnavList{ padding-left:290px;float:left}
+.exnavShow-exprice .exnavList{ padding-left:30px;float:left}
+.exnavShow-exqa .exnavList{ padding-left:30px;float:left}
+.exnavShow-exschool .exnavList{ padding-left:30px;float:left}
+.exnavShow-exsafety .exnavList{ padding-left:192px;float:left}
+.exnavShow-exactivity .exnavList{ padding-left:498px;float:left}
+.exnavShow-exdown .exnavList{ padding-left:598px;float:left}
+.exnavShow-excontact .exnavList{ padding-left:402px;float:left}
+
+.exnavList li{float:left; width:186px; overflow:hidden; line-height:36px; margin:10px;}
+.exnavList li a{color:#fff;text-decoration:none;}
+.exnavList li a img{width:180px; height:90px; border:3px #FDE6BA solid;}
+.exnavList li a:hover{color:#FEE6B8;text-decoration:none;}
+.exnavList li a:hover img{width:180px; height:90px; border:3px #C72921 solid;}
+
+
+.exnews{margin:0 auto; height:35px; overflow:hidden;}
+.exnews_all{width:1100px; margin:0 auto; line-height:35px; overflow:hidden; background-color:#FFF; color:#666;}
+.exnews_all a{text-decoration:none; color:#666}
+.exnews_all a:hover{text-decoration:none; color:#F00}
+.exnews_all span{color:#999; font-size:12px}
+
+.exflash{margin:0 auto; height:320px;  overflow:hidden;}
+#full-screen-slider { width:100%; height:320px; float:left; position:relative}
+#slides { display:block; width:100%; height:320px; list-style:none; padding:0; margin:0; position:absolute; z-index:10}
+#slides li { display:block; width:100%; height:100%; list-style:none; padding:0; margin:0; position:absolute}
+#slides li a { display:block; width:100%; height:100%; text-indent:-9999px}
+#pagination {display:block; list-style:none; position:absolute; left:50%; top:300px; z-index:30; padding:0; margin:0 auto;filter:alpha(opacity=60); -moz-opacity:0.6;  -khtml-opacity: 0.6;  opacity: 0.6;}
+#pagination li { display:block; list-style:none; width:60px; height:10px; float:left; margin-left:15px; border-radius:5px; background:#fff; }
+#pagination li a { display:block; width:100%; height:100%; padding:0; margin:0;  text-indent:-9999px;}
+#pagination li.current {background-color: #E50112;}
+
+/*login*/
+.exloginall{width:1100px; margin:0 auto; }
+.exlogin{width:347px; margin-left:763px; position:absolute; z-index:20; padding-top:30px; height:263px; overflow:hidden; background:url("../wpimages/login.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/login.png*/ no-repeat 0 30px;}
+.exlogin_zs{width:168px; height:47px; padding:0px 0px 0px 179px; float:left}
+.exlogin_zs a.exlogin_zs_ok{display:block;width:168px; height:47px;background:url("../wpimages/login.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/login.png*/ no-repeat 0 -264px;}
+.exlogin_zs a.exlogin_zs_ok:hover,.exlogin_zs a.exlogin_zs_ok:focus{display:block;width:168px; height:47px;background:url("../wpimages/login.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/login.png*/ no-repeat -168px -264px;}
+.exlogin_1{width:148px; height:34px; overflow:hidden; background-color:#FDFAF1; float:left; margin:22px 0 0 12px}
+.exlogin_1 input{width:140px; height:34px; line-height:34px;background-color:#FDFAF1; padding:0 4px; margin:0; border:none; color:#999}
+.exlogin_2{width:166px; height:34px; overflow:hidden; background-color:#FDFAF1; float:left; margin:22px 0 0 8px}
+.exlogin_2 input{width:158px; height:34px; line-height:34px;background-color:#FDFAF1; padding:0 4px; margin:0; border:none; color:#999}
+.exlogin_3{width:148px; height:30px; overflow:hidden; background-color:#FDFAF1; float:left; margin:11px 0 0 12px}
+.exlogin_3 input{width:140px; height:30px; line-height:34px;background-color:#FDFAF1; padding:0 4px; margin:0; border:none; color:#999}
+.exlogin_4{width:88px; height:32px; padding:10px 0 0 6px; float:left}
+.exlogin_4 .exyzm{width:88px; height:32px; background:url("../wpimages/login.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/login.png*/ no-repeat 0 -312px;display:block;}
+.exlogin_4 .exyzm:hover{width:88px; height:32px; background:url("../wpimages/login.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/login.png*/ no-repeat -88px -312px;}
+.exlogin_5{width:76px; height:32px; padding:10px 0 0 4px; float:left}
+.exzhzz{width:159px; height:41px; padding:15px 0 0 11px; float:left}
+.exzhzz .exzhzz_ok{display:block;width:159px; height:41px; background:url("../wpimages/login.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/login.png*/ no-repeat 0 -345px;}
+.exzhzz .exzhzz_ok:hover,.exzhzz .exzhzz_ok:focus{display:block;width:159px; height:41px; background:url("../wpimages/login.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/login.png*/ no-repeat -159px -345px;}
+.exzhqk{width:157px; height:41px; padding:15px 0 0 8px; float:left}
+.exzhqk .exzhqk_ok{display:block;width:157px; height:41px;background:url("../wpimages/login.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/login.png*/ no-repeat 0 -387px;}
+.exzhqk .exzhqk_ok:hover,.exzhqk .exzhqk_ok:focus{display:block;background:url("../wpimages/login.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/login.png*/ no-repeat -157px -387px;}
+.exhyzx{width:324px; height:40px; padding:8px 0 0 11px; float:left}
+.exhyzx .exhyzx_ok{display:block;width:324px; height:40px;background:url("../wpimages/login.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/login.png*/ no-repeat 0 -429px;}
+.exhyzx .exhyzx_ok:hover,.exhyzx .exhyzx_ok:focus{display:block;background:url("../wpimages/login.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/login.png*/ no-repeat 0 -470px;}
+
+/**/
+.exkkbz{margin:0 auto; height:39px; overflow:hidden;background-color:#FFF;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15);}
+.exkkbz_all{width:1100px; margin:0 auto; overflow:hidden; color:#666;}
+.exkkbz_all ul{width:848px; height:25px; margin:7px 0;background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat 0 0;}
+.exkkbz_all li{float:left;}
+.exkkbz_all .exkkbz_1{display:block;width:71px; height:25px;background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat -105px 0; margin-left:105px; float:left}
+.exkkbz_all .exkkbz_1:hover,.exkkbz_all .exkkbz_1:focus{display:block;background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat -105px -25px;}
+.exkkbz_all .exkkbz_2{display:block;width:97px; height:25px; background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat -222px 0; margin-left:46px; float:left}
+.exkkbz_all .exkkbz_2:hover,.exkkbz_all .exkkbz_2:focus{display:block;background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat -222px -25px;}
+.exkkbz_all .exkkbz_3{display:block;width:99px; height:25px;background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat -362px 0; margin-left:43px; float:left}
+.exkkbz_all .exkkbz_3:hover,.exkkbz_all .exkkbz_3:focus{display:block;background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat -362px -25px;}
+.exkkbz_all .exkkbz_4{display:block;width:98px; height:25px;background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat -504px 0; margin-left:43px; float:left}
+.exkkbz_all .exkkbz_4:hover,.exkkbz_all .exkkbz_4:focus{display:block;background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat -504px -25px;}
+.exkkbz_all .exkkbz_5{display:block;width:74px; height:25px;background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat -646px 0; margin-left:44px; float:left}
+.exkkbz_all .exkkbz_5:hover,.exkkbz_all .exkkbz_5:focus{display:block;background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat -646px -25px;}
+.exkkbz_all .exkkbz_6{display:block;width:78px; height:25px;background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat -762px 0; margin-left:42px; float:left}
+.exkkbz_all .exkkbz_6:hover,.exkkbz_all .exkkbz_6:focus{display:block;background:url("../wpimages/bz.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bz.png*/ no-repeat -762px -25px;}
+/*20150211*/
+.exkkbzs{margin:0 auto; height:71px; overflow:hidden;background-color:#FFF;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15);}
+.exkkbzs_all{/* width: 663px; */ margin:0 auto; overflow:hidden; color:#666;height: 119px;/* line-height: 80px; */}
+.exkkbzs_all ul{width: 492px; height:41px; /* margin-bottom: 61px; */ /* float:right */}
+.exkkbzs_all li{float:left;/* line-height: 90px; *//* margin-bottom: 12px; */height: 64px;width: 183px;}
+.exkkbzs_all .exkkbzs_1{display:block;width:159px; height:41px;background:url("../wpimages/tbn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/tbn.png*/ no-repeat 0 0; margin-left:10px; float:left}
+.exkkbzs_all .exkkbzs_1:hover,.exkkbzs_all .exkkbzs_1:focus{display:block;background:url("../wpimages/tbn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/tbn.png*/ no-repeat 0 -41px;}
+.exkkbzs_all .exkkbzs_2{display:block;width:157px; height:41px;background:url("../wpimages/tbn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/tbn.png*/ no-repeat -160px 0; margin-left:10px; float:left}
+.exkkbzs_all .exkkbzs_2:hover,.exkkbzs_all .exkkbzs_2:focus{display:block;background:url("../wpimages/tbn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/tbn.png*/ no-repeat -160px -41px;}
+.exkkbzs_all .exkkbzs_3{display:block;width:157px; height:41px;background:url("../wpimages/tbn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/tbn.png*/ no-repeat -318px 0; margin-left:10px; float:left}
+.exkkbzs_all .exkkbzs_3:hover,.exkkbzs_all .exkkbzs_3:focus{display:block;background:url("../wpimages/tbn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/tbn.png*/ no-repeat -318px -41px;}
+.exkkbzs_all .exkkbzs_4{display:block;width:159px; height:41px;background:url("../wpimages/tbn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/tbn.png*/ no-repeat -476px 0; margin-left:10px; float:left}
+.exkkbzs_all .exkkbzs_4:hover,.exkkbzs_all .exkkbzs_4:focus{display:block;background:url("../wpimages/tbn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/tbn.png*/ no-repeat -476px -41px;}
+
+.rightfloat{position: fixed;overflow-x:hidden;width:60px;height:330px;z-index:99999;right: 20px;top: 50%;margin-top: -132px}
+.rightfloat .box{width: 60px;padding-bottom: 6px;clear: both;float: right;position: relative;}
+.rightfloat #rightclose{display:block;width:18px;height:18px;line-height:18px;color:#a7a7a7;font-size:14px;text-align:center;background-color:#ffedcb;}
+.rightfloat .box li a{display:block;width: 100%;height: 100%;}
+.rightfloat span,.rightfloat ul li,.rightfloat a.t_title{display: block;float:right;width: 60px;height: 60px;background:url("../wpimages/rightfloat.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/rightfloat.png*/ no-repeat;cursor: pointer;position: relative;}
+.rightfloat .box .m_qrcode,.rightfloat .box .wxqrcode{background:url("../wpimages/rightfloat.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/rightfloat.png*/ no-repeat;}
+.rightfloat span{z-index: 9;}
+.rightfloat .box ul,.rightfloat .box div{position:absolute;width:245px;right: -300px;z-index: 8;}
+.rightfloat span.o_title{background-position: 0 0;}
+.rightfloat #rf_online .tithov{background-position: -61px 0;}
+.rightfloat span.m_title{background-position: 0 -67px;}
+.rightfloat #rf_mobile .tithov{background-position: -61px -67px;}
+.rightfloat .box .m_qrcode{width: 117px;height: 164px;background-position: -308px 0;top:0;right: 60px;display: none;}
+.rightfloat span.f_title{background-position: 0 -133px;}
+.rightfloat #rf_follow .tithov{background-position: -61px -133px;}
+.rightfloat span.t_title{background-position: 0 -199px;}
+.rightfloat #rf_top .tithov{background-position: -61px -199px;}
+.rightfloat .rf_online{width: 121px;float: right;}
+.rightfloat ul .o_kf{background-position: -184px 0;}
+.rightfloat ul #o_kfhov{background-position: -184px -67px;}
+.rightfloat ul .o_qq{background-position: -122px 0;border-right: 1px solid #d01c15;}
+.rightfloat ul #o_qqhov{background-position: -122px -67px;}
+.rightfloat ul .o_ts{background-position: -246px 0;border-right: 1px solid #d01c15;}
+.rightfloat ul #o_tshov{background-position: -246px -67px;}
+.rightfloat ul .f_wx{background-position: -246px -133px;}
+.rightfloat .box .wxqrcode{position:absolute;width: 113px;height: 153px;background-position: -426px 0;top:0;right: 120px;display: none;}
+.rightfloat ul #f_wxhov{background-position: -246px -200px;}
+.rightfloat ul .f_wb{background-position: -184px -133px;border-right: 1px solid #d01c15;border-left: 1px solid #d01c15;}
+.rightfloat ul #f_wbhov{background-position: -184px -200px;}
+.rightfloat ul .f_qzone{background-position: -122px -133px;}
+.rightfloat ul #f_qzonehov{background-position: -122px -200px;}
+
+.left_activ{position: fixed;width:100%;top: 60%;z-index:1000;}
+.left_activ .activ_box{width: 1350px;margin:0 auto;position: relative;}
+.left_activ .activ_box a{display: block;position: absolute;left: -10px;}
+
+/*ÄÚÈÝ*/
+#bottomNav{ background-color:#096; z-index:999; position:fixed; bottom:0; left:0; width:100%; height:38px; background:url("../wpimages/down.jpg");_position:absolute; 
+ _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); /* for IE6 */ overflow:visible;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);box-shadow: 0 0 5px rgba(0,0,0,.15); }
+.exdownall{margin:0 auto; padding-bottom:40px; overflow:hidden}
+.exdown_map{ margin:0 auto; padding:30px 0; overflow:hidden; background-color:#F3F3F3}
+.exdown_map_all{width:790px; padding:0 30px; margin:0 auto; overflow:hidden}
+.exdown_logo{
+	width: 710px;
+	height:54px;
+	line-height:27px;
+	color:#999;
+	padding:61px 0 21px 390px;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	background-image:url("../wpimages/downlogo.jpg");
+	background-repeat:no-repeat;
+	background-position:157px 22px;
+	font-size:12px;
+}
+.exdown_show{width:158px; float:left}
+.exdown_show_t{width:158px; padding:5px 0; font-size:13px; color:#666; font-weight:bold; border-bottom:1px #E2E2E2 solid; float:left}
+.exdown_show ul{width:158px; padding-top:10px; float:left}
+.exdown_show ul li{width:158px; float:left; line-height:24px; color:#999;}
+.exdown_show a{color:#999;text-decoration:none;  }
+.exdown_show a:hover{color:#DA281E;text-decoration:none; }
+
+
+.exdown_all{width:1100px; margin:auto; overflow:hidden}
+.exdown_l_1{width:129px; height:38px;display:block;background:url("../wpimages/bn.png") no-repeat 0 0; margin-right:19px; float:left}
+.exdown_l_1:hover{display:block;background:url("../wpimages/bn.png") no-repeat 0 -38px; float:left}
+.exdown_l_2{width:110px; height:38px;display:block;background:url("../wpimages/bn.png") no-repeat -148px 0; margin-right:11px; float:left}
+.exdown_l_2:hover{display:block;background:url("../wpimages/bn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bn.png*/ no-repeat -148px -38px; float:left}
+.exdown_l_3{width:110px; height:38px;display:block;background:url("../wpimages/bn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bn.png*/ no-repeat -269px 0; margin-right:11px; float:left}
+.exdown_l_3:hover{display:block;background:url("../wpimages/bn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bn.png*/ no-repeat -269px -38px; float:left}
+.exdown_l_4{width:110px; height:38px;display:block;background:url("../wpimages/bn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bn.png*/ no-repeat -382px 0; float:left}
+.exdown_l_4:hover{display:block;background:url("../wpimages/bn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bn.png*/ no-repeat -382px -38px; float:left}
+.exdown_r_1{width:41px; height:38px;display:block;background:url("../wpimages/bn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bn.png*/ no-repeat 0 -76px; float:right}
+.exdown_r_1:hover{display:block;background:url("../wpimages/bn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bn.png*/ no-repeat 0 -114px;}
+.exdown_r_2{width:41px; height:38px;display:block;background:url("../wpimages/bn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bn.png*/ no-repeat -41px -76px; float:right}
+.exdown_r_2:hover{display:block;background:url("../wpimages/bn.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/bn.png*/ no-repeat -41px -114px;}
+
+.exmid{margin:0 auto; overflow:hidden;}
+.exmid_all{width:1100px;margin:0 auto; overflow:hidden;}
+.exmid_l{width:714px;overflow:hidden}
+.exmid_r{width:363px; overflow:hidden}
+
+.ex_sshq{width:714px; overflow:hidden; border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; border-top:1px #DA281E solid;}
+.ex_sshq li {float: left; width: 171px; padding: 5px 0px 10px 5px;}
+.ex_sshq li span {font-size:10px}
+.exjshl{width:714px; overflow:hidden; float:left}
+.exjshl_t{width:714px; height:33px; background-color:#FEE6B8;float:left}
+.exjshl_t1{width:277px; padding-left:15px; height:33px; line-height:33px; float:left; color:#333; font-size:15px; font-weight:600}
+.exjshl_t2{width:422px;heigh.ex_sshq lit:33px; float:left}
+
+.title1a{width:211px;height:33px;line-height:33px;color:#fff;font-size:15px; font-weight:600; text-align:center;cursor:pointer;float:left;background-color:#DA281E; float:left}
+.title1b{width:211px;height:33px;line-height:33px;color:#333;font-size:15px; font-weight:600; text-align:center;cursor:pointer;float:left;background-color:#FEE6B8; float:left}
+
+.exjshl_s{width:712px; border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; float:left}
+.exjshl_l{width:291px; height:213px; float:left}
+.exjshl_r{width:385px; height:201px; padding:12px 4px 0 32px; background:url("../wpimages/line.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/line.jpg*/ no-repeat left center; float:left}
+
+.exindexabout{width:714px; overflow:hidden; float:left}
+.exindexabout_t{width:714px; height:33px; background-color:#FEE6B8;float:left}
+.exindexabout_t_l{width:140px;padding-left:15px; height:33px; line-height:33px; float:left; color:#333; font-size:15px; font-weight:600}
+
+.title2a{padding:0 15px;height:33px;line-height:33px;color:#fff;font-size:15px; font-weight:600; text-align:center;cursor:pointer;float:left;background-color:#DA281E; float:left}
+.title2b{padding:0 15px;height:33px;line-height:33px;color:#333;font-size:15px; font-weight:600; text-align:center;cursor:pointer;float:left;background-color:#FEE6B8; float:left}
+
+.exindexabout_s{width:680px; padding:16px; border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; float:left}
+.exindexabout_1{width:680px; height:187px; float:left}
+.exindexabout_1 li{float:left; font-size:12px}
+.exys1{width:110px; height:62px; padding:27px 0 0 68px;display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat 0 0; color:#666; float:left;text-decoration:none;}
+.exys1:hover{display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat -178px 0; color:#fff;text-decoration:none;}
+
+.exys2{width:98px; height:62px; padding:27px 0 0 74px;display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat 0 -89px; color:#666; float:left;text-decoration:none;}
+.exys2:hover{display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat -172px -89px; color:#fff;text-decoration:none;}
+
+.exys3{width:107px; height:62px; padding:27px 0 0 62px;display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat 0 -178px; color:#666; float:left;text-decoration:none;}
+.exys3:hover{display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat -169px -178px; color:#fff;text-decoration:none;}
+
+.exys4{width:81px; height:62px; padding:27px 0 0 80px;display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat 0 -267px; color:#666; float:left;text-decoration:none;}
+.exys4:hover{display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat -161px -267px; color:#fff;text-decoration:none;}
+
+.exys5{width:110px; height:62px; padding:35px 0 0 68px;display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat 0 -356px; color:#666; float:left;text-decoration:none;}
+.exys5:hover{display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat -178px -356px; color:#fff;text-decoration:none;}
+
+.exys6{width:98px; height:62px; padding:35px 0 0 74px;display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat 0 -454px; color:#666; float:left;text-decoration:none;}
+.exys6:hover{display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat -172px -454px; color:#fff;text-decoration:none;}
+
+.exys7{width:107px; height:62px; padding:35px 0 0 62px;display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat 0 -552px; color:#666; float:left;text-decoration:none;}
+.exys7:hover{display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat -169px -552px; color:#fff;text-decoration:none;}
+
+.exys8{width:81px; height:62px; padding:35px 0 0 80px;display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat 0 -650px; color:#666; float:left;text-decoration:none;}
+.exys8:hover{display:block;background:url("../wpimages/aboutbg.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/aboutbg.jpg*/ no-repeat -161px -650px; color:#fff;text-decoration:none;}
+
+.exindexabout_2{width:680px; height:187px; font-size:12px;line-height:20px;color:#666; float:left}
+.exindexabout_3{width:680px; height:187px; font-size:12px;line-height:20px;color:#666; float:left}
+.exindexabout_4{width:680px; height:187px; font-size:12px;line-height:20px;color:#666; float:left}
+.exindexabout_4 p{width:329px; padding-left:10px;height:187px;line-height:20px;color:#666;  float:left; font-size:12px}
+
+.exgg{width:714px; overflow:hidden; float:left}
+.exgg ul{width:714px; height:156px;}
+.rslides {
+	position: relative;
+	list-style: none;
+	overflow: hidden;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+.rslides li {
+	-webkit-backface-visibility: hidden;
+	position: absolute;
+	display: none;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+.rslides li:first-child {
+	position: relative;
+	display: block;
+	float: left;
+}
+.rslides img {
+	display: block;
+	height: auto;
+	float: left;
+	width: 100%;
+	border: 0;
+}
+
+.exzjnews{width:714px; overflow:hidden; float:left}
+.exzjnews_t{width:714px; height:33px; background-color:#FEE6B8;float:left}
+.exzjnews_t_l{width:240px;padding-left:15px; height:33px; line-height:33px; float:left; color:#333; font-size:15px; font-weight:600}
+.exzjnews_s{width:680px; padding:16px; border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; overflow:hidden; float:left}
+.exzjnews_p{width:228px; height:160px; padding:0 15px 0 0; float:left}
+.exzjnews_p li{width:228px; height:160px;}
+.exindex_newsall_r_m{width:437px; overflow:hidden; float:left; height:160px}
+.exindex_newsall_r_m li{width:428px; padding:0 0 0 9px; height:26px; background:url("../wpimages/sg.gif")no-repeat left -85px; line-height:26px; float:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;border-bottom:1px #e5e5e5 solid}
+.exindex_newsall_r_m a,.exindex_newsall_r_m a:link{color:#000000;text-decoration:none; float:left}
+.exindex_newsall_r_m a:hover{color:#ff0000;text-decoration:none;float:left}
+.exindex_newsall_r_m span{float:right; color:#999; font-size:11px}
+
+.title3a{padding:0 15px;height:33px;line-height:33px;color:#fff;font-size:15px; font-weight:600; text-align:center;cursor:pointer;float:left;background-color:#DA281E; float:left}
+.title3b{padding:0 15px;height:33px;line-height:33px;color:#333;font-size:15px; font-weight:600; text-align:center;cursor:pointer;float:left;background-color:#FEE6B8; float:left}
+
+.daylistindex{line-height:22px;}
+.fintime{width:85px;float:left;}
+.fincoun{width:70px;float:left;	}
+.clr {clear:both;}
+.daytitle {font-weight:bold;border-bottom:#CCC 1px solid;line-height:24px;height:24px;overflow:hidden;}
+.daylistindex{border-bottom:#CCC 1px solid;line-height:24px;height:24px;overflow:hidden;color:#666}
+.daylistindex a{color:#666;text-decoration:none;}
+.daylistmore {line-height:24px;height:24px;text-align:right;color:#ea3730;}
+.daylistmore a{color:#ea3730;}
+.dayri{ float:right}
+
+.exindexschool{width:714px; overflow:hidden; float:left}
+.exindexschool_t{width:714px; height:33px; background-color:#FEE6B8;float:left}
+.exindexschool_t_l{width:240px;padding-left:15px; height:33px; line-height:33px; float:left; color:#333; font-size:15px; font-weight:600}
+.exindexschool_s{width:680px; padding:16px; border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; overflow:hidden; float:left}
+.exindexschool_p{width:228px; padding:0 15px 0 0; float:left}
+.title4a{padding:0 15px;height:33px;line-height:33px;color:#fff;font-size:15px; font-weight:600; text-align:center;cursor:pointer;float:left;background-color:#DA281E; float:left}
+.title4b{padding:0 15px;height:33px;line-height:33px;color:#333;font-size:15px; font-weight:600; text-align:center;cursor:pointer;float:left;background-color:#FEE6B8; float:left}
+
+/*right*/
+.ex_kf{width:363px; height:118px; overflow:hidden; float:left}
+.ex_kf_cn{width:363px; height:118px;display:block;background:url("../wpimages/kf.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kf.jpg*/ no-repeat 0 0;}
+.ex_kf_cn:hover{display:block;background:url("../wpimages/kf.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kf.jpg*/ no-repeat 0 -118px;}
+.exkstd{width:363px;overflow:hidden; float:left}
+.exkstd_t{width:358px;padding-left:15px; height:33px; line-height:33px; background-color:#EA3730;float:left;color:#fff; font-size:15px; font-weight:600}
+.exkstd_more{width:361px; height:209px; border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; overflow:hidden; font-size:14px; float:left}
+.exkstd_0{width:91px; height:36px; padding-top:72px;display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat 0 0; text-align:center; color:#666;text-decoration:none; float:left}
+.exkstd_0:hover{display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat 0 -108px;color:#f23a33;text-decoration:none;}
+
+.exkstd_1{width:91px; height:36px; padding-top:72px;display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -91px 0; text-align:center; color:#666;text-decoration:none;float:left}
+.exkstd_1:hover{display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -91px -108px;color:#f23a33;text-decoration:none}
+
+.exkstd_2{width:90px;height:36px; padding-top:72px;display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -182px 0; text-align:center; color:#666;text-decoration:none;float:left}
+.exkstd_2:hover{display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -182px -108px;color:#f23a33;text-decoration:none}
+
+.exkstd_3{width:89px; height:36px; padding-top:72px;display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -272px 0;text-align:center; color:#666;text-decoration:none; float:left}
+.exkstd_3:hover{display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -272px -108px;color:#f23a33;text-decoration:none}
+
+.exkstd_4{width:91px; height:29px;padding-top:72px;display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -361px 0;text-align:center; color:#666;text-decoration:none; float:left}
+.exkstd_4:hover{display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -361px -101px;color:#f23a33;text-decoration:none}
+
+.exkstd_5{width:91px;height:29px;padding-top:72px;display:block;background:url("../wpimages/kstd.png") no-repeat -452px 0;text-align:center; color:#666;text-decoration:none; float:left}
+.exkstd_5:hover{display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -452px -101px;color:#f23a33;text-decoration:none}
+
+.exkstd_6{width:90px;height:29px;padding-top:72px;display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -543px 0;text-align:center; color:#666;text-decoration:none; float:left}
+.exkstd_6:hover{display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -543px -101px;color:#f23a33;text-decoration:none}
+
+.exkstd_7{width:89px;height:29px;padding-top:72px;display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -633px 0;text-align:center; color:#666;text-decoration:none; float:left}
+.exkstd_7:hover{display:block;background:url("../wpimages/kstd.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/kstd.png*/ no-repeat -633px -101px;color:#f23a33;text-decoration:none}
+
+
+.exright_news{width:363px; overflow:hidden; float:left}
+.exright_news_t{width:358px;padding-left:15px; height:33px; line-height:33px; background-color:#EA3730;float:left;color:#fff; font-size:15px; font-weight:600}
+.exright_news_s{width:361px;border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid;border-bottom:1px #E0E0E0 solid; overflow:hidden; float:left}
+.exright_news_p{width:344px; height:51px; float:left; padding:9px 8px 9px 9px;}
+.exright_news_c{width:343px; height:60px; padding:6px 9px; color:#656565; line-height:16px; float:left}
+.exright_news_c h2{ font-size:12px; font-weight:600; color:#F00; line-height:18px;}
+.exright_news_c a,.exright_news_c a:link{color:#F00;text-decoration:none;}
+.exright_news_c a:hover{color:#B4931F;text-decoration:none;}
+.exright_news_ss{width:343px;padding:0 9px; float:left}
+.exright_news_ss li{width:343px; height:28px; float:left; line-height:28px; padding-left:14px; background:url("../wpimages/sg.gif")no-repeat left -11px;border-top:1px #e9e9e9 solid}
+.exright_news_ss li a,.exright_news_ss li a:link{color:#333332;text-decoration:none;}
+.exright_news_ss li a:hover{color:#ff0000;text-decoration:none;}
+
+
+.exmt4{width:363px; overflow:hidden; float:left}
+.exmt4_t{width:358px;padding-left:15px; height:33px; line-height:33px; background-color:#EA3730;float:left;color:#fff; font-size:15px; font-weight:600}
+.exmt4_l{width:180px; height:33px;float:left}
+
+.title5b{padding:0 15px;height:30px;line-height:30px; margin-top:3px;color:#fff;font-size:15px; font-weight:600; text-align:center;cursor:pointer;float:left;background-color:#EA3730; float:left}
+.title5a{padding:0 15px;height:30px;line-height:30px;margin-top:3px;color:#333;font-size:15px; font-weight:600; text-align:center;cursor:pointer;float:left;background-color:#fff; float:left}
+
+.exmt4_content{width:361px; /* height:199px; */border-left:1px #E0E0E0 solid;border-right:1px #E0E0E0 solid; float:left}
+
+.exmt4_pc{width:361px; /* height:194px; */ background:url("../wpimages/mt4.jpg") no-repeat left top; float:left}
+
+.exmt4_pc_down a{width:361px; height:124px; display:block; float:left}
+
+.exmt4_content ul{width:348px; height:70px; padding:0 4px 0 9px; float:left}
+.exmt4_content li{width:105px; height:27px; padding-right:11px; padding-bottom:8px; float:left}
+.exmt4_content li a.pc1{display:block;width:105px; height:27px;}
+.exmt4_content li a.pc1:hover,.exmt4_content li a.pc1:focus{display:block;width:105px; height:27px;background:url("../wpimages/mt4.jpg") no-repeat -9px -194px;}
+.exmt4_content li a.pc2{display:block;width:105px; height:27px;}
+.exmt4_content li a.pc2:hover,.exmt4_content li a.pc2:focus{display:block;width:105px; height:27px;background:url("../wpimages/mt4.jpg") no-repeat -125px -194px;}
+.exmt4_content li a.pc3{display:block;width:105px; height:27px;}
+.exmt4_content li a.pc3:hover,.exmt4_content li a.pc3:focus{display:block;width:105px; height:27px;background:url("../wpimages/mt4.jpg") no-repeat -241px -194px;}
+.exmt4_content li a.pc4{display:block;width:105px; height:27px;}
+.exmt4_content li a.pc4:hover,.exmt4_content li a.pc4:focus{display:block;width:105px; height:27px;background:url("../wpimages/mt4.jpg") no-repeat -9px -229px;}
+.exmt4_content li a.pc5{display:block;width:105px; height:27px;}
+.exmt4_content li a.pc5:hover,.exmt4_content li a.pc5:focus{display:block;width:105px; height:27px;background:url("../wpimages/mt4.jpg") no-repeat -125px -229px;}
+.exmt4_content li a.pc6{display:block;width:105px; height:27px;}
+.exmt4_content li a.pc6:hover,.exmt4_content li a.pc6:focus{display:block;width:105px; height:27px;background:url("../wpimages/mt4.jpg") no-repeat -241px -229px;}
+
+
+.exmt4_phone{width:361px; /* height:194px; */ background:url("../wpimages/mt4.jpg") no-repeat left -269px; float:left}
+.exmt4_phone_down a{width:361px; height:124px; display:block; float:left}
+.exmt4_phone ul{width:348px; height:70px; padding:0 4px 0 9px; float:left}
+.exmt4_phone li{width:105px; height:27px; padding-right:11px; padding-bottom:8px; float:left}
+.exmt4_phone li a.phone3{display:block;width:105px; height:27px;}
+.exmt4_phone li a.phone3:hover,.exmt4_phone li a.phone3:focus{display:block;width:105px; height:27px;background:url("../wpimages/mt4.jpg") no-repeat -9px -464px;}
+.exmt4_phone li a.phone4{display:block;width:105px; height:27px;}
+.exmt4_phone li a.phone4:hover,.exmt4_phone li a.phone4:focus{display:block;width:105px; height:27px;background:url("../wpimages/mt4.jpg") no-repeat -125px -464px;}
+.exmt4_phone li a.phone5{display:block;width:105px; height:27px;}
+.exmt4_phone li a.phone5:hover,.exmt4_phone li a.phone5:focus{display:block;width:105px; height:27px;background:url("../wpimages/mt4.jpg") no-repeat -241px -464px;}
+.exmt4_phone li a.phone6{display:block;width:105px; height:27px;}
+.exmt4_phone li a.phone6:hover,.exmt4_phone li a.phone6:focus{display:block;width:105px; height:27px;background:url("../wpimages/mt4.jpg") no-repeat -9px -499px;}
+.exmt4_phone li a.phone7{display:block;width:105px; height:27px;}
+.exmt4_phone li a.phone7:hover,.exmt4_phone li a.phone7:focus{display:block;width:105px; height:27px;background:url("../wpimages/mt4.jpg") no-repeat -125px -499px;}
+.exmt4_phone li a.phone8{display:block;width:105px; height:27px;}
+.exmt4_phone li a.phone8:hover,.exmt4_phone li a.phone8:focus{display:block;width:105px; height:27px;background:url("../wpimages/mt4.jpg") no-repeat -241px -499px;}
+
+.exmt4_down{width:363px; height:162px; float:left}
+
+.excontact{width:363px; overflow:hidden; float:left}
+.excontact_t{width:358px;padding-left:15px; height:33px; line-height:33px; background-color:#EA3730;float:left;color:#fff; font-size:15px; font-weight:600}
+.excontact_s{width:329px;border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; padding-left:32px; line-height:25px; padding-top:10px; padding-bottom:10px; background:url("../wpimages/sg.gif")no-repeat left -171px;float:left}
+
+.exright_pic{width:363px; float:left}
+
+/*ÄÚÒ³*/
+.ex_jejsq{width:363px; overflow:hidden; float:left}
+.ex_jejsq_t{width:358px;padding-left:15px; height:33px; line-height:33px; background-color:#EA3730;float:left;color:#fff; font-size:15px; font-weight:600}
+.ex_jejsq_s{width:351px;border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; line-height:25px; padding-top:10px; padding-bottom:10px;float:left;padding-left: 10px;}
+
+.exabout{width:714px; overflow:hidden; float:left}
+.exabout_t{width:700px; padding-left:14px; height:33px;line-height:33px; float:left; color:#333; font-size:15px; font-weight:600;background-color:#FEE6B8;float:left}
+.exabout_t_r{width:700px; padding-left:14px; height:33px;line-height:33px; float:left; color:#fff; font-size:15px; font-weight:600;background-color:#F23934;float:left}
+.exabout_s{width:680px; padding:10px 16px; border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; line-height:24px; float:left}
+.exabout_s img{width:expression(this.width > 680 ? 680: true);max-width:680px;}
+.exabout_content_l{ float:left; width:406px; overflow:hidden}
+.exabout_content_r{ float:left; width:266px; padding-left:8px; padding-top:250px; overflow:hidden}
+
+.ex_comments_list{width:680px; padding:10px 0; float:left;}
+.ex_comments_t{width:667px; padding-left:13px; height:20px; line-height:20px; background:url("../wpimages/sg.jpg") no-repeat left -15px; float:left}
+.ex_comments_title{width:515px; font-size:14px; float:left}
+.ex_comments_title a,.ex_comments_title a:link{color:#666;text-decoration:none;}
+.ex_comments_title a:hover{color:#ff0000;text-decoration:none;}
+.ex_comments_title span{font-size:12px;color:#818181; font-weight:normal; padding-left:15px}
+.ex_comments_time{width:120px; padding-left:20px; line-height:20px; float:right;font-size:11px;color:#818181; background:url("../wpimages/sg.jpg") no-repeat left -62px;}
+
+.exqa_all{width:658px; padding:10px; border:1px #ffe6b8 solid; background-color:#fffdf5; float:left}
+.exqa_all_t{width:658px; height:25px; line-height:25px; border-bottom:1px #cbb979 dotted; font-size:15px; font-weight:bold; float:left}
+.exqa_all_s{width:658px; float:left; padding:10px 0;}
+.exqa_all_s li{width:300px; line-height:24px; padding:0 14px; float:left}
+.exqa_all_s li a,.exqa_all_s li a:link{color:#000;text-decoration:none;}
+.exqa_all_s li a:hover{color:#ff0000;text-decoration:none;}
+.ex_qa_list{width:680px; background-color:#fbfbfb; padding:10px 0; margin-top:10px; float:left}
+.ex_qa_t{width:667px; padding-left:13px; color:#ea3730; line-height:25px; font-size:13px; font-weight:bold; float:left}
+.ex_qa_c{width:632px; padding:10px 13px; margin:10px; background-color:#FFF; border:1px #dddddd solid; line-height:20px; color:#333; float:left}
+
+.ex_safety_p{width:76px; height:72px; padding-right:14px; padding-top:10px; float:left}
+.ex_safety_s{width:542px; padding-top:10px; float:left}
+
+.ex_school{width:680px; float:left; line-height:24px; padding-top:25px}
+.ex_school h2{color:#F00; height:35px; line-height:35px;padding-left:13px; margin:5px 0;background-color:#fffaf0;}
+.ex_school h3{color:#666; height:35px; line-height:35px; font-size:13px; font-weight:bold;padding-left:13px; margin:5px 0;background-color:#fbfbfb;}
+.ex_school span{color:#fff; background-color:#ffaa00; padding:2px 10px; line-height:20px}
+.ex_schools span{color:#fff; background-color:#ffaa00; padding:2px 10px; line-height:20px}
+.ex_school_line{width:633px; height:15px; float:left}
+
+.exvideo{width:680px; height:372px; background:url("../wpimages/video.jpg")no-repeat left top; padding-top:50px; float:left;position:relative}
+.exvideo a {text-decoration:none;}
+.exvideo a.video1{display:block;width:70px; height:27px;position:absolute; top:155px; left:161px; z-index:100}
+.exvideo a.video1:hover,.exvideo a.video1:focus{display:block;width:70px; height:27px;position:absolute; top:155px; left:161px; z-index:100;background:url("../wpimages/video.jpg") no-repeat -161px -428px;}
+.exvideo a.video2{display:block;width:70px; height:27px;position:absolute; top:155px; left:240px; z-index:100}
+.exvideo a.video2:hover,.exvideo a.video2:focus{display:block;width:70px; height:27px;position:absolute; top:155px; left:240px; z-index:100;background:url("../wpimages/video.jpg") no-repeat -240px -428px;}
+.exvideo a.video3{display:block;width:70px; height:27px;position:absolute; top:155px; left:477px; z-index:100}
+.exvideo a.video3:hover,.exvideo a.video3:focus{display:block;width:70px; height:27px;position:absolute; top:155px; left:477px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -161px -428px;}
+.exvideo a.video4{display:block;width:70px; height:27px;position:absolute; top:155px; left:556px; z-index:100}
+.exvideo a.video4:hover,.exvideo a.video4:focus{display:block;width:70px; height:27px;position:absolute; top:155px; left:556px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -240px -428px;}
+.exvideo a.video5{display:block;width:70px; height:27px;position:absolute; top:263px; left:161px; z-index:100}
+.exvideo a.video5:hover,.exvideo a.video5:focus{display:block;width:70px; height:27px;position:absolute; top:263px; left:161px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -161px -428px;}
+.exvideo a.video6{display:block;width:70px; height:27px;position:absolute; top:263px; left:240px; z-index:100}
+.exvideo a.video6:hover,.exvideo a.video6:focus{display:block;width:70px; height:27px;position:absolute; top:263px; left:240px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -240px -428px;}
+.exvideo a.video7{display:block;width:70px; height:27px;position:absolute; top:263px; left:477px; z-index:100}
+.exvideo a.video7:hover,.exvideo a.video7:focus{display:block;width:70px; height:27px;position:absolute; top:263px; left:477px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -161px -428px;}
+.exvideo a.video8{display:block;width:70px; height:27px;position:absolute; top:263px; left:556px; z-index:100}
+.exvideo a.video8:hover,.exvideo a.video8:focus{display:block;width:70px; height:27px;position:absolute; top:263px; left:556px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -240px -428px;}
+.exvideo a.video9{display:block;width:70px; height:27px;position:absolute; top:306px; left:161px; z-index:100}
+.exvideo a.video9:hover,.exvideo a.video9:focus{display:block;width:70px; height:27px;position:absolute; top:306px; left:161px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -161px -428px;}
+.exvideo a.video10{display:block;width:70px; height:27px;position:absolute; top:306px; left:240px; z-index:100}
+.exvideo a.video10:hover,.exvideo a.video10:focus{display:block;width:70px; height:27px;position:absolute; top:306px; left:240px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -240px -428px;}
+.exvideo a.video11{display:block;width:70px; height:27px;position:absolute; top:306px; left:477px; z-index:100}
+.exvideo a.video11:hover,.exvideo a.video11:focus{display:block;width:70px; height:27px;position:absolute; top:306px; left:477px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -161px -428px;}
+.exvideo a.video12{display:block;width:70px; height:27px;position:absolute; top:306px; left:556px; z-index:100}
+.exvideo a.video12:hover,.exvideo a.video12:focus{display:block;width:70px; height:27px;position:absolute; top:306px; left:556px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -240px -428px;}
+.exvideo a.video13{display:block;width:70px; height:27px;position:absolute; top:349px; left:161px; z-index:100}
+.exvideo a.video13:hover,.exvideo a.video13:focus{display:block;width:70px; height:27px;position:absolute; top:349px; left:161px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -161px -428px;}
+.exvideo a.video14{display:block;width:70px; height:27px;position:absolute; top:349px; left:240px; z-index:100}
+.exvideo a.video14:hover,.exvideo a.video14:focus{display:block;width:70px; height:27px;position:absolute; top:349px; left:240px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -240px -428px;}
+.exvideo a.video15{display:block;width:70px; height:27px;position:absolute; top:349px; left:477px; z-index:100}
+.exvideo a.video15:hover,.exvideo a.video15:focus{display:block;width:70px; height:27px;position:absolute; top:349px; left:477px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -161px -428px;}
+.exvideo a.video16{display:block;width:70px; height:27px;position:absolute; top:349px; left:556px; z-index:100}
+.exvideo a.video16:hover,.exvideo a.video16:focus{display:block;width:70px; height:27px;position:absolute; top:349px; left:556px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -240px -428px;}
+.exvideo a.video17{display:block;width:70px; height:27px;position:absolute; top:392px; left:161px; z-index:100}
+.exvideo a.video17:hover,.exvideo a.video17:focus{display:block;width:70px; height:27px;position:absolute; top:392px; left:161px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -161px -428px;}
+.exvideo a.video18{display:block;width:70px; height:27px;position:absolute; top:392px; left:240px; z-index:100}
+.exvideo a.video18:hover,.exvideo a.video18:focus{display:block;width:70px; height:27px;position:absolute; top:392px; left:240px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -240px -428px;}
+.exvideo a.video19{display:block;width:70px; height:27px;position:absolute; top:392px; left:477px; z-index:100}
+.exvideo a.video19:hover,.exvideo a.video19:focus{display:block;width:70px; height:27px;position:absolute; top:392px; left:477px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -161px -428px;}
+.exvideo a.video20{display:block;width:70px; height:27px;position:absolute; top:392px; left:556px; z-index:100}
+.exvideo a.video20:hover,.exvideo a.video20:focus{display:block;width:70px; height:27px;position:absolute; top:392px; left:556px; z-index:100;background:url("../wpimages/video.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/video.jpg*/ no-repeat -240px -428px;}
+
+.activity{width:692px; padding:10px; border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; line-height:24px; float:left}
+.activity_all{width:330px; padding:8px; float:left}
+.activity_pic{width:330px; height:148px; overflow:hidden; margin:0; float:left}
+.activity_t{width:320px; height:100px; padding:5px; font-size:12px; color:#999; line-height:20px; border-bottom:3px #ea3730 solid; float:left}
+.activity_t h1{padding:3px 0; font-size:14px; font-weight:bold; color:#ea3730}
+
+.exondown{width:712px; border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; line-height:24px; float:left}
+
+
+.ex_down_pc{width:712px; height:278px; background:url("../wpimages/down_pc.jpg"); float:left; position:relative}
+.ex_down_pc a.ex_down_pc_1{display:block;width:98px; height:25px;position:absolute; top:216px; left:45px; z-index:100}
+.ex_down_pc a.ex_down_pc_1:hover,.ex_down_pc a.ex_down_pc_1:focus{display:block;width:98px; height:25px;position:absolute; top:216px; left:45px; z-index:100;background:url("../wpimages/down_pc.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/down_pc.jpg*/ no-repeat -45px -494px;}
+.ex_down_pc a.ex_down_pc_2{display:block;width:98px; height:25px;position:absolute; top:216px; left:160px; z-index:100}
+.ex_down_pc a.ex_down_pc_2:hover,.ex_down_pc a.ex_down_pc_2:focus{display:block;width:98px; height:25px;position:absolute; top:216px; left:160px; z-index:100;background:url("../wpimages/down_pc.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/down_pc.jpg*/ no-repeat -160px -494px;}
+.ex_down_pc a.ex_down_pc_3{display:block;width:242px; height:41px;position:absolute; top:184px; left:347px; z-index:100}
+.ex_down_pc a.ex_down_pc_3:hover,.ex_down_pc a.ex_down_pc_3:focus{display:block;width:242px; height:41px;position:absolute; top:184px; left:347px; z-index:100;background:url("../wpimages/down_pc.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/down_pc.jpg*/ no-repeat -347px -462px;}
+
+.ex_down_phone{width:712px; height:278px; background:url("../wpimages/down_phone.jpg");float:left; position:relative}
+.ex_down_phone a.ex_down_pc_1{display:block;width:98px; height:25px;position:absolute; top:226px; left:45px; z-index:100}
+.ex_down_phone a.ex_down_pc_1:hover,.ex_down_phone a.ex_down_pc_1:focus{display:block;width:98px; height:25px;position:absolute; top:226px; left:45px; z-index:100;background:url("../wpimages/down_phone.jpg")no-repeat -45px -504px;}
+.ex_down_phone a.ex_down_pc_2{display:block;width:98px; height:25px;position:absolute; top:226px; left:160px; z-index:100}
+.ex_down_phone a.ex_down_pc_2:hover,.ex_down_phone a.ex_down_pc_2:focus{display:block;width:98px; height:25px;position:absolute; top:226px; left:160px; z-index:100;background:url("../wpimages/down_phone.jpg") no-repeat -160px -504px;}
+
+.ex_phone_s a.ex_down_phone_1{
+	display:block;
+	width:242px;
+	height:41px;
+	position:absolute;
+	top:74px;
+	left:1px;
+	z-index:100
+}
+.ex_phone_s a.ex_down_phone_1:hover,.ex_phone_s a.ex_down_phone_1:focus{display:block;width:242px; height:41px;position:absolute; top:74px; left:1px; z-index:100;background:url("../wpimages/down_phone.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/down_phone.jpg*/ no-repeat -349px -482px;}
+.ex_down_phone_3{width:315px; height:118px;position:absolute; top:130px; left:348px; z-index:100;}
+.ex_phone_t{width:315px; height:26px; float:left}
+.ex_phone_s{width:315px; height:70px; padding-top:18px; float:left}
+.title8a{height:26px; padding:0 8px; line-height:20px; margin-right:3px; text-align:center;cursor:pointer;float:left; background:url("../wpimages/pc_phone.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/pc_phone.jpg*/ no-repeat center bottom; color:#FFF}
+.title8b{height:26px; padding:0 8px; line-height:20px; margin-right:3px; text-align:center;cursor:pointer;float:left; background:url("../wpimages/pc_phone.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/pc_phone.jpg*/ no-repeat center top; color:#FFF}
+.ex_phone_s h3{width:315px; height:25px; line-height:20px; float:left}
+
+.ex_phone_down{width:242px; height:95px; margin-top:10px; float:left;}
+.ex_phone_down .ex_down_phone_1{display:block;width:242px; height:95px;background:url("../wpimages/btn_iphone.png") no-repeat;}
+.ex_phone_down1 .ex_down_phone_1:hover,.ex_phone_down .ex_down_phone_1:focus{display:block;background:url("../wpimages/btn_iphone.png") no-repeat;}
+
+.ex_phone_down2{width:242px; height:95px; margin-top:10px; float:left;}
+.ex_phone_down2 .ex_down_phone_2{display:block;width:242px; height:95px;background:url("../wpimages/btn_android.png") no-repeat;}
+.ex_phone_down2 .ex_down_phone_2:hover,.ex_phone_down .ex_down_phone_2:focus{display:block;background:url("../wpimages/btn_android.png") no-repeat;}
+
+.ex_phone_iphone{width:672px; padding:20px 0 40px 0; background:url("../wpimages/down_phone_line.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/down_phone_line.jpg*/ no-repeat center bottom; float:left}
+.ex_phone_iphone_off{width:672px; padding:20px 0 40px 0; float:left}
+.ex_iphone{width:550px; padding-left:115px; background:url("../wpimages/phone.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/phone.jpg*/ no-repeat left top; float:left}
+.ex_android{width:550px; padding-left:115px; background:url("../wpimages/android.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/android.jpg*/ no-repeat left top; float:left}
+.ex_windows{width:550px; padding-left:115px; background:url("../wpimages/windows.jpg")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/windows.jpg*/ no-repeat left top; float:left}
+.ex_iphone_t{width:400px; color:#7a7a7a; float:left}
+.ex_iphone_t a,.eex_iphone_ta:link{color:#000;text-decoration:none;}
+.ex_iphone_t a:hover{color:#ff0000;text-decoration:none;}
+.ex_iphone_t h2{width:400px; font-size:20px; color:#000; font-weight:bold; font-family:"Î¢ÈíÑÅºÚ","ºÚÌå"; padding-bottom:10px; float:left}
+
+.ex_iphone_d{width:120px; padding-left:30px; font-size:12px; line-height:23px; text-align:center; float:left}
+.ex_iphone_d img{ padding-bottom:10px;}
+.ex_iphone_d a,.ex_iphone_d:link{color:#0066cc;text-decoration:none;}
+.ex_iphone_d a:hover{color:#0066cc;text-decoration:none;}
+
+.exabout_content{width:700px; padding:6px; line-height:24px;border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; float:left}
+.exabout_content img{width:expression(this.width > 700 ? 700: true);max-width:700px; padding:0 0 10px 0}
+.exabout_content a,.exabout_content a:link{color:#ff0000; text-decoration:none;}
+.exabout_content a:hover{color:#ff0000;text-decoration:none;}
+.expage {clear:both;padding-top:10px;}
+/**/
+.exreg_title{width:100%;height:34px; border-bottom: solid #EAEAEA 1px;  line-height:34px; font-size:13px; font-weight:bold;}
+.cunkuan a{ color:#F30}
+.company_m ul {padding:5px; width:400px; line-height:22px;}
+.company_m span{ float:right; width:300px; text-align:left}
+.buzu {width:800px; background-color:#CCC; height:30px;}
+.buzu li{float:left; height:30px; padding:0 10px; margin-left:5px; line-height:30px;}
+.buzu li.on{background-color:#FFF; margin-top:5px; height:25px; line-height:25px; font-weight:bold; color:#F30}
+.hanglist tr{ padding:0 10px;}
+#dbc2 {line-height:22px;}
+.zhuzi td{
+	padding:5px;
+}
+.zhuzi_input{
+	height:25px;
+	border:#CCC 1px solid;
+	width:200px;
+	line-height:25px;
+	padding:0 5px;
+	
+	
+}
+.paylist{
+	padding:10px;
+}
+.paylistid{
+	padding:10px 0 20px;
+}
+.tishi{
+	padding:10px 0 0;
+	margin-top:20px;
+	border-top:1px #F2F2F2 solid;
+	color:#777
+}
+.loding{
+	position:absolute;
+	margin-top:-20px;
+}
+.tablepay{
+	padding:10px 0;
+	
+}
+.tablepay ul{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+.tablepay li{
+	float:left;
+	width:220px;
+	padding-right:5px;
+	padding-bottom:5px;
+}
+.tablepay li div{
+	background-color:#F0F0F0;
+	padding:5px;
+	line-height:22px;
+}
+
+.btna {
+	background:#D95508 url("../sgimages/anger.jpg")/*tpa=http://www.jrjr.hk/skin/2015/sgimages/anger.jpg*/;
+	width:246px;
+	height:50px;
+	line-height:50px;
+	font-size:16px;
+	font-weight:bold;
+	color:#FFF;
+}
+.aget {
+	margin:50px auto 30px;
+	text-align:center;
+}
+.clr{
+	clear:both;
+}
+.lsty {
+	width:600px;
+	margin:0 auto;
+	padding-top:20px;
+	
+	
+}
+.lsty ul{
+	padding:0px;
+	margin:0px;
+	list-style:none
+}
+.lsty li{
+	width:285px;
+	padding-right:15px;
+	float:left;
+	
+}
+.lsty .son{
+	border:#EAEAEA solid 1px;
+	
+	
+}
+.son .lstytitle{
+	background:#EAEAEA;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:10px;
+	height:30px;
+	line-height:30px;
+	
+}
+.lstyc {
+	padding:10px;
+	line-height:22px;
+	height:85px;
+	
+	
+}
+
+.lsty .sons{
+	border:#D95508 solid 1px;
+	
+	
+}
+.sons .lstytitle{
+	color:#FFF;
+	background:#D95508;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:10px;
+	height:30px;
+	line-height:30px;
+	
+	
+}
+.agetc {
+	text-align:center;
+}
+
+.reg {
+	padding-left:10px;
+	
+}
+.exopen_on{padding:0 5px; margin:8px 12px 0 0; height:25px; line-height:25px; font-size:14px; font-weight:bold; background-color:#FFF; border-left:1px #F1CD6D solid;border-top:1px #F1CD6D solid;border-right:1px #F1CD6D solid; color:#F00; float:left}
+.exopen_off{padding:0 5px; margin:8px 12px 0 0; height:25px; line-height:25px;font-size:12px; font-weight:bold; float:left}
+
+/***½¨Òé***/
+.exsuggest_t_contact{width:158px; height:38px; background:url("../sgimages/bn.jpg")/*tpa=http://www.jrjr.hk/skin/2015/sgimages/bn.jpg*/ no-repeat -0px -832px; float:left}
+.exsuggest_t{
+	width:480px;
+	padding:10px 10px 10px 180px;
+	border:1px #F3CF6F solid;
+	background-color:#FEFBEC;
+	float:left;
+	background-image: url("../sgimages/suggest1.jpg")/*tpa=http://www.jrjr.hk/skin/2015/sgimages/suggest1.jpg*/;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.chat_float .chat_box,.chat_float .chat_btns a{ background:url("../wpimages/float_chatbg.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/float_chatbg.png*/}
+.chat_float .chat_box{width: 485px;height:224px;margin:0 auto;background-position: 0 -90px;position:fixed;right: 50%;margin-right: -235px;z-index: 999999;overflow: hidden;top:40%;}
+.chat_float .chat_box .chat_words{width: 230px;padding:25px 0 0 0px;}
+.chat_float .chat_box .chat_words .chat_title{color:#000;display:block;padding-bottom: 10px;}
+.chat_float .chat_box .chat_words .chat_title strong{font-size:14px;}
+.chat_float .chat_box .chat_words p{color:#FFF;font-weight: bold;font-size: 14px;}
+.chat_float .chat_box .chat_words p.imp{font-size: 22px;}
+.chat_float .chat_box .chat_words p.chat_botwords{font-weight: normal;font-size: 12px;padding-top: 10px;}
+.chat_float .chat_btns{position: absolute;width:310px;height:40px;bottom: 0;left:38px;}
+.chat_float .chat_btns a{display:block;height:40px;float: left;}
+.chat_float .chat_btns a#chat_yes{width:154px;background-position: 0 0;}
+.chat_float .chat_btns a#chat_yes:hover{background-position: 0 -45px;}
+.chat_float .chat_btns a#chat_qq{width:145px;background-position: -154px 0;}
+.chat_float .chat_btns a#chat_qq:hover{background-position: -154px -45px;}
+#chat_close{display:block;width:30px;height:30px;position:absolute;right:14px;top:5px; background:url("../wpimages/float_chatbg.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/float_chatbg.png*/ no-repeat right top;}
+#chat_close:hover{background-position:right -40px;}
+
+
+#chat_yxl .chat_box{background:url("../wpimages/float_chatbg_yxl.png")/*tpa=http://www.jrjr.hk/skin/2015/wpimages/float_chatbg_yxl.png*/ no-repeat;}
+#chat_yxl .chat_words a{display:block;width:270px;height:120px;color:#ffd964;font-weight:bold;position:relative;top:24px;}
+#chat_yxl .chat_words a:hover{color:#ff9f30;}
+#chat_yxl .chat_words a span{position:absolute;bottom:0;left:18%;}
+/*20150512*/
+.leftfloat {position:fixed; bottom:40px; left:0px; z-index:9999}
+
+/* ---------------------·ÖÒ³------------------------------- */
+
+.pagelist {
+    height:30px;
+}
+
+.pagelist ul {
+	float:right;
+	margin-top: 5px;
+	}
+	
+.pagelist .firstPage {
+	width:30px;
+}
+
+.pagelist ul li {
+	float:left;
+	line-height:25px;
+	height:25px;
+	margin-left:5px;
+	font-size:12px;
+	border: 1px solid #FFC1C2;
+	padding:0px 10px;
+	width:auto;
+	color: #C30;
+}
+.pagelist ul li a {
+	text-decoration:none;
+	color: #C30;
+}
+
+.pagelist ul li a:hover {
+	color:#000;
+	text-decoration:none;
+}
+
+.pagelist ul li.thisclass, .pagelist ul li.thisclass a, .pagelist ul li.thisclass a:hover {
+	background-color:#F00; 
+	color:#FFF;
+	
+	}
+	
+.pagelist .pageinfo {
+	line-height:25px;
+	padding:12px 5px 10px 5px;
+	color:#999;
+   }
+.pagelist select{line-height:25px; margin-top:4px; border:none; display: block;}
+.pagelist .pageinfo strong {
+	color:#555;
+	font-weight:normal;
+	margin:0px 2px;
+}
+
+
+
+/*****   logup   ******/
+	.create-account-form {
+	background-color:#fff;
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.3);
+    height:245px;
+    padding: 0 20px;
+    position: absolute;
+    right: 81px;
+    top: 26px;
+    width: 325px;
+	font-size:12px;
+	z-index: 9999;
+    }
+
+    .create-account-form a {
+      color: #0dba8f;
+      text-decoration: none;
+      -webkit-transition: 0.25s;
+      -moz-transition: 0.25s;
+      transition: 0.25s;
+    }
+
+    .create-account-form a:hover, .create-account-form a:focus {
+      text-decoration: none;
+    }
+    .create-account-form input {
+      border: none;
+     }
+    .create-account-form .btn[disabled], fieldset[disabled] .btn {
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: .65;
+      filter: alpha(opacity=65);
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+    .create-account-form .text-center {
+      text-align: center;
+    }
+    .create-account-form .create-account-form-title {
+      padding-bottom: 10px;
+      color: #fff;
+      border-bottom: solid 1px #ffffff;
+      text-align: center;
+	  font-size: 24px;
+    }
+
+    .create-account-form h5 {
+      font-size: 20px;
+      font-weight: 400;
+      margin-top: 9px;
+      margin-bottom: 15px;
+    }
+	
+    .create-account-form img {
+      vertical-align: middle;
+	  width:78px;
+	  padding:0;
+    }
+
+    .form-wrap .form-group {
+      width: 100%;
+      margin-top: 7px;
+	  margin-bottom: 0;
+      position: relative;
+    }
+	
+	.form-wrap .refresh-captcha{
+		width: 40px;
+	}
+
+    .form-wrap .form-group input {
+      width: 95%;
+      padding:1px 1px 1px 10px;
+      position: relative;
+      top: 1px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+	  font-size:12px;
+	  text-indent: 16px;
+	  background-image:url(../wpimages/input_ico.jpg);
+	  background-repeat:no-repeat;
+    }
+
+    .form-wrap .coupon-title {
+      font-size: 14px;
+	  color: #333;
+      margin: 5px 0;
+    }
+
+    .form-wrap .btn {
+      color: #ffffff;
+      background-color: #f8724c;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 24px;
+      border-radius: 3px;
+      vertical-align: middle;
+      text-align: center;
+      border: 1px solid #f8724c;
+      cursor: pointer;
+	  padding: 0;
+	  margin-bottom:0;
+    }
+
+    .form-wrap .form-control {
+      height: 28px;      
+      display: inline-block;
+    }
+
+    .form-wrap .form-control:focus {
+      border-color: #0dba8f;
+    }
+
+    .form-wrap .form-control.code {
+      width: 181px;
+    }
+	
+	.form-wrap .form-control{
+		font-family:"Î¢ÈíÑÅºÚ", "ºÚÌå","ËÎÌå";		
+	}
+	#username{background-position:1px 7px;}
+	#password{background-position:-1px -47px;}
+	#validate{background-position:-2px -103px;}
+    .form-wrap .form-control.sendCodeBtn {
+      width: 100px;
+    }
+   
+    .form-wrap .has-error .form-control {
+      border-color: #e2462d;
+    }
+
+    .form-wrap .has-error .form-control:focus {
+      border-color: #e2462d;
+    }
+
+    .form-wrap .has-error input:-moz-placeholder {
+      color: #FF0000;
+    }
+
+    .form-wrap .has-error input:-ms-input-placeholder {
+      color: #FF0000;
+    }
+
+    .form-wrap .has-error input::-webkit-input-placeholder {
+      color: #FF0000;
+    }
+
+    .form-wrap .error-msg {
+      width: 124px;
+      padding: 5px 5px 5px 10px;
+      position: absolute;
+      margin-top: -32px;
+      color: #fff;
+      background: #0dba8f;
+      margin-left: 280px;
+      border-radius: 4px;
+      display: none;
+    }
+
+    .form-wrap .error-msg .inner {
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+      border-right: 6px solid #0dba8f;
+      position: absolute;
+      margin-top: 2px;
+      margin-left: -22px;
+    }
+
+    .form-wrap .errorMsg {
+      color: #e2462d;
+      display: none;
+      margin-top: 5px;
+    }
+
+    .form-wrap .submitBtn {
+      width: 100%;
+      margin: 5px 0;
+	  letter-spacing: 1em;
+    }
+
+    .form-wrap input:focus {
+      outline: none;
+    }
+	
+/*Ê×Ò³±íµ¥ */
+table{border-collapse: collapse; border-spacing: 0; background-color: transparent; font-size: 12px;}
+table.full{width: 100%;}
+table.table-quote{text-align: center; color: #333;}
+table.table-quote th{background:#ededed; padding: 8px 0; border-bottom: 1px solid #C2C2C2;color: #555; font-weight:900}
+table.table-quote tr{background: #fff; border-bottom: 1px solid #C2C2C2; border-top: 1px solid #fff;}
+table.table-quote td{padding: 8px 0;} 
+table.table-quote .odd{background: #fcfcfc;}
+table.table-quote .cade{background: #f2f6f9}
+table.table-quote tr:hover{background: #f2f6f9}
+
+.exmid_all_hq{width:1368px;margin:0 auto; overflow:hidden; margin-left:124px;}
+.exabout_t_hq{width:1089px; padding-left:14px; height:33px;line-height:33px; float:left; color:#333; font-size:15px; font-weight:600;background-color:#FEE6B8;float:left}
+.ex_sshq_hq{width:1100px; overflow:hidden; border-bottom:1px #E0E0E0 solid; border-left:1px #E0E0E0 solid; border-right:1px #E0E0E0 solid; border-top:1px #DA281E solid;}
+.ex_sshq_hq li {float: left; width: 171px; padding: 10px 87px 10px 17px;}
+.ex_sshq_hq li span {font-size:10px}
+
+.exhyzx{width:324px; height:40px; padding:8px 0 0 0px; float:left}
+.exhyzx .exhyzx_ok{display:block;width:324px; height:40px;background:url(../wpimages/dl1.png)no-repeat;}
+.exhyzx .exhyzx_ok:hover,.exhyzx .exhyzx_ok:focus{display:block;background:url(../wpimages/dl2.png)no-repeat;}
+
+
+.exzhzz{width:159px; height:41px; padding:15px 0 0 0px; float:left}
+.exzhzz .exzhzz_ok{display:block;width:159px; height:41px; background:url(../wpimages/mn1.png) no-repeat;}
+.exzhzz .exzhzz_ok:hover,.exzhzz .exzhzz_ok:focus{display:block;width:159px; height:41px; background:url(../wpimages/mn2.png) no-repeat;}
+
+.exzhqk{width:157px; height:41px; padding:15px 0 0 8px; float:left}
+.exzhqk .exzhqk_ok{display:block;width:157px; height:41px;background:url(../wpimages/sk1.png) no-repeat;}
+.exzhqk .exzhqk_ok:hover,.exzhqk .exzhqk_ok:focus{display:block;background:url(../wpimages/sk2.png) no-repeat;}
+

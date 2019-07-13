@@ -1,0 +1,476 @@
+﻿.MyNews {
+    background: url(/images/News2.png) #a1a4aa no-repeat center center;
+    background-size: 35px;
+    opacity: 0.5;
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    right: 10px;
+    bottom: 130px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    z-index: 2;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+    .MyNews.New {
+        opacity: 1;
+        background: url(/images/News2.png) #ff9900 no-repeat center center;
+        background-size: 35px;
+    }
+
+.MyNewsBox {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: none;
+}
+
+    .MyNewsBox .BoxTop {
+        height: 50px;
+        width: 100%;
+        background: #2182cc;
+        color: #fff;
+        line-height: 50px;
+        position: relative;
+    }
+
+        .MyNewsBox .BoxTop .TopName {
+            text-align: center;
+            margin: auto;
+            font-size: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+            .MyNewsBox .BoxTop .TopName a {
+                color: #fff;
+            }
+
+        .MyNewsBox .BoxTop u {
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            border: solid #fff;
+            border-width: 0 0 3px 3px;
+            top: 15px;
+            left: 20px;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            cursor: pointer;
+        }
+
+        .MyNewsBox .BoxTop i {
+            position: absolute;
+            right: 5px;
+            top: 0;
+            cursor: pointer;
+            padding: 0 10px;
+        }
+
+            .MyNewsBox .BoxTop i:after {
+                font-family: 'iconic';
+                content: "\e062";
+                font-size: 28px;
+                color: #fff;
+                font-style: normal;
+            }
+
+        .MyNewsBox .BoxTop n {
+            display: none;
+        }
+
+        .MyNewsBox .BoxTop.New n {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: #ff9900;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: block;
+            color: #fff;
+            font-size: 10px;
+            text-align: center;
+            line-height: 20px;
+        }
+
+    .MyNewsBox .BoxMsg {
+        background: #ebebeb;
+        width: 100%;
+    }
+
+        .MyNewsBox .BoxMsg .MsgWindow {
+            width: 100%;
+            height: 100%;
+            display: none;
+            overflow-y: auto;
+        }
+
+            .MyNewsBox .BoxMsg .MsgWindow .Time {
+                color: #999;
+                text-align: center;
+                width: 100%;
+                font-size: 14px;
+                line-height: 24px;
+            }
+
+            .MyNewsBox .BoxMsg .MsgWindow .MsgInfo {
+                padding: 10px 69px 10px 84px;
+                position: relative;
+            }
+
+                .MyNewsBox .BoxMsg .MsgWindow .MsgInfo .Logo {
+                    width: 54px;
+                    height: 54px;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 8px;
+                    left: 15px;
+                    overflow: hidden !important;
+                    display: block;
+                    background: #fff;
+                    z-index: 1;
+                    border: 1px solid #fff;
+                }
+
+                    .MyNewsBox .BoxMsg .MsgWindow .MsgInfo .Logo img {
+                        height: auto;
+                        left: 50%;
+                        max-height: 100%;
+                        max-width: 100%;
+                        position: absolute;
+                        top: 50%;
+                        -ms-transform: translate(-50%, -50%);
+                        -webkit-transform: translate(-50%, -50%);
+                        -moz-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                        width: auto;
+                    }
+
+                .MyNewsBox .BoxMsg .MsgWindow .MsgInfo .Content {
+                    background: #fff;
+                    padding: 15px;
+                    min-height: 20px;
+                    color: #252424;
+                    font-size: 14px;
+                    line-height: 20px;
+                    border-radius: 10px;
+                    position: relative;
+                    width: auto;
+                    float: left;
+                }
+
+                    .MyNewsBox .BoxMsg .MsgWindow .MsgInfo .Content:after {
+                        background: #fff;
+                        position: absolute;
+                        left: -6px;
+                        top: 18px;
+                        width: 12px;
+                        height: 12px;
+                        content: '';
+                        -webkit-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                    }
+
+                    .MyNewsBox .BoxMsg .MsgWindow .MsgInfo .Content a {
+                        color: #2182cc;
+                    }
+
+                .MyNewsBox .BoxMsg .MsgWindow .MsgInfo.Me {
+                    padding: 10px 84px 10px 69px;
+                }
+
+                    .MyNewsBox .BoxMsg .MsgWindow .MsgInfo.Me .Logo {
+                        left: auto;
+                        right: 15px;
+                    }
+
+                    .MyNewsBox .BoxMsg .MsgWindow .MsgInfo.Me .Content {
+                        background: #2182cc;
+                        color: #fff;
+                        float: right;
+                    }
+
+                        .MyNewsBox .BoxMsg .MsgWindow .MsgInfo.Me .Content:after {
+                            background: #2182cc;
+                            color: #fff;
+                            left: auto;
+                            right: -6px;
+                        }
+
+    .MyNewsBox .BoxSend {
+        background: #fff;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+
+        .MyNewsBox .BoxSend .NormalSend {
+            position: relative;
+            height: 50px;
+            line-height: 50px;
+        }
+
+            .MyNewsBox .BoxSend .NormalSend u {
+                border: 1px solid #2182cc;
+                color: #2182cc;
+                border-radius: 50%;
+                width: 28px;
+                height: 28px;
+                line-height: 28px;
+                display: block;
+                font-size: 28px;
+                position: absolute;
+                top: 11px;
+                left: 10px;
+                text-decoration: none;
+                text-align: center;
+            }
+
+            .MyNewsBox .BoxSend .NormalSend #inputMsg {
+                margin: 10px 0 0 50px;
+                border-bottom: 1px solid #d7d7d7;
+                height: 30px;
+                line-height: 30px;
+                font-size: 14px;
+            }
+
+                .MyNewsBox .BoxSend .NormalSend #inputMsg:focus {
+                    border-bottom: 1px solid #2182cc;
+                }
+
+            .MyNewsBox .BoxSend .NormalSend .SendMsg {
+                position: absolute;
+                top: 10px;
+                right: 5px;
+                width: 60px;
+                text-align: center;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 5px;
+                background: #2182cc;
+                color: #fff;
+                font-size: 14px;
+            }
+
+        .MyNewsBox .BoxSend .QuickReply {
+            padding: 5px 20px;
+            border-top: 1px solid #d7d7d7;
+            margin: 0;
+            display: none;
+            list-style: none;
+        }
+
+            .MyNewsBox .BoxSend .QuickReply li {
+                border-bottom: 1px dotted #d7d7d7;
+                font-size: 12px;
+                line-height: 25px;
+                text-indent: 25px;
+                cursor: pointer;
+                color: #666;
+                letter-spacing: 1px;
+                position: relative;
+            }
+
+                .MyNewsBox .BoxSend .QuickReply li:nth-last-child(1) {
+                    border: none;
+                }
+
+                .MyNewsBox .BoxSend .QuickReply li:before {
+                    position: absolute;
+                    left: 7px;
+                    top: 7px;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: #d7d7d7;
+                    content: '';
+                }
+
+    .MyNewsBox .BoxUser {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+        z-index: 2;
+    }
+
+        .MyNewsBox .BoxUser .BoxUserList {
+            width: 100%;
+            overflow-y: auto;
+            background: #ebebeb;
+        }
+
+            .MyNewsBox .BoxUser .BoxUserList ul {
+                padding: 0;
+                margin: 0;
+            }
+
+                .MyNewsBox .BoxUser .BoxUserList ul li {
+                    background: #fff;
+                    border-bottom: 1px solid #d7d7d7;
+                    height: 60px;
+                    line-height: 60px;
+                    font-size: 16px;
+                    color: #666;
+                    padding: 0 82px 0 60px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    position: relative;
+                }
+
+                    .MyNewsBox .BoxUser .BoxUserList ul li .Logo {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
+                        overflow: hidden !important;
+                        display: block;
+                        background: #fff;
+                        z-index: 1;
+                        border: 1px solid #eee;
+                    }
+
+                        .MyNewsBox .BoxUser .BoxUserList ul li .Logo img {
+                            height: auto;
+                            left: 50%;
+                            max-height: 100%;
+                            max-width: 100%;
+                            position: absolute;
+                            top: 50%;
+                            -ms-transform: translate(-50%, -50%);
+                            -webkit-transform: translate(-50%, -50%);
+                            -moz-transform: translate(-50%, -50%);
+                            transform: translate(-50%, -50%);
+                            width: auto;
+                        }
+
+                    .MyNewsBox .BoxUser .BoxUserList ul li u {
+                        display: none;
+                    }
+
+                    .MyNewsBox .BoxUser .BoxUserList ul li.New u {
+                        background: #ff9900;
+                        border-radius: 50%;
+                        color: #fff;
+                        display: block;
+                        font-size: 10px;
+                        height: 20px;
+                        left: 5px;
+                        line-height: 20px;
+                        position: absolute;
+                        text-align: center;
+                        text-decoration: none;
+                        text-indent: 0;
+                        top: 5px;
+                        width: 20px;
+                        z-index: 2;
+                    }
+
+                    .MyNewsBox .BoxUser .BoxUserList ul li i {
+                        width: 32px;
+                        height: 32px;
+                        line-height: 32px;
+                        position: absolute;
+                        right: 5px;
+                        top: 15px;
+                        cursor: pointer;
+                        text-indent: 0;
+                        text-align: center;
+                    }
+
+                        .MyNewsBox .BoxUser .BoxUserList ul li i:after {
+                            font-family: 'iconic';
+                            content: "\e065";
+                            font-size: 26px;
+                            color: #2182cc;
+                            font-style: normal;
+                        }
+
+                    .MyNewsBox .BoxUser .BoxUserList ul li .Resume {
+                        background: #ff9900;
+                        color: #fff;
+                        display: block;
+                        width: 40px;
+                        text-align: center;
+                        position: absolute;
+                        right: 42px;
+                        top: 0;
+                        text-decoration: none;
+                        display: none;
+                        font-size: 14px;
+                    }
+
+                    .MyNewsBox .BoxUser .BoxUserList ul li.Current .Resume {
+                        display: block;
+                    }
+
+                    .MyNewsBox .BoxUser .BoxUserList ul li.Ent {
+                        padding: 0 82px 0 60px !important;
+                    }
+
+                        .MyNewsBox .BoxUser .BoxUserList ul li.Ent .Resume {
+                            display: none !important;
+                        }
+
+.MyCard {
+    padding: 5px;
+    background: #fff;
+    display: inline-block;
+    cursor: pointer;
+}
+
+    .MyCard .CardContent {
+        padding: 5px;
+        background: #fff;
+        border: 1px solid #eee;
+    }
+
+        .MyCard .CardContent .UInfo {
+            width: 180px;
+            text-align: left;
+            position: relative;
+            line-height: 25px;
+            color: #999;
+        }
+
+            .MyCard .CardContent .UInfo .Item {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 150px;
+            }
+
+                .MyCard .CardContent .UInfo .Item:nth-child(1) {
+                    color: #2182cc;
+                }
+
+            .MyCard .CardContent .UInfo u {
+                position: absolute;
+                right: 5px;
+                top: 0;
+                text-decoration: none;
+            }
+
+        .MyCard .CardContent .LinkBtn {
+            text-align: center;
+            background: #2182cc;
+            color: #fff;
+            height: 30px;
+            line-height: 30px;
+            margin: 5px 0 -5px -6px;
+            padding: 0 6px;
+            width: 100%;
+        }

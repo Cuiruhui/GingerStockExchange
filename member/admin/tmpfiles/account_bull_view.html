@@ -1,0 +1,68 @@
+<div class="popup"> 
+  <div class="popup-header"> 
+    <div class="popup-title">查看交易</div> 
+    <a href="javascript:;" onclick="$.closePopupLayer('bull_view')" title="Close" class="close-link">关闭</a> </div> 
+  <div class="popup-body"> 
+    <table width="100%" border="0" cellspacing="1" cellpadding="2" class="table1"> 
+      <tr class="row_ls"> 
+        <td width="80">股票代码:</td> 
+        <td width="120">&nbsp;[var.v.stock_code]</td> 
+        <td width="80">股票名称:</td> 
+        <td width="120">&nbsp;[var.v.stock_name]</td> 
+        <td width="80">升/跌:</td> 
+        <td width="120">&nbsp;[var.v.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td>会员账号:</td> 
+        <td>&nbsp;[var.v.user]</td> 
+        <td>买入日期:</td> 
+        <td>&nbsp;[var.v.bull_trust_date]</td> 
+        <td>买入时间:</td> 
+        <td>&nbsp;[var.v.bull_trust_time;frm='hh:nn:ss']</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td>买入价格:</td> 
+        <td>&nbsp;[var.v.bull_price]</td> 
+        <td>买入数量:</td> 
+        <td>&nbsp;[var.v.bull_num]&nbsp;(手)</td> 
+        <td>成交金额:</td> 
+        <td>&nbsp;[var.v.bull_money]</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td>当前价格:</td> 
+        <td>&nbsp;[var.price]&nbsp;[[var.differ;frm='0.00']]</td> 
+        <td>涨跌幅度</td> 
+        <td>[var.extent;frm='0.00%']</td> 
+        <td>浮盈</td> 
+        <td>&nbsp;[var.fwin]</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td colspan="6" bgcolor="#9CB8E7"><font color="#FFFFFF">手续费</font></td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td>买入:</td> 
+        <td>&nbsp;[var.v.bull_cost_money]&nbsp;[[var.v.bull_cost]]</td> 
+        <td>卖出:</td> 
+        <td>&nbsp;[var.v.sell_cost_money]&nbsp;[[var.v.sell_cost]]</td> 
+        <td>留仓:</td> 
+        <td>[var.v.save_money] [[var.v.save_day]天]*[var.v.save_cost]</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td>代理商:</td> 
+        <td>[var.v.agent_bull_money]</td> 
+        <td>代理商:</td> 
+        <td>[var.v.agent_sell_money]</td> 
+        <td>代理商:</td> 
+        <td>[var.v.agent_save_money]</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td>点差:</td> 
+        <td>[var.v.dc_money] [[var.v.dc_num]]</td> 
+        <td>&nbsp;</td> 
+        <td>&nbsp;</td> 
+        <td>&nbsp;</td> 
+        <td>&nbsp;</td> 
+      </tr> 
+    </table> 
+  </div> 
+</div>

@@ -1,0 +1,164 @@
+<script type="text/javascript">
+$('.page').AjaxLoad({
+	event:'click',
+	loading_target:'#loadtxt',
+	loading_txt:'数据加载中...',
+	params:'type=deal_sell',
+	target: '#account_main'
+});
+var totla=0;
+$('#demo').AjaxLoad({
+	event:'change',
+	method:'GET',
+	target: '#account_main',
+	loading_target:'#loadtxt',
+	loading_txt:'处理中,请稍后...',
+	link:'account.php',
+	params:'type=deal_sell',
+	forms:'#formdemo'
+});
+function sale_buy(code,name,buy_num,buy_id)
+{
+	var sell_price=$('#price_'+buy_id).val();
+	var txt = '平仓价格: <input name="sell_price" type="text" id="sell_price" value="'+sell_price+'" size="6"><br>确定要平仓 '+buy_num+' 手 ['+code+'] '+sell_price+' 股票交易??<br>';
+	$.prompt(txt,{
+		callback: function(v,m,f){
+			if(v){
+				$.ajax({
+					url:'account.php?type=deal_bull&act=sell&id='+buy_id+'&sell_price='+f.sell_price,
+					type:'GET',
+					timeout:3000,
+					success:function(data){
+						$("#account_main").html(data);
+					}
+				}
+				)
+			}else{}
+		},
+		buttons: { '确定':true, '取消': false  }
+	});
+}
+function sell_view(id) {
+	$.openPopupLayer({
+		name: "sell_view",
+		width: 636,
+		url: "account.php?type=sell_view&id="+id
+	});
+}
+
+</script>
+<link href="../style/index.css" rel="stylesheet" type="text/css" />
+<table width="100%" border="0" cellpadding="2" cellspacing="1" class="table1" id="trust_list"> 
+  <tr class="row_title"> 
+    <td width="40" align="center">ID</td> 
+    <td width="60" align="center">用户</td> 
+    <td width="60" align="center">平仓时间</td> 
+    <td width="60" align="center">代码</td> 
+    <td width="60" align="center">名称</td> 
+    <td width="50" align="center">买入价</td> 
+    <td width="50" align="center">平仓价</td> 
+    <td width="50" align="center">升/跌</td> 
+    <td width="60" align="center">数量(手)</td> 
+    <td width="50" align="center">点差费</td> 
+    <td width="50" align="center">留仓费</td> 
+    <td width="50" align="center">手续费</td> 
+    <td width="60" align="right">股票盈亏</td> 
+    <td width="70" align="right">实际盈亏</td> 
+    <td width="60" align="right">查看</td> 
+  </tr> 
+  <thead> 
+    <tr class="row_ls"> 
+      <form action="" id="formdemo" method="get"> 
+        <td colspan="15">帐号类型: 
+          <select name="demo" id="demo" size="1"> 
+            <option value="-1">全部</option> 
+            <option value="0">正式</option> 
+            <option value="1">试玩</option> 
+            <option>[var.demo;ope=html;select]</option> 
+          </select></td> 
+      </form> 
+    </tr> 
+  </thead> 
+  <tbody id="buy_tr"> 
+    <tr class="row1_odd"> 
+      <td align="center" id="[tr.id;block=tr;ondata=sell_event;aggregate=bull_money:sum,bull_cost_money:sum,agent_bull_money:sum,sell_gain:sum,sell_money:sum,sell_cost_money:sum,agent_sell_money:sum,agent_gain:sum,gain:sum,dc_money:sum,member_yk:sum,agent_yk:sum,save_money:sum,agent_save_money:sum]">[tr.id]</td> 
+      <td align="right">[tr.user]</td> 
+      <td align="center">[tr.sell_trust_time;frm='mm-dd hh:nn:ss']</td> 
+      <td align="right">[tr.stock_type][tr.stock_code]</td> 
+      <td align="right">[tr.stock_name]</td> 
+      <td align="right"><font color="#FF0000">[tr.bull_price]</font></td> 
+      <td align="right" id="price_[tr.id]">[tr.sell_price]</td> 
+      <td align="center" id="buy_type_[tr.id]" value="[tr.buy_type]">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td> 
+      <td align="right" id="bull_num_[tr.id]" value="[tr.bull_num]">[tr.bull_num]</td> 
+      <td align="right" title="[tr.bull_money]">[tr.dc_money]</td> 
+      <td align="right" title="[tr.save_money]">[tr.save_money]([tr.save_day])</td> 
+      <td align="right" id="cost_[tr.id]" title="买入:[tr.bull_cost_money]&#10;卖出:[tr.sell_cost_money]&#10;留仓:[tr.save_money]">[tr.cost]</td> 
+      <td align="right" id="gain_[tr.id]">[tr.gain]</td> 
+      <td align="right" id="extent_[tr.id]">[tr.member_yk]</td> 
+      <td align="right"><span onclick="sell_view('[tr.id]')">详细</span>&nbsp;</td> 
+    </tr> 
+    <tr class="row1_even"> 
+      <td align="center" id="[tr.id;block=tr;ondata=sell_event;aggregate=bull_money:sum,bull_cost_money:sum,agent_bull_money:sum,sell_gain:sum,sell_money:sum,sell_cost_money:sum,agent_sell_money:sum,agent_gain:sum,gain:sum,dc_money:sum,member_yk:sum,agent_yk:sum,save_money:sum,agent_save_money:sum]">[tr.id]</td> 
+      <td align="right">[tr.user]</td> 
+      <td align="center">[tr.sell_trust_time;frm='mm-dd hh:nn:ss']</td> 
+      <td align="right">[tr.stock_type][tr.stock_code]</td> 
+      <td align="right">[tr.stock_name]</td> 
+      <td align="right"><font color="#FF0000">[tr.bull_price]</font></td> 
+      <td align="right" id="price_[tr.id]">[tr.sell_price]</td> 
+      <td align="center" id="buy_type_[tr.id]" value="[tr.buy_type]">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td> 
+      <td align="right" id="bull_num_[tr.id]" value="[tr.bull_num]">[tr.bull_num]</td> 
+      <td align="right" title="[tr.bull_money]">[tr.dc_money]</td> 
+      <td align="right" title="[tr.save_money]">[tr.save_money]([tr.save_day])</td> 
+      <td align="right" id="cost_[tr.id]" title="买入:[tr.bull_cost_money]&#10;卖出:[tr.sell_cost_money]&#10;留仓:[tr.save_money]">[tr.cost]</td> 
+      <td align="right" id="gain_[tr.id]">[tr.gain]</td> 
+      <td align="right" id="extent_[tr.id]">[tr.member_yk]</td> 
+      <td align="right"><span onclick="sell_view('[tr.id]')">详细</span>&nbsp;</td> 
+    </tr> 
+  </tbody> 
+  <tr align="center" class="row_ls"> 
+    <td height="50" colspan="15" bgcolor="#FFFFCC">[tr;block=tr;nodata]找不到符合条件的卖出交易单记录.</td> 
+  </tr> 
+  <tr class="row_ls"> 
+    <td colspan="15" align="right"><table width="540" border="0" cellspacing="1" class="totla" cellpadding="2"> 
+        <tr class="totla_title"> 
+          <td width="60">本页合计</td> 
+          <td width="60">买入手续费</td> 
+          <td width="60">点差费</td> 
+          <td width="60">卖出手续费</td> 
+          <td width="60">留仓费</td> 
+          <td width="60">股票盈亏</td> 
+          <td width="80">实际盈亏</td> 
+        </tr> 
+        <tr class="totla_row"> 
+          <td>会&nbsp;&nbsp;&nbsp; 员:</td> 
+          <td align="right"><font color="#FF8080">[tr.bull_cost_money:sum;frm='0,000.00']</font></td> 
+          <td align="right"><font color="#FF8080">[tr.dc_money:sum;frm='0,000.00']</font></td> 
+          <td align="right"><font color="#FF8080">[tr.sell_cost_money:sum;frm='0,000.00']</font></td> 
+          <td align="right"><font color="#FF8080">[tr.save_money:sum;frm='0,000.00']</font></td> 
+          <td align="right"><font color="#FF8080">[tr.gain:sum;frm='0,000.00']</font></td> 
+          <td align="right">[tr.member_yk:sum]</td> 
+        </tr> 
+        <tr class="totla_row"> 
+          <td>代理商:</td> 
+          <td align="right"><font color="#FF8080">[tr.agent_bull_money:sum;frm='0,000.00']</font></td> 
+          <td align="right"><font color="#FF8080">[tr.dc_money:sum;frm='0,000.00']</font></td> 
+          <td align="right"><font color="#FF8080">[tr.agent_sell_money:sum;frm='0,000.00']</font></td> 
+          <td align="right"><font color="#FF8080">[tr.agent_save_money:sum;frm='0,000.00']</font></td> 
+          <td align="right"><font color="#FF8080">[tr.agent_gain:sum;frm='0,000.00']</font></td> 
+          <td align="right">[tr.agent_yk:sum]</td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <tr class="row_ls"> 
+    <td colspan="15" [var.showPage;magnet=tr;mtype=m]><table border="0" align="right" cellpadding="2" cellspacing="0"> 
+        <tr align="center" > 
+          <td><span style="background-color:#A8DFFF; " class="page" id='page_first' value="[var..script_name]?PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</span></td> 
+          <td><span style="background-color:#A8DFFF; " class="page" id='page_prev' value="[var..script_name]?PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</span></td> 
+          <td><span style="background-color:#A8DFFF; " class="page" id='page_page' value="[var..script_name]?PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</span></td> 
+          <td><div style="border-style:inset; border-width:1px; border-top-width:1px; border-left-width:1px; border-right-width:1px; border-bottom-width:1px; background-color:#A8DFFF; height:16px;width : 15px; ">[nv.page;block=td;currpage]</div></td> 
+          <td><span style="background-color:#A8DFFF; " class="page" id='page_next' value="[var..script_name]?PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</span></td> 
+          <td><span style="background-color:#A8DFFF; " class="page" id='page_last' value="[var..script_name]?PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</span></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+</table> 

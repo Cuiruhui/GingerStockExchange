@@ -1,0 +1,81 @@
+<div class="popup"> 
+  <div class="popup-header"> 
+    <div class="popup-title">查看交易</div> 
+    <a href="javascript:;" onclick="$.closePopupLayer('sell_view')" title="Close" class="close-link">关闭</a> </div> 
+  <div class="popup-body"> 
+    <table width="100%" border="0" cellspacing="1" cellpadding="2" class="table1"> 
+      <tr class="row_ls"> 
+        <td width="80" align="right">股票代码:</td> 
+        <td width="120">&nbsp;[var.v.stock_code]</td> 
+        <td width="80" align="right">股票名称:</td> 
+        <td width="120">&nbsp;[var.v.stock_name]</td> 
+        <td width="80" align="right">买入类型:</td> 
+        <td width="120">&nbsp;[var.v.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td align="right">会员账号:</td> 
+        <td>&nbsp;[var.v.user]</td> 
+        <td align="right">买入日期:</td> 
+        <td>&nbsp;[var.v.bull_trust_date]</td> 
+        <td align="right">买入时间:</td> 
+        <td>&nbsp;[var.v.bull_trust_time;frm='hh:nn:ss']</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td align="right">买入数量:</td> 
+        <td>&nbsp;[var.v.bull_num]&nbsp;(手)</td> 
+        <td align="right">卖出日期:</td> 
+        <td>&nbsp;[var.v.sell_trust_date]</td> 
+        <td align="right">卖出时间:</td> 
+        <td>&nbsp;[var.v.sell_trust_time;frm='hh:nn:ss']</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td align="right">买入价格:</td> 
+        <td>&nbsp;[var.v.bull_price]</td> 
+        <td align="right">买入金额:</td> 
+        <td>&nbsp;[var.v.bull_money]</td> 
+        <td align="right">买入手续费:</td> 
+        <td>&nbsp;[var.v.bull_cost_money]&nbsp;([var.v.bull_cost])</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td align="right">卖出价格:</td> 
+        <td>&nbsp;[var.v.sell_price]&nbsp;[[var.differ]]</td> 
+        <td align="right">卖出金额:</td> 
+        <td>&nbsp;[var.v.sell_money]</td> 
+        <td align="right">卖出手续费:</td> 
+        <td>&nbsp;[var.v.sell_cost_money]([var.v.bull_cost])</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td align="right">会员盈亏:</td> 
+        <td>&nbsp;[var.v.sell_gain]</td> 
+        <td align="right">会员留仓:</td> 
+        <td>&nbsp;[var.v.save_money]&nbsp;[[var.v.save_cost]]</td> 
+        <td align="right">留仓天数:</td> 
+        <td>&nbsp;[var.v.save_day]&nbsp;天</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td align="right">&nbsp;</td> 
+        <td>&nbsp;</td> 
+        <td align="right">代理商:</td> 
+        <td>&nbsp;[var.v.agent_save_money]&nbsp;</td> 
+        <td align="right">点差费:</td>
+        <td>[var.v.dc_money]</td>
+      </tr> 
+      <tr class="row_ls"> 
+        <td align="right">买入手续费:</td> 
+        <td>[var.v.bull_cost_money]([var.v.bull_cost])</td> 
+        <td align="right">卖出手续费:</td> 
+        <td>[var.v.sell_cost_money]([var.v.sell_cost])</td> 
+        <td align="right">&nbsp;</td> 
+        <td>&nbsp;</td> 
+      </tr> 
+      <tr class="row_ls"> 
+        <td align="right">代理商:</td> 
+        <td>[var.v.agent_bull_money]</td> 
+        <td align="right">代理商:</td> 
+        <td>[var.v.agent_sell_money]</td> 
+        <td align="right">&nbsp;</td> 
+        <td>&nbsp;</td> 
+      </tr> 
+    </table> 
+  </div> 
+</div>

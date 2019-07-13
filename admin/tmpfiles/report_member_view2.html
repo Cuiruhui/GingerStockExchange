@@ -1,0 +1,243 @@
+<script type="text/javascript">
+var params='agent=[var.agent]&login2=[var.login2]&login3=[var.login3]&start_date=[var.start_date]&end_date=[var.end_date]&sell=[var.sell]&member=[var.member]';
+$(document).ready(function() {
+	$.ajax({
+	type: "GET",
+	url: 'report.php?type=Get_bull&'+params+'&rand='+Math.random(),
+	success: function(data){
+		var stocks = data.split('|*|');
+		for(var i=1; i<stocks.length-1; i++){
+			var content = stocks[i];
+			var id = content.split(',')[0]; //代码
+			var curr_f = content.split(',')[5]; //买入价
+			var bull_price=$('#bull_price_'+id).attr('value');
+			var bull_type=$('#buy_type_'+id).attr('value');
+			var bull_num =$('#bull_num_'+id).attr('value');
+			var bull_cost =$('#cost_'+id).text();
+			if(bull_type==2)//差价
+			{
+				var difference = (bull_price)-(curr_f);
+			}else{
+				var difference = (curr_f)-(bull_price);
+			}
+			var extent = ((difference)/(bull_price)*100).toFixed(2)+'%';
+			var gain =(parseFloat(difference)*(100)*parseFloat(bull_num)-bull_cost).toFixed(2);
+			//totla=parseFloat(totla)+parseFloat(gain);
+			if(parseFloat(gain) > 0) {
+				$('#extent_'+id).css({ color: "#ff0011",'font-weight':"bold"});
+				$('#gain_'+id).css({ color: "#ff0011",'font-weight':"bold"});
+			}else if(parseFloat(gain) < 0){
+				$('#extent_'+id).css({ color: "green",'font-weight':"bold"});
+				$('#gain_'+id).css({ color: "green",'font-weight':"bold"});
+			}
+			$('#extent_'+id).text(extent);
+			$('#gain_'+id).text(gain);
+			$('#price_'+id).val(curr_f);
+			if(parseFloat(curr_f)>0){
+				$('#price_'+id).html(curr_f);
+			}else{
+				$('#price_'+id).html('停牌');
+			}
+		}
+		//$('#totla').html(parseFloat(totla).toFixed(2));
+		//if(parseFloat(totla)>0){
+		//	$('#totla').css({ color: "#ff0011",'font-weight':"bold"});
+		//}else{
+		//	$('#totla').css({ color: "green",'font-weight':"bold"});
+		//}
+	}
+});
+	
+	$('.navigate').AjaxLoad({
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+		target: '#account_main',
+		params:'&'+params,
+		method:'GET'
+	});
+	$('.ToUser').AjaxLoad({
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+		target: '#account_main',
+		params:'type=member&'+params,
+		method:'GET'
+	});
+	$('#ToBack').AjaxLoad({
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+		target: '#account_main',
+		method:'GET'
+	});
+});
+function sell_view(id) {
+	$.openPopupLayer({
+		name: "sell_view",
+		width: 636,
+		url: "account.php?type=sell_view&id="+id
+	});
+}
+</script>
+<style type="text/css">
+<!--
+.ToUser {
+	color: #0000FF;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.navigate {
+	font-weight: bold;
+	color: #0000FF;
+	text-decoration: underline;
+	cursor: pointer;
+}
+-->
+</style>
+<table width="100%" border="0" cellpadding="2" cellspacing="1" class="table1">
+  <tr class="row_ls">
+          <td colspan="15">
+           <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="20"><div class="navigate" value="report.php">报表查询</div></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td>&nbsp;</td>
+              <td><div class="navigate" value="report.php?type=agent">股东</div></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td>&nbsp;</td>
+              <td><b>[var.agent]</b></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td>&nbsp;</td>
+              <td><div class="navigate" value="report.php?type=login2">总代理</div></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td>&nbsp;</td>
+              <td><b>[var.login2]</b></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td>&nbsp;</td>
+              <td><div class="navigate" value="report.php?type=login3">代理商</div></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td>&nbsp;</td>
+              <td><b>[var.login3]</b></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td>&nbsp;</td>
+              <td><div class="navigate" value="report.php?type=member">会员</div></td>
+              <td>&nbsp;</td>
+              <td><img src="./images/arrow.gif" /></td>
+              <td>&nbsp;</td>
+              <td><b>[var.member]</b></td>
+              <td>&nbsp;类型:</td>
+              <td>&nbsp;[var.sell;if [val]=1;then '已平仓';else '未平仓']</td>
+              <td>&nbsp;日期:</td>
+              <td>&nbsp;[var.start_date] 至 [var.end_date]</td>
+              <td>&nbsp;</td>
+              <td width="80" align="right"><span id="ToBack" value="report.php?type=member&agent=[var.agent]&login2=[var.login2]&login3=[var.login3]&member=[var.member]&start_date=[var.start_date]&end_date=[var.end_date]&sell=[var.sell]">返回上页</span></td>
+            </tr>
+           </table>          </td>
+  </tr>
+   <tr class="row_title">
+  <td width="7%" align="center">ID</td>
+  <td width="7%" align="center">用户</td>
+  <td width="10%" align="center">买入时间</td>
+  <td width="7%" align="center">代码</td>
+  <td width="8%" align="center">名称</td>
+  <td width="7%" align="center">买入价</td>
+  <td width="6%" align="center">当前价</td>
+  <td width="6%" align="center">升/跌</td>
+  <td width="8%" align="center">数量(手)</td>
+  <td width="8%" align="center">买入金额</td>
+  <td width="8%" align="center">手续费</td>
+  <td width="6%" align="right">浮盈</td>
+  <td width="6%" align="right">涨跌幅</td>
+  <td width="6%" align="right">查看</td>
+</tr>
+
+<tbody id="buy_tr">
+        <tr class="row1_odd">
+          <td align="center">[tr.id;block=tr;ondata=view_event;aggregate=bull_money:sum,bull_cost_money:sum,agent_bull_money:sum,L2_bull_money:sum,L3_bull_money:sum,sell_gain:sum,sell_money:sum,sell_cost_money:sum,agent_sell_money:sum,L2_sell_money:sum,L3_sell_money:sum,agent_gain:sum,L2_gain:sum,L3_gain:sum]</td>
+          <td align="right">[tr.user]</td>
+          <td align="center">[tr.bull_trust_time;frm='mm-dd hh:nn:ss']</td>
+          <td align="right">[tr.stock_type][tr.stock_code]</td>
+          <td align="right">[tr.stock_name]</td>
+          <td align="right" id="bull_price_[tr.id]" value="[tr.bull_price]"><font color="#FF0000">[tr.bull_price]</font></td>
+          <td align="right" id="price_[tr.id]"></td>
+          <td align="center" id="buy_type_[tr.id]" value="[tr.buy_type]">[tr.buy_type;if [val]=1;then '<font color="#FF0000">升</font>';else '<font color="#009900">跌</font>']</td>
+          <td align="right" id="bull_num_[tr.id]" value="[tr.bull_num]">[tr.bull_num]</td>
+          <td align="right" title="[tr.bull_money]">[tr.bull_money]</td>
+          <td align="right" id="cost_[tr.id]" title="([tr.bull_cost])">[tr.bull_cost_money]</td>
+          <td align="right" id="gain_[tr.id]">&nbsp;</td>
+          <td align="right" id="extent_[tr.id]">&nbsp;</td>
+          <td align="right"><span onclick="sell_view('[tr.id]')">详细</span>&nbsp;</td>
+    </tr>
+        <tr class="row1_even">
+          <td align="center">[tr.id;block=tr;ondata=view_event;aggregate=bull_money:sum,bull_cost_money:sum,agent_bull_money:sum,L2_bull_money:sum,L3_bull_money:sum,sell_gain:sum,sell_money:sum,sell_cost_money:sum,agent_sell_money:sum,L2_sell_money:sum,L3_sell_money:sum,agent_gain:sum,L2_gain:sum,L3_gain:sum]</td>
+          <td align="right">[tr.user]</td>
+          <td align="center">[tr.bull_trust_time;frm='mm-dd hh:nn:ss']</td>
+          <td align="right">[tr.stock_type][tr.stock_code]</td>
+          <td align="right">[tr.stock_name]</td>
+          <td align="right" id="bull_price_[tr.id]" value="[tr.bull_price]"><font color="#FF0000">[tr.bull_price]</font></td>
+          <td align="right" id="price_[tr.id]"></td>
+          <td align="center" id="buy_type_[tr.id]" value="[tr.buy_type]">[tr.buy_type;if [val]=1;then '<font color="#FF0000">升</font>';else '<font color="#009900">跌</font>']</td>
+          <td align="right" id="bull_num_[tr.id]" value="[tr.bull_num]">[tr.bull_num]</td>
+          <td align="right" title="[tr.bull_money]">[tr.bull_money]</td>
+          <td align="right" id="cost_[tr.id]" title="([tr.bull_cost])">[tr.bull_cost_money]</td>
+          <td align="right" id="gain_[tr.id]">&nbsp;</td>
+          <td align="right" id="extent_[tr.id]">&nbsp;</td>
+          <td align="right"><span onclick="sell_view('[tr.id]')">详细</span>&nbsp;</td>
+    </tr>
+</tbody>
+        <tr class="row_ls">
+         <td colspan="14">[tr;block=tr;nodata]目前没有任何委托交易</td>
+         </tr>
+        <tr class="row_ls">
+         <td colspan="14" align="right"><table width="391" border="0" cellspacing="1" class="totla" cellpadding="2">
+           <tr class="totla_title">
+             <td width="60">本页合计</td>
+             <td width="60">买入金额</td>
+             <td width="60">手续费</td>
+             <td width="60">卖出金额</td>
+             <td width="60">手续费</td>
+             <td width="60">盈亏</td>
+           </tr>
+           <tr class="totla_row">
+             <td>会&nbsp;&nbsp;&nbsp; 员:</td>
+             <td align="right"><font color="#FF8080">[tr.bull_money:sum;frm='0,000.00']</font></td>
+             <td align="right"><font color="#FF8080">[tr.bull_cost_money:sum;frm='0,000.00']</font></td>
+             <td align="right"><font color="#FF8080">[tr.sell_money:sum;frm='0,000.00']</font></td>
+             <td align="right"><font color="#FF8080">[tr.sell_cost_money:sum;frm='0,000.00']</font></td>
+             <td align="right"><font color="#FF8080">[tr.sell_gain:sum]</font></td>
+           </tr>
+           <tr class="totla_row">
+             <td>代理商:</td>
+             <td align="right">0.00</td>
+             <td align="right"><font color="#FF8080">[tr.L3_bull_money:sum;frm='0,000.00']</font></td>
+             <td align="right">0.00</td>
+             <td align="right"><font color="#FF8080">[tr.L3_sell_money:sum;frm='0,000.00']</font></td>
+             <td align="right"><font color="#FF8080">[tr.L3_gain:sum]</font></td>
+           </tr>
+           <tr class="totla_row">
+             <td>总代理:</td>
+             <td align="right">0.00</td>
+             <td align="right"><font color="#FF8080">[tr.L2_bull_money:sum;frm='0,000.00']</font></td>
+             <td align="right">0.00</td>
+             <td align="right"><font color="#FF8080">[tr.L2_sell_money:sum;frm='0,000.00']</font></td>
+             <td align="right"><font color="#FF8080">[tr.L2_gain:sum]</font></td>
+           </tr>
+           <tr class="totla_row">
+             <td>大股东:</td>
+             <td align="right">0.00</td>
+             <td align="right"><font color="#FF8080">[tr.agent_bull_money:sum;frm='0,000.00']</font></td>
+             <td align="right">0.00</td>
+             <td align="right"><font color="#FF8080">[tr.agent_sell_money:sum;frm='0,000.00']</font></td>
+             <td align="right"><font color="#FF8080">[tr.agent_gain:sum]</font></td>
+           </tr>
+         </table>         </td>
+  </tr>
+        <tr class="row_ls">
+          <td colspan="14">1234</td>
+  </tr>
+      </table>

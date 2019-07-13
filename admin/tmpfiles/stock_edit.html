@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>股票代码_修改</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.ajaxify.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#AddFrom").validate({
+		rules: {
+			code: {required:true, rangelength:[6,6], digits:true},
+			name:"required",
+			pinyin:"required",
+			bk_list:"required"
+		},
+		messages: {
+			code:{required:'请输入股票代码', rangelength: '[<b>股票代码</b>]:长度在6位.',digits:'[<b>股票代码</b>]:必须输入整数.'},
+			name:'请输入股票名称',
+			pinyin:'请输入股票拼音',
+			bk_list:'[<b>板块</b>]:必须选择！'
+			},
+		focusCleanup: true,//被验证的元素获得焦点时移除错误信息
+		success: function(label){
+			label.html("<span style=\"color:green\">填写正确！</span>").addClass("success");
+		},
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+	$('#btnAddAll').click(function(){
+		//清除右侧
+		$('#bklist1 option').remove();
+		$('#bk_list').val('');
+		$('#bklist').find('option').each(function(){
+			$('#bklist1').append('<option value="'+$(this).val()+'">' + $(this).val() + '</option>');
+			$('#bk_list').val($('#bk_list').val() + ',' + $(this).val());
+		});
+	});
+	$('#btnAdd').click(function(){
+		$('#bklist').find('option:selected').each(function(){
+			if($('#bklist1 option[value="' + $(this).val() + '"]').val()==undefined)
+			{
+				$('#bklist1').append('<option value="'+$(this).val()+'">' + $(this).val() + '</option>');
+				$('#bk_list').val($('#bk_list').val() + ',' + $(this).val());
+			}
+		});
+	});
+	$('#btnRemoveAll').click(function(){
+		//清除右侧
+		$('#bklist1 option').remove();
+		$('#bk_list').val('');
+	});
+	$('#btnRemove').click(function(){
+		$('#bklist1').find('option:selected').each(function(){
+			$(this).remove();
+			$('#bk_list').val($('#bk_list').val().replace(','+$(this).val(),''));
+		});
+	});
+	$('#btnBack').click(function(){
+		history.go(-1);
+	});
+});
+</script>
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <form id="EditFrom" action="stock.php?type=EditFrom" method="post"> 
+    <tr class="row_title"> 
+      <td colspan="2">修改股票</td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td width="100" align="right">类型:</td> 
+      <td><select name="types" id="types"> 
+          <option value="sh">上证</option> 
+          <option value="sz">深证</option> 
+          <option>[var.Edit.type;ope=html;select]</option> 
+        </select> </td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">代码:</td> 
+      <td><input name="code" type="text" id="code" style="width:50px;" value="[var.Edit.code]" /></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">名称:</td> 
+      <td><input name="name" type="text" id="name" style="width:50px;" value="[var.Edit.name]"/></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">拼音:</td> 
+      <td><input name="pinyin" type="text" id="pinyin" style="width:50px;" value="[var.Edit.pinyin]"/></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">可买:</td> 
+      <td><select name="can_bull" id="can_bull"> 
+          <option value="0">不可买</option> 
+          <option value="1">可买</option> 
+          <option>[var.Edit.can_bull;ope=html;select]</option> 
+        </select></td> 
+    </tr> 
+    <tr class="row_ls">
+      <td align="right">可买升:</td>
+      <td><select name="can_bull_up" id="can_bull_up">
+        <option value="0">不可买</option>
+        <option value="1">可买</option>
+        <option>[var.Edit.can_bull_up;ope=html;select]</option>
+      </select></td>
+    </tr>
+    <tr class="row_ls">
+      <td align="right">可买跌:</td>
+      <td><select name="can_bull_down" id="can_bull_down">
+        <option value="0">不可买</option>
+        <option value="1">可买</option>
+        <option>[var.Edit.can_bull_down;ope=html;select]</option>
+      </select></td>
+    </tr>
+    <tr class="row_ls"> 
+      <td align="right">可卖:</td> 
+      <td><select name="can_sell" id="can_sell"> 
+          <option value="0">不可卖</option> 
+          <option value="1">可卖</option> 
+          <option>[var.Edit.can_sell;ope=html;select]</option> 
+        </select></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">停牌:</td> 
+      <td><select name="stop_pai" id="stop_pai"> 
+          <option value="0">无停牌</option> 
+          <option value="1">停牌</option> 
+          <option>[var.Edit.stop_pai;ope=html;select]</option> 
+        </select></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">停牌时间:</td> 
+      <td><input name="stop_date" type="text" id="stop_date" style="width:100px;" value="[var.Edit.stop_date]"/></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">点差:</td> 
+      <td><input name="dc" type="text" id="dc" style="width:40px;" value="[var.Edit.dc]" size="4" maxlength="2"/></td> 
+    </tr>
+    <tr class="row_ls">
+      <td align="right">板块:</td>
+      <td><table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td rowspan="4" align="center" valign="top"><select name="bklist" size="8" multiple id="bklist" style="width:320px;">
+                <option value="[bk.bk_name;block=option]">[bk.class] > [bk.bk_name]</option>
+            </select></td>
+            <td><input name="btnAddAll" type="button" id="btnAddAll" value="&gt;&gt;" class="btn1" title="添加全部" /></td>
+            <td rowspan="4" align="center" valign="top"><select name="bklist1" size="8" multiple id="bklist1" style="width:320px;">
+			<option value="[bk1.name;block=option]">[bk1.name]</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td><input name="btnAdd" type="button" id="btnAdd" value="&gt;" class="btn1" title="添加选中" /></td>
+          </tr>
+          <tr>
+            <td><input name="btnRemove" type="button" id="btnRemove" value="&lt;" class="btn1" title="移除选中" /></td>
+          </tr>
+          <tr>
+            <td><input name="btnRemoveAll" type="button" id="btnRemoveAll" value="&lt;&lt;" class="btn1" title="移除全部" /></td>
+          </tr>
+        </table>
+          <input name="bk_list" type="hidden" id="bk_list" value="[var.Edit.bk_list]"></td>
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">&nbsp;</td> 
+      <td><input type="submit" name="btnEnter" class="btn1" id="btnEnter" value="确定修改" />
+&nbsp;
+<input type="button" name="btnBack" id="btnBack" class="btn1" value="返　回" />
+<input name="id" type="hidden" id="id" value="[var.Edit.id]"></td> 
+    </tr> 
+  </form> 
+</table> 
+</body>
+</html>

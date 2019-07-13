@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>佣金结算</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<link href="./style/date_input.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.ajaxify.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript" src="./js/jquery.formCheckbox_choose.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+	$('#agent,#pay_type').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+});
+</script>
+</head>
+<body> 
+ <table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <thead> 
+     <tr class="row_ls"> 
+      <td colspan="8"><table border="0" cellspacing="0" cellpadding="0"> 
+          <form name="frmSearch" id="frmSearch" action="agent_settlement.php" method="get"> 
+            <tr>
+              <td>代理商:
+                <select name="agent" size="1" id="agent">
+				<option value="">全部</option>
+              <option value="[ag.username]">[ag.username;block=option;]</option>
+				<option>[var.agent;ope=html;select]</option> 
+              </select></td> 
+              <td>&nbsp;状态:
+                <select name="ispay" size="1" id="ispay"> 
+                  <option value="999">全部</option> 
+                  <option value="1">已打款</option> 
+                  <option value="0">未打款</option> 
+                  <option>[var.ispay;ope=html;select]</option> 
+              </select></td> 
+              <td>&nbsp;日期:</td>
+			  <td><input type="text" name="start_date" id="start_date" value="[var.start_date]" size="15" class="datepicker" /> 至 <input type="text" name="end_date" id="end_date" value="[var.end_date]" size="15" class="datepicker" /></td>
+              <td><input type="submit" class="btn1" name="btnSearch" id="btnSearch" value="查 询"></td> 
+            </tr> 
+          </form> 
+        </table></td> 
+    </tr> 
+	<form name="frmSettlement" id="frmSettlement" action="agent_settlement.php?type=batch" method="post">
+     <tr class="row_title">
+       <td align="center">选择</td>
+       <td align="center">序号</td>
+       <td align="center">代理商</td> 
+      <td align="center">佣金周期</td> 
+      <td align="center">金额</td> 
+      <td align="center">状态</td> 
+    <td align="center">打款日期</td>
+      <td align="right">操作</td>
+    </tr> 
+   </thead> 
+  <tr class="row1_odd">
+    <td align="center"><input name="id[]" type="checkbox" id="id[]" value="[tr.id]" [tr.disabled]></td>
+    <td align="center">[tr.id;block=tr;ondata=event_row]</td>
+    <td align="center">[tr.agent]</td> 
+     <td align="center">[tr.start_date]~[tr.end_date]</td> 
+     <td align="center">￥[tr.money].00</td> 
+     <td align="center">[tr.status]</td> 
+   <td align="center">[tr.pay_date;if [val]=''; then '-';else [val]]</td>
+    <td align="center"><input name="btnPay" type="button" id="btnPay" value="打 款" class="btn1" onClick="self.location.href='?type=pay&id=[tr.id]';" [tr.disabled] />
+    </td>
+  </tr> 
+  <tr class="row1_even">
+    <td align="center"><input name="id[]" type="checkbox" id="id[]" value="[tr.id]" [tr.disabled]></td>
+    <td align="center">[tr.id;block=tr;ondata=event_row]</td>
+    <td align="center">[tr.agent]</td> 
+     <td align="center">[tr.start_date]~[tr.end_date]</td> 
+     <td align="center">￥[tr.money].00</td> 
+     <td align="center">[tr.status]</td> 
+   <td align="center">[tr.pay_date;if [val]=''; then '-';else [val]]</td>
+    <td align="center"><input name="btnPay2" type="button" id="btnPay2" value="打 款" class="btn1" onClick="self.location.href='?type=pay&id=[tr.id]';" [tr.disabled] />
+     </td>
+  </tr> 
+  <tr align="center" class="nodata"> 
+     <td height="50" colspan="8">[tr;block=tr;nodata]暂无符合条件的记录.</td> 
+   </tr> 
+  <tr class="row_ls">
+    <td colspan="8"><a href="javascript:void(0);" onclick="$('#frmSettlement').formCheckbox_choose({value:1})">全选</a> <a href="javascript:void(0);" onclick="$('#frmSettlement').formCheckbox_choose({value:-1})">反选</a> <a href="javascript:void(0);" onclick="$('#frmSettlement').formCheckbox_choose({value:0})">取消</a>　
+    <input type="submit" name="btnSet" id="btnSet" value="批量打款" class="btn1" onClick="if(confirm('确定批量设置选中的记录状态为“已打款”吗？')){return true;}else{return false;}" /></td>
+  </tr>
+  </form>
+  <tr class="row_ls"> 
+     <td colspan="8"><table border="0" align="center" cellpadding="2" cellspacing="0" class="pagelist">
+       <tr align="center" >
+         <td><a id='page_first' href="[var..script_name]?agent=[var.agent]&ispay=[var.ispay]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td>
+         <td><a id='page_prev' href="[var..script_name]?agent=[var.agent]&ispay=[var.ispay]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td>
+         <td><a id='page_page' href="[var..script_name]?agent=[var.agent]&ispay=[var.ispay]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td>
+         <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td>
+         <td><a id='page_next' href="[var..script_name]?agent=[var.agent]&ispay=[var.ispay]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td>
+         <td><a id='page_last' href="[var..script_name]?agent=[var.agent]&ispay=[var.ispay]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td>
+       </tr>
+     </table></td>
+  </tr> 
+</table> 
+</body>
+</html>

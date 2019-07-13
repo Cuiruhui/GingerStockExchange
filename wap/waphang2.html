@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<META HTTP-EQUIV="expires" CONTENT="0">
+<meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="" />
+<meta name="description" content="融资融券交易系统">
+<meta name="author" content="" />
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<meta content="telephone=no" name="format-detection">
+
+
+<link rel="stylesheet" href="wap/jquery.mobile-1.3.2.min.css">
+ <link href="lanren/css/global.css?ver=10508" rel="stylesheet" type="text/css" />
+      <link href="lanren/css/index.css?ver=10508" rel="stylesheet" type="text/css" />
+
+<script src="assets/js/jquery-1.8.2.min.js"></script>
+<script src="wap/jquery.mobile-1.3.2.min.js"></script>
+
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript">
+
+var codea = "[var.codeall]";
+
+$(document).ready(function(){
+	
+	
+	var m='min';
+	getProductKImage(m);  
+	setInterval(getstockshuju(),5000);
+	$("#fenshi").on("tap",function(){
+    	m='min';
+		getProductKImage(m); 
+ 	});                
+    
+	$("#ri").on("tap",function(){
+    	m='daily';
+		getProductKImage(m); 
+  	});                
+  	
+	$("#zhou").on("tap",function(){
+    	m='weekly';
+		getProductKImage(m); 
+  	});                
+  
+  	$("#yue").on("tap",function(){
+    	m='monthly';
+		getProductKImage(m); 
+  	});                       
+	
+});
+
+
+function getstockshuju()
+{
+	var code=codea.substr(2,6);
+	
+	if(code.length==6)
+	{
+		$.ajax({
+			type:'GET',
+			dataType: 'html',
+			cache:false,
+			
+			url:'ajaxmobi.php?type=getstockxx&stockcode=' + code,
+			success:function(res){
+				if(res.indexOf(',')!=-1)
+				{
+				//alert(res);
+					stock = res.split(',');
+					$('#buy_name').html(stock[2]);
+					$('#buy_dc').html(stock[9]+' ‰');
+					if(stock[3]=='1' || stock[4]=='1') //停牌或关盘
+					{
+						
+						
+						
+					}
+					
+					
+				//获取行情数据
+				$('#sell_5_price').html('<font color="#ff0000">' + Math.floor(stock[11]* 100)/ 100 + '</font>');
+				$('#sell_5_num').html(Math.floor(stock[12]/100));
+				$('#sell_4_price').html('<font color="#ff0000">' + Math.floor(stock[13]* 100)/ 100 + '</font>');
+				$('#sell_4_num').html(Math.floor(stock[14]/100));
+				$('#sell_3_price').html('<font color="#ff0000">' + Math.floor(stock[15]* 100)/ 100 + '</font>');
+				$('#sell_3_num').html(Math.floor(stock[16]/100));
+				$('#sell_2_price').html('<font color="#ff0000">' + Math.floor(stock[17]* 100)/ 100 + '</font>');
+
+
+				$('#sell_2_num').html(Math.floor(stock[18]/100));
+				$('#sell_1_price').html('<font color="#ff0000">' + Math.floor(stock[19]* 100)/ 100 + '</font>');
+				$('#sell_1_num').html(Math.floor(stock[20]/100));
+				
+				$('#cur_price').html(stock[31]);
+				$('#cur_price2').html(stock[31]);
+				
+				
+				$('#buy_1_num').html(Math.floor(stock[30]/100));
+				$('#buy_1_price').html('<font color="#ff0000">' + Math.floor(stock[29]* 100)/ 100 + '</font>');
+				$('#buy_2_num').html(Math.floor(stock[28]/100));
+				$('#buy_2_price').html('<font color="#ff0000">' + Math.floor(stock[27]* 100)/ 100 + '</font>');
+				$('#buy_3_num').html(Math.floor(stock[26]/100));
+				$('#buy_3_price').html('<font color="#ff0000">' + Math.floor(stock[25]* 100)/ 100 + '</font>');
+				$('#buy_4_num').html(Math.floor(stock[24]/100));
+				$('#buy_4_price').html('<font color="#ff0000">' + Math.floor(stock[23]* 100)/ 100 + '</font>');
+				$('#buy_5_num').html(Math.floor(stock[22]/100));
+				$('#buy_5_price').html('<font color="#ff0000">' + Math.floor(stock[21]* 100)/ 100 + '</font>');
+				
+					
+				}
+			},
+			error:function(){  
+       		location.reload();  
+     		}
+			
+		});
+	}
+}
+
+
+
+function PrefixInteger(num, n) {
+            return (Array(n).join(0) + num).slice(-n);
+}
+
+function getProductKImage(kkstr) {
+	
+	
+	
+	var kuangdu=$(document.body).width();
+	
+	if (kkstr == "") { kstr = "min"; }
+	else { kstr = kkstr; }
+	
+	var code = codea.substring(2);
+	
+	if (code != "" ) {
+		
+			var picstr = "<img id='pic_k_id' src='http://image2.sinajs.cn/newchart/" + kstr + "/n/"  + codea + ".gif?" + Math.random() * 1000 + "' border='0' width='"+kuangdu+"' />";
+			
+			var picstr2 ="<a href=\"waporder.php?code=" + code + "\" data-ajax=\"false\"  ><img src=\"assets/img/xiadan.png\" /></a> " ;
+			var picstr3 ="<a href=\"javascript:void(0)\" onClick=\"return AddStock1(\'" + code + "\');  \" data-ajax=\"false\" ><img src=\"assets/img/zixuan.png\" /></a> " ;
+			$('#pic').html(picstr);
+			$('#xiadan').html(picstr2+picstr3);
+	    	
+	}              
+	
+}
+
+</script>
+
+<style>
+a{text-decoration:none}
+
+.ui-block-a, 
+.ui-block-b, 
+.ui-block-c,
+.ui-block-d 
+{
+border: 1px ;
+height: 32px;
+background-color: lightgray;
+border: 1px solid black;
+font-weight: bold;
+text-align: center;
+}
+</style>
+
+</head>
+<body>
+
+<div data-role="page" id="pagetwo" data-theme="b">
+
+
+
+
+  <div data-role="header" data-theme="b">
+  	<a href="./wapindex.php" data-role="button"  data-ajax="false">欢迎您，[var.username]</a>
+    <h1>行情</h1>
+  </div>
+
+  <div data-role="content"   style="background-color:#FFFFFF;">
+     	 <div id="pic"></div>
+		 <div id="control">
+		 	<div id="xiadan"  style="text-align:center; height:36px;">
+				
+    		</div>
+			
+		 	<div data-role="controlgroup" data-type="horizontal" style="text-align:center;">
+    		
+    			<div   data-role="button" id="fenshi">分时图</div>
+    			<div  data-role="button" id="ri">日线</div>
+    			<div  data-role="button" id="zhou">周线</div>
+				<div  data-role="button" id="yue">月线</div>
+			
+    		</div>
+			
+			<div id="wuban"  style=" width:100%;height:180px; background-color:#FFFFFF; padding:10px 0 0 0;">
+	 
+		<div style="width:49.9%;height:180px; float:left; text-align:center;">
+		<div  style=" width:33%; float:left; border-bottom:1px dashed #eeeeee;">档位</div>
+		<div  style=" width:33%;float:left;border-bottom:1px dashed #eeeeee;"><div >价格</div></div>
+		<div  style=" width:33%;float:left;border-bottom:1px dashed #eeeeee;"><div >成交量</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee; height:27px;">卖5</div>
+		<div  style=" width:33%;float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="sell_5_price">----</div></div>
+		<div  style=" width:33%;float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="sell_5_num">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;">卖4</div>
+		<div style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="sell_4_price">----</div></div>
+		<div style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="sell_4_num">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;">卖3</div>
+		<div style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="sell_3_price">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="sell_3_num">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;">卖2</div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="sell_2_price">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="sell_2_num">----</div></div>
+		<div style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;" >卖1</div>
+		<div style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;" ><div id="sell_1_price">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="sell_1_num">----</div></div>
+		</div>
+		
+		
+		<div style="width:49.9%;height:180px; float:left;text-align:center;">
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;">档位</div>
+		<div  style=" width:33%;float:left;border-bottom:1px dashed #eeeeee;"><div >价格</div></div>
+		<div  style=" width:33%;float:left;border-bottom:1px dashed #eeeeee;"><div >成交量</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;">买1</div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="buy_1_price">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="buy_1_num">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;">买2</div>
+		<div style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="buy_2_price">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="buy_2_num">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;">买3</div>
+		<div style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;" ><div id="buy_3_price">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="buy_3_num">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;">买4</div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="buy_4_price">----</div></div>
+		<div style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;" ><div id="buy_4_num">----</div></div>
+		<div style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;" >买5</div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="buy_5_price">----</div></div>
+		<div  style=" width:33%; float:left;border-bottom:1px dashed #eeeeee;height:27px;"><div id="buy_5_num">----</div></div>
+	  	</div>
+				
+    		</div>
+			
+			
+		 </div>
+		 
+	
+  </div>
+
+  
+   <div data-role="footer" data-theme="b">
+    <div data-role="navbar" data-position="fixed" data-fullscreen="true">
+      <ul>
+        <li style="height:35px;"><a href="./wapindex.php" data-ajax="false">首页</a></li>
+        <li style="height:35px;"><a href="./waporder.php" data-ajax="false">下单</a></li>
+        
+        <li style="height:35px;"><a href="./waphangqing.php" data-ajax="false">行情</a></li>
+        <li style="height:35px;"><a href="/waptrade.php"data-ajax="false" >持仓</a></li>
+      </ul>
+    </div>
+  </div>
+
+  
+  
+</div> 
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?php
+define('Load_Info', 1);
+session_start();
+include_once("./Lib/xltm.class.php");
+	$user=isset($_REQUEST['user']) ? $_REQUEST['user'] : 0;
+	$PageNum =isset($_REQUEST['PageNum'])?$_REQUEST['PageNum']:1;
+	$RecCnt =isset($_REQUEST['RecCnt'])?intval($_REQUEST['RecCnt']):'-1';
+	$PageSize = 20;
+	$message=$xltm->SQL->GetRows("SELECT * FROM `user_ip` WHERE `username` = '$user' order by time desc");
+	$xltm->tpls->LoadTemplate("./tmpfiles/user_ip.html");
+	$xltm->tpls->PlugIn(TBS_BYPAGE,$PageSize,$PageNum,$RecCnt);
+	$RecCnt = $xltm->tpls->MergeBlock('tr','array',$message);
+	$xltm->tpls->PlugIn(TBS_NAVBAR,'nv','',$PageNum,$RecCnt,$PageSize);
+	$showPage=($RecCnt>0)?1:'';
+	$xltm->tpls->show();
+?>

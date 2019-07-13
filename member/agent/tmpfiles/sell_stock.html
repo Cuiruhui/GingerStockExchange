@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>平仓股票</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox td {padding:3px; line-height:18px; font-size:12px;}
+</style>
+<script type="text/javascript" src="./tips/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript" src="./tips/jquery.poshytip.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#sell_stock").validate({
+		rules: {
+			sell_price: {required:true},
+			sell_num: {required:true, digits:true, range:[1,[var.row.can_sell_num]]},
+			sell_time: {required:true}
+		},
+		messages: {
+			sell_price: {required: "请输入平仓价格."},
+			sell_num: {required: "请输入要卖出的数量.",digits: "必须输入整数", range: "卖出数量必须大于0小于[var.row.can_sell_num]手."},
+			sell_time: {required: "请输入平仓时间."}
+		},
+		submitHandler: function(form) {
+			$('#btnsell').attr('value','提交中，请稍候…');
+			$('#btnsell').attr('disabled','true');
+			form.submit();
+		}
+	});
+});
+</script>
+</head>
+<body> 
+<form name="form1" method="post" action="?act=sell" id="sell_stock">
+  <table width="98%"  border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="mybox">
+    <tr>
+      <th colspan="2">平仓股票</th>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="26%" align="right">股票名称：</td>
+      <td width="74%">[var.row.stock_name]
+      <input name="id" type="hidden" id="id" value="[var.id]"></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">股票代码：</td>
+      <td>[var.row.stock_code]</td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">可卖数量：</td>
+      <td>[var.row.bull_num] (手) 　[var.row.buy_type;if [val]=1;then '<font color=red>买升</font>';else '<font color=green>买跌</font>'] </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">买 入 价：</td>
+      <td>[var.row.bull_price]</td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">当 前 价：</td>
+      <td>[var.cur_price]</td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">平仓价格：</td>
+      <td><input name="sell_price" type="text" id="sell_price" value="[var.cur_price]" size="5"></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">平仓数量：</td>
+      <td><input name="sell_num" type="text" id="sell_num" value="[var.row.bull_num]" size="5" onKeyDown="return false;" readonly="true" /></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">平仓时间：</td>
+      <td><input name="sell_time" type="text" id="sell_time" value="[var.xltm.sys_time]" size="15"></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td>&nbsp;</td>
+      <td><input type="submit" name="Submit" value="确定平仓" id="btnsell" class="button3" />
+      <input type="button" name="Submit2" value="取消" class="button3" onclick="window.parent.ymPrompt.doHandler('error',true)"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

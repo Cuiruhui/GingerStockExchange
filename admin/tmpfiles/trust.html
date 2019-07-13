@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>用户委托单</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<link href="./style/date_input.css" rel="stylesheet" type="text/css">
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/jquery.ajaxify.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript" src="./js/function.js?[var.randstr]"></script>
+<script type="text/javascript">
+var totla=0;
+$(document).ready(function(){
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+	$('#agent,#demo,#status').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+
+});
+</script>
+</head>
+<body> 
+ <table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <thead> 
+     <tr class="row_ls"> 
+      <form action="trust.php" id="frmSearch" name="frmSearch" method="get"> 
+        <td colspan="13"><table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>代理商:
+              <select name="agent" size="1" id="agent">
+                <option value="">全部</option>
+                <option value="[ag.username]" [var.agent;if [var.agent]=[ag.username]; then 'selected="selected"'; else '';]>[ag.username;block=option;]</option>
+                <!--<option>[var.agent;ope=html;select]</option>-->
+              </select></td>
+            <td>帐号类型:
+              <select name="demo" id="demo" size="1">
+                <option value="-1" [var.demo;if [var.demo]=-1; then 'selected="selected"'; else '';]>全部</option>
+                <option value="0" [var.demo;if [var.demo]=0; then 'selected="selected"'; else '';]>正式</option>
+                <option value="1" [var.demo;if [var.demo]=1; then 'selected="selected"'; else '';]>试玩</option>
+		<!--<option>[var.demo;ope=html;select]</option>-->
+              </select></td>
+            <td>委托状态:
+              <select name="status" size="1" id="status">
+                <option value="0" [var.status;if [var.status]=0; then 'selected="selected"'; else '';]>全部</option>
+                <option value="2" [var.status;if [var.status]=2; then 'selected="selected"'; else '';]>已成交</option>
+                <option value="1" [var.status;if [var.status]=1; then 'selected="selected"'; else '';]>委托中</option>
+                <option value="3" [var.status;if [var.status]=3; then 'selected="selected"'; else '';]>已撤单(用户)</option>
+                <option value="4" [var.status;if [var.status]=4; then 'selected="selected"'; else '';]>已撤单(系统)</option>
+		<!--<option>[var.status;ope=html;select]</option>-->
+              </select></td>
+            <td>用户:
+              <input name="username" type="text" id="username" value="[var.username]" size="15"></td>
+            <td>查询日期:
+              <input name="start_date" type="text" id="start_date" value="[var.start_date]" size="15" class="datepicker">
+至
+<input name="end_date" type="text" id="end_date" value="[var.end_date]" size="15" class="datepicker"></td>
+            <td><input type="submit" name="btnSearch" id="btnSearch3" value="查 询" class="btn1"></td>
+          </tr>
+        </table>
+</td> 
+       </form> 
+    </tr> 
+   </thead> 
+  <tr class="row_title"> 
+    <td align="center">ID</td> 
+     <td align="center">用户</td> 
+     <td align="center">代理商</td>
+     <td align="center">下单时间</td> 
+     <td align="center">成交时间</td>
+     <td align="center">代码</td> 
+     <td align="center">名称</td> 
+     <td align="center">买/卖</td> 
+     <td align="right">挂单价格</td> 
+     <td align="center">升/跌</td> 
+     <td align="right">数量(手)</td> 
+    <td align="center">状态</td>
+     <td align="right">操作</td> 
+   </tr> 
+  <tbody id="buy_tr"> 
+     <tr class="row1_odd"> 
+      <td align="center">[tr.id;block=tr;ondata=trust_event;]</td> 
+      <td align="center"><a href="javascript:void(0);" onClick="ShowUserInfo('[tr.user]');" title="查看用户信息">[tr.user]</a></td> 
+      <td align="center">[tr.agent]</td>
+      <td align="center">[tr.stock_trust_time]</td> 
+      <td align="center">[tr.stock_deal_time;if [val]='';then '-']</td>
+      <td align="center"><a href="javascript:ShowKline('[tr.code]');">[tr.type][tr.code]</a></td> 
+      <td align="center"><a href="javascript:ShowKline('[tr.code]');">[tr.name]</a></td> 
+      <td align="center">[tr.trust_type;if [val]=1; then '买入';else '卖出']</td> 
+      <td align="right">[tr.price;frm='0.00']</td> 
+      <td align="center">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td> 
+      <td align="right">[tr.num]</td> 
+      <td align="right">[tr.status]</td>
+      <td align="right"><input type="button" name="Submit" value="撤 单" class="btn1" onClick="return cancel_trust('[tr.code]','[tr.name]','[tr.id]');" [tr.app;if [val]=1;then '';else 'style="display:none;"'] /></td> 
+    </tr> 
+     <tr class="row1_even"> 
+      <td align="center">[tr.id;block=tr;ondata=trust_event;]</td> 
+      <td align="center"><a href="javascript:void(0);" onClick="ShowUserInfo('[tr.user]');" title="查看用户信息">[tr.user]</a></td> 
+      <td align="center">[tr.agent]</td>
+      <td align="center">[tr.stock_trust_time]</td> 
+      <td align="center">[tr.stock_deal_time;if [val]='';then '-']</td>
+      <td align="center"><a href="javascript:ShowKline('[tr.code]');">[tr.type][tr.code]</a></td> 
+      <td align="center"><a href="javascript:ShowKline('[tr.code]');">[tr.name]</a></td> 
+      <td align="center">[tr.trust_type;if [val]=1; then '买入';else '卖出']</td> 
+      <td align="right">[tr.price;frm='0.00']</td> 
+      <td align="center">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td> 
+      <td align="right">[tr.num]</td> 
+      <td align="right">[tr.status]</td>
+      <td align="right"><input type="button" name="Submit" value="撤 单" class="btn1" onClick="return cancel_trust('[tr.code]','[tr.name]','[tr.id]');" [tr.app;if [val]=1;then '';else 'style="display:none;"'] /></td> 
+    </tr> 
+   </tbody> 
+  <tr class="nodata"> 
+     <td height="50" colspan="13" align="center">[tr;block=tr;nodata]没有符合条件的记录.</td> 
+   </tr> 
+  <tr class="row_ls"> 
+     <td colspan="13" [var.showPage;magnet=tr;mtype=m]><table border="0" align="center" cellpadding="2" cellspacing="0" class="pagelist">
+       <tr align="center" >
+         <td><a id='page_first' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&status=[var.status]&username=[var.username]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td>
+         <td><a id='page_prev' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&status=[var.status]&username=[var.username]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td>
+         <td><a id='page_page' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&status=[var.status]&username=[var.username]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td>
+         <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td>
+         <td><a id='page_next' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&status=[var.status]&username=[var.username]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td>
+         <td><a id='page_last' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&status=[var.status]&username=[var.username]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td>
+       </tr>
+     </table></td>
+  </tr> 
+</table> 
+</body>
+</html>

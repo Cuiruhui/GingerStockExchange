@@ -1,0 +1,123 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户持仓(当天)</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px; font-size:12px; }
+</style>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/function.js?rnd=[var.rand]"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+	$('#demo').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+	//计算浮盈
+	CalcDealGain($('#codelist').html());
+});
+</script>
+</head>
+<body> 
+<div id="codelist" style="display:none;">[var.codelist]</div>
+<table width="98%" align="center" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF" style="margin-top:5px;border:1px solid #CCCCCC;">
+  <tr bgcolor="#F5F5F5">
+    <td colspan="2"><img src="./images/dot13.gif" border="0" align="absmiddle" hspace="3" />当前位置：代理平台 &gt; [var.demo;if [val]=0;then '正式用户';else '试玩帐号'] &gt; 会员持仓(当天)</td>
+  </tr>
+  <tr>
+    <td height="30" bgcolor="#F5F5F5"><form name="frmSearch" id="frmSearch" method="get" action="deal.php">
+    &nbsp;帐号类型:<select name="demo" size="1" id="demo" style="vertical-align:middle">
+      <option value="-1">全部</option>
+      <option value="0">正式</option>
+      <option value="1">试玩</option>
+	  <option>[var.demo;ope=html;select]</option>
+    </select>
+    &nbsp;用户名:
+    <input name="username" type="text" id="username" value="[var.username]" size="15">
+日期从
+    <input name="start_date" type="text" id="start_date" class="datepicker" value="[var.start_date]" size="12">
+    到
+    <input name="end_date" type="text" id="end_date" class="datepicker" value="[var.end_date]" size="12">
+<input type="submit" name="btnSearch" value="查询" id="btnSearch" class="button3" />
+  </form></td>
+  <td align="center" bgcolor="#F5F5F5">当前日期：[var.xltm.sys_date]　<a href="deal_history.php">查历史点这里</a></td>
+  </tr>
+</table>
+<table width='98%' border='0' align="center" cellpadding='3' cellspacing='1' bgcolor="#CCCCCC" class="mybox">
+  <tr align='center'>
+    <th>订单号</th>
+    <th>下单日期</th>
+    <th>用户名</th>
+    <th>代码/名称</th>
+    <th>类型</th>
+    <th>数量(手)</th>
+    <th align="right">买入金额</th>
+    <th align="right">买入手续费</th>
+    <th align="right">点差费</th>
+    <th align="right">留仓天数</th>
+    <th align="right">留仓费</th>
+    <th align="right">买入价</th>
+    <th align="right">现价</th>
+    <th align="right">盈亏</th>
+    <!--<th>操作</th>-->
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td>[tr.id;block=tr;aggregate=bull_cost_money:sum,dc_money:sum,save_money:sum,bull_money:sum]</td>
+    <td>[tr.bull_trust_time]</td>
+    <td><a href="javascript:ShowUserInfo('[tr.user]');">[tr.user]</a></td>
+    <td><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_code]/[tr.stock_name]</a></td>
+    <td id="buy_type_[tr.#]" value="[tr.buy_type]">[tr.buy_type;if [val]=1;then '<font color=red>买升</font>';else '<font color=green>买跌</font>'] </td>
+    <td id="bull_num_[tr.#]" value="[tr.bull_num]">[tr.bull_num]</td>
+    <td align="right" id="bull_cost_money_[tr.#]" value="[tr.bull_cost_money]">[tr.bull_money;frm='0.00']</td>
+    <td align="right" id="bull_cost_money_[tr.#]" value="[tr.bull_cost_money]">[tr.bull_cost_money;frm='0.00']</td>
+    <td align="right" id="dc_money_[tr.#]" value="[tr.dc_money]">[tr.dc_money;frm='0.00']</td>
+    <td align="right">[tr.save_day]</td>
+    <td align="right" id="save_money_[tr.#]" value="[tr.save_money]">[tr.save_money;frm='0.00']</td>
+    <td align="right" id="bull_price_[tr.#]" value="[tr.bull_price]">[tr.bull_price;frm='0.00']</td>
+    <td align="right" id="cur_price_[tr.#]">-</td>
+    <td align="right" id="gain_[tr.#]">[tr.gain;frm='0.00']</td>
+    <!--<td><input type="button" name="Submit22" value="平仓" class="button3" onClick="return sale_buy('[tr.id]');" /></td>-->
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td>[tr.id;block=tr;aggregate=bull_cost_money:sum,dc_money:sum,save_money:sum,bull_money:sum]</td>
+    <td>[tr.bull_trust_time]</td>
+    <td><a href="javascript:ShowUserInfo('[tr.user]');">[tr.user]</a></td>
+    <td><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_code]/[tr.stock_name]</a></td>
+    <td id="buy_type_[tr.#]" value="[tr.buy_type]">[tr.buy_type;if [val]=1;then '<font color=red>买升</font>';else '<font color=green>买跌</font>'] </td>
+    <td id="bull_num_[tr.#]" value="[tr.bull_num]">[tr.bull_num]</td>
+    <td align="right" id="bull_cost_money_[tr.#]" value="[tr.bull_cost_money]">[tr.bull_money;frm='0.00']</td>
+    <td align="right" id="bull_cost_money_[tr.#]" value="[tr.bull_cost_money]">[tr.bull_cost_money;frm='0.00']</td>
+    <td align="right" id="dc_money_[tr.#]" value="[tr.dc_money]">[tr.dc_money;frm='0.00']</td>
+    <td align="right">[tr.save_day]</td>
+    <td align="right" id="save_money_[tr.#]" value="[tr.save_money]">[tr.save_money;frm='0.00']</td>
+    <td align="right" id="bull_price_[tr.#]" value="[tr.bull_price]">[tr.bull_price;frm='0.00']</td>
+    <td align="right" id="cur_price_[tr.#]">-</td>
+    <td align="right" id="gain_[tr.#]">[tr.gain;frm='0.00']</td>
+    <!--<td><input type="button" name="Submit22" value="平仓" class="button3" onClick="return sale_buy('[tr.id]');" /></td>-->
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td height="50" colspan="15" bgcolor="#FFFFFF">[tr;block=tr;nodata]<span class="gray">暂无符合条件持仓记录.</span></td>
+  </tr>
+  <tr align='center'>
+    <td colspan="6" align="right" bgcolor="#FFFFFF">合计:</td>
+  	<td align="right" bgcolor="#FFFFFF">[tr.bull_money:sum;frm='0.00']</td>
+  	<td align="right" bgcolor="#FFFFFF">[tr.bull_cost_money:sum;frm='0.00']</td>
+    <td align="right" bgcolor="#FFFFFF">[tr.dc_money:sum;frm='0.00']</td>
+    <td align="right" bgcolor="#FFFFFF">-</td>
+    <td align="right" bgcolor="#FFFFFF">[tr.save_money:sum;frm='0.00']</td>
+    <td align="right" bgcolor="#FFFFFF">-</td>
+    <td align="right" bgcolor="#FFFFFF">-</td>
+    <td align="right" bgcolor="#FFFFFF" id="gain_total">0.00</td>
+    <!--<td bgcolor="#FFFFFF">-</td>-->
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

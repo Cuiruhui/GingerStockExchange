@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>我的短信息</title>
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function(){
+ 
+});
+function ShowUserInfo(user)
+{
+	ymPrompt.win({message:'./member_user.php?type=userinfo&username='+user,width:400,height:280,title:'会员'+user+'的详细信息',iframe:true});
+}
+ 
+function Message(id)
+{
+	ymPrompt.win({message:'./message.php?type=read&id='+id,width:400,height:280,title:'阅读短信',iframe:true,handler:function(){self.location.href=self.location.href;}});
+}
+</script> 
+</head>
+<body> 
+<table width='98%' border='0' align="center" cellpadding='3' cellspacing='1' bgcolor="#CCCCCC" class="mybox">
+ 
+    <tr> 
+      <th align="center">编号</th>
+	       
+      <th>标题</th>
+	  
+      <th align="center">标识</th>
+      <!-- <th width="8%" align="right">设置</th>  -->
+    </tr> 
+ 
+ <tr align='center' bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td align="center">[tr.id;block=tr]</td> 
+    
+    <td [tr.isread;if [val]=0;then 'style="font-weight:bold"';else '']><a href="javascript:Message('[tr.id]');">[tr.title]</a></td> 
+     
+    <td align="center">[tr.isread;if [val]=0; then '<b>未读</b>'; else '已读']</td>
+    <!-- <td align="right"><a href="message.php?type=del&id=[tr.id]" onClick="if(confirm('确定要删除该条短信吗？')){return true;}else{return false;}">删除</a></td>  -->
+  </tr> 
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td align="center">[tr.id;block=tr]</td> 
+    
+    <td [tr.isread;if [val]=0;then 'style="font-weight:bold"';else '']><a href="javascript:Message('[tr.id]');">[tr.title]</a></td> 
+     
+    <td align="center">[tr.isread;if [val]=0; then '<b>未读</b>'; else '已读']</td>
+    <!-- <td align="right"><a href="message.php?type=del&id=[tr.id]" onClick="if(confirm('确定要删除该条短信吗？')){return true;}else{return false;}">删除</a></td> --> 
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF">
+    <td height="50" colspan="3" align="center">[tr;block=tr;nodata]目前没有任何短信息.</td> 
+  </tr>
+  <tr>
+    <td colspan="3" align="center" bgcolor="#FFFFFF">
+	<div id="" class="sabrosus">
+	<table border="0" align="center" cellpadding="2" cellspacing="0" class="">
+      <tr align="center" >
+        <td><a id='page_first' href="[var..script_name]?PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td>
+        <td><a id='page_prev' href="[var..script_name]?PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td>
+        <td><a id='page_page' href="[var..script_name]?PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td>
+        <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td>
+        <td><a id='page_next' href="[var..script_name]?PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td>
+        <td><a id='page_last' href="[var..script_name]?PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td>
+      </tr>
+    </table>
+	</div></td>
+  </tr> 
+</table> 
+</body>
+</html>

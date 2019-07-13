@@ -1,0 +1,225 @@
+//公告轮显示
+function news(obj){
+	clearTimeout(news_s);
+	$(obj).find("ul:first").animate({
+		marginTop:"-25px"
+	},500,function(){
+		$(this).css({marginTop:"0px"}).find("li:first").appendTo(this);
+	});
+	news_s=window.setTimeout('news("#news")', 3000);
+}
+function show_time()
+{
+	clearTimeout(show_s);
+	$.ajax({
+		url:'showTime.php?rand='+Math.random(),
+		type:'GET',
+		timeout:1000,
+		success:function(data){
+			$('#liveTime').html(data);
+		}
+	});
+	show_s=window.setTimeout('show_time()', 1000);
+}
+
+function ajaxUrl(url)
+{
+	var res;
+	$.ajax({
+		url: url,
+		type:'GET',
+		timeout:5000,
+		async:false,
+		success:function(data){
+			if(data==undefined || data=='')
+				res = '';
+			else
+				res = data;
+		}
+	});
+	return res;
+}
+
+function Trim(str) {
+	return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+
+/*
+interval ：D表示查询精确到天数的之差
+interval ：H表示查询精确到小时之差
+interval ：M表示查询精确到分钟之差
+interval ：S表示查询精确到秒之差
+interval ：T表示查询精确到毫秒之差
+*/
+function dateDiff(interval, date1, date2)
+{
+	var objInterval = {'D' : 1000 * 60 * 60 * 24, 'H' : 1000 * 60 * 60, 'M' : 1000 * 60, 'S' : 1000, 'T' : 1};
+	interval = interval.toUpperCase();
+	try
+	{
+		return Math.round((date2 - date1) / ('(objInterval.' + interval + ')'));
+	}
+	catch (e)
+	{
+		return e.message;
+	}
+} 
+
+
+function sale_buy(code,name,num,id,limit_time,limit_cost)
+{
+	var cansell = false;
+	var cancontinue = true;
+	var dourl = 'sell.php?stockcode=' + code + '&stockname=' + name + '&num=' + num + '&id=' + id;
+	//判断股票是否可卖
+	$.ajax({
+		url:'buy.php?type=buytime&id='+id,
+		type:'GET',
+		async:false,
+		timeout:5000,
+		success:function(data){
+			if(data.indexOf('休市中')!=-1)
+			{
+				parent.ymPrompt.alert({title:'平仓股票',message: '休市中,不能买卖股票!!'});
+				cancontinue = false;
+			}
+			else if(data.indexOf('true')!=-1)
+			{
+				cansell = true;
+				dourl += '&cansell=true';
+			}
+		}
+	});
+	
+	if(!cancontinue) return;
+	if(!cansell)
+	{
+		dourl += "&cansell=false";
+		if(confirm('系统提示：该股票买入时间不足' + limit_time + '分钟将加收' + limit_cost*100 + '%的手续费!\n\n确定卖出吗？'))
+		{
+			parent.ymPrompt.win({message:dourl,width:500,height:350,title:'平仓股票' + name + '[' + code + ']',iframe:true,handler:function(){self.location.href=self.location.href+'?rnd='+Math.random();}})
+		}
+	}
+	else
+	{
+		parent.ymPrompt.win({message:dourl,width:500,height:350,title:'平仓股票' + name + '[' + code + ']',iframe:true,handler:function(){self.location.href=self.location.href+'?rnd='+Math.random();}})
+	}
+}
+
+function cancel_trust(code,name,trust_id)
+{
+	var txt = '确定要撤销 ['+code+'] '+name+' 的委托交易？';
+	ymPrompt.confirmInfo({title:'委托撤单',message:txt,handler:function(fn){
+		if(fn == "ok")
+		{
+			$.ajax({
+				url:'ajax.php?type=cancel_trust&id='+trust_id,
+				type:'GET',
+				timeout:5000,
+				success:function(data){
+					if(typeof(data)=='undefined' || data=='')
+					{
+						parent.ymPrompt.errorInfo({title:'委托撤单',message:'撤单失败！'});
+						self.location.href=self.location.href;
+					}
+					else
+					{
+						res = data.split('|');
+						if(res[0]=='true')
+						{
+							parent.ymPrompt.succeedInfo({title:'委托撤单',message:res[1]});
+							self.location.href=self.location.href;
+						}
+						else
+						{
+							parent.ymPrompt.errorInfo({title:'委托撤单',message:res[1]});
+							self.location.href=self.location.href;
+						}
+					}
+				}
+			});
+		}
+	
+	}});
+}
+
+function GetQuote(t,c)
+{
+	res = ajaxUrl("ajax.php?type=quote&stocktype=" + t + "&stockcode=" + c);
+	if(res.indexOf(',')!=-1)
+	{
+		quote = res.split(',');
+		if(quote.length!=33)
+		{
+			parent.ymPrompt.alert({title:'系统提示',message:quote[0]+'股票可能退市了！'});
+			return false;
+		}
+		zt_rate = quote[1].toLowerCase().indexOf('st')!=-1 ? 1.05 : 1.1;
+		dt_rate = quote[1].toLowerCase().indexOf('st')!=-1 ? 0.95 : 0.9;
+		//多
+		$('#price1').html(quote[7]);
+		//空
+		$('#price2').html(quote[6]);
+		//最新价
+		$('#buys_price').val(quote[4]);
+		$('#cur_price').html('<font color="' + (parseFloat(quote[4])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[4] + '</font>');
+		$('#kp_price').html('<font color="' + (parseFloat(quote[2])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[2] + '</font>');
+		$('#hight_price').html('<font color="' + (parseFloat(quote[5])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[5] + '</font>');
+		$('#lower_price').html('<font color="' + (parseFloat(quote[6])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[6] + '</font>');
+		$('#yes_price').html(quote[3]);
+		cur_zd = parseFloat(quote[4]-quote[3]).toFixed(2);
+		cur_zdf = parseFloat(cur_zd*100 / quote[3]).toFixed(2);
+		cur_zd = '<font color="' + (cur_zd>0 ? '#ff0000' : '#287938') + '">' + cur_zd + '</font>';
+		cur_zdf = '<font color="' + (cur_zd>0 ? '#ff0000' : '#287938') + '">' + cur_zdf + '</font>';
+		$('#zd').html(cur_zd);
+		$('#zdf').html(cur_zdf);
+		$('#zcj_num').html(Math.floor(quote[9]/100) + '手');
+		$('#zcj_price').html(parseFloat(quote[10]/10000).toFixed(2));
+		$('#zt_price').html('<font color="#ff0000">' + parseFloat(quote[3]*zt_rate).toFixed(2) + '</font>');
+		$('#dt_price').html('<font color="#287938">' + parseFloat(quote[3]*dt_rate).toFixed(2) + '</font>');
+		$('#sell_5_price').html('<font color="' + (parseFloat(quote[28])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[28] + '</font>');
+		$('#sell_5_num').html(Math.floor(quote[29]/100));
+		$('#sell_4_price').html('<font color="' + (parseFloat(quote[26])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[26] + '</font>');
+		$('#sell_4_num').html(Math.floor(quote[27]/100));
+		$('#sell_3_price').html('<font color="' + (parseFloat(quote[24])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[24] + '</font>');
+		$('#sell_3_num').html(Math.floor(quote[25]/100));
+		$('#sell_2_price').html('<font color="' + (parseFloat(quote[22])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[22] + '</font>');
+		$('#sell_2_num').html(Math.floor(quote[23]/100));
+		$('#sell_1_price').html('<font color="' + (parseFloat(quote[20])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[20] + '</font>');
+		$('#sell_1_num').html(Math.floor(quote[21]/100));
+		
+		$('#buy_1_num').html(Math.floor(quote[11]/100));
+		$('#buy_1_price').html('<font color="' + (parseFloat(quote[12])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[12] + '</font>');
+		$('#buy_2_num').html(Math.floor(quote[13]/100));
+		$('#buy_2_price').html('<font color="' + (parseFloat(quote[14])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[14] + '</font>');
+		$('#buy_3_num').html(Math.floor(quote[15]/100));
+		$('#buy_3_price').html('<font color="' + (parseFloat(quote[16])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[16] + '</font>');
+		$('#buy_4_num').html(Math.floor(quote[17]/100));
+		$('#buy_4_price').html('<font color="' + (parseFloat(quote[18])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[18] + '</font>');
+		$('#buy_5_num').html(Math.floor(quote[19]/100));
+		$('#buy_5_price').html('<font color="' + (parseFloat(quote[20])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[20] + '</font>');
+		
+	}
+}
+
+function ShowKline(stockcode) {
+	var are_str;
+	if(stockcode.substring(0, 1) == "6"){ 
+		area_str = "sh"; 
+	}else if(stockcode.substring(0, 1) == "0"){
+		area_str = "sz";
+	}
+	parent.ymPrompt.win({title:'股票 ' + stockcode + ' 的K线图', message: "kline.php?stockcode=" + stockcode + "&stocktype=" + area_str, width: 580, height: 420, maxBtn: true, iframe: true, winPos: [(screen.width-580)/2, 80], handler: null });
+}
+
+function ShowStockInfo(stockcode) {
+	window.showModalDialog("stockinfo.php?stockcode=" + stockcode + "&ts=" + (new Date()).getTime(), "_blank", "dialogHeight: 450px; dialogWidth: 610px; dialogTop: 150px; dialogLeft: 200px; edge: Raised; center: Yes; help: no; resizable: Yes; status: no;");
+}
+
+function KillErros()
+{
+		return true;
+}
+
+//window.onerror = KillErros;
+

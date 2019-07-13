@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>代理管理_新增</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#regform").validate({
+		rules: {
+			username: {
+				required: true,
+				rangelength: [[var.xltm.config.user_agent_min], [var.xltm.config.user_agent_max]],
+				remote: "member_agent.php?type=check_username"
+			},
+			alias: {
+			    required: true,
+				rangelength: [[var.xltm.config.user_name_min], [var.xltm.config.user_name_max]]
+			},
+			password: {
+				required: true,
+				rangelength: [[var.xltm.config.min_password], [var.xltm.config.max_password]],
+				minlength: 4
+			},
+			password_confirm: {
+				required: true,
+				rangelength: [[var.xltm.config.min_password], [var.xltm.config.max_password]],
+				equalTo: "#password"
+			},
+			cost_bull: {
+					required: true,
+					max: [var.xltm.config.cost_bull_max]
+			},
+			cost_sell: {
+					required: true,
+					max: [var.xltm.config.cost_sell_max]
+			},
+			cost_save: {
+					required: true,
+					max: [var.xltm.config.cost_save_max]
+			},
+			cost_ret: {
+					required: true,
+					max: [var.xltm.config.cost_ret_max]
+			},
+			member_max:{
+					required: true,
+					range: [[var.Min_Member], [var.Max_Member]]
+			},
+			num_min: {
+				required: true,
+				min: [var.MIN_NUM_Max]
+			},
+			num_max: {
+				required: true,
+				range: [[var.MIN_NUM_Max], [var.MAX_NUM_Max]]
+			},
+			domain: {
+				required: true
+			}
+		},
+		messages: {
+			username: {
+				required: "[<b>登陆账号</b>]:不能为空.",
+				rangelength: jQuery.format("[<b>登陆账号</b>]:请输入 {0} 至 {1} 位字符."),
+				remote: jQuery.format("[<b>登陆账号</b>]:你输入的  <b><u>{0}</u></b> 已经存在.")
+			},
+			alias: {
+			    required: "[<b>账号名称</b>]:不能为空.",
+				rangelength: jQuery.format("[<b>账号名称</b>]:请输入 {0} 至 {1} 位的字符.")
+			},
+			password: {
+				required: "[<b>登录密码</b>]:不能为空.",
+				rangelength: jQuery.format("[<b>登录密码</b>]:请输入 {0} 至 {1}  位的字符.")
+			},
+			password_confirm: {
+				required: "[<b>确认密码</b>]:不能为空.",
+				rangelength: jQuery.format("[<b>确认密码</b>]:请输入 {0} 至 {1} 位的字符."),
+				equalTo: "[<b>登陆密码</b>] 与 [<b>确认密码</b>] 不一致,请重新输入."
+			},
+			cost_bull: {
+					required: '[<b>买入手续费</b>]:不能为空.',
+					max: '[<b>买入手续费</b>]:不能大于 [var.xltm.config.cost_bull_max].'
+			},
+			cost_sell: {
+					required: '[<b>卖出手续费</b>]:不能为空.',
+					max: '[<b>卖出手续费</b>]:不能大于 [var.xltm.config.cost_sell_max]'
+			},
+			cost_save: {
+					required: '[<b>留仓费用</b>]:不能为空.',
+					max: '[<b>留仓费用</b>]:不能大于 [var.xltm.config.cost_save_max]'
+			},
+			cost_ret: {
+					required: '[<b>交易佣金</b>]:不能为空.',
+					max: '[<b>交易佣金</b>]:不能大于 [var.xltm.config.cost_ret_max]'
+			},
+			member_max: {
+					required: '[<b>限制会员数</b>]:不能为空.',
+					range:  jQuery.format('[<b>限制会员数</b>]：请输入 {0} 至 {1} 的数值')
+			},
+			num_min: {
+				required: '[<b>最小手数</b>]:不能为空.',
+				min: jQuery.format('[<b>最小手数</b>]：不能少于{0}的数值')
+			},
+			num_max: {
+				required: '[<b>最大手数</b>]:不能为空.',
+				range: jQuery.format('[<b>最大手数</b>]：请输入 {0} 至 {1} 的数值')
+			},
+			domain: {
+				required: '[<b>绑定域名</b>]:不能为空.'
+			}
+		},
+		focusCleanup: true,//被验证的元素获得焦点时移除错误信息
+		success: function(label){
+			label.html("<span style=\"color:green\">填写正确！</span>").addClass("success");
+		},
+		//所有符合后运行以下功能
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+	
+	$('#btnBack').click(function(){
+		history.go(-1);
+	});
+});
+</script>
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <form id="regform" action="member_agent.php?type=regsubmit" method="post"> 
+    <tr class="row_title"> 
+      <td colspan="2"><b>新增代理商账号</b></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td width="15%" align="right">登陆账号:</td> 
+      <td width="85%"><input name="username" type="text" id="username" size="15" style="width:100px;" /> 
+        <font color="#999999">输入范围 [var.xltm.config.user_agent_min] 至 [var.xltm.config.user_agent_max] 位字符</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">账号名称:</td> 
+      <td><input name="alias" type="text" id="alias" size="15" style="width:100px;" /> 
+        <font color="#999999">输入范围 [var.xltm.config.user_name_min] 至 [var.xltm.config.user_name_max] 位字符</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">登陆密码:</td> 
+      <td><input name="password" type="password" id="password" size="15" style="width:100px;" /> 
+        <font color="#999999">输入范围 [var.xltm.config.min_password] 至 [var.xltm.config.max_password] 位字符</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">确认密码:</td> 
+      <td><input name="password_confirm" type="password" id="password_confirm" size="15" maxlength="20" style="width:100px;" /></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">买入手续费:</td> 
+      <td><input name="cost_bull" type="text" id="cost_bull" style="width:50px;" value="[var.xltm.config.cost_bull_max]" size="15" maxlength="20" /> 
+        <font color="#999999">≦[var.xltm.config.cost_bull_max]　下级会员将继承该设置值</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">卖出手续费:</td> 
+      <td><input name="cost_sell" type="text" id="cost_sell" style="width:50px;" value="[var.xltm.config.cost_sell_max]" size="15" maxlength="20" /> 
+        <font color="#999999">≦[var.xltm.config.cost_sell_max]　下级会员将继承该设置值</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">留仓费用:</td> 
+      <td><input name="cost_save" type="text" id="cost_save" style="width:50px;" value="[var.xltm.config.cost_save_max]" size="15" maxlength="20" /> 
+        <font color="#999999">≦[var.xltm.config.cost_save_max]　下级会员将继承该设置值</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">交易佣金分成:</td> 
+      <td><select name="cost_ret" size="1" id="cost_ret"> 
+          <option value="10">10%</option> 
+          <option value="15">15%</option> 
+          <option value="20">20%</option> 
+          <option value="25">25%</option> 
+          <option value="30">30%</option> 
+          <option value="35">35%</option> 
+          <option value="40">40%</option> 
+          <option value="45">45%</option> 
+          <option value="50">50%</option> 
+          <option value="55">55%</option> 
+          <option value="60">60%</option> 
+          <option value="65">65%</option> 
+          <option value="70">70%</option> 
+          <option value="75">75%</option> 
+          <option value="80">80%</option> 
+          <option value="85">85%</option> 
+          <option value="90">90%</option> 
+          <option>[var.xltm.config.cost_ret_max;ope=html;select]</option> 
+        </select> 
+        <font color="#999999">≦[var.xltm.config.cost_ret_max]%</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">限制会员数:</td> 
+      <td><input name="member_max" type="text" id="member_max" style="width:50px;" value="10000" size="15" maxlength="20" /> 
+        <font color="#999999">[var.Min_Member] 至 [var.Max_Member]</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">最小手数:</td> 
+      <td><input name="num_min" type="text" id="num_min" style="width:50px;" value="[var.MIN_NUM_Max]" size="15" maxlength="5" /> 
+        <font color="#999999">不能少于:[var.MIN_NUM_Max]</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">最大手数:</td> 
+      <td><input name="num_max" type="text" id="num_max" style="width:50px;" value="[var.MAX_NUM_Max]" size="15" maxlength="5" /> 
+        <font color="#999999">[var.MIN_NUM_Max] 至 [var.MAX_NUM_Max]</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">绑定域名:</td> 
+      <td><input name="domain" type="text" id="domain" size="30" style="width:200px;" /> 
+        多个域名请用英文逗号隔开(如：www.abc.com,www.cdef.com 注意www和不带www要分别填写） </td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="center">&nbsp;</td> 
+      <td><input type="submit" name="button" class="btn1" id="button" value="确定新增" /> 
+&nbsp;<input type="button" name="btnBack" id="btnBack" class="btn1" value="返　回" /></td> 
+    </tr> 
+  </form> 
+</table> 
+</body>
+</html>

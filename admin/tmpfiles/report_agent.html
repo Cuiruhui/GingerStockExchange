@@ -1,0 +1,100 @@
+<script type="text/javascript">
+var params='start_date=[var.start_date]&end_date=[var.end_date]&sell=[var.sell]';
+$(document).ready(function() {
+	$('.navigate').AjaxLoad({
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+		target: '#account_main',
+		method:'GET'
+	});
+	$('.ToUser').AjaxLoad({
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+		target: '#account_main',
+		params:'type=login2&'+params,
+		method:'GET'
+	});
+	$('#back').AjaxLoad({
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+		target: '#account_main',
+		method:'GET'
+	});
+});
+</script>
+<style type="text/css">
+<!--
+.ToUser {
+	color: #0000FF;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.navigate {
+	font-weight: bold;
+	color: #0000FF;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.table1 {display:block;}
+-->
+</style>
+<table width="100%" border="0" cellpadding="5" cellspacing="1" class="table1"> 
+  <tr class="row_ls"> 
+    <td colspan="8"> <table border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td height="20"><div class="navigate" value="report.php">报表查询</div></td> 
+          <td>&nbsp;</td> 
+          <td><img src="./images/arrow.gif" /></td> 
+          <td>&nbsp;<b>代理商</b>&nbsp;</td> 
+          <td>&nbsp;报表类型:</td> 
+          <td>&nbsp;<font color=red>[var.sell;if [val]=1;then '已平仓';else '未平仓']</font></td> 
+          <td>&nbsp;&nbsp;&nbsp;帐号类型:</td>
+          <td>&nbsp;<font color=red>[var.demos]</font></td>
+          <td>&nbsp;&nbsp;&nbsp;日期:</td> 
+          <td>&nbsp;[var.start_date]&nbsp;至&nbsp;[var.end_date]</td> 
+          <td>&nbsp;</td> 
+          <td width="80" align="right"><span id="back" value="report.php">返回上页</span></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <tr class="row_title"> 
+    <td width="60" align="center">代理商账号</td> 
+    <td width="60" align="center">交易数</td> 
+    <td width="80" align="right">买入金额</td> 
+    <td width="80" align="right">卖出金额</td> 
+    <td width="70" align="right">代理商手续费</td> 
+    <td width="60" align="right">点差费</td> 
+    <td width="60" align="right">留仓费</td> 
+    <td width="60" align="right">代理商盈利</td> 
+  </tr> 
+  <tr class="row1_odd"> 
+    <td align="center"><div class="ToUser" value="report.php?agent=[tr.username;block=tr;aggregate=count:sum,bull_money:sum,sell_money:sum,t_cost:sum,dc_money:sum,agent_save_money:sum,t_gain:sum]">[tr.username]</div></td> 
+    <td align="right">[tr.count]</td> 
+    <td align="right">[tr.bull_money;frm='0.00']</td> 
+    <td align="right">[tr.sell_money;frm='0.00']</td> 
+    <td align="right">[tr.t_cost;frm='0.00']</td> 
+    <td align="right">[tr.dc_money;frm='0.00']</td> 
+    <td align="right">[tr.agent_save_money;frm='0.00']</td> 
+    <td align="right">[tr.t_gain;frm='0.00']</td> 
+  </tr> 
+  <tr class="row1_even"> 
+    <td align="center"><div class="ToUser" value="report.php?agent=[tr.username;block=tr;aggregate=count:sum,bull_money:sum,sell_money:sum,t_cost:sum,dc_money:sum,agent_save_money:sum,t_gain:sum]">[tr.username]</div></td> 
+    <td align="right">[tr.count]</td> 
+    <td align="right">[tr.bull_money;frm='0.00']</td> 
+    <td align="right">[tr.sell_money;frm='0.00']</td> 
+    <td align="right">[tr.t_cost;frm='0.00']</td> 
+    <td align="right">[tr.dc_money;frm='0.00']</td> 
+    <td align="right">[tr.agent_save_money;frm='0.00']</td> 
+    <td align="right">[tr.t_gain;frm='0.00']</td> 
+  </tr> 
+  <tr class="totla_row"> 
+    <td>合计总数:</td> 
+    <td align="right">[tr.count:sum]</td> 
+    <td align="right">[tr.bull_money:sum;frm='0.00']</td> 
+    <td align="right">[tr.sell_money:sum;frm='0.00']</td> 
+    <td align="right">[tr.t_cost:sum;frm='0.00']</td> 
+    <td align="right">[tr.dc_money:sum;frm='0.00']</td> 
+    <td align="right">[tr.agent_save_money:sum;frm='0.00']</td> 
+    <td align="right">[tr.t_gain:sum;frm='0.00']</td> 
+  </tr> 
+</table> 

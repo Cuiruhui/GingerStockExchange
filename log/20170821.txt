@@ -1,0 +1,32 @@
+2017-08-21 11:46:21 Database error message: Unknown column 'vips' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-08-21 11:46:23 Database error message: Unknown column 'vips' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-08-21 11:47:41 Database error message: Unknown column 'vips' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-08-21 11:49:51 Database error message: Unknown column 'vips' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-08-21 11:49:53 Database error message: Unknown column 'vips' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-08-21 11:58:20 Database error message: Unknown column 'vips' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-08-21 11:59:24 Database error message: Unknown column 'vips' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-08-21 12:15:09 Database error message: Unknown column 'vips' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-08-21 12:15:10 Database error message: Unknown column 'vips' in 'where clause'
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-08-21 17:11:15 183.18.35.238 insert into `buy_trust` set user='uceshi',code='vips',type='N',name='&aring;î&macr;&aring;ìÅ&auml;&frac14;ö',trust_type='1',buy_type='1',price='9.87',app='2',num='11',money='108.46',agent='daili',stock_trust_date='2017-08-21',stock_trust_time='2017-08-21 17:11:14'
+2017-08-21 17:23:26 183.18.35.238 insert into `buy_trust` set user='uceshi',code='vips',type='N',name='&aring;î&macr;&aring;ìÅ&auml;&frac14;ö',trust_type='1',buy_type='1',price='9.87',app='2',num='11',money='10846',agent='daili',stock_trust_date='2017-08-21',stock_trust_time='2017-08-21 17:23:26'
+2017-08-21 17:26:40 183.18.35.238 insert into `buy_trust` set user='uceshi',code='vips',type='N',name='&aring;î&macr;&aring;ìÅ&auml;&frac14;ö',trust_type='1',buy_type='1',price='9.87',app='2',num='11',money='10846',agent='daili',stock_trust_date='2017-08-21',stock_trust_time='2017-08-21 17:26:40'
+2017-08-21 17:26:40 183.18.35.238 insert into `buy_deal` set user='uceshi',stock_code='vips',stock_type='N',stock_name='&aring;î&macr;&aring;ìÅ&auml;&frac14;ö',bull_price='9.87',bull_num='11',can_sell_num='11',bull_trust_id='13503',bull_trust_date='2017-08-21',bull_trust_time='2017-08-21 17:26:40',buy_type='1',bull_money='10846',bull_cost='0.002',sell_cost='0.002',bull_cost_money='21.69',save_cost='0.0004',agent='daili',agent_bull_money='17.35',agent_ret='80',dc_num='0',dc_money='0'
+2017-08-21 17:26:40 183.18.35.238 UPDATE `buy_trust` set stock_deal_time='2017-08-21 17:26:40' where id='13503'

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<META HTTP-EQUIV="expires" CONTENT="0">
+<meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="" />
+<meta name="description" content="融资融券交易系统">
+<meta name="author" content="" />
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<meta content="telephone=no" name="format-detection">
+
+
+<link rel="stylesheet" href="wap/jquery.mobile-1.3.2.min.css">
+<script src="assets/js/jquery-1.8.2.min.js"></script>
+<script src="wap/jquery.mobile-1.3.2.min.js"></script>
+
+
+
+<style>
+.ui-block-a, 
+.ui-block-b, 
+.ui-block-c,
+.ui-block-d,
+.ui-block-e  
+{
+border: 1px;
+border-bottom-color:#000000;
+height: 40px;
+
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div data-role="page" id="pagetwo">
+
+
+
+
+  <div data-role="header" data-theme="b">
+  	<a href="./wapindex.php" data-role="button"  data-ajax="false">欢迎您，[var.username]</a>
+    <h1>持仓</h1>
+  </div>
+
+  <div data-role="content" >
+    
+	<iframe frameborder=0 width=100%  height=800px marginheight=0 marginwidth=0  src=./wapdeal.php></iframe>	
+
+
+  </div>
+
+  <div data-role="footer" data-theme="b">
+    <div data-role="navbar" data-position="fixed" data-fullscreen="true">
+      <ul>
+        <li style="height:35px;"><a href="./wapindex.php" data-ajax="false">首页</a></li>
+        <li style="height:35px;"><a href="./waporder.php" data-ajax="false">下单</a></li>
+        
+        <li style="height:35px;"><a href="./waphangqing.php" data-ajax="false">行情</a></li>
+        <li style="height:35px;"><a href="/waptrade.php"data-ajax="false" >持仓</a></li>
+      </ul>
+    </div>
+  </div>
+</div> 
+
+
+</body>
+</html>

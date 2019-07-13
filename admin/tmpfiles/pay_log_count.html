@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>充值管理</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<link href="./style/date_input.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+	$('#agent,#result').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+});
+</script>
+</head>
+<body> 
+ <table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <thead> 
+     <tr class="row_ls"> 
+      <td colspan="6"><table border="0" cellspacing="0" cellpadding="0"> 
+          <form id="frmSearch" action="pay_log_count.php" method="get"> 
+            <tr>
+              <td height="30">代理商:
+                <select name="agent" size="1" id="agent">
+				<option value="">全部</option>
+              <option value="[ag.username]">[ag.username;block=option;]</option>
+				<option>[var.agent;ope=html;select]</option> 
+              </select></td> 
+              <td>&nbsp;状态:
+                <select name="result" id="result"> 
+                  <option value="-1">全部</option> 
+                  <option value="1">支付成功</option> 
+                  <option value="0">等待打款</option> 
+                  <option>[var.result;ope=html;select]</option> 
+              </select></td> 
+            <td>从
+              <input name="start_date" type="text" id="start_date" value="[var.start_date]" class="datepicker" />
+			  至
+			  <input name="end_date" type="text" id="end_date" value="[var.end_date]" class="datepicker">
+			  </td>
+              <td><input type="submit" class="btn1" name="btnSearch" id="btnSearch" value="查 询"></td> 
+		    </tr> 
+			
+          </form> 
+        </table></td> 
+    </tr> 
+     <tr class="row_title">
+       <td align="center">代理商</td> 
+      <td align="center">开始日期</td>
+       <td align="center">结束日期</td>
+       <td align="center">总金额</td> 
+      <td align="center">状态</td> 
+    </tr> 
+   </thead> 
+  <tr class="row1_odd">
+    <td align="center">[tr.agent;block=tr;aggregate=totalmoney:sum;]</td> 
+     <td align="center">[tr.start_date]</td>
+     <td align="center">[tr.end_date]</td>
+     <td align="center">[tr.totalmoney;frm='0.00']</td> 
+     <td align="center">[tr.result]</td> 
+   </tr> 
+  <tr class="row1_even">
+    <td align="center">[tr.agent;block=tr;aggregate=totalmoney:sum;]</td> 
+     <td align="center">[tr.start_date]</td>
+     <td align="center">[tr.end_date]</td>
+     <td align="center">[tr.totalmoney;frm='0.00']</td> 
+     <td align="center">[tr.result]</td> 
+   </tr> 
+  <tr align="center" class="nodata"> 
+     <td height="50" colspan="6">[tr;block=tr;nodata]暂无符合条件的记录.</td> 
+  </tr> 
+  <tr align="center">
+    <td colspan="3" align="right" style="font-weight:bold;">合计：</td>
+    <td colspan="2" align="left" style="font-weight:bold;">[tr.totalmoney:sum;frm='0.00']</td>
+   </tr> 
+</table> 
+ <p>&nbsp;</p>
+</body>
+</html>

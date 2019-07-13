@@ -1,0 +1,136 @@
+<script type="text/javascript">
+var params='login2=[var.login2]&login3=[var.login3]&start_date=[var.start_date]&end_date=[var.end_date]&sell=[var.sell]&member=[var.member]';
+$(document).ready(function() {
+	get_stock();
+function get_stock()
+{
+	var totla=0;
+	$.ajax({
+		type: "GET",
+		url: 'report.php?type=get_stock&'+params+'&rand='+Math.random(),
+		success: function(data){
+			var stocks = data.split('|*|');
+			for(var i=1; i<stocks.length-1; i++){
+				var content = stocks[i];
+				var id = content.split(',')[0]; //代码
+				var curr_f = content.split(',')[5]; //买入价
+				var bull_price=$('#bull_price_'+id).attr('value');
+				var bull_type=$('#buy_type_'+id).attr('value');
+				var bull_num =$('#bull_num_'+id).attr('value');
+				var bull_cost =$('#cost_'+id).text();
+				if(bull_type==2)//差价
+				{
+					var difference = (bull_price)-(curr_f);
+				}else{
+					var difference = (curr_f)-(bull_price);
+				}
+				var extent = ((difference)/(bull_price)*100).toFixed(2)+'%';
+				var gain =(parseFloat(difference)*(100)*parseFloat(bull_num)-bull_cost).toFixed(2);
+				if(parseFloat(gain) > 0) {
+					$('#extent_'+id).css({ color: "#ff0011"});
+					$('#gain_'+id).css({ color: "#ff0011"});
+					$('#price_'+id).css({ color: "#ff0011"});
+
+				}else if(parseFloat(gain) < 0){
+					$('#extent_'+id).css({ color: "green"});
+					$('#gain_'+id).css({ color: "green"});
+					$('#price_'+id).css({ color: "green"});
+				}else{
+					$('#extent_'+id).css({ color: "#cccccc"});
+					$('#gain_'+id).css({ color: "#cccccc"});
+					$('#price_'+id).css({ color: "#cccccc"});
+				}
+				if(parseFloat(curr_f)>0){
+					totla=parseFloat(totla)+parseFloat(gain);
+					$('#extent_'+id).text(extent);
+					$('#gain_'+id).text(gain);
+					$('#price_'+id).val(curr_f);
+					$('#price_'+id).html(curr_f);
+				}else{
+					$('#extent_'+id).text('--');
+					$('#gain_'+id).text('--');
+					$('#price_'+id).val('--');
+					$('#price_'+id).html('0.00');
+				}
+			}
+			$('#totla').html(parseFloat(totla).toFixed(2));
+			if(parseFloat(totla)>0){
+				$('#totla').css({ color: "#ff0011"});
+			}else{
+				$('#totla').css({ color: "green"});
+			}
+		}
+	});
+	//var bull_list_get=$('#bull_list_get').attr('value');
+	//if(bull_list_get)
+	//get_set=setTimeout("get_stock()", 4000);
+}
+	
+	$('.navigate').AjaxLoad({
+		loading_target:'#load',
+		loading_txt:'工作中...',
+		target: '#main',
+		params:'&'+params,
+		method:'GET'
+	});
+	$('.ToUser').AjaxLoad({
+		loading_target:'#load',
+		loading_txt:'工作中...',
+		target: '#main',
+		params:'type=view&'+params,
+		method:'GET'
+	});
+	$('#ToBack').AjaxLoad({
+		loading_target:'#load',
+		loading_txt:'返回中...',
+		target: '#main',
+		method:'GET'
+	});
+});
+</script>
+<table border="0" cellspacing="1" cellpadding="2" id="go_main">
+    <tr>
+      <td colspan="21" id="title"><table  border="0" cellspacing="1" cellpadding="2" id='menuNV'>
+        <tr>
+          <td width="70">报表查询</td>
+          <td>&nbsp;会员:</td>
+          <td>&nbsp;[var.member]</td>
+          <td>&nbsp;类型:</td>
+          <td>&nbsp;[var.sell;if [val]=1;then '已平仓';else '未平仓']</td>
+          <td>&nbsp;日期:</td>
+          <td>&nbsp;[var.start_date] 至 [var.end_date]</td>
+          <td width="70" align="right"><span id="ToBack" value="report.php?type=member&login2=[var.login2]&login3=[var.login3]&member=[var.member]&start_date=[var.start_date]&end_date=[var.end_date]&sell=[var.sell]">返回上页</span></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr id="row">
+      <td width="55" align="center">ID</td>
+      <td width="77" align="center">会员</td>
+      <td width="120" align="center">买入时间 [留仓]</td>
+      <td width="55" align="center">股票代码</td>
+      <td width="56" align="center">股票名称</td>
+      <td width="45" align="right">买价</td>
+      <td width="45" align="right">现价</td>
+      <td width="45" align="center">升/跌</td>
+      <td width="50" align="right">数量(手)</td>
+      <td width="63" align="right">买入金额</td>
+      <td width="51" align="right">手续费</td>
+      <td width="55" align="right">浮盈</td>
+      <td width="55" align="right">涨跌幅</td>
+    </tr>
+    <tr>
+      <td align="center">[tr.id;block=tr;ondata=view_event;aggregate= bull_money:sum,bull_cost_money:sum]</td>
+      <td align="center">[tr.user]</td>
+      <td align="center">[tr.bull_trust_time;frm='mm-dd hh:nn:ss'] [<font color="#0000FF">[tr.save_day]</font>]</td>
+      <td align="center">[tr.stock_type][tr.stock_code]</td>
+      <td align="center">[tr.stock_name]</td>
+      <td align="right" id="bull_price_[tr.id]" value="[tr.bull_price]"><font color="#0000FF">[tr.bull_price]</font></td>
+      <td align="right" id="price_[tr.id]">&nbsp;</td>
+      <td align="right" id="buy_type_[tr.id]" value="[tr.buy_type]">[tr.buy_type;if [val]=1;then '<font color="#FF0000">升</font>';else '<font color="#009900">跌</font>']</td>
+      <td align="right" id="bull_num_[tr.id]" value="[tr.bull_num]">[tr.bull_num]</td>
+      <td align="right">[tr.bull_money]</td>
+      <td align="right" id="cost_[tr.id]">[tr.bull_cost_money]</td>
+      <td align="right" id="gain_[tr.id]">&nbsp;</td>
+      <td align="right" id="extent_[tr.id]">&nbsp;</td>
+    </tr>
+</table>

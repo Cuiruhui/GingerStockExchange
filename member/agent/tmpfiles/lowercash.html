@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>信誉预警</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript">
+function Lock(user)
+{
+	res = ajaxUrl("ajax.php?type=lockuser&username=" + user);
+	if(res.indexOf('true')!=-1)
+	{
+		parent.ymPrompt.succeedInfo({title:'锁定帐号',message:'锁定帐号【' + user + '】成功！',handler:function(){self.location.href='lowercash.php';}});
+	}
+	else
+	{
+		parent.ymPrompt.errorInfo({title:'锁定帐号',message:'锁定帐号【' + user + '】失败！'});
+	}
+}
+</script>
+<style>
+.mybox th {color:#fff; font-size:12px; font-weight:normal;}
+</style>
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="mybox">
+  <tr bgcolor="#FFFFFF" id="title">
+    <td height="30" colspan="14"><img src="./images/dot13.gif" border="0" align="absmiddle" hspace="3" />当前位置：代理平台 &gt; 保证金低于 ￥[var.xltm.config.lower_cash;frm='0,000.00'] 用户一览表(只针对<font color=red>正式、帐号无锁定、无停用</font>的帐号)</td>
+  </tr>
+  <tr id="row">
+    <th width="8%" align="center">ID</th>
+    <th align="center">用户名</th>
+	<th width="10%" align="center">姓名</th>
+    <th width="10%" align="center">手机</th>
+    <th width="8%" align="center">保证金</th>
+    <th width="8%" align="center">可用保证金</th>
+    <th width="8%" align="center">冻结金额</th>
+    <th width="8%" align="center">注册日期</th>
+    <th width="10%" align="center">最后登录时间</th>
+    <th width="5%" align="center">状态</th>
+  <th width="5%" align="center">操作</th>
+  </tr>
+  <tr bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td align="center">[tr.id;block=tr;ondata=list_event]</td>
+    <td align="center"><a href="javascript:ShowUserInfo('[tr.username]');">[tr.username]</a></td>
+    <td align="center">[tr.realname]</td>
+    <td align="center">[tr.mobile]</td>
+    <td align="center">[tr.cash;frm='0,000.00']</td>
+    <td align="center" class="red" bgcolor="#FDF0D7"><b>[tr.cancash;frm='0,000.00']</b></td>
+    <td align="center">[tr.frozencash;frm='0,000.00']</td>
+    <td align="center">[tr.regdate;frm='yyyy/mm/dd']</td>
+    <td align="center">[tr.last_login;frm='mm-dd / hh:nn']</td>
+    <td align="center">[tr.onlineTime;htmlconv=no]</td>
+  <td align="center"><input name="btnActive" type="button" id="btnActive" value="废号" title="这是废号,锁定帐号…" onClick="if(confirm('确定锁定帐号【[tr.username]】吗？')){Lock('[tr.username]');}else{return false;}" class="button3" /></td>
+  </tr>
+  <tr bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td align="center">[tr.id;block=tr;ondata=list_event]</td>
+    <td align="center"><a href="javascript:ShowUserInfo('[tr.username]');">[tr.username]</a></td>
+    <td align="center">[tr.realname]</td>
+    <td align="center">[tr.mobile]</td>
+    <td align="center">[tr.cash;frm='0,000.00']</td>
+    <td align="center" class="red" bgcolor="#FDF0D7"><b>[tr.cancash;frm='0,000.00']</b></td>
+    <td align="center">[tr.frozencash;frm='0,000.00']</td>
+    <td align="center">[tr.regdate;frm='yyyy/mm/dd']</td>
+    <td align="center">[tr.last_login;frm='mm-dd / hh:nn']</td>
+    <td align="center">[tr.onlineTime;htmlconv=no]</td>
+  <td align="center"><input name="btnActive" type="button" id="btnActive" value="废号" title="这是废号,锁定帐号…" onClick="if(confirm('确定锁定帐号【[tr.username]】吗？')){Lock('[tr.username]');}else{return false;}" class="button3" /></td>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF" id="NoData">
+    <td height="50" colspan="14">[tr;block=tr;nodata]恭喜，目前暂无低保证金用户！</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

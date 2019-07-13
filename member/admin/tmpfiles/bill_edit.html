@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>手动入/扣款_修改</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#EditFrom").validate({
+		rules: {
+			username: { required: true },
+			agent: { required:true },
+			money: {required:true, number: true},
+			remark: { required:true}
+		},
+		messages: {
+			username: { required: "[<b>用户名</b>]:不能为空."},
+			agent: { required: "[<b>代理商</b>]:不能为空."},
+			money: { required: "[<b>发生金额</b>]:不能为空.", number: "[<b>发生金额</b>]:必须为数值."},
+			remark: { required: "[<b>备注</b>]:不能为空."}
+		},
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+});
+</script>
+</head>
+<body> 
+
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="1" class="table1"> 
+  <form id="EditFrom" action="bill.php?type=EditFrom" method="post"> 
+    <tr class="row_title"> 
+      <td colspan="2">手动入/扣款修改</td> 
+    </tr> 
+    <tr class="row_ls">
+      <td align="right">用 户 名:</td>
+      <td><input name="username" type="text" id="username" value="[var.edit.username]" size="15" readonly="true" /></td>
+    </tr>
+    <tr class="row_ls">
+      <td align="right">代 理 商:</td>
+      <td><select name="agent" size="1" id="agent">
+        <option value="">请选择</option>
+		<option value="[ag.username]">[ag.username;block=option;]</option>
+		<option>[var.edit.agent;ope=html;select]</option>
+      </select></td>
+    </tr>
+    <tr class="row_ls">
+      <td align="right">明细类型:</td>
+      <td><select name="bill_type" size="1" id="bill_type">
+	  <option value="[bt.bill_type]">[bt.bill_type;block=option;]</option>
+	  <option>[var.edit.bill_type;ope=html;select]</option>
+      </select></td>
+    </tr>
+    <tr class="row_ls">
+      <td align="right">发生金额:</td>
+      <td><input name="money" type="text" id="money" value="[var.edit.money]" size="15">
+        (正数:入款 负数:扣款) </td>
+    </tr>
+    <tr class="row_ls"> 
+      <td width="15%" align="right">备　　注:</td> 
+      <td width="85%"><textarea name="remark" cols="50" rows="8" id="remark" style="width:500px;">[var.edit.remark]</textarea></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="center">&nbsp;</td> 
+      <td><input type="submit" name="button" class="btn1" id="button" value="确 定" />
+      <input name="id" type="hidden" id="id" value="[var.edit.id]">
+      <input name="money1" type="hidden" id="money1" value="[var.edit.money]"></td> 
+    </tr> 
+  </form> 
+</table> 
+</body>
+</html>

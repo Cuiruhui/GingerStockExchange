@@ -1,0 +1,18 @@
+2017-12-25 09:22:47 Database error message: Unknown column 'bankcode' in 'field list'
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2017-12-25 09:25:45 Database error message: Unknown column 'bankcode' in 'field list'
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2017-12-25 09:34:15 36.4.157.238 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='6.41',sell_cost_money='96.15',dc_money='405.00',sell_money='64100',sell_trust_id='13546',sell_gain='-3400',gain='-4596.4',agent_sell_money='0',sell_trust_date='2017-12-25',sell_trust_time='2017-12-25 09:34:15' where id='00006119'
+2017-12-25 09:34:15 36.4.157.238 UPDATE `user_users` set money=money+64100+-3400-96.15-0-0,cash=cash+-3400-96.15-0-0 where username='uceshi'
+2017-12-25 09:34:21 36.4.157.238 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='31.06',sell_cost_money='4.66',dc_money='3.16',sell_money='3106',sell_trust_id='13547',sell_gain='-56',gain='-95.12',agent_sell_money='0',sell_trust_date='2017-12-25',sell_trust_time='2017-12-25 09:34:21' where id='00006125'
+2017-12-25 09:34:21 36.4.157.238 UPDATE `user_users` set money=money+3106+-56-4.66-0-0,cash=cash+-56-4.66-0-0 where username='uceshi'
+2017-12-25 09:34:57 36.4.157.238 insert into `buy_trust` set user='uceshi',code='600620',type='sh',name='&aring;&curren;&copy;&aring;&reg;&cedil;&egrave;‚&iexcl;&auml;&raquo;&frac12;',trust_type='1',buy_type='1',price='10.93',app='2',num='120',money='131160',agent='daili',stock_trust_date='2017-12-25',stock_trust_time='2017-12-25 09:34:57'
+2017-12-25 09:34:57 36.4.157.238 insert into `buy_deal` set user='uceshi',stock_code='600620',stock_type='sh',stock_name='&aring;&curren;&copy;&aring;&reg;&cedil;&egrave;‚&iexcl;&auml;&raquo;&frac12;',bull_price='10.93',bull_num='120',can_sell_num='120',bull_trust_id='13548',bull_trust_date='2017-12-25',bull_trust_time='2017-12-25 09:34:57',buy_type='1',bull_money='131160',bull_cost='0.0015',sell_cost='0.0015',bull_cost_money='196.74',save_cost='0.0004',agent='daili',agent_bull_money='19.67',agent_ret='10',dc_num='0',dc_money='0'
+2017-12-25 09:34:57 36.4.157.238 UPDATE `buy_trust` set stock_deal_time='2017-12-25 09:34:57' where id='13548'
+2017-12-25 11:05:23 Database error message: Unknown column 'bankcode' in 'field list'
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2017-12-25 19:14:37 183.18.34.167 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='10.68',sell_cost_money='448.56',dc_money='0',sell_money='128160',sell_trust_id='13549',sell_gain='-3000',gain='-3645.3',agent_sell_money='0',sell_trust_date='2017-12-25',sell_trust_time='2017-12-25 19:14:37' where id='00006130'
+2017-12-25 19:14:37 183.18.34.167 UPDATE `user_users` set money=money+128160+-3000-448.56-0-0,cash=cash+-3000-448.56-0-0 where username='uceshi'

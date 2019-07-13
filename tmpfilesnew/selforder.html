@@ -1,0 +1,125 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link  rel="stylesheet"  type="text/css" href="css/layout.css">
+    <script src="js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+	<title>沪深A股行情列表页 · SST-4交易平台</title>
+    <meta name="keywords" content="SST-4交易平台" />
+    <meta name="Description" content="SST-4交易平台" />
+	<script type="text/javascript" src="js/jquery1.3.2.js"></script>
+    <script type="text/javascript" src="js/me_function.js"></script>
+    <script type="text/javascript" src="js/SuggestServer_3_0_16.js" charset="gb2312"></script>
+    <script type="text/javascript" src="js/ymPrompt.js"></script>
+    <link href="css/skin/ymPrompt.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+$(document).ready(function(){
+	
+
+	
+	//股票查询事件
+	var suggestServer = new SuggestServer();
+	suggestServer.bind({
+		"input": "stockcode",
+		"value": "@2@",
+		"type": "",
+		"max": 10,
+		"width": 250,
+		"head": ["选项", "代码", "中文名称"],
+		"body": [-1, 2, 4],
+	    "fix": { "ie6" : [0, - 1], "ie7" : [0, - 1], "firefox" : [1, 1]},
+		"callback": null
+	});
+	
+	GetUserFav();	
+	var interveltime = "10";
+	var refresh = null;
+	window.setInterval(function() {
+		if (refresh == null)
+		refresh = window.setInterval(function() { GetUserFav(); }, parseInt(interveltime, 10) * 1000);
+	}, 10000);
+});
+
+</script>
+</head>
+<body> 
+
+
+<div id="main_content" class="full" style="border:1px  solid #CCCCCC;">
+	
+		<div class="breadcrumbs">
+			<span class="breadcrumbs_left breadcrumbs_radius"></span>
+			<span class="breadico public_bg" ></span>
+				<div style="padding:10px;"><a>您当前的位置：</a>>
+				<a href="stock_lists.php">沪深A股</a>>
+				<a>我的关注</a></div>
+			<span class="breadcrumbs_right breadcrumbs_radius"></span>
+			<div class="title huagu public_bg"></div>
+			<div class="currbread">
+				
+			</div> 
+		</div>
+		<div class="page_content">
+        
+        	  <form name="frmselforder" method="post" action="selforder.php" id="frmselforder"> 
+			<div class="page_top">
+				<div class="page_menu">
+				<ul>
+					
+				</ul>
+				</div>			
+
+				<div class="page_search">
+                    <table align="center" cellpadding="0" cellspacing="0"  > 
+                      <tr >        
+                      <td width="80" style=" text-align:right;">股票查询：</td>                      
+                      <td  align="left" style="text-align:left; padding-right:30px;" > 
+                      <input name="stockcode" type="text" id="stockcode" value="代码/名称/拼音" size="20" maxlength="12" style="position:relative;" autocomplete="off" /><input name="button" id="btnAdd" type="button" class="button3" onclick="AddStock();" value="加入关注" /> 
+                      </td>     
+                       
+                      </tr>
+		           </table>
+
+				</div>
+			</div>
+            
+			<div class="clear"></div>
+			
+			<div class="page_table page_table_padding page_height page_margin">
+				
+                
+              
+                     
+              <div id="divstockslist"> 
+                      <span class="loading"><img src="./images/loading.gif" border="0" align="absmiddle" hspace="3" />加载中...</span>
+                      
+                </div> 
+                    
+
+                    
+                    <table align="center" cellpadding="0" cellspacing="0" class="table" > 
+                     
+                              <tr >
+                              <td width="104" align="center" style="background:url(../img/body_bg.jpg) repeat scroll 0 0 rgba(0, 0, 0, 0);"> <input type="checkbox"  onClick="SelectAll('check_name')" >&nbsp;&nbsp;全选&nbsp;/&nbsp;反选</td>
+                              <td lign="center" style="text-align:left;background:url(../img/body_bg.jpg) repeat scroll 0 0 rgba(0, 0, 0, 0);"> <input type="button" name="btn_delete" onClick="productDelete()" value="批量取消关注股票" class="button3" /></td>                     
+                              </tr>
+                         
+		            </table>
+              <div id="divstocks" style="display:none;"></div> 
+                	
+
+             <div id="tdpage"></div>
+            
+			</div> <!--page_table end-->
+
+
+
+		</form> 
+		</div> <!--page_content end-->
+	</div>
+
+
+
+</body>
+</html>

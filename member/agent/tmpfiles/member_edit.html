@@ -1,0 +1,245 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>会员信息编辑</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#regform").validate({
+		rules: {
+			alias: {
+			    required: true,
+				rangelength: [[var.xltm.config.user_name_min], [var.xltm.config.user_name_max]]
+			},
+			password_confirm: {
+				rangelength: [[var.xltm.config.min_password], [var.xltm.config.max_password]],
+				equalTo: "#password"
+			},
+			cost_bull: {
+					required: true,
+					range: [[var.Min_cost_bull],[var.xltm.config.cost_bull_max]]
+			},
+			cost_sell: {
+					required: true,
+					range: [[var.Min_cost_sell],[var.xltm.config.cost_sell_max]]
+			},
+			cost_save: {
+					required: true,
+					range: [[var.Min_cost_save],[var.xltm.config.cost_save_max]]
+			},
+			cash: {
+				required: true,
+				number:true
+			},
+			money: {
+				required: true,
+				number:true
+			},
+			num_min:{
+					required: true,
+					min: [var.agent_num_min]
+			},
+			num_max:{
+					required: true,
+					max: [var.agent_num_max]
+			},
+			realname:{
+				required: true
+			},
+			mobile:{
+				required:true,
+				number:true
+			},
+			atmpwd:{
+				required:true,
+				number:true
+			}
+			/*,
+			email:{
+				required:true
+			}*/
+		},
+		messages: {
+			alias: {
+			    required: "[<b>帐号昵称</b>]:不能为空.",
+				rangelength: jQuery.format("[<b>账号名称</b>]:请输入 {0} 至 {1} 位的字符.")
+			},
+			password_confirm: {
+				rangelength: jQuery.format("[<b>确认密码</b>]:请输入 {0} 至 {1} 位的字符."),
+				equalTo: "[<b>登陆密码</b>] 与 [<b>确认密码</b>] 不一致,请重新输入."
+			},
+			cost_bull: {
+					required: '[<b>买入手续费</b>]:不能为空.',
+					max: '[<b>买入手续费</b>]:不能大于 [var.xltm.config.cost_bull_max].'
+			},
+			cost_sell: {
+					required: '[<b>卖出手续费</b>]:不能为空.',
+					max: '[<b>卖出手续费</b>]:不能大于 [var.xltm.config.cost_sell_max]'
+			},
+			cost_save: {
+					required: '[<b>留仓费用</b>]:不能为空.',
+					max: '[<b>留仓费用</b>]:不能大于 [var.xltm.config.cost_save_max]'
+			},
+			cash: {
+				required: '[<b>保证金</b>]:不能为空.',
+				number:'[<b>保证金</b>]:必须为数字.'
+			},
+			money: {
+				required: '[<b>可用资金</b>]:不能为空.',
+				number:'[<b>可用资金</b>]:必须为数字.'
+			},
+			num_min: {
+					required: '[<b>最小单手</b>]:不能为空.',
+					min: jQuery.format('[<b>最小单手</b>]:不能少于 {0}.')
+			},
+			num_max: {
+					required: '[<b>最大单手</b>]:不能为空.',
+					max: jQuery.format('[<b>最大单手</b>]:不能大于 {0}.')
+			},
+			realname:{
+				required: '[<b>真实姓名</b>]:不能为空.'
+			},
+			mobile:{
+				required: '[<b>手机号码</b>]:不能为空.',
+				number: '[<b>手机号码</b>]:必须为数字.'
+			},
+			atmpwd:{
+				required: '[<b>取款密码</b>]:不能为空.',
+				number: '[<b>取款密码</b>]:必须为数字.'
+			}
+			/*,
+			email:{
+				required: '[<b>email</b>]:不能为空.'
+			}*/
+		},
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+});
+</script>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="mybox"> 
+  <tr> 
+    <th colspan="3" id="title">修改会员</th> 
+  </tr> 
+  <form id="regform" action="member.php?type=editsubmit" method="post"> 
+    <tr> 
+      <td width="150" align="right" bgcolor="#FFFFFF">登录帐号:</td> 
+      <td width="350" bgcolor="#FFFFFF"><input type="text" class='inputs' name="username" id="username" style="width:100px;" value="[var.Edit.username]" disabled></td> 
+      <td bgcolor="#FFFFFF">&nbsp;</td> 
+    </tr> 
+    <tr>
+      <td align="right" bgcolor="#FFFFFF">上线用户:</td>
+      <td bgcolor="#FFFFFF"><input name="referr_name" type="text" class='inputs' id="referr_name" style="width:100px;" value="[var.Edit.referr_name]" size="15" maxlength="30" /></td>
+      <td bgcolor="#FFFFFF"><font color="#999999">不指定上线用户可留空</font></td>
+    </tr>
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">帐号昵称:</td> 
+      <td bgcolor="#FFFFFF"><input name="alias" type="text" class='inputs' id="alias" style="width:100px;" value="[var.Edit.alias]" size="15" maxlength="30" /></td> 
+      <td bgcolor="#FFFFFF"><font color="#999999">输入范围 [var.xltm.config.user_name_min] 至 [var.xltm.config.user_name_max] 位字符</font></td> 
+    </tr> 
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">登录密码:</td> 
+      <td bgcolor="#FFFFFF"><input name="password" class='inputs' type="password" id="password" size="15" maxlength="20" style="width:100px;" /></td> 
+      <td bgcolor="#FFFFFF"><font color="#999999">输入范围 [var.xltm.config.min_password] 至 [var.xltm.config.max_password] 位字符</font></td> 
+    </tr> 
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">确认密码:</td> 
+      <td bgcolor="#FFFFFF"><input name="password_confirm" class='inputs' type="password" id="password_confirm" size="15" maxlength="20" style="width:100px;" /></td> 
+      <td bgcolor="#FFFFFF">&nbsp;</td> 
+    </tr> 
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">类型:</td> 
+      <td bgcolor="#FFFFFF"><select name="demo1" size="1" id="demo1" disabled> 
+          <option value="0">正式</option> 
+          <option value="1">试玩</option> 
+          <option>[var.Edit.demo;ope=html;select]</option> 
+      </select></td> 
+      <td bgcolor="#FFFFFF"><input name="demo" type="hidden" id="demo" value="[var.Edit.demo]"></td> 
+    </tr> 
+    <tr>
+      <td align="right" bgcolor="#FFFFFF">下线权限:</td>
+      <td bgcolor="#FFFFFF"><select name="referrals" size="1" id="referrals">
+        <option value="1">开通</option>
+        <option value="0">关闭</option>
+        <option>[var.Edit.referrals;ope=html;select]</option>
+      </select></td>
+      <td bgcolor="#FFFFFF">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">买入手续费</td> 
+      <td bgcolor="#FFFFFF"><input name="cost_bull" class='inputs' type="text" id="cost_bull" style="width:50px;" value="[var.Edit.cost_bull]" size="15" maxlength="20" readonly="true" /></td> 
+      <td bgcolor="#FFFFFF"><font color="#999999">[var.Min_cost_bull] 至 [var.xltm.config.cost_bull_max]</font></td> 
+    </tr> 
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">卖出手续费:</td> 
+      <td bgcolor="#FFFFFF"><input name="cost_sell" class='inputs' type="text" id="cost_sell" style="width:50px;" value="[var.Edit.cost_sell]" size="15" maxlength="20" readonly="true" /></td> 
+      <td bgcolor="#FFFFFF"><font color="#999999">[var.Min_cost_sell] 至 [var.xltm.config.cost_sell_max]</font></td> 
+    </tr> 
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">留仓费:</td> 
+      <td bgcolor="#FFFFFF"><input name="cost_save" class='inputs' type="text" id="cost_save" style="width:50px;" value="[var.Edit.cost_save]" size="15" maxlength="20" readonly="true" /></td> 
+      <td bgcolor="#FFFFFF"><font color="#999999">[var.Min_cost_save] 至 [var.xltm.config.cost_save_max]</font></td> 
+    </tr> 
+    <tr>
+      <td align="right" bgcolor="#FFFFFF">保 证 金:</td>
+      <td bgcolor="#FFFFFF"><input name="cash" class='inputs' type="text" id="cash" style="width:50px;" value="[var.Edit.cash]" size="15" readonly="true" /></td>
+      <td bgcolor="#FFFFFF">&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="right" bgcolor="#FFFFFF">可用资金:</td>
+      <td bgcolor="#FFFFFF"><input name="money" class='inputs' type="text" id="money" style="width:50px;" value="[var.Edit.money]" size="15" readonly="true" /></td>
+      <td bgcolor="#FFFFFF"><font color="#999999">正常是保证金的[var.xltm.config.cost_exchange_rate]倍</font></td>
+    </tr>
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">最小手数:</td> 
+      <td bgcolor="#FFFFFF"><input name="num_min" class='inputs' type="text" id="num_min" style="width:50px;" value="[var.Edit.num_min]" size="15" maxlength="20" readonly="true" /></td> 
+      <td bgcolor="#FFFFFF"><font color="#999999">不能少于:[var.agent_num_min]</font></td> 
+    </tr> 
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">最大手数:</td> 
+      <td bgcolor="#FFFFFF"><input name="num_max" class='inputs' type="text" id="num_max" style="width:50px;" value="[var.Edit.num_max]" size="15" maxlength="20" readonly="true" /></td> 
+      <td bgcolor="#FFFFFF"><font color="#999999">不能超出:[var.agent_num_max]</font></td> 
+    </tr> 
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">真实姓名:</td> 
+      <td bgcolor="#FFFFFF"><input name="realname" class='inputs' type="text" id="realname" style="width:50px;" value="[var.Edit.realname]" size="20" maxlength="5" readonly="true" /></td> 
+      <td bgcolor="#FFFFFF">&nbsp;</td> 
+    </tr> 
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">手机号码:</td> 
+      <td bgcolor="#FFFFFF"><input name="mobile" class='inputs' type="text" id="mobile" style="width:150px;" value="[var.Edit.mobile]" size="15" maxlength="11" readonly="true"/></td> 
+      <td bgcolor="#FFFFFF">&nbsp;</td> 
+    </tr> 
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">取款密码:</td> 
+      <td bgcolor="#FFFFFF"><input name="atmpwd" class='inputs' type="text" id="atmpwd" style="width:150px;" value="[var.Edit.atmpwd]" size="15" maxlength="20" readonly="true" /></td> 
+      <td bgcolor="#FFFFFF">&nbsp;</td> 
+    </tr> 
+    <tr style="display:none"> 
+      <td align="right" bgcolor="#FFFFFF">email:</td> 
+      <td bgcolor="#FFFFFF"><input name="email" class='inputs' type="text" id="email" style="width:150px;" value="[var.Edit.email]" size="15" maxlength="100" readonly="true" /></td> 
+      <td bgcolor="#FFFFFF">&nbsp;</td> 
+    </tr> 
+    <tr> 
+      <td align="right" bgcolor="#FFFFFF">QQ:</td> 
+      <td bgcolor="#FFFFFF"><input name="qq" class='inputs' type="text" id="qq" style="width:150px;" value="[var.Edit.qq]" size="15" maxlength="100" readonly="true" /></td> 
+      <td bgcolor="#FFFFFF">&nbsp;</td> 
+    </tr> 
+
+    <tr> 
+      <td align="center" bgcolor="#FFFFFF">&nbsp;</td> 
+      <td colspan="2" bgcolor="#FFFFFF"><input type="submit" name="button" id="button" value="确定修改" class="button3" />
+      <input type="button" name="Submit" value="返回会员管理" onClick="document.location.href='member.php';" class="button3" />
+      <input name="id" type="hidden" id="id" value="[var.Edit.id]"></td> 
+    </tr> 
+  </form> 
+</table> 
+<p>&nbsp;</p>
+</body>
+</html>

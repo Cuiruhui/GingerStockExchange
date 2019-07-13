@@ -1,0 +1,705 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+	<link  rel="stylesheet"  type="text/css" href="css/layout.css">
+
+    <script src="js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+
+	<title>沪深A股行情列表页 · SST-4交易平台</title>
+
+    <meta name="keywords" content="SST-4交易平台" />
+
+    <meta name="Description" content="SST-4交易平台" />
+
+	<script type="text/javascript" src="js/jquery1.3.2.js"></script>
+
+    <script type="text/javascript" src="js/me_function.js"></script>
+
+    <script type="text/javascript" src="js/SuggestServer_3_0_16.js" charset="gb2312"></script>
+
+    <script type="text/javascript" src="js/ymPrompt.js"></script>
+
+    <link href="css/skin/ymPrompt.css" rel="stylesheet" type="text/css">
+
+	
+
+    <script type="text/javascript">
+
+    var curpage = 1; //当前页
+
+    var pagesize = 20; //每页大小
+
+    var totalrecord = 0; //总记录数
+
+    var pagecount = 1; //总页数
+
+    var stype = ''; //显示类型
+
+    var stockcode = ''; //搜索的股票代码
+
+    var bkname = ''; //板块名称
+
+    var IsOpen = 1;
+
+    $(document).ready(function(){
+
+        //股票查询事件
+
+        var suggestServer = new SuggestServer();
+
+        suggestServer.bind({
+
+            "input": "stockcode",
+
+            "value": "@2@",
+
+            "type": "",
+
+            "max": 10,
+
+            "width": 250,
+
+            "head": ["选项", "代码", "中文名称"],
+
+            "body": [-1, 2, 4],
+
+            "fix": { "ie6" : [0, - 1], "ie7" : [0, - 1], "firefox" : [1, 1]},
+
+            "callback": null
+
+        });
+
+        $('#btnsearch1').bind('click',function(){
+
+            stype = 'code';
+
+            curpage = 1;
+
+            stockcode = $('#stockcode').val();
+
+            if(stockcode=='' || stockcode=='代码/名称/拼音')
+
+            {
+
+                alert('请输入股票代码!');
+
+                $('#stockcode').focus();
+
+                return false;
+
+            }
+
+			
+
+            LoadStockList();
+
+			
+
+			
+
+        });
+
+        
+
+        $('#btnsearch2').bind('click',function(){
+
+            stype = 'bk';
+
+            curpage = 1;
+
+            bkname = $('#ddlstocksbktypename').val();
+
+            if(bkname=='')
+
+            {
+
+                alert('请选择要查询的板块!');
+
+                $('#ddlstocksbktypename').focus();
+
+                return false;
+
+            }
+
+            LoadStockList();
+
+        });
+
+        $('#btnShowAll').bind('click',function(){
+
+            stype = '';
+
+            curpage = 1;
+
+            LoadStockList();
+
+        });
+
+        
+
+        $('#btnStopPai').bind('click',function(){
+
+            stype = 'stop';
+
+            curpage = 1;
+
+            LoadStockList();
+
+        });
+
+        
+
+        $('#btnFull').bind('click',function(){
+
+            stype = 'full';
+
+            curpage = 1;
+
+            LoadStockList();
+
+        });
+
+        stype = 'empty';
+
+        //加载股票代码
+
+        LoadStockList();
+
+        parent.document.all("marinframe").style.height = document.body.scrollHeight;
+
+		
+
+		
+
+    });
+
+    
+
+    function ShowOtherpage(page)
+
+    {
+
+        curpage = page;
+
+        LoadStockList();
+
+    }
+
+    
+
+	
+
+	
+
+
+
+	
+
+	
+
+    function getpage()
+
+    {
+
+        if(totalrecord==0)
+
+        { 
+
+        $("#tdpage").html('');
+
+        return;
+
+        }
+
+        if (totalrecord % pagesize == 0)
+
+            pagecount = totalrecord / pagesize;
+
+        else
+
+            pagecount = parseInt(totalrecord / pagesize, 10) + 1;
+
+        var spage = "";
+
+        var first; //第一页
+
+        var pre;  //前一页
+
+        var next; //下一页
+
+        var end; //最后一页
+
+        var currentlever,pvalue;
+
+        
+
+        if (curpage > 1) {
+
+            pvalue = curpage - 1;
+
+            pre = "<li><a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(" + pvalue + ")\"> < </a></li>";
+
+            first = "<li><a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(1)\"> << </a></li>";
+
+        }
+
+        else {
+
+            pre = "<li><span class=\"disabled\"> < </span></li>";
+
+            first = "<li><span class=\"disabled\"> << </span></li>";
+
+        }
+
+        if (curpage == pagecount) {
+
+            next = "<li><span class=\"disabled\"> > </span></li>";
+
+            end = "<li><span class=\"disabled\"> >> </span></li>";
+
+        }
+
+        else {
+
+            pvalue = curpage + 1;
+
+            next = "<li><a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(" + pvalue + ")\"> > </a></li>";
+
+            end = "<li><a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(" + pagecount + ")\"> >> </a></li>";
+
+        }
+
+    
+
+        if (Math.floor(curpage / 10) == 0) {
+
+            currentlever = Math.floor(curpage / 10);
+
+        }
+
+        else {
+
+            if (curpage % 10 == 0) {
+
+                currentlever = Math.floor(curpage / 10) - 1;
+
+            }
+
+            else {
+
+                currentlever = Math.floor(curpage / 10);
+
+            }
+
+        }
+
+        spage = "";
+
+        if (curpage <= pagecount) {
+
+            for (p = 1; p <= 10; p++) {
+
+                value = p + currentlever * 10;
+
+                if (value > pagecount)
+
+                    break;
+
+                if (curpage == value) {
+
+                    spage += "<li class=\"current\">" + value + "</li>"
+
+                }
+
+                else {
+
+                    spage += "<li><a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(" + value + ")\">" + value + "</a></li>";
+
+                }
+
+            }
+
+        }
+
+        var countstr = "";
+
+        var pagestr = "<div class=\"page_page\"><ul class=\"setcenter\">"  + first + pre + spage + next + end + countstr + "</ul><div class=\"clear\"></div></div>";
+
+        $("#tdpage").html(pagestr);
+
+    }
+
+    
+
+	
+
+	function DelUserFav(code)
+
+	{
+
+		
+
+		$.ajax({
+
+		   type:'GET',
+
+		   url:'ajax.php?type=delfav&stockcode=' + code,
+
+	
+
+		   success:function(){
+
+					window.alert("取消关注成功！");	
+
+					LoadStockList();
+
+		   }
+
+		});
+
+	}
+
+
+
+	
+
+
+
+
+
+	
+
+	
+
+    function LoadStockList()
+
+    {
+
+        var loading = '<span style="text-align:center; height:50px; line-height:50px; color:gray;"><img src="/images/loading.gif" border="0" align="absmiddle" hspace="3" />加载中…</span>';
+
+        totalrecord = 0;
+
+        var nothing = '<tr bgcolor="#ffffff"><td height="50" align="center" class="gray" colspan="9">暂无符合条件的记录！</td></tr>';
+
+        var res = '<table cellpadding="0" cellspacing="0" class="table table-hover">';
+
+        res += '<thead><tr><th class="blue">股票代码</th>	<th class="blue">股票名称</th><th class="blue">现价</th><th class="blue">买价一</th><th class="blue">卖价一</th><th class="blue">涨跌幅%</th><th class="blue">今开</th><th class="blue">最高</th><th class="blue">最低</th><th class="blue">昨收</th><th class="blue">状态</th><th class="blue">操作</th></tr></thead>';
+
+        //var html = ajaxUrl('ajax.php?type=stocklist&stype=' + stype + '&page=' + curpage + '&pagesize=' + pagesize + '&stockcode=' + stockcode + '&bkname=' + bkname);
+
+        $('#tdstocklist').html(loading);
+
+        getpage();
+
+        goUrl = 'ajax.php?type=bstocklist&stype=' + stype + '&page=' + curpage + '&pagesize=' + pagesize + '&stockcode=' + stockcode + '&bkname=' + bkname;
+
+        $.ajax({
+
+            type: 'GET',
+
+            url: goUrl,
+
+            success:function(html)
+
+            {
+
+                data = html.split('^');
+
+				
+
+				
+
+                if(data.length==3)
+
+                {
+
+                    totalrecord = parseInt(data[0]); //总记录数
+
+                    curtotalrecord = parseInt(data[1]); //当前的记录数;
+
+                    if(curtotalrecord>0) //绑定
+
+                    {
+
+                        stocklist = data[2].split('$');
+
+                        for(i=0;i<stocklist.length;i++)
+
+                        {
+
+                            stock = stocklist[i].split('|');
+
+                            bk_list =stock[10];
+
+                            stop_pai = '<span class="red">正常</span>';
+
+                          var jiaoyi_css ='textbutton ActionKline';
+
+						  
+
+						  var jiaoyi_onclick = 'onClick="location.href=\'order.php?do=order&stockcode=' + stock[0] + '\';"';
+
+						  
+
+						  var shouchuang_onclick = 'onClick="return AddStock1(\'' + stock[0] + '\');"';
+
+						  
+
+						  var shouchuang_name = '关注';
+
+						  
+
+						  var shouchuang_css = 'textbutton ActionKline';
+
+						  
+
+						  var stock_name = stock[11] + stock[0];
+
+						  
+
+						  
+
+														var zhangdiee=stock[20];		
+
+														var zhangdifu=stock[15];
+
+														
+
+													
+
+														
+
+														var nowjia =  stock[12] > 0 ? stock[12] : '--';  //现价
+
+														var buyyi =  stock[13] > 0 ? stock[13] : '--';  //买价一
+
+														var selljia =  stock[14] > 0 ? stock[14] : '--';  //卖价一
+
+														
+
+														var jinkai =  stock[16] > 0 ? stock[16] : '--';  //今开
+
+														var zuigao =  stock[17] > 0 ? stock[17] : '--';  //最高
+
+														var zuidi =  stock[18] > 0 ? stock[18] : '--';  //最低
+
+														var zuoshou =  stock[19] > 0 ? stock[19] : '--';  //昨收
+
+														
+
+														
+
+						  
+
+						  if(IsOpen==0){jiaoyi_css = 'textbutton yellow addOrder disabled'; jiaoyi_onclick ='onClick="xiushi();"';}
+
+                            if(bk_list && bk_list.substring(0,1)==',')
+
+                            {
+
+                                bk_list = bk_list.substring(1);
+
+                            }
+
+                            bgcolor = (i+1) % 2 ==0 ? 'orshu' : 'even';		
+
+							
+
+							res +='<tr class="' + bgcolor + '"><td>' + stock[0] + '</td><td><span class="name">' + stock[1] + '</span></td><td id="'+stock_name+'nowjia">' + nowjia + '</td><td id="'+stock_name+'buyyi">' + buyyi + '</td><td id="'+stock_name+'selljia">' + selljia + '</td><td id="'+stock_name+'zhangdifu">' + zhangdifu + '</td><td id="'+stock_name+'jinkai">' + jinkai + '</td><td id="'+stock_name+'zuigao">' + zuigao + '</td><td id="'+stock_name+'zuidi">' + zuidi + '</td><td id="'+stock_name+'zuoshou">' + zuoshou + '</td><td>' + stop_pai + '</td><td class="operating width"><div class="operating"><ul class="setcenter"><a class="'+shouchuang_css+'" href="javascript:;"'+ shouchuang_onclick +'" > <span>'+ shouchuang_name +'</span> </a><a class="textbutton ActionKline " href="javascript:;" onClick="return Kxian(\''+stock_name+ '\');"><span>K线</span></a><a class="'+ jiaoyi_css +'" href="#"' + jiaoyi_onclick + '><span>交易</span></a></ul></div></td></tr>';
+
+							
+
+						
+
+														
+
+                      
+
+                        }
+
+                        //显示分页
+
+                        getpage();
+
+                    }
+
+                    else
+
+                    {
+
+                        res += nothing;
+
+                        getpage();
+
+                    }
+
+                }
+
+                else
+
+                {
+
+                    res += nothing;
+
+                    getpage();
+
+                }
+
+                res += '</table>';
+
+                $('#tdstocklist').html(res);
+
+                
+
+            }
+
+        });
+
+		
+
+		
+
+    }
+
+	
+
+
+
+    </script>
+
+</head>
+
+<body>
+
+
+
+<div id="main_content" class="full">
+
+	
+
+		<div class="breadcrumbs">
+
+			<span class="breadcrumbs_left breadcrumbs_radius"></span>
+
+			<span class="breadcrumbs_right breadcrumbs_radius"></span>
+
+			<div class="title huagu public_bg"></div>
+
+			<div class="currbread">
+
+				<span class="breadico public_bg"></span>
+
+				<a>您当前的位置：</a>>
+
+				<a href="stock_lists.php">沪深A股</a>>
+
+				<a>行情中心</a>
+
+			</div> 
+
+		</div>
+
+		<div class="page_content">
+
+			<div class="page_top">
+
+						<div class="page_menu">
+
+				<ul>
+
+					
+
+				</ul>
+
+			</div>			
+
+            <div class="page_search">
+
+				<form name="form1" method="post" action="">
+
+                     	
+
+				<div id="searchStock" class="search public_bg">
+
+	
+
+                          <input name="stockcode" type="text" id="stockcode" value="代码/名称/拼音" size="20" maxlength="12" style="position:relative; " autocomplete="off" class="txt" />
+
+                           
+
+                     
+
+                             <input name="button" type="button" id="btnsearch1" value="查询" class="submit" style="float:left;"/>            
+
+                          <input name="btnShowAll" type="button" id="btnShowAll" value="显示全部" class="button3" />
+
+                          <input name="btnStopPai" type="button" id="btnStopPai" value="停牌股" class="button3">
+
+                          <input name="btnFull" type="button" id="btnFull" value="满仓股" class="button3"> 
+
+                        
+
+				</div>
+
+				</form>
+
+			</div>
+
+            
+
+			<div class="clear"></div>
+
+			</div>
+
+			<div class="page_table page_table_padding page_height page_margin">
+
+				
+
+                
+
+                <table border="0" align="center" cellpadding="1" cellspacing="1"  class="table">
+
+                <tr align="center" bgcolor="#FFFFFF" >
+
+                  <td colspan="9" id="tdstocklist" style="border:0px;">加载中…</td>
+
+                </tr>
+
+              </table>
+
+              
+
+             
+
+		
+
+			
+
+             <div id="tdpage"></div>
+
+            
+
+			</div> <!--page_table end-->
+
+
+
+
+
+		</div> <!--page_content end-->
+
+	</div>
+
+
+
+
+
+</body>
+
+</html>

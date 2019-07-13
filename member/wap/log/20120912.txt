@@ -1,0 +1,54 @@
+2012-09-12 11:04:57 Database error message: Access denied for user 'root_860868'@'localhost' to database 'data_860868'
+SQL = 
+URL = /index.php
+2012-09-12 11:04:57 Database error message: No database selected
+SQL = SELECT * FROM `user_config`
+URL = /index.php
+2012-09-12 11:04:57 Database error message: No database selected
+SQL = SELECT * FROM `user_config`
+URL = /index.php
+2012-09-12 11:04:57 Database error message: No database selected
+SQL = SELECT * FROM `user_config`
+URL = /index.php
+2012-09-12 11:04:58 Database error message: Access denied for user 'root_860868'@'localhost' to database 'data_860868'
+SQL = 
+URL = /login.php
+2012-09-12 11:04:58 Database error message: No database selected
+SQL = SELECT * FROM `user_config`
+URL = /login.php
+2012-09-12 11:05:06 Database error message: Access denied for user 'root_860868'@'localhost' to database 'data_860868'
+SQL = 
+URL = /login_from.php
+2012-09-12 11:05:06 Database error message: No database selected
+SQL = SELECT * FROM `user_config`
+URL = /login_from.php
+2012-09-12 11:05:06 Database error message: No database selected
+SQL = SELECT * FROM `user_config`
+URL = /login_from.php
+2012-09-12 11:05:06 Database error message: No database selected
+SQL = SELECT * FROM `user_config`
+URL = /login_from.php
+2012-09-12 11:05:08 Database error message: Access denied for user 'root_860868'@'localhost' to database 'data_860868'
+SQL = 
+URL = /login.php
+2012-09-12 11:05:08 Database error message: No database selected
+SQL = SELECT * FROM `user_config`
+URL = /login.php
+2012-09-12 11:05:10 Database error message: Access denied for user 'root_860868'@'localhost' to database 'data_860868'
+SQL = 
+URL = /index.php
+2012-09-12 11:05:10 Database error message: No database selected
+SQL = SELECT * FROM `user_config`
+URL = /index.php
+2012-09-12 11:05:10 Database error message: No database selected
+SQL = SELECT * FROM `user_config`
+URL = /index.php
+2012-09-12 11:05:10 Database error message: No database selected
+SQL = SELECT * FROM `user_config`
+URL = /index.php
+2012-09-12 11:05:12 Database error message: Access denied for user 'root_860868'@'localhost' to database 'data_860868'
+SQL = 
+URL = /login.php
+2012-09-12 11:05:12 Database error message: No database selected
+SQL = SELECT * FROM `user_config`
+URL = /login.php

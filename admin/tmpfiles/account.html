@@ -1,0 +1,26 @@
+<script type="text/javascript">
+$.ajax({
+	type: "GET",
+	url: 'account.php?type=trust',
+	success: function(msg){
+		$('#account_main').html(msg);
+	}
+});
+$('#account_menu div').AjaxLoad({
+		target:'#account_main',
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+        onStart:function(options){
+           $('#account_menu .selected').removeClass('selected');
+		   $($(options.object)).addClass('selected');
+		}
+});
+</script>
+      <div id="account_menu">
+      <div class="selected" id='1' value="account.php?type=trust">委托交易单</div>
+      <div id='2' value="account.php?type=deal_bull">买入交易单</div>
+      <div id='3' value="account.php?type=deal_sell">卖出交易单</div>
+      <div id='4' value="account.php?type=deal_save">留仓股票单</div>
+      <div id='5' value="report.php">报表查询</div>
+      </div>
+      <div id="account_main"></div>

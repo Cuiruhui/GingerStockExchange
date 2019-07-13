@@ -1,0 +1,45 @@
+﻿<script type="text/javascript" src="./js/thickbox.js"></script>
+<link href="./style/thickbox.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	$(document).ready(function() {
+		tb_show("在线支付","#TB_inline?width=500&height=200&inlineId=info",false);
+		//付款完成，返回付款历史页面
+		$('#btnOK').click(function(){
+			$.ajax({
+				type: "GET",
+				url: 'payment.php?type=log',
+				success: function(msg){
+					$('#htmlpayment').html(msg);
+					tb_remove();
+				}
+			});
+		});
+		$('#btnFail').click(function(){
+			$.ajax({
+				type: "GET",
+				url: 'payment.php?type=fail',
+				success: function(msg){
+					$('#htmlpayment').html(msg);
+					tb_remove();
+				}
+			});
+		});
+		$('#back').click(function(){
+			$.ajax({
+				type: "GET",
+				url: 'payment.php',
+				success: function(msg){
+					$('#htmlpayment').html(msg);
+					tb_remove();
+				}
+			});
+		});
+	});
+</script>
+<div id="info" style="display:none;">
+ <p><img src="./images/i.gif" border="0" align="absmiddle" />&nbsp;支付完成前请不要关闭此窗口。完成支付后请根据你的情况点击下面的按钮：</p>
+ <p><b>请在新开页面完成付款后再选择。</b></p>
+ <p>&nbsp;</p>
+ <p align="center"><input type="button" id="btnOK" name="btnOk" value="已完成付款">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="btnFail" name="btnFail" value="付款遇到问题" /></p>
+ <p style="height:35px; line-height:35px;"><a href="javascript:void(0);" id="back" style="color:#0077FF;">返回重新输入付款金额</a></p>
+</div>

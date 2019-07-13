@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="融资融券交易系统">
+  <title>登录</title>
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="../js/new/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body background="#FFF";-webkit-app-region="drag"; style="background:#FFF;">
+  <div id="login-div" class="login-contain" >
+    <div class="login-img" >
+	  <img class="close-img2" id="closed" src="./img/XX.png">
+      <img class="close-img" src="./img/new-x.png" style="-webkit-app-region: drag;">	  
+      <img class="dro" src="./img/loginbg.png" style="-webkit-app-region: drag;">
+      <div></div>
+    </div>
+    <form id="loginForm"  name="loginForm" method="post" data-ajax="false" action="login_from.php?type=wlogin" class="form-horizontal login-from">
+      <div class="from-list">
+        <div class="col-sm-12 mat-10">
+          <img src="./img/user.png">
+          <input type="text" name="username" class="user-input" placeholder="输入用户名">
+        </div>
+      </div>
+      <div class="from-list">
+        <div class="col-sm-12 mat-10">
+          <img src="./img/pass.png">
+          <input type="password" name="password" class="user-input" placeholder="输入密码">
+        </div>
+      </div>
+      <div class="from-list">
+        <div class="col-sm-12 mat-10">
+          <img src="./img/user.png">
+          <img class="validate-img" id="validateImg" name="validateImg" src="validate.php" style="position: absolute;width: 50px;right: 70px;margin-top: -35px;">
+          <input type="validate" name="validate" class="user-input wid-60" placeholder="输入验证码">
+        </div>
+      </div>
+      <div class="from-list">
+        <div class="col-sm-12 mat-10">
+          <button type="submit" class="btn btn-primary btn-login">登录</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+<style>
+body {
+    font-family: "Microsoft YaHei" ! important;
+  }
+  .login-contain {
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    top: 25%;
+    left: 35%;
+  }
+  .dro {
+    width: 100%;
+    height: 100px;
+  }
+  .login-from {
+    margin: 20px auto
+  }
+  .user-input {
+    width: 60%;
+    float: right;
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin-right: 55px;
+  }
+  .from-list {
+    margin: 0 auto;
+  }
+  .from-list img {
+    width: 39px;
+    height: 34px;
+    margin-left: 53px;
+  }
+  .mat-10 {
+    margin-top: 10px;
+  }
+  .close-img {
+	width: 95%;
+	margin-left:0px;
+  }
+  .close-img2 {
+    cursor: pointer;
+	width: 5%;
+	float:right;
+  }
+  .login-img {
+    position: relative;
+  }
+  .wid-60 {
+    width: 45%;
+    margin-right: 110px;
+  }
+  .validate-img {
+    float: right;
+  }
+  .btn-login {
+    width: 70%;
+    margin-left: 50px;
+  }
+  .login-img div{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+  }
+</style>
+
+</html>

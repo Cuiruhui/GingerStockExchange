@@ -1,0 +1,134 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户帐单</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<link href="./style/date_input.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.ajaxify.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#agent,#demo,#PageSize').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+});
+</script>
+</head>
+<body> 
+<table width='98%' border='0' align="center" cellpadding='3' cellspacing='1' class="table1">
+  <tr>
+    <td colspan="10" class="tips">温馨提示：本帐单功能仅供了解用户每日的“动态损益”参考作用，具体以用户平仓数据为准。</td>
+  </tr>
+  <tr>
+    <td colspan="10"><table border="0" cellspacing="0" cellpadding="0">
+	<form action="user_bill.php" id="frmSearch" name="frmSearch" method="get"> 
+      <tr>
+        <td>代理商:
+            <select name="agent" size="1" id="agent">
+              <option value="">全部</option>
+              <option value="[ag.username]">[ag.username;block=option;]</option>
+              <option>[var.agent;ope=html;select]</option>
+          </select></td>
+        <td>帐号类型:
+            <select name="demo" id="demo" size="1">
+              <option value="-1">全部</option>
+              <option value="0">正式</option>
+              <option value="1">试玩</option>
+              <option>[var.demo;ope=html;select]</option>
+          </select></td>
+        <td>每页显示
+          <select name="PageSize" size="1" id="PageSize">
+            <option value="20">20条</option>
+            <option value="30">30条</option>
+            <option value="40">40条</option>
+            <option value="50">50条</option>
+            <option value="60">60条</option>
+            <option value="70">70条</option>
+            <option value="80">80条</option>
+            <option value="90">90条</option>
+            <option value="100">100条</option>
+            <option value="99999">全部</option>
+			 <option>[var.PageSize;ope=html;select]</option>
+          </select></td>
+        <td>用户:
+            <input name="username" type="text" id="username" value="[var.username]" size="15"></td>
+        <td>查询日期:
+            <input name="start_date" type="text" id="start_date" value="[var.start_date]" size="15" class="datepicker">
+      至
+      <input name="end_date" type="text" id="end_date" value="[var.end_date]" size="15" class="datepicker"></td>
+        <td><input type="submit" name="btnSearch" id="btnSearch3" value="查 询" class="btn1"></td>
+      </tr>
+	  </form>
+    </table></td>
+  </tr>
+  <tr align='center' class="row_title">
+    <td>ID</td>
+    <td>帐单日期</td>
+    <td>用户名</td>
+    <td>交易量</td>
+    <td>当月交易量</td>
+    <td>留仓量</td>
+    <td>交易手续费</td>
+    <td>留仓费</td>
+    <td>当日损益</td>
+    <td>当日净利</td>
+  </tr>
+  <tr align='center'  class="row1_odd">
+    <td>[tr.id;block=tr;ondata=event_load;aggregate=save_money_total:sum,cost_trade_money_total:sum,cost_save_money_total:sum,today_gain:sum,gain:sum]</td>
+    <td>[tr.bill_date]</td>
+    <td><a href="javascript:ShowUserInfo('[tr.username]');">[tr.username]</a></td>
+    <td>[tr.today_trade_money_total;frm='0.00']</td>
+    <td>[tr.month_trade_money_total;frm='0.00']</td>
+    <td>[tr.save_money_total;frm='0.00']</td>
+    <td>-[tr.cost_trade_money_total;frm='0.00']</td>
+    <td>-[tr.cost_save_money_total;frm='0.00']</td>
+    <td>[tr.today_gain;frm='0.00']</td>
+    <td>[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr align='center' class="row1_even">
+    <td>[tr.id;block=tr;;ondata=event_load;aggregate=save_money_total:sum,cost_trade_money_total:sum,cost_save_money_total:sum,today_gain:sum,gain:sum]</td>
+    <td>[tr.bill_date]</td>
+    <td><a href="javascript:ShowUserInfo('[tr.username]');">[tr.username]</a></td>
+    <td>[tr.today_trade_money_total;frm='0.00']</td>
+    <td >[tr.month_trade_money_total;frm='0.00']</td>
+    <td >[tr.save_money_total;frm='0.00']</td>
+    <td >-[tr.cost_trade_money_total;frm='0.00']</td>
+    <td>-[tr.cost_save_money_total;frm='0.00']</td>
+    <td>[tr.today_gain;frm='0.00']</td>
+    <td>[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td height="50" colspan="10" bgcolor="#FFFFFF">[tr;block=tr;nodata]<span class="gray">暂无符合条件持仓记录.</span></td>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td colspan="3" align="right">合计：</td>
+    <td>[tr.save_money_total:sum;frm='0.00']</td>
+    <td >-</td>
+    <td >-</td>
+    <td >[tr.cost_trade_money_total:sum;frm='0.00']</td>
+    <td>[tr.cost_save_money_total:sum;frm='0.00']</td>
+    <td>[tr.today_gain:sum;frm='0.00']</td>
+    <td>[tr.gain:sum;frm='0.00']</td>
+  </tr>
+  <tr bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td colspan="10"><table border="0" align="center" cellpadding="2" cellspacing="0" class="pagelist">
+      <tr align="center" >
+        <td><a id='page_first' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&username=[var.username]&PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td>
+        <td><a id='page_prev' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&username=[var.username]&PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td>
+        <td><a id='page_page' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&username=[var.username]&PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td>
+        <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td>
+        <td><a id='page_next' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&username=[var.username]&PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td>
+        <td><a id='page_last' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&username=[var.username]&PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

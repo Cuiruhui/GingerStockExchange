@@ -1,0 +1,60 @@
+<script type="text/javascript">
+var params='start_date=[var.start_date]&end_date=[var.end_date]&username=[var.username]';
+$(document).ready(function() {
+	$('.navigate').AjaxLoad({
+		loading_target:'#load',
+		loading_txt:'工作中...',
+		target: '#main',
+		params:'&'+params,
+		method:'GET'
+	});
+	$('.ToUser').AjaxLoad({
+		loading_target:'#load',
+		loading_txt:'工作中...',
+		target: '#main',
+		params:'type=login2&'+params,
+		method:'GET'
+	});
+	$('#ToBack').AjaxLoad({
+		loading_target:'#load',
+		loading_txt:'返回中...',
+		target: '#main',
+		method:'GET'
+	});
+});
+</script>
+<table border="0" cellspacing="1" cellpadding="2" id="go_main">
+    <tr>
+      <td colspan="5" id="title"><table  border="0" cellspacing="1" cellpadding="2" id='menuNV'>
+        <tr>
+          <td width="150">[var.username]报表查询</td>
+          <td>&nbsp;&nbsp;&nbsp;帐号类型:</td>
+          <td>&nbsp;[var.demos]</td>
+          <td>&nbsp;日期:</td>
+          <td>&nbsp;[var.start_date] 至 [var.end_date]</td>
+          <td width="70" align="right"><span id="ToBack" value="bill_log.php?start_date=[var.start_date]&end_date=[var.end_date]&username=[var.username]">返回上页</span></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr id="row">
+      <td width="100" height="25" align="center">用户名</td>
+      <td width="100" align="right">类型</td>
+      <td width="100" align="right">发生金额</td>
+      <td width="250" align="right">备注</td>
+      <td width="180" align="center">时间</td>
+    </tr>
+    <tr>
+      <td height="25" align="center">[tr.username;block=tr;aggregate=money:sum]</td>
+      <td align="right">[tr.bill_type]</td>
+      <td align="right">[tr.money;frm='0.00']</td>
+      <td align="right">[tr.remark]</td>
+      <td align="center">[tr.add_time]</td>
+    </tr>
+    <tr>
+      <td height="50" colspan="5" align="center">[tr;block=tr;nodata]无符合条件的记录.</td>
+    </tr>
+    <tr>
+      <td height="25" colspan="4" align="right">合计:</td>
+      <td align="left">[tr.money:sum;frm='0.00']</td>
+    </tr>
+</table>

@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>用户持仓(当天)</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<link href="./style/date_input.css" rel="stylesheet" type="text/css">
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/jquery.ajaxify.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript" src="./js/function.js?[var.randstr]"></script>
+<script type="text/javascript">
+var page = [var.PageNum]; //当前显示页
+var pagesize = [var.PageSize]; //每页显示
+var total = [var.RecCnt]; //总记录数
+$(document).ready(function(){
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+	$('#agent,#referr_name,#demo,#buy_type,#PageSize').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+	//计算浮盈
+	countDealGain($('#codelist').html());
+
+});
+</script>
+</head>
+<body> 
+<div id="codelist" style="display:none;">[var.codelist]</div>
+ <table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <thead> 
+     <tr class="row_ls"> 
+      <form action="deal.php" id="frmSearch" name="frmSearch" method="get"> 
+        <td colspan="16"><table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>代理商:
+              <select name="agent" size="1" id="agent">
+                <option value="" [var.agent;if [var.agent]=''; then 'selected="selected"'; else '';]>全部</option>
+                <option value="[ag.username]" [var.agent;if [var.agent]=[ag.username]; then 'selected="selected"'; else '';]>[ag.username;block=option;]</option>
+                <!--<option>[var.agent;ope=html;select]</option>-->
+              </select></td>
+            <td>下线:
+              <select name="referr_name" size="1" id="referr_name">
+                <option value="">全部</option>
+                <option value="[ref.username]" [var.referr_name;if [var.referr_name]=[ref.username]; then 'selected="selected"'; else '';]>[ref.username;block=option;]</option>
+                <!--<option>[var.referr_name;ope=html;select]</option>-->
+              </select></td>
+            <td>帐号类型:
+              <select name="demo" id="demo" size="1">
+                <option value="-1" [var.demo;if [var.demo]=-1; then 'selected="selected"'; else '';]>全部</option>
+                <option value="0" [var.demo;if [var.demo]=0; then 'selected="selected"'; else '';]>正式</option>
+                <option value="1" [var.demo;if [var.demo]=1; then 'selected="selected"'; else '';]>试玩</option>
+                <!--<option>[var.demo;ope=html;select]</option>-->
+              </select></td>
+            <td>升跌
+              <select name="buy_type" size="1" id="buy_type">
+		<option value="0" [var.buy_type;if [var.buy_type]=0; then 'selected="selected"'; else '';]>全部</option>
+                <option value="1" [var.buy_type;if [var.buy_type]=1; then 'selected="selected"'; else '';]>买升</option>
+                <option value="2" [var.buy_type;if [var.buy_type]=2; then 'selected="selected"'; else '';]>买跌</option>
+		<!--<option>[var.buy_type;ope=html;select]</option>-->
+              </select></td>
+            <td>每页:
+			  <select name="PageSize" size="1" id="PageSize">
+            <option value="20" [var.PageSize;if [var.PageSize]=20; then 'selected="selected"'; else '';]>20条</option>
+            <option value="30" [var.PageSize;if [var.PageSize]=30; then 'selected="selected"'; else '';]>30条</option>
+            <option value="40" [var.PageSize;if [var.PageSize]=40; then 'selected="selected"'; else '';]>40条</option>
+            <option value="50" [var.PageSize;if [var.PageSize]=50; then 'selected="selected"'; else '';]>50条</option>
+            <option value="60" [var.PageSize;if [var.PageSize]=60; then 'selected="selected"'; else '';]>60条</option>
+            <option value="70" [var.PageSize;if [var.PageSize]=70; then 'selected="selected"'; else '';]>70条</option>
+            <option value="80" [var.PageSize;if [var.PageSize]=80; then 'selected="selected"'; else '';]>80条</option>
+            <option value="90" [var.PageSize;if [var.PageSize]=90; then 'selected="selected"'; else '';]>90条</option>
+            <option value="100" [var.PageSize;if [var.PageSize]=100; then 'selected="selected"'; else '';]>100条</option>
+            <option value="99999" [var.PageSize;if [var.PageSize]=99999; then 'selected="selected"'; else '';]>全部</option>
+	    <!--<option>[var.PageSize;ope=html;select]</option>-->
+          </select></td>
+            <td>用户:
+              <input name="username" type="text" id="username" value="[var.username]" size="5"></td>
+            <td>订单号:
+              <input name="dealid" type="text" id="dealid" value="[var.dealid]" size="5"></td>
+            <td>查询日期:
+              <input name="start_date" type="text" id="start_date" value="[var.start_date]" size="15" class="datepicker">
+至
+<input name="end_date" type="text" id="end_date" value="[var.end_date]" size="15" class="datepicker"></td>
+            <td><input type="submit" name="btnSearch" id="btnSearch3" value="查 询" class="btn1"></td>
+          </tr>
+        </table>
+</td> 
+       </form> 
+    </tr> 
+   </thead> 
+  <tr class="row_title"> 
+    <td align="center">订单号</td> 
+     <td align="center">用户</td> 
+     <td align="center"  style="display:none;">代理商</td>
+     <td align="right">保证金</td>
+     <td align="center">买入时间</td> 
+     <td align="center">代码/名称</td> 
+     <td align="right">买入价</td> 
+     <td align="right">当前价</td> 
+     <td align="center">升/跌</td> 
+     <td align="right">数量(手)</td> 
+     <td align="right">买入金额</td> 
+    <td align="right">留仓</td>
+    <td align="right">手续费</td> 
+     <td align="right" >点差费</td>
+     <td align="right">浮盈</td> 
+     <td align="right">平仓</td> 
+
+   </tr> 
+  <tbody id="buy_tr"> 
+     <tr class="row1_odd"> 
+      <td align="center">[tr.id;block=tr;ondata=bull_event;aggregate= bull_money:sum,bull_num:sum,bull_cost_money:sum,dc_money:sum]</td> 
+      <td align="center"><a href="javascript:void(0);" onClick="ShowUserInfo('[tr.user]');" title="查看用户信息">[tr.user]</a></td> 
+      <td align="center" style="display:none;">[tr.agent]</td>
+      <td align="right">[tr.cash;frm='0.00']</td>
+      <td align="center">[tr.bull_trust_time;frm='mm-dd hh:nn:ss']</td> 
+      <td align="center"><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_type][tr.stock_code]/[tr.stock_name]</a></td> 
+      <td align="right" id="bull_price_[tr.#]" value="[tr.bull_price]"><font color="#FF0000">[tr.bull_price;frm='0.00']</font></td> 
+      <td align="right" id="price_[tr.#]"></td> 
+      <td align="center" id="buy_type_[tr.#]" value="[tr.buy_type]">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td> 
+      <td align="right" id="bull_num_[tr.#]" value="[tr.bull_num]">[tr.bull_num]</td> 
+      <td align="right">[tr.bull_money;frm='0.00']</td> 
+      <td align="right" id="cost_[tr.#]" value="[tr.bull_cost_money]" title="([tr.bull_cost])">[tr.save_day]</td>
+      <td align="right" id="cost_[tr.#]" value="[tr.bull_cost_money]" title="([tr.bull_cost])">[tr.bull_cost_money;frm='0.00']</td> 
+      <td align="right" id="dc_money_[tr.#]" value="[tr.dc_money]" title="([tr.dc_num])" >[tr.dc_money;frm='0.00']</td>
+      <td align="right" id="gain_[tr.#]">&nbsp;</td> 
+      <td align="right"><a id="[tr.id]" href="javascript:sale_stock('[tr.id]');">平仓</a>|<a  href="javascript:xiugaideal('[tr.id]');">修改</a></td> 
+	  
+    </tr> 
+     <tr class="row1_even"> 
+      <td align="center">[tr.id;block=tr;ondata=bull_event;aggregate= bull_money:sum,bull_num:sum,bull_cost_money:sum,dc_money:sum]</td> 
+      <td align="center"><a href="javascript:void(0);" onClick="ShowUserInfo('[tr.user]');" title="查看用户信息">[tr.user]</a></td>  
+      <td align="center" style="display:none;">[tr.agent]</td>
+      <td align="right">[tr.cash;frm='0.00']</td>
+      <td align="center">[tr.bull_trust_time;frm='mm-dd hh:nn:ss']</td> 
+      <td align="center"><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_type][tr.stock_code]/[tr.stock_name]</a></td> 
+      <td align="right" id="bull_price_[tr.#]" value="[tr.bull_price]"><font color="#FF0000">[tr.bull_price;frm='0.00']</font></td> 
+      <td align="right" id="price_[tr.#]"></td> 
+      <td align="center" id="buy_type_[tr.#]" value="[tr.buy_type]">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td> 
+      <td align="right" id="bull_num_[tr.#]" value="[tr.bull_num]">[tr.bull_num]</td> 
+      <td align="right">[tr.bull_money;frm='0.00']</td> 
+      <td align="right" id="cost_[tr.#]" value="[tr.bull_cost_money]" title="([tr.bull_cost])">[tr.save_day]</td>
+      <td align="right" id="cost_[tr.#]" value="[tr.bull_cost_money]" title="([tr.bull_cost])">[tr.bull_cost_money;frm='0.00']</td> 
+      <td align="right" id="dc_money_[tr.#]" value="[tr.dc_money]" title="([tr.dc_num])" >[tr.dc_money;frm='0.00']</td>
+      <td align="right" id="gain_[tr.#]">&nbsp;</td> 
+      <td align="right"><a id="[tr.id]" href="javascript:sale_stock('[tr.id]');">平仓</a>|<a  href="javascript:xiugaideal('[tr.id]');">修改</a></td>
+	
+    </tr> 
+   </tbody> 
+  <tr class="nodata"> 
+     <td height="50" colspan="16" align="center">[tr;block=tr;nodata]没有符合条件的记录.</td> 
+   </tr> 
+  <tr class="row_ls"> 
+     <td colspan="8" align="right">合计:</td> 
+     <td align="right">[tr.bull_num:sum]</td> 
+     <td align="right">[tr.bull_money:sum;frm='0,000.00']</td> 
+     <td align="right">-</td>
+     <td align="right">[tr.bull_cost_money:sum;frm='0.00']</td> 
+     <td align="right">[tr.dc_money:sum;frm='0.00']</td>
+     <td align="right" id="gain_total"></td> 
+     <td align="right"></td> 
+   </tr> 
+  <tr class="row_ls"> 
+     <td colspan="16" [var.showPage;magnet=tr;mtype=m]><table border="0" align="center" cellpadding="2" cellspacing="0" class="pagelist">
+       <tr align="center" >
+         <td><a id='page_first' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&buy_type=[var.buy_type]&username=[var.username]&dealid=[var.dealid]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td>
+         <td><a id='page_prev' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&buy_type=[var.buy_type]&username=[var.username]&dealid=[var.dealid]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td>
+         <td><a id='page_page' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&buy_type=[var.buy_type]&username=[var.username]&dealid=[var.dealid]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td>
+         <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td>
+         <td><a id='page_next' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&buy_type=[var.buy_type]&username=[var.username]&dealid=[var.dealid]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td>
+         <td><a id='page_last' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&buy_type=[var.buy_type]&username=[var.username]&dealid=[var.dealid]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td>
+       </tr>
+     </table></td>
+  </tr> 
+</table> 
+ <p>&nbsp;</p>
+</body>
+</html>

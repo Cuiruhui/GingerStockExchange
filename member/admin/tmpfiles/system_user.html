@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>管理员管理</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.ajaxify.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#btnAdd').click(function(){
+		self.location.href="system_user.php?type=add";
+	});
+	$('#Order,#By').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+	$('.block').AjaxLoad({
+		event:'click',
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+		target: '#user_main'
+	});
+});
+</script>
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <tr class="row_ls"> 
+    <td colspan="7"> <table border="0" cellpadding="0" cellspacing="0"> 
+        <tr> 
+          <td width="70" height="20"><input type="button" id="btnAdd" name="btnAdd" value="新增帐号" class="btn1" /></td> 
+          <td align="right">排列:</td> 
+          <form id="frmSearch" action="system_user.php" method="get"> 
+            <td><select name="Order" id="Order"> 
+                <option value="username">账号</option> 
+                <option value="alias">名称</option> 
+                <option value="regdate">新增日期</option> 
+                <option value="last_action">最后活动</option> 
+                <option>[var.Order;ope=html;select]</option> 
+              </select></td> 
+            <td><select name="By" id="By"> 
+                <option value="asc">升序</option> 
+                <option value="desc">降序</option> 
+                <option>[var.By;ope=html;select]</option> 
+              </select></td> 
+            <td>搜索:</td> 
+            <td width="60"><input name="search" type="text" id="search" value="[var.search]" size="10" /></td> 
+            <td><input name="btnSearch" class="btn1" id='btnSearch' type="submit" value="查　询" /></td> 
+          </form> 
+          <td>&nbsp;用户总数:[var.RecCnt]个&nbsp;</td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <tr class="row_title"> 
+    <td width="6%" align="center">ID</td> 
+    <td width="12%" align="center">账号</td> 
+    <td width="18%" align="center">名称</td> 
+    <td width="15%" align="center">注册日期</td> 
+    <td width="14%" align="center">最后登录时间</td> 
+    <td width="10%" align="center">状态</td> 
+    <td width="25%" align="center">操作</td> 
+  </tr> 
+  <tr class="row1_odd"> 
+    <td align="center" class="row1_odd">[au.id;block=tr;ondata=list_event]</td> 
+    <td align="center">[au.username]</td> 
+    <td align="center">[au.alias]</td> 
+    <td align="center">[au.regdate]</td> 
+    <td align="center">[au.last_login;frm='mm-dd / hh:nn']</td> 
+    <td align="center">[au.onlineTime;htmlconv=no]</td> 
+    <td align="right"><span id="Block_[au.id]" class='block' value="system_user.php?type=Ublocked&id=[au.id]" target="#Block_[au.id]"[au.canlock]>[au.Ublocked;htmlconv=no]</span>&nbsp;<span id="app_[au.id]" class='block' value="system_user.php?type=active&id=[au.id]" target="#app_[au.id]"[au.canstop]>[au.user_app;htmlconv=no]</span>&nbsp;<a href="system_user.php?type=edit&id=[au.id]">修改</a>&nbsp;<a href="system_user.php?type=del&id=[au.id]" onClick="if(confirm('确认删除该条记录吗？')){return true;}else{return false;}"[au.candel]>删除</a></td> 
+  </tr> 
+  <tr class="row1_even"> 
+    <td align="center">[au.id;block=tr;ondata=list_event]</td> 
+    <td align="center">[au.username]</td> 
+    <td align="center">[au.alias]</td> 
+    <td align="center">[au.regdate]</td> 
+    <td align="center">[au.last_login;frm='mm-dd / hh:nn']</td> 
+    <td align="center">[au.onlineTime;htmlconv=no]</td> 
+    <td align="right"><span id="Block_[au.id]" class='block' value="system_user.php?type=Ublocked&id=[au.id]" target="#Block_[au.id]"[au.canlock]>[au.Ublocked;htmlconv=no]</span>&nbsp;<span id="app_[au.id]" class='block' value="system_user.php?type=active&id=[au.id]" target="#app_[au.id]"[au.canstop]>[au.user_app;htmlconv=no]</span>&nbsp;<a href="system_user.php?type=edit&id=[au.id]">修改</a>&nbsp;<a href="system_user.php?type=del&id=[au.id]" onClick="if(confirm('确认删除该条记录吗？')){return true;}else{return false;}"[au.candel]>删除</a></td> 
+  </tr> 
+  <tr class="row_ls"> 
+    <td colspan="7"><table border="0" align="center" cellpadding="2" cellspacing="0" class="pagelist"> 
+        <tr align="center" > 
+          <td><a id='page_first' href="[var..script_name]?Order=[var.Order]&By=[var.By]&search=[var.search]&PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td> 
+          <td><a id='page_prev' href="[var..script_name]?Order=[var.Order]&By=[var.By]&search=[var.search]&PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td> 
+          <td><a id='page_page' href="[var..script_name]?Order=[var.Order]&By=[var.By]&search=[var.search]&PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td> 
+          <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td> 
+          <td><a id='page_next' href="[var..script_name]?Order=[var.Order]&By=[var.By]&search=[var.search]&PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td> 
+          <td><a id='page_last' href="[var..script_name]?Order=[var.Order]&By=[var.By]&search=[var.search]&PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <tr class="row1_even"> 
+    <td colspan="7"><b><font color="#FF0000">说明:</font></b><br />      <font color="#FF0000"><b>锁定/解锁:</b>设置锁定后用户无法登陆,用户连续[var.xltm.config.trust_num]次输入错误密码则自动锁定.解锁后恢复用户登陆权限.</font><br />      <font color="#FF0000"><b>停用/启用:</b>停止或允许用户登陆.</font></td> 
+  </tr> 
+</table> 
+</body>
+</html>

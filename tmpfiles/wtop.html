@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>顶部</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link  rel="stylesheet"  type="text/css" href="css/layout.css">
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+ <script src="./js/jquery1.3.2.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+var stocksVal,stocksCookieVal,mid,freeID,freeNAME,buylistID,st
+var stockType=0;
+var stockOpen=0;
+var num_min=[var.num_min];
+var news_s,userinf_s,get_stock,get_buy,show_s,user_cs;
+var sverDATE= new Date("[var.mdate]"); 
+</script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+setInterval(sysBC,5000);
+});
+function sysBC(){
+	
+	//res = ajaxUrl('./ajax.php?type=baocang');
+	$.ajax({
+		type: 'GET',
+		url: 'ajax.php?type=baocang',
+		cache: false,
+		success:function(res){
+			if(parseInt(res)>0)
+			{
+				
+				alert("您已爆仓，亏损额度大于保证金90%；");
+				top.location.reload();
+			}
+			else
+			{
+				
+			}
+			
+			
+		}
+	});
+}
+
+function sousou(){
+	var code=$("#topcode").val();
+	if(code.length==6 )
+	{
+		getbuycode=parent.document.getElementById('stockMain').contentWindow.document.getElementById('buy_code');
+		getbuycode.value=code;
+	
+		parent.document.getElementById('stockMain').contentWindow.getstockname();
+	}
+}
+
+</script>
+<base target="stockMain" />
+
+</head>
+<body>
+	<div style="width:100%; height:382px;">
+		<div style="width:100%; height:42px; background-image:url(/images/beijintou2.png);background-repeat: repeat-x; color:#000000; ">
+			
+				<div style=" width:10%;height:31px; float:left; margin-top:10px; margin-left:18px;">欢迎您：[var.xltm.user_info.username]</div>
+				<div style="width:8%;height:31px;float:left; margin-top:10px;"><input type="button" style="width:72px;" value="入金" onclick="javascript:window.open('');"/></div>
+				<div style="width:16%;height:31px;float:left;margin-top:10px;">股票代码 <input  type="text" id="topcode"  style="width:100px;"/></div>
+				<div style="width:8%;height:31px;float:left; margin-top:10px;"> <input type="button"  style="width:72px;" value="搜索" onclick="sousou();"/></div>
+				
+				
+				<div style="width:8%;height:31px;float:left;margin-top:10px;"><input type="button" style="width:72px;" value="刷新" onclick="javascript:top.location='./wclient.php'"/></div>
+				
+			
+		
+		</div>
+		
+		<div style=" width:50%; height:340px;float:left;">
+			<iframe name="imyFrame" id="imyFrame"  src="wstock_lists.php"  height="340px;" width="100%"></iframe>
+		</div>
+		
+		<div style=" width:50%; height:340px;float:left;">
+			<div style=" width:100%; height:32px;float:left; background-color:#ffffff; text-align:center;">
+				<div style="width:140px;height:27px;float:left; margin-top:5px; "> <input type="button"  style="width:60px;" value="分时线" onclick="parent.document.getElementById('stockMain').contentWindow.getProductKImage('min');"/>
+				</div>
+				<div style="width:140px;height:27px;float:left; margin-top:5px;"> <input type="button"  style="width:60px;" value="日线" onclick="parent.document.getElementById('stockMain').contentWindow.getProductKImage('daily');"/>
+				</div>
+				<div style="width:140px;height:27px;float:left; margin-top:5px;"> <input type="button"  style="width:60px;" value="周线" onclick="parent.document.getElementById('stockMain').contentWindow.getProductKImage('weekly');"/>
+				</div>
+				<div style="width:140px;height:27px;float:left; margin-top:5px;"> <input type="button"  style="width:60px;" value="月线" onclick="parent.document.getElementById('stockMain').contentWindow.getProductKImage('monthly');"/>
+				</div>
+		
+			</div>
+			
+			<div style=" width:100%; height:308px;float:left; background-color:#FFFFFF; text-align:center;" id="stock_index_pic">
+		
+			</div>
+			
+		</div>
+			
+	
+	
+	</div>
+
+
+
+</body>
+</html>
+
+

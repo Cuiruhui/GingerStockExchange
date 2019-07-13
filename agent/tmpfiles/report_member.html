@@ -1,0 +1,77 @@
+<script type="text/javascript">
+var params='login2=[var.login2]&login3=[var.login3]&start_date=[var.start_date]&end_date=[var.end_date]&sell=[var.sell]';
+$(document).ready(function() {
+	$('.navigate').AjaxLoad({
+		loading_target:'#load',
+		loading_txt:'工作中...',
+		target: '#main',
+		params:'&'+params,
+		method:'GET'
+	});
+	$('.ToUser').AjaxLoad({
+		loading_target:'#load',
+		loading_txt:'工作中...',
+		target: '#main',
+		params:'type=view&'+params,
+		method:'GET'
+	});
+	$('#ToBack').AjaxLoad({
+		loading_target:'#load',
+		loading_txt:'返回中...',
+		target: '#main',
+		method:'GET'
+	});
+});
+</script>
+<table border="0" cellspacing="1" cellpadding="2" id="go_main">
+    <tr>
+      <td colspan="12" id="title"><table  border="0" cellspacing="1" cellpadding="2" id='menuNV'>
+        <tr>
+          <td width="70">报表查询</td>
+          <td>&nbsp;代理商:</td>
+          <td>&nbsp;[var.login3]</td>
+          <td>&nbsp;类型:</td>
+          <td>&nbsp;[var.sell;if [val]=1;then '已平仓';else '未平仓']</td>
+          <td>&nbsp;日期:</td>
+          <td>&nbsp;[var.start_date] 至 [var.end_date]</td>
+          <td width="70" align="right"><span id="ToBack" value="report.php?type=login3&login2=[var.login2]&login3=[var.login3]&start_date=[var.start_date]&end_date=[var.end_date]&sell=[var.sell]">返回上页</span></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr id="row">
+      <td width="100" align="center">会员</td>
+      <td width="70" align="right">交易笔数</td>
+      <td width="70" align="right">买入金额</td>
+      <td width="70" align="right">卖出金额</td>
+      <td width="70" align="center">会员手续费</td>
+      <td width="70" align="center">点差费</td>
+      <td width="70" align="center">留仓费</td>
+      <td width="70" align="center">股票盈亏</td>
+      <td width="70" align="center">本级盈利</td>
+      <td width="70" align="center">上级交收</td>
+    </tr>
+    <tr>
+      <td align="center" [tr.#;block=tr;aggregate=count:sum,bull_money:sum,sell_money:sum,t_cost:sum,dc_money:sum,save_money:sum,gain:sum,t_gain:sum,up:sum]><div class="ToUser" value="report.php?member=[tr.username]">[tr.username]</div></td>
+      <td align="right">[tr.count]</td>
+      <td align="right">[tr.bull_money;frm='0.00']</td>
+      <td align="right">[tr.sell_money;frm='0.00']</td>
+      <td align="right" class="row1_odd">[tr.t_cost;frm='0.00']</td>
+      <td align="right" class="row1_odd">[tr.dc_money;frm='0.00']</td>
+      <td align="right" class="row1_odd">[tr.save_money;frm='0.00']</td>
+      <td align="right" class="row1_odd">[tr.gain;frm='0.00']</td>
+      <td align="right" class="row1_odd"><strong>[tr.t_gain;frm='0.00']</strong></td>
+      <td align="right" class="row1_odd">[tr.sj][tr.up;frm='0.00']</td>
+    </tr>
+    <tr>
+      <td align="right">合计:</td>
+      <td align="right">[tr.count:sum]</td>
+      <td align="right">[tr.bull_money:sum;frm='0.00']</td>
+      <td align="right">[tr.sell_money:sum;frm='0.00']</td>
+      <td align="right" class="totla_row">[tr.t_cost:sum;frm='0.00']</td>
+      <td align="right" class="totla_row">[tr.dc_money:sum;frm='0.00']</td>
+      <td align="right" class="totla_row">[tr.save_money:sum;frm='0.00']</td>
+      <td align="right" class="totla_row">[tr.gain:sum;frm='0.00']</td>
+      <td align="right" class="totla_row"><strong>[tr.t_gain:sum;frm='0.00']</strong></td>
+      <td align="right" class="totla_row">[tr.up:sum;frm='0.00']</td>
+    </tr>
+</table>

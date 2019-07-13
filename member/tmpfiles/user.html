@@ -1,0 +1,106 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>会员基本资料</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./tips/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./tips/jquery.poshytip.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript" src="./js/noright.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function() {
+	$('#tips_cancash,#tips_frozencash,#tips_realname,#tips_atmpwd,#tips_saveday').poshytip({
+		className: 'tip-violet',
+		bgImageFrameSize: 9
+	});
+	
+	/*
+	jQuery.validator.addMethod("isMobile", function(value, element){
+    var length = value.length;
+    return this.optional(element) || length == 11 && /^1[358]\d{9}$/.test(value));
+	}, "请填写正确的手机号码");
+	*/
+	
+	$("#regform").validate({
+		rules: {
+			mobile: {required:true, number:true, maxlength:11},
+			atmpwd: {required:true, number:true, rangelength:[4,4]},
+			email: {required:true, email:true}
+		},
+		messages: {
+			mobile:{required: "[<b>手机号码</b>]必须输入.", number:"[<b>手机号码</b>]必须是数字.",maxlength:"[<b>手机号码</b>]只能是11位."},
+			atmpwd:{required: "[<b>提款密码</b>]必须输入.",number:"[<b>提款密码</b>]必须是数字.",rangelength:"[<b>提款密码</b>]只能是4位."},
+			email: {required: "[<b>电子邮箱</b>]必须输入.",email:"[<b>电子邮箱</b>]电子邮件格式不正确."}
+		},
+		//所有符合后运行以下功能
+		submitHandler: function(form) {
+			document.regform.submit();
+		}
+	});
+});
+</script>
+</head>
+<body> 
+<form id="regform" name="regform" action="user.php?type=save" method="post">
+  <table width="99%"  border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" class="mybox">
+    <tr>
+      <th colspan="4">会员基本资料</th>
+    </tr>
+    <tr>
+      <td width="20%" height="20" align="right" bgcolor="#EDF8FF">会员帐号：</td>
+      <td width="30%" bgcolor="#EDF8FF" class="gray">[var.xltm.user_info.username]</td>
+      <td width="20%" align="right" bgcolor="#EDF8FF">帐号类型：</td>
+      <td width="30%" bgcolor="#EDF8FF" class="gray">[var.xltm.user_info.demo; if [val]='1'; then '试玩帐号';else '正式帐号']</td>
+    </tr>
+    <tr>
+      <td height="20" align="right" bgcolor="#EDF8FF">保 证 金：</td>
+      <td bgcolor="#EDF8FF" class="gray"><span class="money">￥[var.xltm.user_info.cash;frm='0,000.00']</span></td>
+      <td align="right" bgcolor="#EDF8FF"><a id="tips_cancash" title="可用保证金=保证金-当前持仓股票总金额*10%-当前委托股票总金额*10%" href="#">(?)</a>可用保证金：</td>
+      <td bgcolor="#EDF8FF" class="gray"><span class="money">￥[var.cancash;frm='0,000.00']</span></td>
+    </tr>
+    <tr>
+      <td height="20" align="right" bgcolor="#EDF8FF"><a id="tips_frozencash" title="提现冻结金额:是指会员申请提现和等待管理员结算打款过程中暂时冻结的金额." href="#">(?)</a>提现冻结金额：</td>
+      <td bgcolor="#EDF8FF" class="gray"><span class="money">￥[var.xltm.user_info.frozencash;frm='0,000.00']</span></td>
+      <td align="right" bgcolor="#EDF8FF">可买股票资金：</td>
+      <td bgcolor="#EDF8FF" class="gray"><span class="money">￥[var.money;frm='0,000.00']</span></td>
+    </tr>
+    <tr>
+      <td height="20" align="right" bgcolor="#EDF8FF">买入手续费：</td>
+      <td bgcolor="#EDF8FF" class="gray">[var.cost_bull] ‰</td>
+      <td align="right" bgcolor="#EDF8FF">卖出手续费：</td>
+      <td bgcolor="#EDF8FF" class="gray">[var.cost_sell]‰</td>
+    </tr>
+    <tr>
+      <td height="20" align="right" bgcolor="#EDF8FF">留仓费：</td>
+      <td bgcolor="#EDF8FF" class="gray">[var.cost_save] ‰/ 天</td>
+      <td align="right" bgcolor="#EDF8FF"><a id="tips_saveday" title="买入股票最大可留仓天数，若超过设定的天数则系统强制平仓." href="#">(?)</a>最大留仓天数：</td>
+      <td bgcolor="#EDF8FF" class="gray"><span style="float:left; line-height:22px;">[var.xltm.config.cost_save_day]天</span></td>
+    </tr>
+    <tr>
+      <td height="20" align="right" bgcolor="#EDF8FF"><a id="tips_realname" title="很重要,必须与您的银行帐户名称相同，否则不能出款!若要修改请与我们客服人员联系." href="#">(?)</a>姓　名：</td>
+      <td bgcolor="#EDF8FF" class="gray"><span style="float:left; line-height:22px;">[var.xltm.user_info.realname]</span></td>
+      <td align="right" bgcolor="#EDF8FF">手机号码：</td>
+      <td bgcolor="#EDF8FF" class="gray"><input name="mobile" type="text" id="mobile" value="[var.xltm.user_info.mobile]" size="20"></td>
+    </tr>
+    <tr>
+      <td height="20" align="right" bgcolor="#EDF8FF"><a id="tips_atmpwd" title="很重要,会员每次申请提款的时候都必须正确输入." href="#">(?)</a>取款密码：</td>
+      <td bgcolor="#EDF8FF" class="gray"><input name="atmpwd" type="password" id="atmpwd" value="[var.xltm.user_info.atmpwd]" size="20" /></td>
+      <!-- <td align="right" bgcolor="#EDF8FF">电子邮箱：</td>
+      <td bgcolor="#EDF8FF" class="gray"><input name="email" type="text" id="mobile3" value="[var.xltm.user_info.email]" size="20"></td> -->
+      <td align="right" bgcolor="#EDF8FF">QQ：</td>
+      <td bgcolor="#EDF8FF" class="gray"><input name="qq" type="text" id="qq" value="[var.xltm.user_info.qq]" size="20"></td>
+
+    </tr>
+    <tr>
+      <td height="20" align="right" bgcolor="#EDF8FF">&nbsp;</td>
+      <td colspan="3" bgcolor="#EDF8FF" class="gray"><input type="submit" name="Submit" value="修改信息" class="button3"> <div id="errorTo"></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+

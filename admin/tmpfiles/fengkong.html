@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>系统设置</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+
+</head>
+<body>
+ <table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1" id="regform"> 
+  <form id="form" action="fengkong.php?action=regsubmit" method="post"> 
+     <tr class="row_title"> 
+      <td colspan="3">风控设置(停在该页面自动执行以下设置)<div id="loadtxt"></div></td> 
+    </tr> 
+	<tr class="row_ls">
+	<td width="15%" align="right">自动平仓订单买入价 大于此设定幅度的订单:</td> 
+      <td width="27%" class="row_ls"><input name="more9" type="text" id="more9" value="[var.xltm.config.more9]" size="6" maxlength="6" style="width:100px;" />(0.09=9%)</td>
+	</tr>
+	
+	 
+
+     <tr class="row_ls">
+       <td height="50" align="right" class="row_ls">&nbsp;</td>
+       <td colspan="2"><input type="submit" name="Submit" value="保存设置" class="btn" title="保存系统设置信息" /></td>
+     </tr> 
+   </form> 
+</table> 
+ <p>&nbsp;</p>
+</body>
+</html>

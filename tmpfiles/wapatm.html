@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="" />
+<meta name="description" content="融资融券交易系统">
+<meta name="author" content="" />
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<meta content="telephone=no" name="format-detection">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="wap/jquery.mobile-1.3.2.min.css">
+		<link type="text/css" rel="stylesheet" href="wap/include/wap_zfhy6.css" />
+<script src="assets/js/jquery-1.8.2.min.js"></script>
+<script src="wap/jquery.mobile-1.3.2.min.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var isdemo = [var.isdemo];
+	if(isdemo==1)
+	{
+		//tb_show("系统提示","#TB_inline?width=400&height=120&inlineId=prohibit",false);
+		parent.ymPrompt.alert({title:'申请提款',message:'试玩帐户不能进行“申请提款”操作！请您注册我们的正式帐号！'});
+		$('#btnAtm').attr('value','试玩帐号不能提款操作');
+		$('#btnAtm').attr('disabled','true');
+		$('#money').attr('disabled','true');
+		$('#bank').attr('disabled','true');
+		$('#bankname').attr('disabled','true');
+		$('#bankno').attr('disabled','true');
+		$('#bankrealnam').attr('disabled','true');
+		$('#atmpwd').attr('disabled','true');
+	}
+	
+	$("#btnOK").click(function(){
+		tb_remove();
+	});
+	
+	$("#btnReg").click(function(){
+		tb_remove();
+		top.location.href='reg.php?utype=1';
+	});
+	$("#AtmForm").validate({
+		rules: {
+			money: {required:true, number:true, range:[1,[var.usercancash]]},
+			bankname: {required: true},
+			bankrealname: {required: true},
+			bankno: {required:true, digits:true },
+			atmpwd: {required:true, number:true,remote: "wapatm.php?type=check_atmpwd"}
+		},
+		messages: {
+			money: {required: "请输入要提款的金额.", range: "提款金额必须在1-[var.usercancash]之间"},
+			bankname: {required: "请输入帐户开户行信息."},
+			bankrealname: {required: "请输入帐户名."},
+			bankno: {required:"请输入银行帐号.",digits:"银行帐号必须是数字."},
+			atmpwd: {required:"请输入提款密码.",number:"提款密码必须是数字.",remote: jQuery.format("[<b>提款密码</b>]:你输入的提款密码不正确.")}
+		},
+		//errorLabelContainer: $("#errorTo"),
+		//wrapper: 'li',
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+});
+</script>
+		
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div data-role="page" id="pagetwo" >
+
+
+
+
+  <div data-role="header" data-theme="b">
+  	<a href="./wapindex.php" data-role="button"  data-ajax="false">欢迎您，[var.xltm.user_info.username]</a>
+    <h1>申请提现</h1>
+	<a href="./waplogin.php" data-role="button"  data-ajax="false">退出</a>
+  </div>
+
+  <div data-role="content" >
+    	<form id="AtmForm" method="post" action="wapatm.php?type=AddAtm">
+  <table width="99%"  border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC" class="mybox">
+    
+    <tr bgcolor="#EDF8FF">
+      <td width="30%" align="right" bgcolor="#EDF8FF">友情提醒：</td>
+      <td>
+      <font color=red>温馨提示：充值后没操作或有留仓的会员一律不能提款。</font></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td width="30%" align="right" bgcolor="#EDF8FF">可提金额：</td>
+      <td> <span class="money">￥[var.usercancash]</span></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">提款金额：</td>
+      <td><input name="money" type="text" id="money" value="0" size="10"> 
+        &nbsp;<span class="gray">元(1~[var.usercancash]之间)</span></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">收款银行：</td>
+      <td><select name="bank" size="1" id="bank">
+        <option value="工商银行" selected>工商银行</option>
+        <option value="建设银行">建设银行</option>
+        <option value="农业银行">农业银行</option>
+        <option value="招商银行">招商银行</option>
+        <option value="中国银行">中国银行</option>
+        <option value="浦东银行">浦东银行</option>
+        <option value="广发银行">广发银行</option>
+        <option value="交通银行">交通银行</option>
+        <option value="光大银行">光大银行</option>
+        <option value="北京银行">北京银行</option>
+        <option value="兴业银行">兴业银行</option>
+        <option value="民生银行">民生银行</option>
+        <option value="中信银行">中信银行</option>
+        <option value="邮政储蓄">邮政储蓄</option>
+		<option value="支付宝">支付宝</option>
+		<option value="微信">微信</option>
+      </select></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">开 户 行：</td>
+      <td><input name="bankname" type="text" id="bankname" size="30"> 
+        &nbsp;<span class="gray">请填写XX银行XX分行XX支行</span></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">帐 户 名：</td>
+      <td><input name="bankrealname" type="text" id="bankrealname" size="30" value="[var.realname]" readonly> &nbsp;<span class="gray">不能修改(若想修改请联系管理员)</span></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">提现帐号：</td>
+      <td><input name="bankno" type="text" id="bankno" size="30"></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">提款密码：</td>
+      <td><input name="atmpwd" type="password" id="atmpwd" size="5" maxlength="4" style="width:50px"> </td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">&nbsp;</td>
+      <td><input type="submit" name="Submit" id='btnAtm' value="确认提款" class="button3"></td>
+    </tr>
+  </table>
+</form>
+		
+  </div>
+
+  <div data-role="footer" data-theme="b">
+    <div data-role="navbar" >
+      <ul>
+        <li style="height:35px;"><a href="./wapindex.php" data-ajax="false">首页</a></li>
+        <li style="height:35px;"><a href="./waporder.php" data-ajax="false">下单</a></li>
+        
+        <li style="height:35px;"><a href="./waphangqing.php" data-ajax="false">行情</a></li>
+        <li style="height:35px;"><a href="/waptrade.php"data-ajax="false" >持仓</a></li>
+      </ul>
+    </div>
+  </div>
+</div> 
+    </body>
+
+</html>
+
+

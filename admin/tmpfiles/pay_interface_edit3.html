@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>支付接口_修改</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.ajaxify.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#EditFrom").validate({
+		rules: {
+			name: {required: true},
+			payee: {required: true},
+			account: {required:true},
+			bankname: {required:true},
+			merid:{required:true},
+			secretkey:{required:true},
+			connecturl:{required:true},
+			callbackurl: {required:true}
+		},
+		messages: {
+			name: {required: "[<b>平台名称</b>]:必须输入."},
+			payee: {required: "[<b>收款人</b>]:必须输入."},
+			account: {required: "[<b>银行帐号</b>]:必须输入."},
+			bankname: {required: "[<b>开户行</b>]:必须输入."},
+			merid: {required: "[<b>商户ID</b>]:必须输入."},
+			secretkey: {required: "[<b>商户密钥</b>]:必须输入."},
+			connecturl: {required: "[<b>连接地址</b>]:必须输入."},
+			callbackurl: {required: "[<b>返回地址</b>]:必须输入."}
+		},
+		focusCleanup: true,//被验证的元素获得焦点时移除错误信息
+		success: function(label){
+			label.html("<span style=\"color:green\">填写正确！</span>").addClass("success");
+		},
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+	$('#btnBack').click(function(){
+		history.go(-1);
+	});
+});
+
+function chgsystem(str)
+{
+	if(str=="0" && document.getElementById("systems"))
+	{
+		document.getElementById("systems").style.display='none';
+	}
+	else
+	{
+		document.getElementById("systems").style.display='block';
+	}
+}
+function startUpload(formObj){
+	  document.getElementById('loading').innerHTML = '上传中...'; 
+	  formObj.action = 'img_upload_process.php'; 
+	  formObj.target = 'uploadframe'; 
+	  formObj.submit();
+	  formObj.action = 'pay_interface.php?type=EditFrom'; 
+	  formObj.target = ''; 
+}
+</script>
+</head>
+<body>
+<table width="98%" border="0" align="left" cellpadding="2" cellspacing="1" class="table1"> 
+  <form id="EditFrom" action="pay_interface.php?type=EditFrom" enctype="multipart/form-data" method="post"> 
+    <tr class="row_title"> 
+      <td colspan="2"><b>修改支付接口</b></td> 
+    </tr>
+    <tr class="row_ls">
+      <td width="15%" align="right">类型:</td>
+      <td width="85%"><select name="accounttype" size="1" id="accounttype" onChange="return chgsystem(this.value);">
+          <option value="1">支付宝二维码</option>
+        </select>
+        <input name="types" type="hidden" id="types" value="[var.edit.type]"></td>
+    </tr>
+    <tr class="row_ls" id="systems">
+      <td align="right">选择平台:</td>
+      <td><select name="payinterfacename" size="1" id="payinterfacename">
+          <option value="易宝支付">易宝支付</option>
+                  <option value="购宝支付">购宝支付</option>
+          <option>[var.edit.payinterfacename;ope=html;select]</option>
+        </select></td>
+    </tr>
+    <tr class="row_ls">
+      <td width="15%" align="right">所属代理商:</td>
+      <td width="85%"><select name="agent" size="1" style="width:80px;">
+          <option value="[tp.username;block=option]">[tp.username]</option>
+          <option>[var.edit.agent;ope=html;select]</option>
+        </select>
+&nbsp;<font color='gray'>请输入所属代理商的用户名</font></td>
+    </tr>
+    <tr class="row_ls">
+      <td align="right">平台名称:</td>
+      <td><input name="name" type="text" id="name" size="35" value="[var.edit.name]"></td>
+    </tr>
+    <tr class="row_ls">
+      <td align="right">收款人:</td>
+      <td><input name="payee" type="text" id="payee" size="35" value="[var.edit.payee]"></td>
+    </tr> 
+    <tr class="row_ls"> 
+      <td width="15%" align="right">类型:</td> 
+      <td width="85%"><select name="accounttype" size="1" id="accounttype" onChange="return chgsystem(this.value);"> 
+          <option value="1">支付宝二维码</option> 
+        </select> 
+        <input name="types" type="hidden" id="types" value="[var.edit.type]"></td> 
+    </tr>
+  <tr class="row_ls"><td></td><td colspan="2">上传二维码: <input type="file" id="avator" name="avator" onchange="startUpload(this.form)" /> </td>
+  
+  <tr class="row_ls"><td></td><td colspan="2"><iframe frameborder='0' width='0' height='0'  name="uploadframe"></iframe> 
+  <input type="hidden" id="save_path"  name="save_path" />
+  <span id="loading"></span> <br /> 
+    <img width='100' height='100' id='uploaded_img' /> <br /></td>
+</tr>
+    <tr class="row_ls"> 
+      <td align="right">状态:</td> 
+      <td><select name="active" size="1" id="active"> 
+          <option value="1" style="color:red;">开启</option> 
+          <option value="0">关闭</option> 
+          <option>[var.edit.active;ope=html;select]</option> 
+        </select></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">设为默认:</td> 
+      <td><select name="isdefault" size="1" id="isdefault"> 
+          <option value="1" style="color:red;">是</option> 
+          <option value="0">否</option> 
+          <option>[var.edit.isdefault;ope=html;select]</option> 
+        </select></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="center">&nbsp;</td> 
+      <td><input type="submit" name="btnEnter" class="btn1" id="btnEnter" value="确定修改" /> 
+&nbsp;<input type="button" name="btnBack" id="btnBack" class="btn1" value="返　回" />
+<input name="id" type="hidden" id="id" value="[var.edit.id]"></td> 
+    </tr> 
+  </form> 
+</table> 
+</body>
+</html>

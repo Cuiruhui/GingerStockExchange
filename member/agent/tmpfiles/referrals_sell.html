@@ -1,0 +1,114 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>下线会员平仓单</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px; font-size:12px;}
+</style>
+<script type="text/javascript" src="./tips/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./tips/jquery.poshytip.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#tips_user').poshytip({
+		className: 'tip-violet',
+		bgImageFrameSize: 9
+	});
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+});
+</script>
+</head>
+<body> 
+<table width="98%" align="center" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF" style="margin-top:5px;border:1px solid #CCCCCC;">
+  <tr bgcolor="#F5F5F5">
+    <td><img src="./images/dot13.gif" border="0" align="absmiddle" hspace="3" />当前位置：代理平台 &gt; 下线会员平仓单</td>
+  </tr>
+  <tr>
+    <td width="70%" height="30" bgcolor="#F5F5F5"><form name="form1" method="post" action="">指定上线用户名<a href="javascript:void(0);" id="tips_user" title="小贴士:若要查询某一时间段内的所有下线会员平仓记录,此处可放空!">(?)</a>：
+    <input name="username" type="text" id="username" value="[var.username]" size="15">
+    &nbsp;&nbsp;从
+    <input name="start_date" type="text" id="start_date" class="datepicker" value="[var.start_date]" size="12">
+    到
+    <input name="end_date" type="text" id="end_date" class="datepicker" value="[var.end_date]" size="12">
+    <input type="submit" name="Submit" value="查 询" class="button3">
+    &nbsp;&nbsp;
+    </form></td>
+  </tr>
+</table>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="mybox" style="margin-top:10px;">
+  <tr>
+    <th colspan="15">下线会员平仓单([var.start_date] ~ [var.end_date])</th>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td rowspan="2" align="center" bgcolor="#FFFFFF">订单号</td>
+    <td rowspan="2" align="center" bgcolor="#FFFFFF">用户名</td>
+    <td rowspan="2" align="center" bgcolor="#FFFFFF">代码/名称</td>
+    <td colspan="3" align="center">买</td>
+    <td colspan="3" align="center">卖</td>
+    <td rowspan="2" align="center" bgcolor="#FFFFFF">升/跌</td>
+    <td rowspan="2" align="right" bgcolor="#FFFFFF">数量(手)</td>
+    <td rowspan="2" align="right" bgcolor="#FFFFFF">手续费<a id='tips_cost' href="javascript:void(0);" title="平仓手续费=买入手续费+卖出手续费">(?)</a></td>
+    <td rowspan="2" align="right" bgcolor="#FFFFFF">点差</td>
+    <td rowspan="2" align="right" bgcolor="#FFFFFF">留仓天/费</td>
+    <td rowspan="2" align="right" bgcolor="#FFFFFF">盈亏<a id='tips_gain1' href="javascript:void(0);" title="1、买升计算公式:盈亏=卖出金额-买入金额-买入手续费-卖出手续费-留仓费-点差费 <br />2、买跌计算公式:盈亏=买入金额-卖出金额-买入手续费-卖出手续费-留仓费-点差费">(?)</a></td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td align="center" bgcolor="#FFFFFF">委托号</td>
+    <td align="center" bgcolor="#FFFFFF"> 下单时间 </td>
+    <td align="right" bgcolor="#FFFFFF">成交价</td>
+    <td align="center" bgcolor="#FFFFFF">委托号</td>
+    <td align="center" bgcolor="#FFFFFF">下单时间 </td>
+    <td align="right" bgcolor="#FFFFFF">成交价</td>
+  </tr>
+  <tr bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td align="center">[tr.id;block=tr;ondata=event_sum;aggregate=gain:sum,total_cost:sum]</td>
+    <td align="center" bgcolor="#FFFFFF"><a href="javascript:ShowUserInfo('[tr.user]');">[tr.user]</a></td>
+    <td align="center"><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_code] / [tr.stock_name]</a></td>
+    <td align="center">[tr.bull_trust_id]</td>
+    <td align="center">[tr.bull_trust_time;frm='mm/dd hh:nn:ss'] </td>
+    <td align="right">[tr.bull_price;frm='0.00']</td>
+    <td align="center">[tr.sell_trust_id]</td>
+    <td align="center">[tr.sell_trust_time;frm='mm/dd hh:nn:ss']</td>
+    <td align="right">[tr.sell_price;frm='0.00']</td>
+    <td align="center">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+    <td align="right">[tr.bull_num]</td>
+    <td align="right">-[tr.total_cost;frm='0.00']</td>
+    <td align="right">-[tr.dc_money;frm='0.00']</td>
+    <td align="right">[tr.save_day]/[tr.save_money;frm='0.00']</td>
+    <td align="right" style="color:[tr.gaincolor]">[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td align="center">[tr.id;block=tr;ondata=event_sum;aggregate=gain:sum,total_cost:sum]</td>
+    <td align="center" bgcolor="#F5F5F5"><a href="javascript:ShowUserInfo('[tr.user]');">[tr.user]</a></td>
+    <td align="center"><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_code;block=tr;ondata=event_sum] / [tr.stock_name]</a></td>
+    <td align="center">[tr.bull_trust_id]</td>
+    <td align="center">[tr.bull_trust_time;frm='mm/dd hh:nn:ss'] </td>
+    <td align="right">[tr.bull_price;frm='0.00']</td>
+    <td align="center">[tr.sell_trust_id]</td>
+    <td align="center">[tr.sell_trust_time;frm='mm/dd hh:nn:ss']</td>
+    <td align="right">[tr.sell_price;frm='0.00']</td>
+    <td align="center">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+    <td align="right">[tr.bull_num]</td>
+    <td align="right">-[tr.total_cost;frm='0.00']</td>
+    <td align="right">-[tr.dc_money;frm='0.00']</td>
+    <td align="right">[tr.save_day]/[tr.save_money;frm='0.00']</td>
+    <td align="right" style="color:[tr.gaincolor]">[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF">
+    <td height="50" colspan="15" class="gray">[tr;block=tr;nodata]暂无符合条件的记录.</td>
+  </tr>
+  <tr align="right" bgcolor="#FFFFFF">
+    <td height="30" colspan="12">手续费合计：<span class="money1">[tr.total_cost:sum;frm='0.00']</span></td>
+  <td height="30" colspan="3">平仓盈亏合计：<span id="pcgain" style="display:none;">[tr.gain:sum]</span><span class="money1">[tr.gain:sum;if [val] >0;then '<font color=red>';else '<font color=green>']￥[tr.gain:sum;frm='0.00']</font></span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

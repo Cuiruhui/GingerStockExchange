@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>系统设置</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<link href="./style/date_input.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+	$('#agent,#bill_id,#demo').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+});
+</script> 
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="1" class="table1"> 
+  <thead> 
+    <tr class="row_ls"> 
+      <td colspan="8"><table border="0" cellspacing="0" cellpadding="0"> 
+	  <form name="frmSearch" id="frmSearch" action="bill.php" method="get">
+          <tr> 
+            <td height="20">代理商:
+              <select name="agent" size="1" id="agent">
+                <option value="">全部</option>
+				<option value="[ag.username]" [var.agent;if [var.agent]=[ag.username]; then 'selected="selected"'; else '';]>[ag.username;block=option;]</option>
+				<!--<option>[var.agent;ope=html;select]</option>-->
+              </select>　
+              用户类型:
+              <select name="demo" size="1" id="demo">
+                <option value="-1" [var.demo;if [var.demo]=-1; then 'selected="selected"'; else '';]>全部</option>
+                <option value="0" [var.demo;if [var.demo]=0; then 'selected="selected"'; else '';]>正式</option>
+                <option value="1" [var.demo;if [var.demo]=1; then 'selected="selected"'; else '';]>试玩</option>
+				<!--<option>[var.demo;ope=html;select]</option>-->
+              </select>　
+              帐单类型:
+              <select name="bill_id" size="1" id="bill_id">
+              <option value="0">全部</option>
+			  <option value="[bt.bill_type]" [var.bill_id;if [var.bill_id]=[bt.bill_type]; then 'selected="selected"'; else '';]>[bt.bill_type;block=option;]</option>
+			  <option>[var.bill_id;ope=html;select]</option>
+            </select>
+              　用户名:
+              <input name="username" type="text" id="username" value="[var.username]" size="10">
+              　开始日期:
+              <input name="start_date" type="text" class="datepicker" id="start_date" value="[var.start_date]" size="15">
+              至
+              <input name="end_date" type="text" class="datepicker" id="end_date" value="[var.end_date]" size="15">
+              <input type="submit" name="btnSearch" id="btnSearch" value="查 询" class="btn1"></td> 
+          </tr> 
+		  </form>
+        </table></td> 
+    </tr> 
+    <tr class="row_title"> 
+      <td align="center">编号</td> 
+      <td align="center">日期</td>
+      <td align="center">代理商</td> 
+      <td align="center">用户名</td> 
+      <td align="center">帐单类型</td>
+      <td align="center">发生金额</td>
+      <td>摘要</td> 
+      <td align="right">设置</td> 
+    </tr> 
+  </thead> 
+  <tr class="row1_odd"> 
+    <td align="center">[tr.id;block=tr]</td> 
+    <td align="center" title="[tr.add_time]">[tr.add_time]</td>
+    <td align="center">[tr.agent]</td> 
+    <td align="center">[tr.username]</td> 
+    <td align="center">[tr.bill_type]</td>
+    <td align="center">[tr.money;frm='0.00']</td>
+    <td style="word-wrap: break-word;word-break:break-all;">[tr.remark]</td> 
+    <td align="right"><a href="bill.php?type=edit&id=[tr.id]">修改</a> <a href="bill.php?type=del&id=[tr.id]" onClick="if(confirm('确定要删除该条明细吗？\n\n删除后将给相应的用户恢复资金！')){return true;}else{return false;}">删除</a></td> 
+  </tr> 
+  <tr class="row1_even"> 
+    <td align="center">[tr.id;block=tr]</td> 
+    <td align="center" title="[tr.add_time]">[tr.add_time]</td>
+    <td align="center">[tr.agent]</td> 
+    <td align="center">[tr.username]</td> 
+    <td align="center">[tr.bill_type]</td>
+    <td align="center">[tr.money;frm='0.00']</td>
+    <td style="word-wrap: break-word;word-break:break-all;">[tr.remark]</td> 
+    <td align="right"><a href="bill.php?type=edit&id=[tr.id]">修改</a> <a href="bill.php?type=del&id=[tr.id]" onClick="if(confirm('确定要删除该条明细吗？\n\n删除后将给相应的用户恢复资金！')){return true;}else{return false;}">删除</a></td> 
+  </tr> 
+  <tr class="nodata"> 
+    <td height="50" colspan="8" align="center">[tr;block=tr;nodata]没有符合条件的记录.</td> 
+  </tr>
+  <tr>
+    <td colspan="8" align="center"><table border="0" align="center" cellpadding="2" cellspacing="0" class="pagelist">
+      <tr align="center" >
+        <td><a id='page_first' href="[var..script_name]?agent=[var.agent]&bill_id=[var.bill_id]&demo=[var.demo]&username=[var.username]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td>
+        <td><a id='page_prev' href="[var..script_name]?agent=[var.agent]&bill_id=[var.bill_id]&demo=[var.demo]&username=[var.username]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td>
+        <td><a id='page_page' href="[var..script_name]?agent=[var.agent]&bill_id=[var.bill_id]&demo=[var.demo]&username=[var.username]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td>
+        <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td>
+        <td><a id='page_next' href="[var..script_name]?agent=[var.agent]&bill_id=[var.bill_id]&demo=[var.demo]&username=[var.username]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td>
+        <td><a id='page_last' href="[var..script_name]?agent=[var.agent]&bill_id=[var.bill_id]&demo=[var.demo]&username=[var.username]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td>
+      </tr>
+    </table></td>
+  </tr> 
+</table> 
+<p>&nbsp;</p>
+</body>
+</html>

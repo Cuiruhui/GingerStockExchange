@@ -1,0 +1,2 @@
+2017-08-15 15:37:57 219.141.235.7 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='7.07',sell_cost_money='14.14',dc_money='40.38',sell_money='7070',sell_trust_id='13499',sell_gain='-340',gain='-410.67',agent_sell_money='0',sell_trust_date='2017-08-15',sell_trust_time='2017-08-15 15:37:57' where id='00006107'
+2017-08-15 15:37:57 219.141.235.7 UPDATE `user_users` set money=money+7070+-340-14.14-0-0,cash=cash+-340-14.14-0-0 where username='u123456'

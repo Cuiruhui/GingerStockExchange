@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>用户管理</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.ajaxify.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#btnAdd').click(function(){
+		self.location.href='member_user.php?type=add';
+	});
+	$('#agent,#demo,#Order,#By,#referrals,#is_man').bind('change',function(){
+		$('#frmMember').submit();
+	});
+	$('.block').AjaxLoad({
+		event:'click',
+		loading_target:'#loadtxt',
+		loading_txt:'数据加载中...',
+		target: '#user_main'
+	});
+});
+</script>
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <tr class="row_ls"> 
+    <td colspan="11"> <table border="0" cellpadding="0" cellspacing="0"> 
+        <tr> 
+          <td width="70" height="20"><input type="button" id="btnAdd" name="btnAdd" class="btn1" value="新增会员" /></td> 
+          <form id="frmMember" action="member_user.php" method="post"> 
+            <td>代理商:</td> 
+            <td><select name="agent" size="1" id="agent" style="width:100px"> 
+                <option value="">全部</option> 
+                <option value="[a1.username]">[a1.username;block=option;]</option> 
+                <option>[var.agent;ope=html;select]</option> 
+              </select> </td> 
+          <td align="right">排列:</td> 
+            <td><select name="Order" id="Order"> 
+                <option value="username">账　　号</option> 
+				<option value="cash">保 证 金</option>
+                <option value="alias">名　　称</option> 
+                <option value="regdate">新增日期</option> 
+                <option value="last_action">最后活动</option> 
+                <option>[var.Order;ope=html;select]</option> 
+              </select></td> 
+            <td><select name="By" id="By"> 
+                <option value="asc">升序</option> 
+                <option value="desc">降序</option> 
+                <option>[var.By;ope=html;select]</option> 
+              </select></td> 
+            <td  align="right">自动满仓:<select name="is_man" size="1" id="is_man"> 
+                <option value="-1">全部</option> 
+                <option value="0">否</option> 
+                <option value="1">是</option> 
+                <option>[var.is_man;ope=html;select]</option> 
+              </select></td> 
+            <td>类型:
+              <select name="demo" size="1" id="demo"> 
+                <option value="-1">全部</option> 
+                <option value="0">正式</option> 
+                <option value="1">试玩</option> 
+                <option>[var.demo;ope=html;select]</option> 
+              </select></td> 
+          <td align="right">下线权限:
+            <select name="referrals" size="1" id="referrals">
+              <option value="-1">全部</option>
+              <option value="1">开通</option>
+              <option value="0">关闭</option>
+			  <option>[var.referrals;ope=html;select]</option>
+            </select></td>
+            <td align="right">搜索:
+            <input name="search" type="text" id="search" value="[var.search]" size="10" style="width:50px;"/></td> 
+          <td><input name="查询" type="submit" value="查 询" class="btn1"/></td> 
+          </form> 
+          <td>&nbsp;会员总数:[var.RecCnt]个&nbsp;</td> 
+        </tr> 
+    </table></td> 
+  </tr> 
+  <tr class="row_title"> 
+    <td align="center">ID</td> 
+    <td align="center">代理商</td> 
+    <td align="center">账号</td> 
+    <td align="center">姓名</td> 
+    <td align="center">注册日期</td> 
+    <td align="center">上次登录</td> 
+    <td align="right">保证金</td> 
+    <td align="right">可用资金</td> 
+    <td align="center">状态</td> 
+    <td align="center">类型</td> 
+    <td align="center">操作</td> 
+  </tr> 
+  <tr class="row1_odd"> 
+    <td align="center" class="row1_odd">[au.id;block=tr;ondata=list_event]</td> 
+    <td align="center">[au.agent]</td> 
+    <td align="center">[au.username]</td> 
+    <td align="center">[au.realname]</td> 
+    <td align="center">[au.regdate]</td> 
+    <td align="center">[au.last_login;frm='mm-dd / hh:nn']</td> 
+    <td align="right">[au.cash;frm='0,000.00']</td> 
+    <td align="right">[au.money;frm='0,000.00']</td> 
+    <td align="center">[au.onlineTime;htmlconv=no]</td> 
+    <td align="center">[au.demo;if [val]='1'; then '试玩';else '<font color=red>正式</font>']</td> 
+    <td align="right">
+	<a href="message.php?type=add&id=[au.id]">发短信</a>&nbsp;
+	<span id="Block_[au.id]" class='block' value="member_user.php?type=Ublocked&id=[au.id]" target="#Block_[au.id]">[au.Ublocked;htmlconv=no]</span>&nbsp;<span id="app_[au.id]" class='block' value="member_user.php?type=active&id=[au.id]" target="#app_[au.id]">[au.user_app;htmlconv=no]</span>&nbsp;<a href="member_user.php?type=edit&id=[au.id]">修改</a>&nbsp;<a href="member_user.php?type=del&id=[au.id]" onClick="if(confirm('确定要删除会员：[au.username]吗？')){return true;}else{return false;}">删除</a>&nbsp;<a href="user_ip.php?user=[au.username]">登陆IP</a></td> 
+  </tr> 
+  <tr class="row1_even"> 
+    <td align="center">[au.id;block=tr;ondata=list_event]</td> 
+    <td align="center">[au.agent]</td> 
+    <td align="center">[au.username]</td> 
+    <td align="center">[au.realname]</td> 
+    <td align="center">[au.regdate]</td> 
+    <td align="center">[au.last_login;frm='mm-dd / hh:nn']</td> 
+    <td align="right">[au.cash;frm='0,000.00']</td> 
+    <td align="right">[au.money;frm='0,000.00']</td> 
+    <td align="center">[au.onlineTime;htmlconv=no]</td> 
+    <td align="center">[au.demo;if [val]='1'; then '试玩';else '<font color=red>正式</font>']</td> 
+    <td align="right">
+	<a href="message.php?type=add&id=[au.id]">发短信</a>&nbsp;
+	<span id="Block_[au.id]" class='block' value="member_user.php?type=Ublocked&id=[au.id]" target="#Block_[au.id]">[au.Ublocked;htmlconv=no]</span>&nbsp;<span id="app_[au.id]" class='block' value="member_user.php?type=active&id=[au.id]" target="#app_[au.id]">[au.user_app;htmlconv=no]</span>&nbsp;<a href="member_user.php?type=edit&id=[au.id]">修改</a>&nbsp;<a href="member_user.php?type=del&id=[au.id]" onClick="if(confirm('确定要删除会员：[au.username]吗？')){return true;}else{return false;}">删除</a>&nbsp;<a href="user_ip.php?user=[au.username]">登陆IP</a></td> 
+  </tr> 
+  <tr class="nodata"> 
+    <td height="50" colspan="11" align="center">[au;block=tr;nodata]目前没有符合条件的记录!!</td> 
+  </tr> 
+  <tr align="center" class="row_ls"> 
+    <td colspan="11" [var.showPage;magnet=tr;mtype=m]><table border="0" align="center" cellpadding="2" cellspacing="0" class="pagelist"> 
+        <tr align="center" > 
+          <td><a id='page_first' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&referrals=[var.referrals]&Order=[var.Order]&By=[var.By]&search=[var.search]&PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td> 
+          <td><a id='page_prev' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&referrals=[var.referrals]&Order=[var.Order]&By=[var.By]&search=[var.search]&PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td> 
+          <td><a id='page_page' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&referrals=[var.referrals]&Order=[var.Order]&By=[var.By]&search=[var.search]&PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td> 
+          <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td> 
+          <td><a id='page_next' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&referrals=[var.referrals]&Order=[var.Order]&By=[var.By]&search=[var.search]&PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td> 
+          <td><a id='page_last' href="[var..script_name]?agent=[var.agent]&demo=[var.demo]&referrals=[var.referrals]&Order=[var.Order]&By=[var.By]&search=[var.search]&PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td> 
+        </tr> 
+    </table></td> 
+  </tr>
+  <tr class="row1_even">
+    <td colspan="11"><b><font color="#FF0000">说明:</font></b><br /><font color="#FF0000"><b>锁定/解锁:</b>设置锁定后用户无法登陆,用户连续[var.xltm.config.trust_num]次输入错误密码则自动锁定.解锁后恢复用户登陆权限.</font><br /><font color="#FF0000"><b>停用/启用:</b>停止或允许用户登陆.</font> </td>
+  </tr> 
+</table> 
+<p>&nbsp;</p>
+</body>
+</html>

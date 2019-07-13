@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>周报</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px;}
+</style>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#txt_date").date_input();
+});
+</script>
+</head>
+<body style="background-color: #FFFBFF" > 
+<table width="98%" align="center" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF" style="margin-top:5px;border:1px solid #CCCCCC;">
+  <tr>
+    <td width="50%" height="30" bgcolor="#F5F5F5">&nbsp;&nbsp;&nbsp;<input name="btnWeek" type="button" id="btnWeek" value="本 周" onClick="document.location.href='?week=0';" class="button3">
+    <input name="btnWeek1" type="button" id="btnWeek1" value="上 周" onClick="document.location.href='?week=-1';" class="button3"></td>
+  </tr>
+</table>
+<table width='98%' border='0' align="center" cellpadding='3' cellspacing='1' bgcolor="#CCCCCC" class="mybox">
+  <tr align='center'>
+    <th width="12%">星期</th>
+    <th width="12%">结帐日期</th>
+    <th width="12%">交易量</th>
+    <th width="12%">留仓量</th>
+    <th width="12%">手续费</th>
+    <th width="12%">留仓费</th>
+    <th width="12%">盈亏</th>
+    <th width="12%">操作</th>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td>[tr.week;block=tr;aggregate=trade_total:sum,save_total:sum,cost_total:sum,save_cost_total:sum,gain:sum;ondata=row_even]</td>
+    <td>[tr.date]</td>
+    <td>[tr.trade_total;frm='0.00']</td>
+    <td>[tr.save_total;frm='0.00']</td>
+    <td>[tr.cost_total;frm='0.00']</td>
+    <td>[tr.save_cost_total;frm='0.00']</td>
+    <td style='color:[tr.gain_color]; font-family:Arial, Helvetica, sans-serif; font-size:14px;'>[tr.gain;frm='0.00']</td>
+    <td><a href="report_day.php?date=[tr.date]">详情</a></td>
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td>[tr.week;block=tr;aggregate=trade_total:sum,save_total:sum,cost_total:sum,save_cost_total:sum,gain:sum;ondata=row_even]</td>
+    <td>[tr.date]</td>
+    <td>[tr.trade_total;frm='0.00']</td>
+    <td >[tr.save_total;frm='0.00']</td>
+    <td>[tr.cost_total;frm='0.00']</td>
+    <td>[tr.save_cost_total;frm='0.00']</td>
+    <td  style='color:[tr.gain_color]; font-family:Arial, Helvetica, sans-serif; font-size:14px;'>[tr.gain;frm='0.00']</td>
+    <td><a href="report_day.php?date=[tr.date]">详情</a></td>
+  </tr>
+  <tr align='center' bgcolor="#FFFFD5" style="font-size:15px; font-weight:bold;">
+    <td colspan="2" align="right">小计：</td>
+    <td>[tr.trade_total:sum;frm='0,000.00']</td>
+    <td>[tr.save_total:sum;frm='0,000.00']</td>
+    <td>[tr.cost_total:sum;frm='0,000.00']</td>
+    <td>[tr.save_cost_total:sum;frm='0,000.00']</td>
+    <td>[tr.gain:sum;frm='0,000.00']</td>
+    <td>-</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,453 @@
+2015-06-15 00:42:30 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /stock_lists.php
+2015-06-15 00:42:33 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:42:33 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /stock_lists.php
+2015-06-15 00:42:34 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:42:34 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:42:35 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /selforder.php
+2015-06-15 00:42:36 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:42:36 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /stock_lists.php
+2015-06-15 00:42:37 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:42:37 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 00:42:38 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:42:38 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 00:42:38 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:42:39 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:42:39 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 00:42:40 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /deal.php
+2015-06-15 00:42:40 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:42:42 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 00:42:43 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 00:42:44 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 00:43:15 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /atm.php
+2015-06-15 00:43:17 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /atm.php
+2015-06-15 00:43:18 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /atm.php
+2015-06-15 00:43:19 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /atm.php
+2015-06-15 00:43:23 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /login.php
+2015-06-15 00:43:25 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /login.php
+2015-06-15 00:43:27 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /selforder.php
+2015-06-15 00:43:29 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 00:43:30 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 00:43:31 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 00:43:33 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /login.php
+2015-06-15 00:43:35 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /login.php
+2015-06-15 00:43:56 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /stock_lists.php
+2015-06-15 00:43:58 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:43:59 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:44:00 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:44:01 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /selforder.php
+2015-06-15 00:44:04 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 00:44:05 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 00:44:05 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 00:45:04 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /deal.php
+2015-06-15 00:45:06 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 00:45:07 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 00:45:08 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 00:45:09 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /deal.php
+2015-06-15 00:45:11 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 00:45:12 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 00:45:14 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 00:45:15 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /order.php
+2015-06-15 00:45:17 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /order.php
+2015-06-15 00:45:18 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /order.php
+2015-06-15 00:45:19 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /order.php
+2015-06-15 00:45:20 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /order.php
+2015-06-15 00:45:22 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /order.php
+2015-06-15 00:45:23 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /order.php
+2015-06-15 00:45:24 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /order.php
+2015-06-15 00:45:25 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /selforder.php
+2015-06-15 00:45:27 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 00:45:28 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 00:45:29 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 00:45:30 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /stock_lists.php
+2015-06-15 00:45:32 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:45:33 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:45:34 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:45:35 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /stock_lists.php
+2015-06-15 00:45:37 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:45:38 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:45:39 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 00:46:45 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /reg.php
+2015-06-15 00:46:47 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:46:48 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:46:49 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:46:50 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:46:51 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /reg.php
+2015-06-15 00:46:53 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:46:54 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:46:55 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:46:56 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:46:57 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /reg.php
+2015-06-15 00:46:59 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:00 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:01 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:02 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:03 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /reg.php
+2015-06-15 00:47:06 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:07 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:08 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:09 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:10 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /reg.php
+2015-06-15 00:47:12 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:13 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:14 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:15 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:16 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /reg.php
+2015-06-15 00:47:18 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:19 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 00:47:20 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:54:53 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /reg.php
+2015-06-15 07:54:54 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /reg.php
+2015-06-15 07:54:55 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:54:56 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:54:56 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:54:57 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:54:57 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:54:58 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:54:58 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /reg.php
+2015-06-15 07:54:58 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /reg.php
+2015-06-15 07:54:59 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:55:00 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:55:01 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:55:01 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:55:01 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:55:02 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:55:02 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:55:03 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /order.php
+2015-06-15 07:55:03 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:55:03 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /selforder.php
+2015-06-15 07:55:03 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:55:04 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /reg.php
+2015-06-15 07:55:05 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /order.php
+2015-06-15 07:55:05 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 07:55:06 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /order.php
+2015-06-15 07:55:06 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 07:55:07 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /order.php
+2015-06-15 07:55:07 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 07:55:21 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /login_app.php
+2015-06-15 07:55:23 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /login_app.php
+2015-06-15 07:55:25 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /login_app.php
+2015-06-15 07:55:25 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /stock_lists.php
+2015-06-15 07:55:26 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /login_app.php
+2015-06-15 07:55:27 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /selforder.php
+2015-06-15 07:55:27 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 07:55:27 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /order.php
+2015-06-15 07:55:28 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /deal.php
+2015-06-15 07:55:28 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 07:55:29 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 07:55:29 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /stock_lists.php
+2015-06-15 07:55:29 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /order.php
+2015-06-15 07:55:30 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 07:55:30 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 07:55:30 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /order.php
+2015-06-15 07:55:31 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 07:55:31 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /selforder.php
+2015-06-15 07:55:31 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /deal.php
+2015-06-15 07:55:31 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /order.php
+2015-06-15 07:55:32 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 07:55:33 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 07:55:34 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 07:55:35 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /deal.php
+2015-06-15 07:55:37 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /login.php
+2015-06-15 07:55:39 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = SELECT * FROM `user_config`
+URL = /login.php

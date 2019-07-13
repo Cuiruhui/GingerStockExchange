@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台登录</title>
+<link href="./style/BG.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript">
+	function checklogin(){
+		if(validate()){
+			submit();
+		}
+	}	
+	
+	document.onkeydown=function(event){
+		e = event ? event :(window.event ? window.event : null); 
+		if(e.keyCode==13){
+			if(validate()){
+				submit();
+			}
+		}
+	}
+	
+	function validate(){
+		var name=$('#username').val();
+		var password=$('#password').val();
+			if(name==""){
+				alert("登录名不能为空");
+				$("#username").focus();
+				return false;
+			}
+			
+			if(password==""){
+				alert("密码不能为空");
+				$("#password").focus();
+				return false;
+			}
+			
+			return true	;
+	}
+	
+	function submit(){
+		 document.myform.submit();
+	}
+
+</script>
+</head>
+<body style="background: #545e68 url(./images/LoginBig.gif) top left repeat-x; margin: 0 auto;"> 
+<div class="Login"> 
+  <form name="myform" method="post" id="f1" action="./login_from.php"> 
+    <div class="Enter"> 
+      <div class="Username"> 
+        <input type="text" name="username" id="username" value="admin" /> 
+      </div> 
+      <div class="Username"> 
+        <input type="password" name="password" id="password" value="123qaz" /> 
+      </div> 
+    </div> 
+    <div class="LogIcon"> <a href="javascript:;" onclick="checklogin()"><img src="./images/LogIcon.gif" /> </a> </div> 
+  </form> 
+  <div class="Tel">欢迎来到大盈贯金融管理中心，开启您的财富之路！</div> 
+</div> 
+</body>
+</html>

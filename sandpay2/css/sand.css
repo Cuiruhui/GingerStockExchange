@@ -1,0 +1,94 @@
+ *{
+        margin:0;
+        padding:0;
+       
+    }
+
+    ul,ol{
+        list-style:none;
+    }
+    .title{
+        color:#ADADAD;
+        font-family:"宋体";
+        font-size:14px;
+        font-weight:bold;
+        padding:8px 16px 5px 10px;
+    }
+    .new-btn-login-sp{
+    border:1px;
+    padding:1px;
+    display:inline-block;
+    }
+    .new-btn-login{
+    background-color:#FF6600;
+    border: medium none;
+    }
+    .new-btn-login:hover{
+        background-color:#FF9933;
+    }
+    .new-btn-login{
+    background-position: 0 -198px;
+    width: 220px;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 20px 3px;
+    }
+    .new-btn-login:hover{
+        
+    }
+    .bank-list{
+    overflow:hidden;
+    margin-top:5px;
+    }
+    .bank-list li{
+    float:left;
+    width:260px;
+    margin-bottom:5px;
+    }
+    #main{
+    width:50%;
+    margin:0 25%;
+    font-size:14px;
+    font-family:'微软雅黑';
+   
+}
+    .center{
+       margin-left:20%;
+    }
+    .null-star{
+      color:red;
+    }
+.content dt{
+    width:200px;
+    display:inline-block;
+    text-align:right;
+    float:left;
+    
+}
+input{
+     width:260px;
+}
+.content dd{
+    margin-left:20%;
+    margin-bottom:5px;
+}
+.cashier-nav {
+    margin: 0px 0 20px;
+    text-align: left;
+    height:20px;
+    border-bottom:solid 2px #CFD2D7;
+}
+.sandpay_link {
+    text-align:right;
+    font-size:16px;
+}
+.sandpay_link a:link{
+    text-decoration:none;
+    /*color:#8D8D8D;*/
+}
+.sandpay_link a:visited{
+    text-decoration:none;
+    color:#8D8D8D;
+}

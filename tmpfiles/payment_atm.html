@@ -1,0 +1,360 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>申请提现</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./tips/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./tips/jquery.poshytip.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript" src="./js/noright.js"></script>
+<script type="text/javascript" language="javascript">  
+//定义数组，存储省份信息  
+var province = ["北京", "上海", "天津", "重庆", "浙江", "江苏", "广东", "福建", "湖南", "湖北", "辽宁",  
+"吉林", "黑龙江", "河北", "河南", "山东", "陕西", "甘肃", "新疆", "青海", "山西", "四川",  
+"贵州", "安徽", "江西", "云南", "内蒙", "西藏", "广西", "宁夏", "海南", "香港", "澳门", "台湾"];  
+  
+//定义数组,存储城市信息  
+var beijing = ["北京市"];  
+var shanghai = ["上海市"];  
+var tianjing = ["天津市"];  
+var chongqing = ["重庆市"];  
+var jiangsu = ["南京市", "无锡市", "常州市", "徐州市", "苏州市", "南通市", "连云港市", "淮安市", "扬州市", "盐城市", "镇江市", "泰州市", "宿迁市"];  
+var zhejiang = ["杭州市", "宁波市", "温州市", "嘉兴市", "湖州市", "绍兴市", "金华市", "衢州市", "舟山市", "台州市", "利水市"];  
+var guangdong = ["广州市", "韶关市", "深圳市", "珠海市", "汕头市", "佛山市", "江门市", "湛江市", "茂名市", "肇庆市", "惠州市", "梅州市", "汕尾市", "河源市", "阳江市", "清远市", "东莞市", "中山市", "潮州市", "揭阳市"];  
+var fujiang = ["福州市", "厦门市", "莆田市", "三明市", "泉州市", "漳州市", "南平市", "龙岩市", "宁德市"];  
+var hunan = ["长沙市", "株洲市", "湘潭市", "衡阳市", "邵阳市", "岳阳市", "常德市", "张家界市", "益阳市", "郴州市", "永州市", "怀化市", "娄底市", "湘西土家苗族自治州"];  
+var hubei = ["武汉市", "襄阳市", "黄石市", "十堰市", "宜昌市", "鄂州市", "荆门市", "孝感市", "荆州市", "黄冈市", "咸宁市", "随州市", "恩施土家族苗族自治州"];  
+var liaoning = ["沈阳市", "大连市", "鞍山市", "抚顺市", "本溪市", "丹东市", "锦州市", "营口市", "阜新市", "辽阳市", "盘锦市", "铁岭市", "朝阳市", "葫芦岛市"];  
+var jilin = ["长春市", "吉林市", "四平市", "辽源市", "通化市", "白山市", "松原市", "白城市", "延边朝鲜族自治州"];  
+var heilongjiang = ["哈尔滨市", "齐齐哈尔市", "鸡西市", "牡丹江市", "佳木斯市", "大庆市", "伊春市", "黑河市", "大兴安岭地区"];  
+var hebei = ["石家庄市", "保定市", "唐山市", "邯郸市", "承德市", "廊坊市", "衡水市", "秦皇岛市", "张家口市"];  
+var henan = ["郑州市", "洛阳市", "商丘市", "安阳市", "南阳市", "开封市", "平顶山市", "焦作市", "新乡市", "鹤壁市", "许昌市", "漯河市", "三门峡市", "信阳市", "周口市", "驻马店市", "济源市"];  
+var shandong = ["济南市", "青岛市", "菏泽市", "淄博市", "枣庄市", "东营市", "烟台市", "潍坊市", "济宁市", "泰安市", "威海市", "日照市", "滨州市", "德州市", "聊城市", "临沂市"];  
+var shangxi = ["西安市", "宝鸡市", "咸阳市", "渭南市", "铜川市", "延安市", "榆林市", "汉中市", "安康市", "商洛市"];  
+var gansu = ["兰州市", "嘉峪关市", "金昌市", "金川市", "白银市", "天水市", "武威市", "张掖市", "酒泉市", "平凉市", "庆阳市", "定西市", "陇南市", "临夏回族自治州"];  
+var qinghai = ["西宁市", "海东地区", "海北藏族自治州", "黄南藏族自治州", "海南藏族自治州", "果洛藏族自治州", "玉树藏族自治州", "海西蒙古族藏族自治州"];  
+var xinjiang = ["乌鲁木齐市", "克拉玛依市", "吐鲁番地区", "哈密地区", "昌吉回族自治州", "博尔塔拉蒙古自治州", "巴音郭楞蒙古自治州", "阿克苏地区", "克孜勒苏柯尔克孜自治州", "喀什地区", "和田地区", "伊犁哈萨克自治州", "塔城地区", "阿勒泰地区"];  
+var shanxi = ["太原市", "大同市", "阳泉市", "长治市", "晋城市", "朔州市", "晋中市", "运城市", "忻州市", "临汾市", "吕梁市"];  
+var sichuan = ["成都市", "自贡市", "攀枝花市", "泸州市", "德阳市", "绵阳市", "广元市", "遂宁市", "内江市", "乐山市", "南充市", "眉山市", "宜宾市", "广安市", "达州市", "雅安市", "巴中市", "资阳市", "阿坝藏族羌族自治州", "甘孜藏族自治州", "凉山彝族自治州"];  
+var guizhou = ["贵阳市", "六盘水市", "遵义市", "安顺市", "黔南布依族苗族自治州", "黔西南布依族苗族自治州", "黔东南苗族侗族自治州", "铜仁地区", "毕节地区"];  
+var anhui = ["合肥市", "芜湖市", "安庆市", "马鞍山市", "阜阳市", "六安市", "滁州市", "宿州市", "蚌埠市", "巢湖市", "淮南市", "宣城市", "亳州市", "淮北市", "铜陵市", "黄山市", "池州市"];  
+var jiangxi = ["南昌市", "九江市", "景德镇市", "萍乡市", "新余市", "鹰潭市", "赣州市", "宜春市", "上饶市", "吉安市", "抚州市"];  
+var yunnan = ["昆明市", "曲靖市", "玉溪市", "保山市", "昭通市", "丽江市", "普洱市", "临沧市", "楚雄彝族自治州", "大理白族自治州", "红河哈尼族彝族自治州", "文山壮族苗族自治州", "西双版纳傣族自治州", "德宏傣族景颇族自治州", "怒江傈僳族自治州", "迪庆藏族自治州"];  
+var neimenggu = ["呼和浩特市", "包头市", "乌海市", "赤峰市", "通辽市", "鄂尔多斯市", "呼伦贝尔市", "巴彦淖尔市", "乌兰察布市"];  
+var guangxi = ["南宁市", "柳州市", "桂林市", "梧州市", "北海市", "防城港市", "钦州市", "贵港市", "玉林市", "百色市", "贺州市", "河池市", "崇左市"];  
+var xizang = ["拉萨市", "昌都地区", "林芝地区", "山南地区", "日喀则地区", "那曲地区", "阿里地区"];  
+var ningxia = ["银川市", "石嘴山市", "吴忠市", "固原市", "中卫市"];  
+var hainan = ["海口市", "三亚市"];  
+var xianggang = ["中西区", "湾仔区", "东区", "南区", "九龙城区", "油尖旺区", "观塘区", "黄大仙区", "深水埗区", "北区", "大埔区", "沙田区", "西贡区", "元朗区", "屯门区", "荃湾区", "葵青区", "离岛区"];  
+var taiwan = ["台北", "高雄", "基隆", "台中", "台南", "新竹", "嘉义"];  
+var aomeng = ["澳门半岛", "氹仔岛", "路环岛"];  
+  
+//页面加载方法  
+$(function () {  
+//设置省份数据  
+setProvince();  
+  
+//设置背景颜色  
+setBgColor();  
+});  
+  
+  
+//设置省份数据  
+function setProvince() {  
+//给省份下拉列表赋值  
+var option, modelVal;  
+var $sel = $("#selProvince");  
+  
+//获取对应省份城市  
+for (var i = 0, len = province.length; i < len; i++) {  
+modelVal = province[i];  
+option = "<option value='" + modelVal + "'>" + modelVal + "</option>";  
+  
+//添加到 select 元素中  
+$sel.append(option);  
+}  
+  
+//调用change事件，初始城市信息  
+provinceChange();  
+}  
+  
+  
+//根据选中的省份获取对应的城市  
+function setCity(provinec) {  
+var $city = $("#selCity");  
+var proCity, option, modelVal;  
+  
+//通过省份名称，获取省份对应城市的数组名  
+switch (provinec) {  
+case "北京":  
+proCity = beijing;  
+break;  
+case "上海":  
+proCity = shanghai;  
+break;  
+case "天津":  
+proCity = tianjing;  
+break;  
+case "重庆":  
+proCity = chongqing;  
+break;  
+case "浙江":  
+proCity = zhejiang;  
+break;  
+case "江苏":  
+proCity = jiangsu;  
+break;  
+case "广东":  
+proCity = guangdong;  
+break;  
+case "福建":  
+proCity = fujiang;  
+break;  
+case "湖南":  
+proCity = hunan;  
+break;  
+case "湖北":  
+proCity = hubei;  
+break;  
+case "辽宁":  
+proCity = liaoning;  
+break;  
+case "吉林":  
+proCity = jilin;  
+break;  
+case "黑龙江":  
+proCity = heilongjiang;  
+break;  
+case "河北":  
+proCity = hebei;  
+break;  
+case "河南":  
+proCity = henan;  
+break;  
+case "山东":  
+proCity = shandong;  
+break;  
+case "陕西":  
+proCity = shangxi;  
+break;  
+case "甘肃":  
+proCity = gansu;  
+break;  
+case "新疆":  
+proCity = xinjiang;  
+break;  
+case "青海":  
+proCity = qinghai;  
+break;  
+case "山西":  
+proCity = shanxi;  
+break;  
+case "四川":  
+proCity = sichuan;  
+break;  
+case "贵州":  
+proCity = guizhou;  
+break;  
+case "安徽":  
+proCity = anhui;  
+break;  
+case "江西":  
+proCity = jiangxi;  
+break;  
+case "云南":  
+proCity = yunnan;  
+break;  
+case "内蒙古":  
+proCity = neimenggu;  
+break;  
+case "西藏":  
+proCity = xizang;  
+break;  
+case "广西":  
+proCity = guangxi;  
+break;  
+case "":  
+proCity = xizang;  
+break;  
+case "宁夏":  
+proCity = ningxia;  
+break;  
+case "海南":  
+proCity = hainan;  
+break;  
+case "香港":  
+proCity = xianggang;  
+break;  
+case "澳门":  
+proCity = aomeng;  
+break;  
+case "台湾":  
+proCity = taiwan;  
+break;  
+}  
+  
+//先清空之前绑定的值  
+$city.empty();  
+  
+//设置对应省份的城市  
+for (var i = 0, len = proCity.length; i < len; i++) {  
+modelVal = proCity[i];  
+option = "<option value='" + modelVal + "'>" + modelVal + "</option>";  
+  
+//添加  
+$city.append(option);  
+}  
+  
+//设置背景  
+setBgColor();  
+}  
+  
+  
+//省份选中事件  
+function provinceChange() {  
+var $pro = $("#selProvince");  
+setCity($pro.val());  
+}  
+  
+  
+//设置下拉列表间隔背景样色  
+function setBgColor() {  
+var $option = $("select option:odd");  
+$option.css({ "background-color": "#DEDEDE" });  
+}  
+</script>  
+<script type="text/javascript">
+$(document).ready(function() {
+	var isdemo = [var.isdemo];
+	if(isdemo==1)
+	{
+		//tb_show("系统提示","#TB_inline?width=400&height=120&inlineId=prohibit",false);
+		parent.ymPrompt.alert({title:'申请提款',message:'试玩帐户不能进行“申请提款”操作！请您注册我们的正式帐号！'});
+		$('#btnAtm').attr('value','试玩帐号不能提款操作');
+		$('#btnAtm').attr('disabled','true');
+		$('#money').attr('disabled','true');
+		$('#bank').attr('disabled','true');
+		$('#bankname').attr('disabled','true');
+		$('#bankno').attr('disabled','true');
+		$('#bankrealnam').attr('disabled','true');
+		$('#atmpwd').attr('disabled','true');
+	}
+	
+	$("#btnOK").click(function(){
+		tb_remove();
+	});
+	
+	$("#btnReg").click(function(){
+		tb_remove();
+		top.location.href='reg.php?utype=1';
+	});
+	$("#AtmForm").validate({
+		rules: {
+			money: {required:true, number:true, range:[1,[var.usercancash]]},
+			bankname: {required: true},
+			bankrealname: {required: true},
+			bankno: {required:true, digits:true },
+			atmpwd: {required:true, number:true,remote: "atm.php?type=check_atmpwd"}
+		},
+		messages: {
+			money: {required: "请输入要提款的金额.", range: "提款金额必须在1-[var.usercancash]之间"},
+			bankname: {required: "请输入帐户开户行信息."},
+			bankrealname: {required: "请输入帐户名."},
+			bankno: {required:"请输入银行帐号.",digits:"银行帐号必须是数字."},
+			atmpwd: {required:"请输入提款密码.",number:"提款密码必须是数字.",remote: jQuery.format("[<b>提款密码</b>]:你输入的提款密码不正确.")}
+		},
+		//errorLabelContainer: $("#errorTo"),
+		//wrapper: 'li',
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+});
+</script>
+<style>
+#TB_window {min-height:100px;}
+</style>
+</head>
+<body> 
+<form id="AtmForm" method="post" action="atm.php?type=AddAtm">
+  <table width="99%"  border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" class="mybox">
+    <tr>
+      <th colspan="2">申请提现</th>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right" bgcolor="#EDF8FF">友情提醒：</td>
+      <td>
+      <font color=red>温馨提示：充值后没操作或有留仓的会员一律不能提款。</font></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td width="20%" align="right" bgcolor="#EDF8FF">可提金额：</td>
+      <td> <span class="money">￥[var.usercancash]</span></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">提款金额：</td>
+      <td><input name="money" type="text" id="money" value="0" size="10"> 
+        &nbsp;<span class="gray">元(1~[var.usercancash]之间)</span></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">收款银行：</td>
+      <td><select name="bank" size="1" id="bank">
+        <option value="中国工商银行" selected>中国工商银行</option>
+        <option value="中国建设银行">中国建设银行 </option>
+        <option value="中国农业银行">中国农业银行</option>
+        <option value="招商银行">招商银行</option>
+        <option value="中国银行">中国银行</option>
+		 <option value="中信银行">中信银行</option>
+		  <option value="邮政银行">邮政银行</option>
+		  <option value="中国光大银行">中国光大银行</option>
+		   <option value="华夏银行">华夏银行</option>
+		    <option value="中国民生银行">中国民生银行</option>
+			 <option value="广发银行">广发银行</option>
+			  <option value="深圳发展银行">深圳发展银行</option>
+			   <option value="兴业银行">兴业银行</option>
+			    <option value="上海浦东发展银行">上海浦东发展银行</option>
+				 <option value="平安银行">平安银行</option>
+				  <option value="北京银行">北京银行</option>
+       
+      </select></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">开 户 行：</td>
+      <td><input name="bankname" type="text" id="bankname" size="30"> 
+        &nbsp;<span class="gray">请填写XX银行XX支行</span></td>
+    </tr>
+	 <tr bgcolor="#EDF8FF">
+      <td align="right">开户地区：</td>
+      <td>
+	  
+	  
+	  <select name="selProvince" id="selProvince" onchange="provinceChange();"></select>  
+
+<select name="selCity" id="selCity"></select>  
+	   &nbsp;<span class="gray">请选择正确的开户省市</span> 
+	  
+	  </td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">帐 户 名：</td>
+      <td><input name="bankrealname" type="text" id="bankrealname" size="30" value="[var.realname]" readonly> &nbsp;<span class="gray">不能修改(若想修改帐户名请联系管理员)</span></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">银行帐号：</td>
+      <td><input name="bankno" type="text" id="bankno" size="30"></td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">提款密码：</td>
+      <td><input name="atmpwd" type="password" id="atmpwd" size="5" maxlength="4" style="width:50px"> </td>
+    </tr>
+    <tr bgcolor="#EDF8FF">
+      <td align="right">&nbsp;</td>
+      <td><input type="submit" name="Submit" id='btnAtm' value="确认提款" class="button3"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

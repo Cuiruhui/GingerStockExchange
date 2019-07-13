@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>系统工具</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css">
+<link href="./style/date_input.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#end_date").date_input();
+	//持仓单修复
+	$('#btnRepaire').click(function(){
+		if($('#dealid').val()=="")
+		{
+			parent.ymPrompt.alert({title:'持仓记录修复工具',message:'请输入要修复的持仓订单号！'});
+			$('#dealid').focus();
+			return false;
+		}
+		$('#btnRepaire').attr('disabled','true');
+		$.ajax({
+			type:'GET',
+			url:'ajax.php?type=dealrepaire&dealid=' + $('#dealid').val(),
+			cache:false,
+			success:function(res)
+			{
+				if(res=='success')
+				{
+					parent.ymPrompt.succeedInfo({title:'持仓记录修复工具',message:'修复持仓记录成功！',handler:function(){$('#btnRepaire').attr('disabled','');}});
+				}
+				else
+				{
+					parent.ymPrompt.errorInfo({title:'持仓记录修复工具',message:res.replace('faile,',''),handler:function(){$('#btnRepaire').attr('disabled','');}});
+				}
+				
+			}
+		});
+	});
+	$('#btnRepaireAll').click(function(){
+		if(confirm('确定要修复全部未能平仓的持仓单吗？'))
+		{
+			$('#btnRepaireAll').attr('disabled','true');
+			$.ajax({
+				type:'GET',
+				url:'ajax.php?type=dealrepaireall',
+				cache:false,
+				success:function(res)
+				{
+					if(res=='success')
+					{
+						parent.ymPrompt.succeedInfo({title:'持仓记录修复工具',message:'批量修复持仓记录成功！',handler:function(){$('#btnRepaireAll').attr('disabled','');}});
+					}
+					else
+					{
+						parent.ymPrompt.errorInfo({title:'持仓记录修复工具',message:res.replace('faile,',''),handler:function(){$('#btnRepaireAll').attr('disabled','');}});
+					}
+					
+				}
+			});
+		}
+	});
+});
+</script> 
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="table1"> 
+  <thead> 
+    <tr class="row_title"> 
+      <td colspan="2">持仓记录修复工具</td> 
+    </tr> 
+  </thead> 
+  <tr class="row1_odd"> 
+    <td width="15%" height="30" align="right" bgcolor="#CCCCCC">按单号修复</td> 
+  <td bgcolor="#E5E5E5">订单号:
+    <input name="dealid" type="text" id="dealid" size="15" maxlength="10">
+    <input name="btnRepaire" type="button" id="btnRepaire" value="修 复" class="btn1" />    </td>
+  </tr>
+  <tr class="row1_odd">
+    <td height="30" align="right" bgcolor="#CCCCCC">批量修复</td>
+    <td bgcolor="#E5E5E5"><input name="btnRepaireAll" type="button" id="btnRepaireAll" value="修复全部" class="btn1" title="批量修复“不能平仓”的记录…" /></td>
+  </tr> 
+</table> 
+<br>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="table1">
+<form name="clearhistory" action="tool.php?type=clear" method="post">
+  <thead>
+    <tr class="row_title">
+      <td colspan="2">清理历史数据工具</td>
+    </tr>
+  </thead>
+  <tr class="row1_odd">
+    <td width="15%" height="30" align="right" bgcolor="#CCCCCC">选择日期</td>
+    <td bgcolor="#E5E5E5">清理
+      <input name="end_date" type="text" id="end_date" value="[var.end_date]" size="20" class="datepicker">
+      之前的数据</td>
+  </tr>
+  <tr class="row1_odd">
+    <td height="30" align="right" bgcolor="#CCCCCC">清理选项</td>
+    <td bgcolor="#E5E5E5"><input name="flag_sell" type="checkbox" id="flag_sell" value="1" checked>
+      平仓
+        <input name="flag_deal" type="checkbox" id="flag_deal" value="1" checked>
+持仓
+<input name="flag_trust" type="checkbox" id="flag_trust" value="1" checked>
+委托      
+<input name="flag_atm" type="checkbox" id="flag_atm" value="1" checked> 
+        提款
+        <input name="flag_payment" type="checkbox" id="flag_payment" value="1" checked> 
+        入款
+        <input name="flag_log" type="checkbox" id="flag_log" value="1" checked>
+浏览
+<input name="flag_message" type="checkbox" id="flag_message" value="1" checked> 
+短信
+<input name="flag_bill" type="checkbox" id="flag_bill" value="1" checked> 
+帐单
+<input name="flag_money" type="checkbox" id="flag_money" value="1" checked> 
+资金明细</td>
+  </tr>
+  <tr class="row1_odd">
+    <td height="30" align="right" bgcolor="#CCCCCC">&nbsp;</td>
+    <td bgcolor="#E5E5E5"><input name="btnClear" type="submit" id="btnClear" value="清理数据" onClick="if(confirm('确定要清除数据？\r\n清除后不可恢复！！')){return true;}else{return false;}" /></td>
+  </tr>
+  </form>
+</table>
+<!--
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="table1">
+  <thead>
+    <tr class="row_title">
+      <td colspan="2">平仓还原工具</td>
+    </tr>
+  </thead>
+  <tr class="row1_odd">
+    <td width="15%" height="30" align="right" bgcolor="#CCCCCC">订单号</td>
+    <td bgcolor="#E5E5E5"><input name="dealid_restore" type="text" id="dealid_restore" size="15" maxlength="10">
+        <input name="btnRestore" type="button" id="btnRestore" value="还　原" class="btn1" />
+    </td>
+  </tr>
+</table>
+-->
+</body>
+</html>

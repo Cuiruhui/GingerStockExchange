@@ -1,0 +1,30 @@
+2017-11-22 11:59:44 Database error message: Access denied for user 'sql829860'@'localhost' (using password: YES)
+SQL = 
+URL = /
+2017-11-22 11:59:44 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-11-22 11:59:44 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-11-22 11:59:44 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-11-22 11:59:44 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-11-22 11:59:47 Database error message: Access denied for user 'sql829860'@'localhost' (using password: YES)
+SQL = 
+URL = /
+2017-11-22 11:59:47 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-11-22 11:59:47 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-11-22 11:59:47 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /
+2017-11-22 11:59:47 Database error message: Access denied for user 'root'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /

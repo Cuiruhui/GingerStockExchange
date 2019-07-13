@@ -1,0 +1,497 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>开户注册</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style/style.css" />
+<link rel="stylesheet" type="text/css" href="css/skin/ymPrompt.css" />
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript">
+//杀掉所有的出错信息
+function killErrors() {
+return true;
+}
+window.onerror = killErrors;
+</script>
+<script type="text/javascript">
+    var stype = "[var.stype]"; //0为免费试玩帐号  1 为正式帐号
+    var bfchar = "[var.bfchar]"; //前缀字符
+
+    function SubChk() {
+		var username = $("#reg_username").val();
+        if ( username == '') {
+            ymPrompt.alert({title:'开户注册', message: "请输入帐号！", handler: function () {
+                $("#reg_username").focus();
+            }
+            });
+            return false;
+        }
+        if (username.length > 20 || username.length < 4) {
+            ymPrompt.alert({title:'开户注册', message: "帐号：请输入4-10个字符, 仅可输入英文字母以及数字的组合!", handler: function () {
+                $("#reg_username").focus();
+            }
+            });
+            return false;
+        }
+		var password = $("#reg_password").val();
+        if (password == '' || password.length<6 ||  password.length>12) {
+            ymPrompt.alert({title:'开户注册', message: "密码长度必须在6-12个字符之间!!", handler: function () {
+                $("#reg_password").focus();
+            }
+            });
+            return false;
+        }
+        if ($("#reg_password1").val() == '') {
+            ymPrompt.alert({title:'开户注册', message: "确认新密码!!", handler: function () {
+                $("#reg_password1").focus();
+            }
+            });
+            return false;
+        }
+        if ($("#reg_password").val() != $("#reg_password1").val()) {
+            ymPrompt.alert({title:'开户注册', message: "确认密码错误！,请重新输入!!", handler: function () {
+                $("#reg_password1").focus();
+            }
+            });
+            return false;
+        }
+
+        if ($("#reg_validate").val() == '请点击' || $("#reg_validate").val() == '') {
+            ymPrompt.alert({title:'开户注册', message: "验证码请务必输入!!", handler: function () {
+                $("#reg_validate").focus();
+            }
+            });
+            return false;
+        }
+
+        if ($("#realname").val() == '') {
+            ymPrompt.alert({title:'开户注册', message: "请输入真实姓名!!", handler: function () {
+                $("#realname").focus();
+            }
+            });
+            return false;
+        }
+	if ($("#identification").val() == '' || !IdentityCodeValid($("#identification").val())) {
+            ymPrompt.alert({title:'开户注册', message: "请输入18位有效身份证号码!!", handler: function () {
+                $("#identification").focus();
+            }
+            });
+            return false;
+        }	
+        if ($("#mobile").val() == '') {
+            ymPrompt.alert({title:'开户注册', message: "手机与取款密码为取款金额时的凭证,请会员务必填写详细资料。!!", handler: function () {
+                $("#mobile").focus();
+            }
+            });
+            return false;
+        }
+
+        if ($("#mobile").val().replace(/[\uFF00-\uFFFF]/g, '**').length != 11) {
+            ymPrompt.alert({title:'开户注册', message: '手机栏位错误，请检查！', handler: function () {
+                $("#mobile").focus();
+            }
+            });
+            return false;
+        }
+		
+		var atmpwd = '';
+		atmpwd = $("#ddlgpwd1").val() + $("#ddlgpwd2").val() + $("#ddlgpwd3").val() + $("#ddlgpwd4").val();
+		if(atmpwd =='0000' && stype==1)
+		{
+            ymPrompt.alert({title:'开户注册', message: "取款密码请不要使用初始0000！", handler: function () {
+                $("#ddlgpwd1").focus();
+            }
+			});
+			return false;
+		}
+		$('#atmpwd').val(atmpwd);
+       
+		/*if (!/^[a-zA-Z0-9_\-.]{0,}[a-zA-Z0-9_\-]{1,}@[a-zA-Z0-9_\-]{1,}\.[a-zA-Z0-9_\-.]{1,}$/.test($('#email').val())) {
+            ymPrompt.alert({title:'开户注册', message: "E-mail格式不正确!", handler: function () {
+                $("#email").focus();
+            }
+            });
+            return false;
+        }*/
+		
+		document.regfrm.submit();
+    }
+	
+	function chkcode(str)
+	{
+		if(str=='') return false;
+		result=false;
+		$.ajax({
+			type:'GET',
+			cache:false,
+			url:'reg.php?act=chkcode&validate='+str,
+			success:function(data,textStatus)
+			{
+				if(data.indexOf('true')!=-1)
+				{
+					result = true;
+				}
+			},
+			async: false
+		});
+		return result;
+	}
+	
+	function chgbfchar(str)
+	{
+		if(str=="1")
+		{
+			$("#reg_username").val('x');
+			stype = 0;
+			bfchar = 'x';
+			$("#mobile").val('13');
+			$("#email").val('shiwan@abc.com');
+			$("#realname").val('试玩帐号');
+		}
+		else
+		{
+			$("#reg_username").val('u');
+			stype = 1;
+			bfchar = 'u';
+			$("#mobile").val('');
+			$("#email").val('');
+			$("#realname").val('');
+		}
+	}
+
+    function check_user() {
+        var username_value = $("#reg_username").val()
+        if (username_value == 'x' || username_value=='u') {
+            ymPrompt.alert({title:'开户注册', message: "请输入帐号！!!", handler: function () {
+                $("#reg_username").focus();
+            }
+            });
+            return false;
+        } else {
+			$.ajax({
+				type:'GET',
+				url:'reg.php?act=chkuser&username=' + username_value,
+				cache:false,
+				async:false,
+				success:function(msg){
+					if(msg.indexOf('true')!=-1)
+					{
+						ymPrompt.succeedInfo({title:'开户注册', message: "帐号可用", handler: function () {
+							$("#reg_username").focus();
+						}
+						});
+					}
+					else
+					{
+						ymPrompt.alert({title:'开户注册',  message: "帐号已存在，不可用！", handler: function () {
+							$("#reg_username").focus();
+						}
+						});
+					}
+				}
+			 });
+        }
+    }
+    function IdentityCodeValid(code) {
+            var city={11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",21:"辽宁",22:"吉林",23:"黑龙江 ",31:"上海",32:"江苏",33:"浙江",34:"安>徽",35:"福建",36:"江西",37:"山东",41:"河南",42:"湖北 ",43:"湖南",44:"广东",45:"广西",46:"海南",50:"重庆",51:"四川",52:"贵州",53:"云南",54:"西藏 ",61:"陕西",62:"甘肃",63:"青海",64:"宁夏",65:"新疆",71:"台湾",81:"香港",82:"澳门",91:"国外 "};
+            var tip = "";
+            var pass= true;
+
+            if(!code || !/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(code)){
+                tip = "身份证号格式错误";
+                pass = false;
+            }
+
+           else if(!city[code.substr(0,2)]){
+                tip = "地址编码错误";
+                pass = false;
+            }
+            else {
+                //18位身份证需要验证最后一位校验位
+                if(code.length == 18){
+                    code = code.split('');
+                    //∑(ai×Wi)(mod 11)
+                    //加权因子
+                    var factor = [ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 ];
+                    //校验位
+                    var parity = [ 1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2 ];
+                    var sum = 0;
+                    var ai = 0;
+                    var wi = 0;
+                    for (var i = 0; i < 17; i++)
+                    {
+                        ai = code[i];
+                        wi = factor[i];
+                        sum += ai * wi;
+                    }
+                    var last = parity[sum % 11];
+                    if(parity[sum % 11] != code[17]){
+                        tip = "校验位错误";
+                        pass =false;
+                    }
+                }
+            }
+            if(pass) tip="有效身份证号";
+	    return pass;
+        }
+    function CheckNumField() {
+        if ((event.keyCode < 48 || event.keyCode > 57)) {
+            return false;
+        }
+    }
+    function check_length(obj, str, len) {
+        if (str.length > len) {
+            ymPrompt.alert({ message: '帐号：请输入4-20个字符, 仅可输入英文字母以及数字的组合!', handler: function () {
+                document.getElementById(obj.id).focus();
+                document.getElementById(obj.id).select();
+            }
+            });
+            return false;
+        }
+    }
+
+    function ChangeValidate(nt) {
+        if (nt == "1") {
+            if ($("#vPic").css('display')=='none') {
+                $("#vPic").css('display','block');
+                $("#vPic").attr('src','validate.php?ts=' + (new Date()).getTime());
+            }
+        }
+        else
+            $("#vPic").attr('src','validate.php?ts=' + (new Date()).getTime());
+    }
+
+    function TriggerBtnSubmit(btn) {//监听提交按钮
+        var e = event.srcElement;
+        if (event.keyCode == 13) {
+            event.keyCode = 9;
+            document.getElementById(btn).click();
+            return false;
+        }
+    }
+
+    var _uno = "";
+    function ShowMonFirst() {
+        _uno = $("#reg_username").val();
+        if (_uno.length == 0 || _uno.substr(0, 1) != bfchar)
+            $("#reg_username").val(bfchar);
+    }
+</script>
+</head>
+<body> 
+<form name="regfrm" method="post" action="reg.php?act=save"> 
+  <table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="mybox">
+    <tr>
+      <th colspan="2"><strong>注册帐号</strong><a href="#" onClick="javascript :history.go(-1);">(返回上一页)</a></th>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right" style="height: 26px;">帐号类型：</td>
+      <td><input type="radio" name="demo" value="0"   checked="checked" />
+          <font color="red">正式帐号 </font>
+        </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140" align="right" style="height: 26px;"> *帐 号： </td>
+      <td>
+        <input type="text" name="username" id="reg_username" value="u" size="10" />
+  &nbsp;
+        <input name="button"
+                            type="button" onclick="check_user();" value="检查帐号" class="button3" />
+        <span style="color: Red;">（帐号以指定前缀字符来注册）</span> </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140">&nbsp; </td>
+      <td> 帐号：请输入4-20个字符, 仅可输入英文字母以及数字的组合!! </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140" align="right" style="height: 26px;"> *密 码： </td>
+      <td>
+        <input type="password" id="reg_password" name="password" value="" size="25" maxlength="12" />
+      </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140">&nbsp; </td>
+      <td> *密码规则：须为<b>6~12码英文或数字</b>且符合0~9或a~z字符 </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140" align="right" style="height: 26px;"> *确认新密码： </td>
+      <td>
+        <input type="password" id="reg_password1" name="repassword" value="" size="25" maxlength="12" />
+      </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140" align="right" style="height: 26px;"> *货币： </td>
+      <td>
+        <select name="currency" size="1" id="currency">
+          <option value="RMB" selected="selected">RMB</option>
+        </select>
+      </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140" align="right" style="height: 26px;"> *验 证 码： </td>
+      <td>
+        <input name="validate" style="vertical-align:middle" type="text" id="reg_validate" title="( 点选此处产生新验证码 )"
+                            onfocus="this.value='';ChangeValidate('1');" onblur="if(this.value =='') this.value ='请点击'" value="请点击" size="8" maxlength="4" />
+        <img id="vPic" src="" align="absmiddle" border="1" style="display: none; cursor: pointer;" alt="( 点选此处产生新验证码 )" onclick="ChangeValidate('2');" /> </td>
+    </tr>
+    <tr>
+      <th colspan="2">会员资料</th>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140" align="right" style="height: 26px;"> *真实姓名： </td>
+      <td>
+        <input name="realname" type="text" id="realname" value="[var.realname]" size="20" maxlength="4" />
+      　 <font color="red">注册后不可修改</font> </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140" style="height: 26px;">&nbsp; </td>
+      <td> 必须与您的银行帐户名称相同，否则不能出款! </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="26%" align="right" style="height: 26px;"> *身份证： </td>
+      <td>
+        <input name="identification" type="text" id="identification" value="" size="20" maxlength="18"/>
+      　 <font color="red">注册后不可修改</font> </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140" align="right" style="height: 26px;"> *手机： </td>
+      <td>
+        <input type="text" id="mobile" name="mobile" value="[var.mobile]" size="20" maxlength="11" onkeypress="return CheckNumField();"
+                            style="ime-mode: disabled" />
+      </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140">&nbsp; </td>
+      <td> 此为您取回登入密码的唯一途径, 请注意安全, 务必真实! </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140">&nbsp; </td>
+      <td> 提款密码认证必须，请务必记住! </td>
+    </tr>
+	
+	
+	<tr  bgcolor="#FFFFFF"> 
+      <td width="140" align="right" style="height: 26px;">*开户银行:</td> 
+      <td><select name="bankcode" id="bankcode">
+	  		
+          <option value="ABC">农业银行</option>
+          <option value="ICBC">工商银行</option>
+          <option value="CCB">建设银行</option>
+          <option value="BCOM">交通银行</option>
+          <option value="BOC">中国银行</option>
+          <option value="CMB">招商银行</option>
+          <option value="CMBC">民生银行</option>
+          <option value="CEBB">光大银行</option>
+          <option value="BOB">北京银行</option>
+          <option value="SHB">上海银行</option>
+		   <option value="NBB">宁波银行</option>
+          <option value="HXB">华夏银行</option>
+          <option value="CIB">兴业银行</option>
+          <option value="PSBC">邮政银行</option>
+          <option value="SPABANK">平安银行</option>
+          <option value="SPDB">浦发银行</option>
+          <option value="ECITIC">中信银行</option>
+          <option value="HZB">杭州银行</option>
+          <option value="GDB">广发银行</option>
+        </select></td> 
+    </tr> 
+		<tr  bgcolor="#FFFFFF"> 
+      <td width="140" align="right" style="height: 26px;">*银行卡号:</td> 
+      <td><input name="bankno" type="text" id="bankno" style="width:200px;" value="" size="100" /></td> 
+    </tr> 
+		<tr  bgcolor="#FFFFFF"> 
+      <td width="140" align="right" style="height: 26px;">*银行支行:</td> 
+      <td><input name="bankname" type="text" id="bankname" style="width:200px;" value="" size="100"  /></td> 
+    </tr> 
+	
+	
+    <tr bgcolor="#FFFFFF">
+      <td width="140" align="right" style="height: 26px;"> *取款密码： </td>
+      <td>
+        <select name="select" id="ddlgpwd1">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <select name="select" id="ddlgpwd2">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <select name="select" id="ddlgpwd3">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <select name="select" id="ddlgpwd4">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <input name="atmpwd" type="hidden" id="atmpwd" />
+      </td>
+    </tr>
+    <tr bgcolor="#FFFFFF" style="display:none">
+      <td width="140" align="right" style="height: 26px;"> *E-mail： </td>
+      <td>
+        <input type="text" id="email" name="email" value="[var.email]" size="20" maxlength="30" style="ime-mode: disabled" />
+      </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="140" align="right" style="height: 26px;"> QQ： </td>
+      <td>
+        <input type="text" id="qq" name="qq" value="[var.qq]" size="20" maxlength="30" style="ime-mode: disabled" />
+      </td>
+    </tr>
+
+    <tr bgcolor="#FFFFFF">
+      <td align="right" style="height: 26px;">&nbsp;</td>
+      <td>
+        <input name="button" type="button" id="btnOK" onclick="SubChk()" value="确定注册" class="button3" />&nbsp; &nbsp;<input type="reset" name="CANCEL2" value="清除" class="button3" />
+      <input name="agent" type="hidden" id="agent" value="[var.agent]" />      </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right" valign="top" style="height: 26px;">备注：</td>
+      <td><div> 1.标记有&nbsp;<span>*</span>&nbsp;者为必填项目。</div>
+          <div> 2.手机与取款密码为取款金额时的凭证,请会员务必填写详细资料。</div>
+          <div> 3.注册成功，请及时入金，否则你的账号7天以后将被删除。</div>
+          <div> 4.若公司有其他活动会E-MAIL通知，请客户填写清楚。</div></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form> 
+<script type="text/javascript">
+    if (bfchar == "") {
+        ymPrompt.errorInfo("未设定前缀字符，请联系客服");
+        $("#reg_username").attr('disabled','true);
+    }
+</script> 

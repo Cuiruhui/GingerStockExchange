@@ -1,0 +1,232 @@
+﻿/bin/bash: indent: command not found
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="" />
+<meta name="description" content="融资融券交易系统">
+<meta name="author" content="" />
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="telephone=no" name="format-detection">
+        <!-- CSS -->
+<link rel="stylesheet" href="wap/jquery.mobile-1.3.2.min.css">
+<link type="text/css" rel="stylesheet" href="wap/include/wap_zfhy6.css" />
+<script src="assets/js/jquery-1.8.2.min.js"></script>
+<script src="wap/jquery.mobile-1.3.2.min.js"></script>
+
+		<style>
+.ui-block-a, 
+.ui-block-b
+{
+border: 1px ;
+text-align: center;
+}
+</style>
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+<div data-role="page" id="pageone">
+
+
+
+
+
+
+  <div data-role="content" id="content">
+    
+		 <form action="./wappay2.php?type=add"  method="post" data-ajax="false" name="fm1" target="_self" id="fm1">
+
+
+
+        <table width="99%"   align="center" cellpadding="1" cellspacing="1"  >
+  		
+                <tr>
+                  <td height="26" align="center"   style="text-align: left;" colspan="4">
+					
+					&nbsp;&nbsp;<span style="color:red">注意: 手机单笔入金100到1000000,如有任何充值不成功的情况请第一时间联系客服! </span>				  </td>
+                </tr>                  
+                    
+                    <tr style=" border-bottom:1px dashed #000000;">
+                      <td width="100" height="26" align="right"><strong>会员帐号<span class="textalign">：</span></strong></td>
+                      <td align="left"><span class="style5">
+                       [var.xltm.user_info.username]
+	                    
+                         <input name="username" type="hidden" id="username" value="[var.currentusername]" />
+			<input name="orderno" type="hidden" id="orderno" value="[var.order_no]" />
+                                        	 <input name="agent" type="hidden" value="[var.agent]" />
+
+
+<!-- 以下为 聚富通 参数 -->
+
+<!-- 支付人姓名 --><!-- 支付人联系方式 -->
+
+
+
+
+                        </span> 　
+                        </td>
+          </tr>
+			<!--<tr class="even">
+                                          <td height="23" align="right" class="fb12">
+                                            <strong>银行帐名<span class="textalign">：</span></strong></td>
+                                          <td align="left"><strong>[var.cardname]</strong></td>
+                                        </tr>
+                                        <tr>
+                                          <td height="23" align="right" class="fb12">
+                                            <strong>银行卡号<span class="textalign">：</span></strong></td>
+                                          <td align="left"><strong>[var.cardno]</strong></td>
+                                        </tr>
+                    <tr>-->
+                      <td height="26" align="right" >
+						<strong>充值金额<span class="textalign">：</span></strong></td>
+                      <td align="left">
+						<input name="money" type="text" class="input" id="money"  size="10" onKeyPress="Isnum();">                        
+                        
+                      
+</td>
+</tr>
+<input type=hidden id="bankname" name="bankname">
+<!--<tr class="even" style="display:none;">
+                                          <td height="23" align="right" class="fb12">
+                                            <strong>充值方式<span class="textalign">：</span></strong></td>
+                                          <td align="left">
+                    <select name="bankname" id="bankname">
+
+                      <option value="支付宝">支付宝</option>
+
+
+                    </select>
+
+
+                                       </td>
+                                         </tr>-->
+<!--<div id="payway" style="float:left;margin-top:50%;display:none;">
+	<label height="23" align="left" style="width:50%;">
+		<input type=button value="银行卡支付" onclick="cardshow()">
+	</label>
+	<label height="23" align="right" style="width:50%;">
+		<input type=button value="支付宝二维码" onclick="ewmshow()">
+	</label>
+</div>-->
+<tr id="showpaymethod"><td height="23" align="right" class="fb12"></td><td><input  type="button" value="去支付" onclick="showpaymethod()"></a>
+                        </td></tr>
+</table>
+
+
+<div id = "infoMa" style="font-size:21px">
+	<p>
+		1.输入充值金额后，点击去支付，选择银行卡或者支付宝支付
+	</p>
+	<p>
+		2.用手机银行或者网银将资金转入下方的账户，支付宝直接扫描二维码支付
+	</p>
+	<p>
+		3.转账完成后点击下方完成返回
+	</p>
+</div>
+
+</form>	
+<div id="payway" style="display:none;">
+        <div height="23" style="float:left;margin-left:20px;">
+                <input type=button value="银行卡账户支付" onclick="cardshow()">
+        </div>
+        <div height="23" style="float:right;margin-left:8px;">
+                <input type=button value="支付宝二维码" onclick="ewmshow()">
+        </div>
+</div>
+<div id="card" style="display:none;text-align:center">
+<table sytle="align:center">
+<tr class="even">
+                                          <td height="23" align="right" class="fb12">
+                                            <strong>银行帐名<span class="textalign">：</span></strong></td>
+                                          <td align="left"><strong>[var.cardname]</strong></td>
+                                        </tr>
+                                         <tr>
+                                          <td height="23" align="right" class="fb12">
+                                            <strong>支行名称<span class="textalign">：</span></strong></td>
+                                          <td align="left"><strong>[var.bankname]</strong></td>
+                                        </tr>
+                                        <tr>
+                                          <td height="23" align="right" class="fb12">
+                                            <strong>银行卡号<span class="textalign">：</span></strong></td>
+                                          <td align="left"><strong>[var.cardno]</strong></td>
+                                        </tr>
+					<tr style="text-align:center"><td align="left" colspan="2">转入款项后第一时间联系客服确认款项</td></tr>
+</table>
+</div>
+<div id="erweima" style="display:none;text-align:center">
+<img width=150px height=150px src="admin/erweima.jpg"/>
+<table style="align:center">
+<tr><td>截图保存打开支付宝扫一扫进入相册点开二维码扫码支付<td></tr>
+<tr><td>付款后第一时间联系客服确认款项<td></tr>
+</table>
+</div>
+</div>
+<div id="done" style="display:none;text-align:center;width:100%">
+<br><br>
+<table style="align:center;">
+<tr style="text-align:center"><input type=button onclick="checkm()" value="完成返回首页"></tr>
+</table>
+</div>
+
+    </body>
+<script>
+function showpaymethod(){
+document.getElementById("payway").style.display="inline-block";
+document.getElementById("infoMa").style.display="none";
+document.getElementById("showpaymethod").style.display="none";
+}
+function cardshow(){
+document.getElementById("done").style.display="inline-block";
+document.getElementById("card").style.display="inline-block";
+document.getElementById("erweima").style.display="none";
+document.getElementById("bankname").value="银行卡";
+//document.getElementById('fm1').action="wappay2.php?type=add&bankname=银行卡";
+}
+function ewmshow(){
+document.getElementById("done").style.display="inline-block";
+document.getElementById("erweima").style.display="inline-block";
+document.getElementById("card").style.display="none";
+document.getElementById("bankname").value="支付宝";
+//document.getElementById('fm1').action="wappay2.php?type=add&bankname=支付宝";
+}
+function Isnum(){
+	return ((event.keyCode >= 48) && (event.keyCode <= 57));
+}
+function checkm(){
+	var fm1 = document.getElementById('fm1');
+	if(isNaN(fm1.money.value)){
+		alert("请正确输入金额！");
+		return false
+	}
+	if (fm1.money.value< 100)
+                        {
+                            alert('存入金额至少为100元');
+                            return false
+                        }
+	//if (fm1.money.value>= 5000)
+        //                {
+        //                    alert('大额入金请用电脑端软件操作');
+        //                    return false
+        //                }
+
+        else{
+		fm1.submit();
+                return true;
+        }
+document.getElementById("done").style.display="inline-block";
+document.getElementById("content").style.display="none";
+window.parent.location="./wapindex.php";
+}
+</script>
+</html>
+
+

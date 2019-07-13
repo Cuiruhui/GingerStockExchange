@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>会员[var.user.username]的详细信息</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="table1">
+  <tr class="row_title">
+    <td colspan="4" align="center">会员信息</td>
+  </tr>
+  <tr class="row1_odd">
+    <td width="20%" align="right">会员帐号:</td>
+    <td width="30%" class="gray">[var.user.username]</td>
+    <td width="20%" align="right">姓名:</td>
+  <td width="30%" class="gray">[var.user.realname]</td>
+  </tr>
+  <tr class="row1_even">
+    <td width="20%" align="right">帐号类型:</td>
+    <td width="30%" class="gray">[var.user.demo;if [val]=0;then '<font color=red>正式</font>';else '试玩'] </td>
+    <td width="20%" align="right">手机:</td>
+  <td width="30%" class="gray">[var.user.mobile]</td>
+  </tr>
+  <tr class="row1_odd">
+    <td width="20%" align="right">保证金:</td>
+    <td width="30%" class="gray">[var.user.cash;frm='0.00']</td>
+    <td width="20%" align="right">可用保证金:</td>
+  <td width="30%" class="gray">[var.user.cancash;frm='0.00']</td>
+  </tr>
+  <tr class="row1_even">
+    <td align="right">本月交易金额:</td>
+    <td class="gray">[var.user.trade_money_month;frm='0.00']</td>
+    <td align="right">总交易金额:</td>
+    <td class="gray">[var.user.trade_money_total;frm='0.00']</td>
+  </tr>
+  <tr class="row1_odd">
+    <td align="right">贡献手续费:</td>
+    <td class="gray">[var.user.cost_total;frm='0.00']</td>
+    <td align="right">贡献留仓费:</td>
+    <td class="gray">[var.user.save_money_total;frm='0.00']</td>
+  </tr>
+  <tr class="row1_even">
+    <td width="20%" align="right">注册时间:</td>
+    <td width="30%" class="gray">[var.user.regdate;frm='yyyy/mm/dd']</td>
+    <td width="20%" align="right">是否自动满仓</td>
+  <td width="30%" class="gray">[var.user.is_man;if [val]=1;then '<font color=red>是</font>';else '否']</td>
+  </tr>
+  <tr class="row1_even">
+    <td width="20%" align="right">最后登录时间:</td>
+  <td width="80%" class="gray"  colspan="3">[var.user.last_login;frm='mm-dd/hh:nn']</td>
+  </tr>
+</table>
+<table width="98%"  border="0" align="center" cellpadding="1" cellspacing="1">
+  <tr>
+    <td align="center"><a href="javascript:window.parent.ymPrompt.doHandler('error',true);"><img src="./images/btn_close.gif" border="0" alt="关闭窗口" /></a></td>
+  </tr>
+</table>
+</body>
+</html>

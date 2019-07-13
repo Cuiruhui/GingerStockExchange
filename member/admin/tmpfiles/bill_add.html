@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>手动入/扣款</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#AddFrom").validate({
+		rules: {
+			username: { required: true },
+			agent: { required:true },
+			money: {required:true, number: true},
+			remark: { required:true}
+		},
+		messages: {
+			username: { required: "[<b>用户名</b>]:不能为空."},
+			agent: { required: "[<b>代理商</b>]:不能为空."},
+			money: { required: "[<b>发生金额</b>]:不能为空.", number: "[<b>发生金额</b>]:必须为正数或小数."},
+			remark: { required: "[<b>备注</b>]:不能为空."}
+		},
+		submitHandler: function(form) {
+			var b_type = $('#bill_type').val();
+
+			if ( b_type == "点差费" || b_type == "滑价修正" ){
+				if ($("#bill_no").val() == "" || $("#bill_no").val() == "0"){
+					alert("请先选择订单号！");
+					return false;
+				}
+			}
+			form.submit();
+		}
+	});
+
+	$("#bill_type").change(function(){	//增加点差费的判断。
+		$("#dc_tr").hide();
+
+		if ($(this).val() == "点差费" || $(this).val() == "滑价修正"){
+			var username = $("#username").val();
+			var agent = $("#agent").val();
+			var ddo = $("#do").val();
+
+			if ( $(this).val() == "滑价修正") ddo = "add";		//滑价修正时，要查询所有未卖出的。
+
+			$.ajax(
+				{ 
+					type:'get', 
+					url:'lx_ajax.php',
+					async: false,
+					data:{'type': "get_order",'username':username, 'agent':agent, 'ddo':ddo, 'time': new Date().getTime() }, 
+					dataType:"json",
+					success:function(jsonData, status) {
+						 var sel = document.getElementById('bill_no');
+
+						  sel.length = 1;
+						  sel.selectedIndex = 0;
+
+						  if (jsonData.orders)
+						  {
+								for (i = 0; i < jsonData.orders.length; i ++ )
+								{
+								  var opt = document.createElement("OPTION");
+								  opt.value = jsonData.orders[i].id;
+								  opt.text  = jsonData.orders[i].stock_name + '(' +jsonData.orders[i].id+')';
+
+								  sel.options.add(opt);
+								}
+
+								if (jsonData.orders.length >= 1){
+									sel.selectedIndex = 1;
+								}
+						  }
+					},
+					error:function(a1,a2,a3) {
+						alert(a3);
+					} 
+				}
+			);
+			$("#dc_tr").show();
+		}
+
+	})
+});
+</script>
+</head>
+<body> 
+
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="1" class="table1"> 
+  <form id="AddFrom" action="bill.php?type=AddFrom" method="post"> 
+    <tr class="row_title"> 
+      <td colspan="2">手动入/扣款</td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td width="15%" align="right">操作类型:</td> 
+      <td width="85%"><select name="do" size="1" id="do">
+        <option value="add">入款</option>
+        <option value="cut">扣款</option> 
+		<option>[var.do;ope=html;select]</option> 
+        </select> </td> 
+    </tr> 
+    <tr class="row_ls">
+      <td align="right">用 户 名:</td>
+      <td><input name="username" type="text" id="username" size="15"></td>
+    </tr>
+    <tr class="row_ls">
+      <td align="right">代 理 商:</td>
+      <td><select name="agent" size="1" id="agent">
+        <option value="">请选择</option>
+		<option value="[ag.username]">[ag.username;block=option;]</option>
+      </select></td>
+    </tr>
+    <tr class="row_ls">
+      <td align="right">明细类型:</td>
+      <td><select name="bill_type" size="1" id="bill_type">
+	  <option value="[bt.bill_type]">[bt.bill_type;block=option;]</option>
+      </select></td>
+    </tr>
+    <tr class="row_ls" style="display:none" id="dc_tr">
+      <td align="right">订单号:</td>
+      <td><select name="bill_no" size="1" id="bill_no">
+		<option value="0">请选择</option>
+      </select></td>
+    </tr>
+    <tr class="row_ls">
+      <td align="right">发生金额:</td>
+      <td><input name="money" type="text" id="money" size="15">
+        必须输入正数</td>
+    </tr>
+    <tr class="row_ls"> 
+      <td width="15%" align="right">备　　注:</td> 
+      <td width="85%"><textarea name="remark" cols="50" rows="8" id="remark" style="width:500px;"></textarea></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="center">&nbsp;</td> 
+      <td><input type="submit" name="button" class="btn1" id="button" value="确 定" /></td> 
+    </tr> 
+  </form> 
+</table> 
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="融资融券交易系统">
+  <title>交易规则</title>
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="../js/new/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body background="#FFF" style="background:#FFF;-webkit-app-region: drag;">
+  <div class="read-container">
+    <div>
+	<img id="closed" src="./img/newx2.png">
+	</div>
+    <div class="read-head">
+    </div>
+    <div class="read-content">
+      <h2 style="text-align: center; padding: 10px 0px; color:#000000;">客户须知</h2>
+      <p><h4>第一部分：融通国际融资融券平台说明</h4></p> 
+	  <br>
+<p>        1、 本系统属于融通国际期货公司融资融券交易软件，以中国A股融资融券交易原则生成； </p> 
+<p>        2、 客户需了解且明白该平台提供的标的股均是以融资融券保证金形式交易的，保证金的杠杆效应可以小博大但也有可能导致操作风险的放大； </p> 
+<p>        3、 由于通讯设备或互联网络传送中断或故障，以及黑客攻击而导致的客户下单指令之 传送、接收或执行出现延误、错误或不完整等问题，融通国际并不承担相应的责任；</p>  
+<p>        4、 本系统除供亚洲等地区投资者使用外，亦同时为其他适用融资融券交易原则的地 区投资者使用；任何地区个人和单位不得更改本软件的使用功能，或附带添加各种 插件；</p>  
+<p>        5、 系统将根据对客户所持仓股票异动（除权、停盘等）的情况及客户保证金预留不足 情况，将作出自动平仓和结算，故客户买卖交易过程中应及时关注个股发展和股价变化，并做好资金管理； </p> 
+<br>
+<p><h4>第二部分：融通国际融资融券交易规则介绍</h4> </p> 
+<br>
+<p>        1、 交易融资比例为1:10,即最大资金使用量为客户信用保证金（即本金）的10倍；</p>  
+<p>        2、 每笔交易均以交易金额为准下单即时扣除双向共计（含税）千分之七的交易费用（ 其中包括：千分之一印花税，千分之一点八手续费（单边），千分之二点四融资利 息）； </p> 
+<p>        3、 留仓股票最多持仓时间为一周，节假日则顺延（举例：周一购入，最迟至下周一 15:00，系统将自动进行平仓）；</p>  
+<p>        4、 留仓股票均以交易总金额一次性扣除万分之十八当周留仓过夜费； </p> 
+<p>        5、 为控制交易之风险，过夜留仓交易杠杆为1:5，由系统在收盘前自动追加。若留仓 过夜时账户预留保证金不足，则系统将以收盘时股票交易价格自动进行平仓； </p> 
+<p>        6、 为控制交易之风险，个股每日涨（跌）幅达到百分之七，或连续两日涨（跌）百 分之八时，系统将停止该股多（空）新单的购买，已持有该股票则可继续持有或 平仓； </p> 
+<p>        7、 以股票买入的成本价计算，涨跌幅达到百分之十时，系统将自动平仓； </p> 
+<p>        8、 单股每笔持仓最低交易金额为一万元以上，每股单仓或多仓集合竞买不超过300万人民币（单向同时持仓）； </p> 
+<p>        9、 每支股票单笔买入后不可分批卖出，故建议客户同一支股票可分次购入； </p> 
+<p>        10、为保证客户下单交易的及时和有效性，系统对每笔下单成交价自动默认为：建仓 （买多、买空），均为对应市价±0.01； </p> 
+<p>        11、新建仓之股票15分钟内系统均不允以平仓； </p> 
+<p>        12、系统交易时间为：A股正常交易日内的上午09:35-11:30，下午13:00-14:58；</p></p> 
+      
+	</div>
+    <div class="read-foot">
+      <button type="button"   name="btn_agree" onClick="self.location='./wclient.php'" value="同意" class="btn btn-danger btn-read">我同意</button>
+      <button type="button"   name="btn_agree" onClick="self.location='./wlogin.php'" value="不同意" class="btn btn-info btn-read">不同意</button>
+    </div>
+  </div>
+</body>
+<style>
+body {
+    font-family: "Microsoft YaHei" ! important;
+  }
+  .read-container{
+    width: 100%;
+    height: 100%;
+  }
+   .read-container img{
+    cursor: pointer;
+    width: 100%;
+    height: 20px;
+  }
+  .read-head{
+    width: 100%;
+    height: 25px;
+    background-color: #D14E00;
+  }
+  .read-content{
+    width: 600px;
+    height: 500px;
+    margin: 0 auto;
+    text-align: center;
+    overflow-y: auto;
+  }
+  .read-content p {
+    text-align: left;
+    padding-left: 20px;
+	padding-right: 20px;
+  }
+  .read-foot{
+    width: 100%;
+    height: 55px;
+    background-color: #ccc;
+    text-align: center;
+  }
+  .btn-read{
+    width: 105px;
+    margin: 10px 20px 1px 1px;
+  }
+</style>
+
+</html>

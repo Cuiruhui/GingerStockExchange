@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>卖出股票</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//修改当前价颜色
+	var buy_type = [var.deal.buy_type];
+	var bull_price = [var.deal.bull_price];
+	var cur_price = [var.cur_price];
+	if(buy_type == 1) //买升
+	{
+		 cur_price > bull_price ? $('#span_cur_price').css('color','red') : $('#span_cur_price').css('color','green');
+	}
+	else
+	{
+		cur_price < bull_price ? $('#span_cur_price').css('color','red') : $('#span_cur_price').css('color','green');
+	}
+	
+	$("#sell_stock").validate({
+		rules: {
+			num: {required:true, digits:true, range:[1,[var.deal.can_sell_num]]}
+		},
+		messages: {
+			num: {required: "请输入要买入的数量.",digits: "必须输入整数", range: "买入数量必须大于0小于[var.deal.can_sell_num]手."}
+		},
+		submitHandler: function(form) {
+			$('#btnsell').attr('value','提交中，请稍候…');
+			$('#btnsell').attr('disabled','true');
+			form.submit();
+		}
+	});
+});
+</script>
+</head>
+<body>
+  <table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="table1">
+  <form name="sell_stock" id="sell_stock" method="post" action="?act=modfly">
+    <tr align="center" class="row_title">
+      <td colspan="2">修改持仓单</td>
+    </tr>
+	 <tr class="row1_odd">
+      <td width="29%" align="right">所属代理商：</td>
+      <td width="71%">[var.deal.agent]</td>
+    </tr>
+	<tr class="row1_even">
+      <td width="29%" align="right">用户名：</td>
+      <td width="71%">[var.deal.user]</td>
+    </tr>
+    <tr class="row1_odd">
+      <td width="29%" align="right">股票名称/代码：</td>
+      <td width="71%">[var.deal.stock_name]/[var.deal.stock_code]</td>
+    </tr>
+    <tr class="row1_even">
+      <td align="right">买入时间：</td>
+      <td><input name="bull_trust_time" type="text" id="bull_trust_time" size="15" value="[var.deal.bull_trust_time]" /></td>
+    </tr>
+	<tr class="row1_odd">
+      <td align="right">买入价格：</td>
+      <td><input name="bull_price" type="text" id="bull_price" size="5" value="[var.deal.bull_price]" />元（当前<span id="spn_bull_price">[var.deal.bull_price;frm='0.00']</span>　[var.deal.buy_type;if [val]=1;then '<font color=red>买升↑</font>';else '<font color=green>买跌↓</font>'] ）</td>
+    </tr>
+	 <tr class="row1_even">
+      <td align="right">买入手数：</td>
+      <td><input name="bull_num" type="text" id="bull_num" size="5" value="[var.deal.bull_num]" />手 （不可修改） </td>
+    </tr>
+    <tr class="row1_odd">
+      <td align="right">买入手续费：</td>
+      <td><input name="bull_cost_money" type="text" id="bull_cost_money" size="5" value="[var.deal.bull_cost_money]" />元 （自动计算费率,现[var.deal.bull_cost]点）</td>
+    </tr>
+   <tr class="row1_even">
+      <td align="right">点差费：</td>
+      <td><input name="dc_money" type="text" id="dc_money" size="5" value="[var.deal.dc_money]" />元 （自动计算费率，现[var.deal.dc_num]点）</td>
+    </tr>
+    
+    <tr class="row1_odd">
+      <td align="right">买入金额：</td>
+      <td><input name="bull_money" type="text" id="bull_money" size="5" value="[var.deal.bull_money]" />元 （自动计算）</td>
+    </tr>
+    <tr class="row1_even">
+      <td align="right">卖出点差：</td>
+      <td><input name="sell_cost" type="text" id="sell_cost" size="5" value="[var.deal.sell_cost]" />% 仅更新点差值</td>
+    </tr>
+    <tr class="row1_odd">
+      <td align="right">&nbsp;</td>
+      <td><button name="Submit" id="btnsell" onclick="if(confirm('确定修改吗？')){document.sell_stock.submit();}else{return false;}" class="btn1">修 改</button>
+      <input name="id" type="hidden" id="id" value="[var.id]" />
+      <div id="msg"></div></td>
+    </tr>
+	</form>
+  </table>
+
+</body>
+</html>

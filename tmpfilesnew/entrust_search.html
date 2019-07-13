@@ -1,0 +1,119 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>当日委托查询</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./css/skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px;}
+</style>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript">
+var s;
+$(document).ready(function(){
+	s = window.setTimeout("getQuote()",3000);
+});
+function getQuote()
+{
+	clearTimeout(s);
+	code = $('#codelist').html();
+	if(code)
+	{
+		$.ajax({
+			type:'GET',
+			url:'./ajax.php?type=price&stockcode='+code,
+			timeout:10000,
+			success:function(res){
+				if(!res)
+				{
+				 return false;
+				}
+				price = res.split(',');
+				for(i=0;i<price.length;i++)
+				{
+					$('#price_'+(i+1)).html(price[i]);
+					$('#price_'+(i+1)).css('color','#ff0000');
+				}
+				s = window.setTimeout("getQuote()",3000);
+			}
+		});
+	}
+	else
+	{
+		s = window.setTimeout("getQuote()",3000);
+	}
+}
+</script>
+</head>
+<body style="background-color: #FFFBFF" > 
+<div id="codelist" style="display:none;">[var.codelist]</div>
+<form name="frmentrust_order" method="post" action="entrust_order.php" id="frmentrust"> 
+  <table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF" class="mybox" style="border:1px solid #cccccc;">
+    <tr bgcolor="#F5F5F5">
+      <td>&nbsp;&nbsp;按状态查询：
+      <input type="radio" name="status" value="0" [var.status;if [val]=0;then 'checked';else ''] onClick="document.location.href='entrust_search.php?status=0';">
+      全部　
+      <input type="radio" name="status" value="2" [var.status;if [val]=2;then 'checked';else ''] onClick="document.location.href='entrust_search.php?status=2';"> 
+      已成交　
+      <input type="radio" name="status" value="1" [var.status;if [val]=1;then 'checked';else ''] onClick="document.location.href='entrust_search.php?status=1';">
+委托中　
+      <input type="radio" name="status" value="3" [var.status;if [val]=3;then 'checked';else ''] onClick="document.location.href='entrust_search.php?status=3';"> 
+      已撤单(用户)　
+      <input type="radio" name="status" value="4" [var.status;if [val]=4;then 'checked';else ''] onClick="document.location.href='entrust_search.php?status=4';">
+已撤单(系统)</td>
+    </tr>
+  </table>
+  <table width='98%' border='0' align="center" cellpadding='3' cellspacing='1' bgcolor="#CCCCCC" class="mybox">
+  <tr align='center'>
+    <th>订单号</th>
+    <th>下单时间</th>
+    <th>成交/撤单时间</th>
+    <th width="10%">股票代码</th>
+    <th>股票名称</th>
+    <th>买/卖</th>
+    <th>升/跌</th>
+    <th>挂单价格</th>
+    <th>当前价</th>
+    <th>股数</th>
+    <th>状态</th>
+    <th>操作</th>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td>[tr.id;block=tr;ondata=event_status]</td>
+    <td>[tr.stock_trust_time]</td>
+    <td>[tr.stock_deal_time;if [val]='';then '-']</td>
+    <td><a href="javascript:ShowKline('[tr.code]');">[tr.code]</a></td>
+    <td><a href="javascript:ShowKline('[tr.code]');">[tr.name]</a></td>
+    <td>[tr.trust_type;if [val]=1; then '买入';else '卖出']</td>
+    <td>[tr.buy_type;if [val]=1; then '<font color=red>升</font>';else '<font color=green>跌</font>']</td>
+    <td>[tr.price;frm='0.00']</td>
+    <td id="price_[tr.#]">--</td>
+    <td>[tr.num]手</td>
+    <td>[tr.status]</td>
+    <td><input type="button" name="Submit" value="撤单" class="button3" onClick="return cancel_trust('[tr.code]','[tr.name]','[tr.id]');" [tr.app;if [val]=1;then '';else 'style="display:none;"'] /></td>
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td>[tr.id;block=tr;ondata=event_status]</td>
+    <td>[tr.stock_trust_time]</td>
+    <td>[tr.stock_deal_time;if [val]='';then '-']</td>
+    <td><a href="javascript:ShowKline('[tr.code]');">[tr.code]</a></td>
+    <td><a href="javascript:ShowKline('[tr.code]');">[tr.name]</a></td>
+    <td>[tr.trust_type;if [val]=1; then '买入';else '卖出']</td>
+    <td>[tr.buy_type;if [val]=1; then '<font color=red>升</font>';else '<font color=green>跌</font>']</td>
+    <td>[tr.price;frm='0.00']</td>
+    <td id="price_[tr.#]">--</td>
+    <td>[tr.num]手</td>
+    <td>[tr.status]</td>
+    <td><input type="button" name="Submit2" value="撤单" class="button3" onClick="return cancel_trust('[tr.code]','[tr.name]','[tr.id]');" [tr.app;if [val]=1;then '';else 'style="display:none;"'] /></td>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF">
+    <td height="100" colspan="12">[tr;block=tr;nodata]<span class="gray">暂无符合条件委托记录.</span></td>
+    </tr>
+</table>
+</form> 
+</body>
+</html>

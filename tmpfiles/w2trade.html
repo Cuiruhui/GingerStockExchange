@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>交易明细</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+
+
+
+<link href="./css/skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px;}
+</style>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<style>
+body{
+	padding:0;
+	margin:0;
+}
+a{
+    text-decoration:none;
+    color: #000000;
+}
+</style>
+</head>
+<body style="font:15px;background-image:url(/images/rtoubu.png);"> 
+<div style="width:100%; height:388px;  ">
+		<div style="width:100%; height:31px;background-image:url(/images/rtoubu.png);" >
+		
+		</div>
+		<div style="width:100%;height:257px;background-image:url(/images/rzhongjian.png); padding:10px 0 0 0;" >
+<table width="100%" align="center" cellpadding="0" cellspacing="0" style="color:#000000; border-color:#CCCCCC; background-image:url(/images/rzhongjian.png); text-align:center;">
+  <tr style="color:#000000;">
+    <td width="50%" height="30" align="center" >[var.date_list]</td>
+  <td width="25%" align="center" bgcolor="#F5F5F5"><form name="form1" method="get" action="">
+    <input name="type" type="hidden" id="type" value="date">
+    <input name="date" id="txt_date" type="text" value="[var.qdate]" class="datepicker"/>
+    <input type="submit" name="Submit" value="查询" class="button3">
+  </form></td>
+    <td width="25%" align="center" bgcolor="#F5F5F5"><form name="form1" method="get" action="">
+      <input name="type" type="hidden" id="type" value="id">
+      订单编号：
+      <input name="id" id="txt_id" type="text" value="[var.id]" style="width:80px;" />
+      <input type="submit" name="Submit2" value="查询" class="button3">
+    </form></td>
+  </tr>
+</table>
+<table width='100%' border='1' align="center" cellpadding='0' cellspacing='0'  style=" border-color:#eeeeee;">
+  <tr align='center' style="font-size:12px;color:#000000;">
+    <th width="10%">订单号</th>
+    <th width="15%">下单时间</th>
+    <th width="10%">股票代码</th>
+    <th>股票名称</th>
+    <th width="6%">买/卖</th>
+    <th width="6%">升跌</th>
+    <th width="10%">挂单价格</th>
+    <th width="10%">股数</th>
+    <th width="10%" align="right">金额</th>
+    <th width="10%">状态</th>
+  </tr>
+  <tr align='center' style="color:#000000;">
+    <td>[tr.id;block=tr;ondata=event_status]</td>
+    <td>[tr.stock_trust_time]</td>
+    <td><a href="javascript:ShowKline('[tr.code]');">[tr.code]</a></td>
+    <td><a href="javascript:ShowKline('[tr.code]');">[tr.name]</a></td>
+    <td>[tr.trust_type;if [val]=1; then '买入';else '卖出']</td>
+    <td>[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升(多)</font>';else '<font color="#009900">买跌(空)</font>']</td>
+    <td>[tr.price;frm='0.00']</td>
+    <td>[tr.num]手</td>
+    <td align="right">￥[tr.money;frm='0,000.00']</td>
+    <td>[tr.status]</td>
+  </tr>
+  <tr align='center' style="color:#000000;" >
+    <td>[tr.id;block=tr;ondata=event_status]</td>
+    <td>[tr.stock_trust_time]</td>
+    <td><a href="javascript:ShowKline('[tr.code]');">[tr.code]</a></td>
+    <td><a href="javascript:ShowKline('[tr.code]');">[tr.name]</a></td>
+    <td>[tr.trust_type;if [val]=1; then '买入';else '卖出']</td>
+    <td>[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升(多)</font>';else '<font color="#009900">买跌(空)</font>']</td>
+    <td>[tr.price;frm='0.00']</td>
+    <td>[tr.num]手</td>
+    <td align="right">￥[tr.money;frm='0,000.00']</td>
+    <td>[tr.status]</td>
+  </tr>
+  <tr align='center' style="color:#000000;">
+    <td height="100" colspan="10">[tr;block=tr;nodata]<span class="gray">暂无符合条件交易记录.</span></td>
+  </tr>
+</table>
+			
+			
+		</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="融资融券交易系统">
+  <title>修改密码</title>
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="../js/new/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body background="#FFF" style="background:#FFF;-webkit-app-region: drag;">
+  <div class="onpay-container">
+    <!-- <div class="onpay-head">
+      <div class="onpay-title">
+        <span class="onpay-span">Rin融资融券密码修改</span>
+      </div>
+      <img src="./img/X.png">
+    </div> -->
+    <div class="onpay-content">
+      <form class="form-horizontal" id="pwdform" name="pwdform" action="pwd.php?type=save" method="post">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">旧密码</label>
+          <div class="col-sm-5">
+            <input name="oldpwd" type="password" id="oldpwd" class="form-control" placeholder="请输入旧密码">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">新密码</label>
+          <div class="col-sm-5">
+            <input name="password" type="password" id="password" class="form-control" placeholder="3-12个字符，数字，符号，字母区分大小写">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">确认新密码</label>
+          <div class="col-sm-5">
+            <input name="password_confirm" type="password" id="password_confirm" class="form-control" placeholder="请确认新密码">
+          </div>
+        </div>
+		        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">出金密码</label>
+          <div class="col-sm-5">
+            <input name="atmpwd" type="atmpwd" id="atmpwd" class="form-control" placeholder="请输入出金密码">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-7" style="text-align: center;">
+            <button type="submit" name="Submit" value="修改密码" class="btn btn-info btn-sure">确定</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<style>
+body {
+    font-family: "Microsoft YaHei" ! important;
+  }
+  .onpay-container {
+    width: 100%;
+    height: 100%;
+  }
+  .onpay-head {
+    width: 100%;
+    height: 45px;
+    background-color: #D14E00;
+  }
+  .onpay-head img {
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .onpay-title {
+    float: left;
+    padding: 10px;
+  }
+  .onpay-span {
+    color: #fff;
+  }
+  .onpay-content {
+    margin-top: 30px;
+  }
+  .btn-sure {
+    width: 150px;
+  }
+  .prompt {
+    text-align:left !important; 
+    margin-left: 145px !important;
+  }
+  .onpay-table{
+    width: 75%;
+    margin: 20px auto;
+  }
+  .onpay-money{
+    background-color: #D14E00;
+    color: #fff;
+  }
+</style>
+</html>

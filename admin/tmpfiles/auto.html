@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自动执行任务</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+//setInterval('get1()',10000);
+//setInterval('get2()',20000);
+get1();
+get2();
+get3();
+get4();
+function get1()
+{
+	$.ajax({
+		type: "GET",
+		url: 'auto.php?type=1&r='+Math.random(),
+		timeout:4000,
+		success: function(msg){
+			$('#s1').html(msg);
+		}
+	});
+	window.setTimeout("get1()", 10000);
+}
+function get2()
+{
+	$.ajax({
+		type: "GET",
+		url: 'auto.php?type=2&r='+Math.random(),
+		timeout:4000,
+		success: function(msg){
+			$('#s2').html(msg);
+		}
+	});
+	window.setTimeout("get2()", 25000);
+}
+function get3()
+{
+	$.ajax({
+		type: "GET",
+		url: 'auto.php?type=3&r='+Math.random(),
+		timeout:4000,
+		success: function(msg){
+			$('#s3').html(msg);
+		}
+	});
+	window.setTimeout("get3()", 15000);
+}
+function get4()
+{
+	$.ajax({
+		type: "GET",
+		url: 'auto.php?type=4&r='+Math.random(),
+		timeout:30000,
+		success: function(msg){
+			$('#s4').html(msg);
+		}
+	});
+	window.setTimeout("get4()", 5000);
+}
+</script>
+<style type="text/css">
+<!--
+body {
+	font-size: 9pt;
+}
+-->
+</style>
+</head>
+
+<body leftmargin="0" topmargin="0">
+<table width="250" border="0" cellpadding="2" cellspacing="1" bgcolor="#9999CC">
+  <tr bgcolor="#FFFFFF">
+    <td width="48">委托:</td>
+    <td width="191" id='s1'>Load..</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td>留仓:</td>
+    <td id="s2">Load..</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td>撮合:</td>
+    <td id="s3">Load..</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td>爆仓:</td>
+    <td id="s4">Load..</td>
+  </tr>
+</table>
+系统正常运作中不用关闭这窗口.
+</body>
+</html>

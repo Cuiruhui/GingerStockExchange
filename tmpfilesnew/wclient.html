@@ -1,0 +1,628 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>client</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./css/skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+
+<script src="assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/cookie.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/SuggestServer_3_0_16.js" charset="gb2312"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	showgain();
+	
+	setInterval(sysBC,7000);
+	zhishu();
+	setInterval(zhishu,15000);
+	
+	var suggestServer = new SuggestServer();
+	suggestServer.bind({
+		"input": "buy_code",
+		"value": "@2@",
+		"type": "",
+		"max": 10,
+		"width": 250,
+		"head": ["选项", "代码", "中文名称"],
+		"body": [-1, 2, 4],
+	    "fix": { "ie6" : [0, - 1], "ie7" : [0, - 1], "firefox" : [1, 1]},
+		"callback": null
+	});
+	
+	var initStockCode='600000';
+	$('#buy_code').val(initStockCode);
+	getstockname();
+
+$("#hangqing").click(function(){
+
+    ymPrompt.win({title:'实时行情', message: "hanqing.php", width: 1100, height: 600, maxBtn: true, iframe: true, winPos: [50, 50], handler: null });
+  
+});
+
+	
+$("#zijin").click(function(){
+
+    ymPrompt.win({title:'在线入金', message: "online_pay.php", width: 800, height: 420, maxBtn: true, iframe: true, winPos: [200, 80], handler: null });
+  
+});
+
+$("#jiaoge").click(function(){
+
+    ymPrompt.win({title:'交割清单', message: "trade_detail.php", width: 800, height: 420, maxBtn: true, iframe: true, winPos: [200, 80], handler: null });
+  
+});	
+
+$("#xiugai").click(function(){
+
+    ymPrompt.win({title:'修改密码', message: "pwd.php", width: 800, height: 420, maxBtn: true, iframe: true, winPos: [200, 80], handler: null });
+  
+});
+
+$("#chujin").click(function(){
+
+    ymPrompt.win({title:'在线出金', message: "atm.php", width: 800, height: 420, maxBtn: true, iframe: true, winPos: [200, 80], handler: null });
+  
+});
+	
+	$("#orderfrm").submit(function(){
+		$('#btnOk').attr('disabled','true');
+		
+		var bull_code=$('#buy_code').val();
+		var bull_name=$('#buy_name').text();
+		var price_type=$("input[name='price_type']:checked").val();  
+		var buy_type=$(":radio[name='buy_type']:checked").val();
+		var bull_price=$('#buys_price').text();
+		var bull_num=$('#bull_num').val();
+		if(bull_code=='' || bull_code=='代码/名称/拼音')
+		{
+			parent.ymPrompt.errorInfo({title:'下单',message:"请输入要买入的股票代码.",handler:function(){$('#buy_code').focus();}});
+			$('#btnOk').removeAttr("disabled");
+			
+			return false;
+		}
+		if(typeof(buy_type)=='undefined')
+		{
+			parent.ymPrompt.errorInfo({title:'下单',message:"请选择要买升(多)或买跌(空)."});
+			$('#btnOk').removeAttr("disabled");
+		
+			return false;
+		}
+		if(bull_num<1)
+		{
+			parent.ymPrompt.errorInfo({title:'下单',message:"请输入买入数量.",handler:function(){$('#bull_num').focus();}});
+			$('#btnOk').removeAttr("disabled");
+		
+			return false;
+		}
+		if(bull_num>0 && bull_code){
+			$.post("buy.php", {type:"bull", code:''+bull_code+'', buy_type: ''+buy_type+'',price_type:''+price_type+'',buy_type:''+buy_type+'',buy_num:''+bull_num+'',buys_price:''+bull_price+'' },
+			function(data){
+				res = data.split('|');
+				if(res[0]=='true')
+				{
+					if(res[1].indexOf('当日委托查询')!=-1)
+					{
+						parent.ymPrompt.succeedInfo({title:'下单成功',message:res[1],handler:function(){self.location.href='wclient.php';$('#btnOk').removeAttr("disabled");}});
+						self.location.reload();
+					}
+					else
+					{
+						parent.ymPrompt.succeedInfo({title:'下单成功',message:res[1],handler:function(){$('#btnOk').removeAttr("disabled");}});
+						self.location.reload();
+					}
+				}
+				else
+				{
+					parent.ymPrompt.errorInfo({title:'下单失败',message:res[1],handler:function(){$('#btnOk').removeAttr("disabled");}});
+				}
+				//$('#Msg').html(data);
+			});
+		}
+		return false;
+	});
+	
+});
+
+
+function addcode(code)
+{
+	$('#buy_code').val(code);
+	getstockname();
+}
+
+function zhishu(){
+	
+	$.ajax({
+		type: 'GET',
+		url: './ajax.php?type=zhishu',
+		success:function(res){
+			
+			sh=res.split("#");
+			 sharr=sh[0].split(",");
+			 szarr=sh[1].split(",");
+			 shb=parseInt(sharr[4]);
+			szb=parseInt(szarr[4]);
+		
+			$("#sh").html(shb);
+			$("#sz").html(szb);
+			
+			
+			
+		}	
+	});
+}	
+
+function sale_buy(code,name,num,id,limit_time,limit_cost)
+{
+	var cansell = false;
+	var cancontinue = true;
+	var dourl = 'sell.php?stockcode=' + code + '&stockname=' + name + '&num=' + num + '&id=' + id;
+	//判断股票是否可卖
+	$.ajax({
+		url:'buy.php?type=buytime&id='+id,
+		type:'GET',
+		async:false,
+		timeout:5000,
+		success:function(data){
+			if(data.indexOf('休市中')!=-1)
+			{
+				parent.ymPrompt.alert({title:'平仓股票',message: '休市中,不能买卖股票!!'});
+				cancontinue = false;
+			}
+			else if(data.indexOf('true')!=-1)
+			{
+				cansell = true;
+				dourl += '&cansell=true';
+			}
+		}
+	});
+	
+	if(!cancontinue) return;
+	if(!cansell)
+	{
+		dourl += "&cansell=false";
+		if(confirm('系统提示：该股票买入时间不足' + limit_time + '分钟将加收' + limit_cost*100 + '%的手续费!\n\n确定卖出吗？'))
+		{
+			parent.ymPrompt.win({message:dourl,width: 800, height: 420,winPos: [200, 80],title:'平仓股票' + name + '[' + code + ']',iframe:true,handler:function(){self.location.href=self.location.href+'?rnd='+Math.random();}})
+		}
+	}
+	else
+	{
+		parent.ymPrompt.win({message:dourl,width: 800, height: 420,winPos: [200, 80],title:'平仓股票' + name + '[' + code + ']',iframe:true,handler:function(){self.location.href=self.location.href+'?rnd='+Math.random();}})
+	}
+}
+
+function sysBC(){
+	
+	//res = ajaxUrl('./ajax.php?type=baocang');
+	$.ajax({
+		type: 'GET',
+		url: 'ajax.php?type=baocang',
+		cache: false,
+		success:function(res){
+			if(parseInt(res)>0)
+			{
+				
+				alert("您已爆仓，亏损额度大于保证金90%；");
+				self.location.reload();
+			}
+			else
+			{
+				
+			}
+			
+			
+		}
+	});
+}
+
+
+
+function getstockname()
+{
+	code=$('#buy_code').val();
+	if(code.length==6)
+	{
+		$.ajax({
+			type:'GET',
+			url:'ajax.php?type=getstockname&stockcode=' + code,
+			success:function(res){
+				if(res.indexOf(',')!=-1)
+				{
+				//alert(res);
+					stock = res.split(',');
+					$('#buy_name').html(stock[2]);
+					$('#buy_dc').html(stock[9]+' ‰');
+					if(stock[3]=='1' || stock[4]=='1') //停牌或关盘
+					{
+						
+						$('#btnOk').attr('disabled','true');
+					}
+					if(stock[7]=='0')
+					{
+						$('#can_bull_up').attr('disabled','true');
+					}
+					if(stock[8]=='0')
+					{
+						$('#can_bull_down').attr('disabled','true');
+					}
+					
+					if(stock[3]!='1')
+					{
+						
+						//获取行情数据
+						GetQuote(stock[0],stock[1]);
+					}
+				}
+			}
+		});
+	}
+}
+
+function GetQuote(t,c)
+{
+	$.ajax({
+		type: 'GET',
+		url: "ajax.php?type=quote&stocktype=" + t + "&stockcode=" + c,
+		success:function(res)
+		{
+			if(res.indexOf(',')!=-1)
+			{
+				quote = res.split(',');
+				if(quote.length!=33)
+				{
+				//	parent.ymPrompt.alert({title:'系统提示',message:quote[0]+'股票可能退市了！'});
+				//	return false;
+				}
+				zt_rate = quote[1].toLowerCase().indexOf('st')!=-1 ? 1.05 : 1.1;
+				dt_rate = quote[1].toLowerCase().indexOf('st')!=-1 ? 0.95 : 0.9;
+				//当前可用额度
+				var cancash = parseFloat($('#spn_cancash').html());
+					//最多可以买多少手
+				var cannum = Math.floor(cancash / (100*parseFloat(quote[4])));
+				
+				$('#canbuy').html(cannum);
+				//当前价
+				$('#price').html(quote[4]);
+				$('#buy_price').html(quote[4]);
+			
+				
+				//最新价
+				$('#buys_price').val(quote[4]);
+				$('#cur_price').html('<font color="' + (parseFloat(quote[4])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[4] + '</font>');
+				$('#kp_price').html('<font color="' + (parseFloat(quote[2])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[2] + '</font>');
+				$('#hight_price').html('<font color="' + (parseFloat(quote[5])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[5] + '</font>');
+				$('#lower_price').html('<font color="' + (parseFloat(quote[6])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[6] + '</font>');
+				$('#yes_price').html(quote[3]);
+				cur_zd = parseFloat(quote[4]-quote[3]).toFixed(2);
+				cur_zdf = parseFloat(cur_zd*100 / quote[3]).toFixed(2);
+				cur_zd = '<font color="' + (cur_zd>0 ? '#ff0000' : '#287938') + '">' + cur_zd + '</font>';
+				cur_zdf = '' + cur_zdf + '';
+				$('#zd').html(cur_zd);
+				$('#zdf').html(cur_zdf);
+				$('#zcj_num').html(Math.floor(quote[9]/100));
+				$('#zcj_price').html(parseFloat(quote[10]/10000).toFixed(2));
+				$('#zt_price').html('<font color="#ff0000">' + parseFloat(quote[3]*zt_rate).toFixed(2) + '</font>');
+				$('#dt_price').html('<font color="#287938">' + parseFloat(quote[3]*dt_rate).toFixed(2) + '</font>');
+				
+				$('#sell_4_price').html('<font color="' + (parseFloat(quote[26])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[28] + '</font>');
+				$('#sell_4_num').html(Math.floor(quote[27]/100));
+				$('#sell_3_price').html('<font color="' + (parseFloat(quote[24])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[26] + '</font>');
+				$('#sell_3_num').html(Math.floor(quote[25]/100));
+				$('#sell_2_price').html('<font color="' + (parseFloat(quote[22])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[24] + '</font>');
+				$('#sell_2_num').html(Math.floor(quote[23]/100));
+				$('#sell_1_price').html('<font color="' + (parseFloat(quote[20])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[22] + '</font>');
+				$('#sell_1_num').html(Math.floor(quote[21]/100));
+				
+				$('#buy_1_num').html(Math.floor(quote[11]/100));
+				$('#buy_1_price').html('<font color="' + (parseFloat(quote[12])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[12] + '</font>');
+				$('#buy_2_num').html(Math.floor(quote[13]/100));
+				$('#buy_2_price').html('<font color="' + (parseFloat(quote[14])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[14] + '</font>');
+				$('#buy_3_num').html(Math.floor(quote[15]/100));
+				$('#buy_3_price').html('<font color="' + (parseFloat(quote[16])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[16] + '</font>');
+				$('#buy_4_num').html(Math.floor(quote[17]/100));
+				$('#buy_4_price').html('<font color="' + (parseFloat(quote[18])>parseFloat(quote[3]) ? '#ff0000' : '#287938') + '">' + quote[18] + '</font>');
+				
+			}
+		}
+	});
+}
+
+
+</script>
+
+<style>
+body{ color: #FFFFFF; padding:0; margin:0; font-family:"微软雅黑";}
+ a { color:#FFFFFF; } 
+</style>
+
+<body>
+
+<div id="head" style="height:158px; width:100%; background-color:#000000;">
+	<div id="top" style="height:40px; width:100%;">
+		<div id="topl" style="height:40px; width:25%; background-color: #333333; float:left;"><img src="img/logor.png"  /></div>
+		<div id="topm" style="height:40px; width:55%; background-color: #333333; float:left; text-align:center;">
+			<div style="height:25px; width:95%; margin-top:10px;"><marquee direction="left" behavior="scroll" scrollamount="8" scrolldelay="300" bgcolor="#000000"><font size=4 color="#FF0000">温馨提示：股市有风险入市需谨慎，欢迎使用融通国际融资融券系统</font></marquee></div>
+		</div>
+		<div id="topr" style="height:40px; width:19%; background-color: #333333; float: left; ">
+			<div style="height:40px;width:20%; float:left;"><img src="img/toushua.png" /></div>
+			<div style="height:40px; width:20%; float:left; text-align:center; margin-top:10px;"><a onclick="self.location='./wclient.php'">[刷新]</a></div>
+			<div style="height:40px;width:20%; float:left;"><img src="img/tou.png" /></div>
+			<div style="height:40px; width:20%; float:left; text-align:center; margin-top:10px;">[var.xltm.user_info.username]</div>
+			<div style="height:40px; width:20%; float:left; text-align:center; margin-top:10px;"><a onclick="self.location='./wlogin.php'">[注销]</a></div>
+		</div>
+	</div>
+	<div  style="height:1px; width:100%; background-color: #990000;" ></div>
+	<div id="top2" style="height:108px; width:99%; background-color: #333333; margin-top:6px;margin-left:8px;">
+		<div style="width:7%; height:108px; padding:10px 2px 2px 10px; float:left;"> 
+		  	<img src="img/touxiang.png"/>
+		</div>
+		<div style="width:91%; height:108px; padding:1px; float:left;"> 
+			<div style="height:53px;"><font size="+3">[var.xltm.user_info.username]</font></div>
+			<div style="height:1px; background-color:#000000;"></div>
+			<div style="height:53px; padding:6px;">
+				<div style=" float:left; width:20%;">保证金：<font color=red>[var.xltm.user_info.cash;frm='0,000.00']元</font></div>
+				<div style=" float:left;width:20%;">可用额度：<font color=red>[var.cancash;frm='0.00']元</font></div>
+				<div style=" float:left;width:20%;"><div  style="float:left;">上证指数：</div><div id="sh" style="float:left;"></div></div>
+				<div style=" float:left;width:20%;"><div  style="float:left;">深圳指数：</div><div id="sz" style="float:left;"></div></div>
+			</div>		  	
+		</div>
+		
+	</div>
+	
+  
+</div>
+
+<div id="content" style="height:328px; width:100%; background-color: #000000; padding-top:12px;">
+	<div id="content1" style="height:310px; width:40%; background-color: #333333; float:left; margin-left:8px;">
+		<div style=" height:40px; padding:5px 0 0 0;" id="imm" >
+		<img src="img/bg1.png" style="margin-left:5px;"/>&nbsp;&nbsp;<img src="img/hangqing.png" id="hangqing" style="margin-left:295px;"/>
+		</div>
+	<iframe name="myFrame" id="myFrame"  src="wstock_lists.php"  height="270px;" width="99%"></iframe>
+	</div>
+	<div id="content2" style="height:320px; width:30%; background-color: #333333; float:left; margin-left:12px;">
+		<form name="orderfrm" id="orderfrm" action="" method="post">
+		<div style=" height:40px; padding:5px 0 0 0;" id="imm" >
+		<img src="img/rujin.png" id="zijin" style="margin-left:5px;"/>&nbsp;&nbsp;<img src="img/chujin.png" id="chujin"/>&nbsp;&nbsp;<img src="img/jiaoge.png" id="jiaoge"/>&nbsp;&nbsp;<img src="img/xiugaimima.png" id="xiugai"/>
+		</div>
+		
+		
+		
+		<div style="height:1px; background-color:#000000;"></div>
+		<div style="height: 250px;margin-top: 5px;">
+			<div style=" height:40px; margin-left:36px;">股票代码:<input name="buy_code" type="text" id="buy_code" style=" border:0;height:25px;width:150px; margin-left:45px;position:relative; background-color:#000000;color: #FFFFFF;" value="代码/名称/拼音" size="10" maxlength="12" onBlur="getstockname();" /></div>
+			<div style=" height:40px;margin-left:36px;">股票名称:<span id="buy_name" style="margin-left:45px;"></span></div>
+			<div style=" height:40px;margin-left:36px;">市价:<span id="buy_price" style="margin-left:75px;"></span></div>			
+			<div style=" height:40px;margin-left:36px;">手数:<input id="bull_num" name="bull_num" type="text" size="12"  maxlength="5" style="border:0;height:25px;width:150px; margin-left:75px;position:relative; background-color:#000000;color:#FF0000;" /> </div>
+			<div style=" height:40px;margin-left:36px;">最大手数:<span id="canbuy" style="margin-left:45px;"></span>手<span id='spn_cancash' style='display:none;'>[var.cancash]</span></div>
+			<div style=" height:40px;text-align:center;">
+				 <input name="buy_type" type="radio" id="can_bull_up" value="1" checked />
+          			<font color="#ff0000">买升↑</font><input type="radio" id="can_bull_down" name="buy_type" value="2" /><font color="#006600">买跌↓</font>
+					<input id="price_type1" type="hidden" name="price_type" value="1" checked />
+					
+			</div>
+			<div style=" height:40px;text-align:center;"><input type="submit" name="btnOk" id="btnOk" value="市价下单"  /></div>
+		</div>
+		</form>
+	</div>
+	<div id="content3" style="height:320px; width:27%; background-color: #333333; float: left;margin-left:12px;line-height:26px;">
+		<div style=" height:40px; padding:5px 0 0 0;"><img src="img/bg2.png" style="margin-left:5px;"/></div>
+		<div style="height:1px; background-color:#000000;"></div>
+		
+		<div style=" height:268px;margin-top:-30px;font-size:14px;">
+			<table  width="100%"   id="tbadd" >
+            <tr class="title_small" align="center" >
+              <th width="20%" class="title_TD">&nbsp;</th>
+              <th style="width:20%" class="title_TD">价格</th>
+              <th width="20%" class="title_TD">数量</th>
+              <th width="26%" class="title_TD">&nbsp;</th>
+              <th  class="title_TD"><a href="javascript:getstockname();"><img src="./images/btn_refresh.gif" border="0" alt="刷新行情" /></a></th>
+            </tr>
+			 <tr  align="center"  >
+              <td>卖四</td>
+              <td class='message_data' style="width: 87px" id='sell_4_price'>--</td>
+              <td class='message_data' id='sell_4_num'>0</td>
+              <td>最高价</td>
+              <td class='message_data' id='hight_price'>0</td>
+            </tr>	
+           <tr  align="center"  >
+              <td>卖三</td>
+              <td class='message_data' style="width: 87px" id='sell_3_price'>--</td>
+              <td class='message_data' id='sell_3_num'>0</td>
+              <td>最低价</td>
+              <td class='message_data' id='lower_price'>0</td>
+            </tr>
+           
+            <tr  align="center"   >
+              <td>卖二</td>
+              <td class='message_data' style="width: 87px" id='sell_2_price'>--</td>
+              <td class='message_data' id='sell_2_num'>0</td>
+              <td>昨收价</td>
+              <td class='message_data' id='yes_price'>0</td>
+            </tr>
+            <tr  align="center"  >
+              <td>卖一</td>
+              <td class='message_data' style="width: 87px" id='sell_1_price'>--</td>
+              <td class='message_data' id='sell_1_num'>0</td>
+              <td>涨跌</td>
+              <td class='message_data' id='zd'>0</td>
+            </tr>
+            <tr  align="center"  >
+              <td></td>
+              <td class='message_data' style="width: 87px"></td>
+              <td class='message_data'></td>
+              <td>涨跌%</td>
+              <td class='message_data' id='zdf'>0</td>
+            </tr>
+            <tr  align="center"   >
+              <td>买一</td>
+              <td class='message_data' style="width: 87px" id='buy_1_price'>--</td>
+              <td class='message_data' id='buy_1_num'>0</td>
+              <td>成交量</td>
+              <td class='message_data' id='zcj_num'>0</td>
+            </tr>
+            <tr  align="center"  >
+              <td style="height: 18px">买二</td>
+              <td class='message_data' style="width: 87px; height: 18px" id='buy_2_price'>--</td>
+              <td class='message_data' style="height: 18px" id='buy_2_num'>0</td>
+              <td style="height: 18px">总金额</td>
+              <td class='message_data' style="height: 18px" id='zcj_price'>0</td>
+            </tr>
+            <tr  align="center"  >
+              <td>买三</td>
+              <td class='message_data' style="width: 87px" id='buy_3_price'>--</td>
+              <td class='message_data' id='buy_3_num'>0</td>
+              <td>涨停价</td>
+              <td class='message_data' id='zt_price'>0</td>
+            </tr>
+            <tr  align="center">
+              <td>买四</td>
+              <td class='message_data' style="width: 87px" id='buy_4_price'>--</td>
+              <td class='message_data' id='buy_4_num'>0</td>
+              <td>跌停价</td>
+              <td class='message_data' id='dt_price'>0</td>
+            </tr>
+            
+          </table>
+		</div>
+	</div>
+</div>
+
+
+<div id="tail" style=" width:100%;background-color: #000000; ">
+	
+	<table width="100%;"  border="0" align="center"  bordercolor="#000000">
+  <tr >
+   <th  colspan="14" height="50px" bgcolor="#333333" align="left"><img src="img/bg4.png" /></th>
+  </tr>
+  <tr align="center" >
+    <td height="30px" width="70px" bgcolor="#333333"  border="0">订单号</td>
+    <td width="70" bgcolor="#333333">下单时间</td>
+    <td width="70" bgcolor="#333333">代码/名称</td>
+    <td width="40" bgcolor="#333333">升/跌</td>
+    <td width="50" bgcolor="#333333">成交价格</td>
+    <td width="70" bgcolor="#333333">手数</td>
+    <td width="70" bgcolor="#333333">成交金额</td>
+    <td width="70" bgcolor="#333333">手续费</td>
+    <td width="50" bgcolor="#333333">可卖手数</td>
+    <td width="70" bgcolor="#333333">留仓天/费用</td>
+    <td width="40" bgcolor="#333333">点差</td>
+    <td width="40" bgcolor="#333333">现价</td>
+    <td width="60" bgcolor="#333333">盈亏<a id='tips_gain' href="javascript:void(0);" title="1、买升计算公式:盈亏=卖出金额-买入金额-买入手续费-留仓费-点差费 <br />2、买跌计算公式:盈亏=买入金额-卖出金额-买入手续费-留仓费-点差费<br />3、盈亏数值仅做参考，最终以日报数据为准。">(?)</a></td>
+    <td width="40" bgcolor="#333333">操作</td>
+  </tr>
+  <tr >
+    <td align="center" id="inf_[tr1.#]" value="[tr1.bull_price],[tr1.buy_type],[tr1.bull_num],[tr1.bull_cost_money],[tr1.sell_cost],[tr1.save_money],[tr1.dc_money]">[tr1.id;block=tr;ondata=E_buy1]</td>
+    <td align="center">[tr1.bull_trust_time;frm='mm/dd hh:nn:ss']</td>
+    <td align="center"><a href="javascript:ShowKline('[tr1.stock_code]');">[tr1.stock_code] <br/>[tr1.stock_name]</a></td>
+    <td align="center">[tr1.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+    <td align="center">[tr1.bull_price;frm='0.00']</td>
+    <td align="center">[tr1.bull_num]</td>
+    <td align="center">[tr1.bull_money;frm='0.00']</td>
+    <td align="center"><span id="buy1cost_[bl.#]">-[tr1.bull_cost_money;frm='0.00']</span></td>
+    <td align="center">[tr1.can_sell_num]</td>
+    <td align="center">[tr1.save_day]/[tr1.save_money;frm='0.00']</td>
+    <td align="center">[tr1.dc_money;frm='0.00']</td>
+    <td align="center" id="cur_price_[tr1.#]">--</td>
+    <td align="center" id="gain_[tr1.#]">--</td>
+    <td align="center"><input type="button" name="Submit" value="平仓" onClick="sale_buy('[tr1.stock_code]','[tr1.stock_name]','[tr1.bull_num]','[tr1.id]','[var.xltm.config.sel_max_time]','[var.xltm.config.cost_sell_limit]');" class="button3" [tr1.candeal] /></td>
+  </tr>
+  <tr>
+    <td align="center" id="inf_[tr1.#]" value="[tr1.bull_price],[tr1.buy_type],[tr1.bull_num],[tr1.bull_cost_money],[tr1.sell_cost],[tr1.save_money],[tr1.dc_money]">[tr1.id;block=tr;ondata=E_buy1]</td>
+    <td align="center">[tr1.bull_trust_time;frm='mm/dd hh:nn:ss']</td>
+    <td align="center"><a href="javascript:ShowKline('[tr1.stock_code]');">[tr1.stock_code] <br/> [tr1.stock_name]</a></td>
+    <td align="center">[tr1.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+    <td align="center">[tr1.bull_price;frm='0.00']</td>
+    <td align="center">[tr1.bull_num]</td>
+    <td align="center">[tr1.bull_money;frm='0.00']</td>
+    <td align="center"><span id="buy1cost_[bl.#]">-[tr1.bull_cost_money;frm='0.00']</span></td>
+    <td align="center">[tr1.can_sell_num]</td>
+    <td align="center">[tr1.save_day]/[tr1.save_money;frm='0.00']</td>
+    <td align="center">[tr1.dc_money;frm='0.00']</td>
+    <td align="center" id="cur_price_[tr1.#]">--</td>
+    <td align="center" id="gain_[tr1.#]">--</td>
+    <td align="center"><input type="button" name="Submit" value="平仓" onClick="sale_buy('[tr1.stock_code]','[tr1.stock_name]','[tr1.bull_num]','[tr1.id]','[var.xltm.config.sel_max_time]','[var.xltm.config.cost_sell_limit]');" class="button3" [tr1.candeal] /></td>
+  </tr>
+  <tr align="center">
+    <td height="30" colspan="14"><span >[tr1;block=tr;nodata]暂无留仓和持仓单.</span></td>
+  </tr>
+  <tr align="center" >
+    <td height="30" colspan="10" align="right"><a href="javascript:void(0);" id="tips_cc" title="留仓/持仓金额=当前价 * 数量(手) * 100">(?)</a>留仓总金额：<span id="span_lcmoney" class="money1">￥0.00</span></td>
+  <td height="30" colspan="2" align="right">留仓盈亏合计：</td>
+  <td height="30" colspan="2" align="left"><span id="span_lcgain" class="money1">￥0.00</span></td>
+  </tr>
+</table>
+	
+<table width="100%" border="0" align="center" >
+  <tr >
+   <th  colspan="14" height="50px" bgcolor="#333333" align="left"><img src="img/bg5.png"  /></th>
+  </tr>
+  <tr >
+    <td rowspan="2" align="center" bgcolor="#333333">订单号</td>
+    <td rowspan="2" align="center" bgcolor="#333333">代码/名称</td>
+    <td colspan="3" align="center" bgcolor="#333333">买</td>
+    <td colspan="3" align="center" bgcolor="#333333">卖</td>
+    <td rowspan="2" align="center" bgcolor="#333333">升/跌</td>
+    <td rowspan="2" align="center" bgcolor="#333333">数量(手)</td>
+    <td rowspan="2" align="center" bgcolor="#333333">手续费</td>
+    <td rowspan="2" align="center" bgcolor="#333333">留仓费</td>
+    <td rowspan="2" align="center" bgcolor="#333333">点差</td>
+    <td rowspan="2" align="center" bgcolor="#333333">盈亏</td>
+  </tr>
+  <tr >
+    <td align="center" bgcolor="#333333">委托号</td>
+    <td align="center" bgcolor="#333333"> 下单时间 </td>
+    <td align="center" bgcolor="#333333" >成交价</td>
+    <td align="center" bgcolor="#333333">委托号</td>
+    <td align="center" bgcolor="#333333">下单时间 </td>
+    <td align="center" bgcolor="#333333">成交价</td>
+  </tr>
+  <tr>
+    <td align="center">[tr.id;block=tr;ondata=event_sum;aggregate=gain:sum]</td>
+    <td align="center"><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_code] / [tr.stock_name]</a></td>
+    <td align="center">[tr.bull_trust_id]</td>
+    <td align="center">[tr.bull_trust_time;frm='mm/dd hh:nn:ss'] </td>
+    <td align="center">[tr.bull_price;frm='0.00']</td>
+    <td align="center">[tr.sell_trust_id]</td>
+    <td align="center">[tr.sell_trust_time;frm='mm/dd hh:nn:ss']</td>
+    <td align="center">[tr.sell_price;frm='0.00']</td>
+    <td align="center">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+    <td align="center">[tr.bull_num]</td>
+    <td align="center">-[tr.total_cost;frm='0.00']</td>
+    <td align="center">-[tr.save_money;frm='0.00']</td>
+    <td align="center">-[tr.dc_money;frm='0.00']</td>
+    <td align="center">[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr >
+    <td align="center">[tr.id;block=tr;ondata=event_sum;aggregate=gain:sum]</td>
+    <td align="center"><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_code;block=tr;ondata=event_sum] / [tr.stock_name]</a></td>
+    <td align="center">[tr.bull_trust_id]</td>
+    <td align="center">[tr.bull_trust_time;frm='mm/dd hh:nn:ss'] </td>
+    <td align="center">[tr.bull_price;frm='0.00']</td>
+    <td align="center">[tr.sell_trust_id]</td>
+    <td align="center">[tr.sell_trust_time;frm='mm/dd hh:nn:ss']</td>
+    <td align="center">[tr.sell_price;frm='0.00']</td>
+    <td align="center">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+    <td align="center">[tr.bull_num]</td>
+    <td align="center">-[tr.total_cost;frm='0.00']</td>
+    <td align="center">-[tr.save_money;frm='0.00']</td>
+    <td align="center">-[tr.dc_money;frm='0.00']</td>
+    <td align="center">[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr align="center" >
+    <td height="30" colspan="14" >[tr;block=tr;nodata]暂无符合条件的记录.</td>
+  </tr>
+  <tr align="right" >
+    <td height="30" colspan="14"><span id="pcgain" style="display:none;">[tr.gain:sum]</span>平仓盈亏小计：<span class="money1">[tr.gain:sum;if [val] >0;then '<font color=red>';else '<font color=green>']￥[tr.gain:sum;frm='0.00']</font></span></td>
+  </tr>
+</table>
+	
+	
+</div>
+
+</body>
+</html>

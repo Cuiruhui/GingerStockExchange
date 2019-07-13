@@ -1,0 +1,1752 @@
+﻿body {
+    background: #ffffff;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+html, body, p, form, div, table, textarea, input {
+    font-size: medium;
+    vertical-align: middle;
+    font-style: normal;
+    font-family: "Microsoft Yahei",Verdana,Arial,Helvetica,sans-serif;
+}
+
+form {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+textarea {
+    width: 95%;
+}
+
+input, button, select, textarea {
+    -webkit-appearance: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.l {
+    float: left;
+}
+
+.r {
+    float: right;
+}
+
+.header {
+    overflow: hidden;
+    text-align: left;
+    color: #ffffff;
+    padding: 5px 10px;
+    background: #2182cc;
+}
+
+
+.footer1 {
+    color: #333;
+    background: #eee;
+    height: 40px;
+    line-height: 35px;
+    font-size: 14px;
+    padding: 20px 20px 0;
+    text-align: center;
+}
+
+    .footer1 a {
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+
+.footer2 {
+    background: #eee;
+    padding: 15px 0;
+    line-height: 160%;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+    .footer2 .BottomMenu {
+        background: #ff9900;
+        padding: 5px 10px;
+        color: #fff;
+    }
+
+    .footer2 a {
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+.fullscreen {
+    background: none repeat scroll 0 0 #FFFFFF;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.top_menu {
+    overflow: hidden;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 10px;
+    background: #eee;
+}
+
+    .top_menu div {
+        color: #666666;
+        border: 1px solid #dddddd;
+        border-top: 0;
+        border-right: 0;
+        overflow: hidden;
+        text-align: center;
+        height: 35px;
+        width: 24.9%;
+        line-height: 35px;
+        float: left;
+    }
+
+        .top_menu div a {
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+            color: #666666;
+            background: #eee;
+        }
+
+    .top_menu .selected {
+        width: 24%;
+        border-bottom: 1px solid #fff;
+    }
+
+        .top_menu .selected a {
+            font-weight: bold;
+            font-size: 15px;
+            color: #2b78e4;
+            background: #fff;
+        }
+
+.clear {
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    height: 0;
+    display: block;
+}
+
+#loadings {
+    display: none;
+    width: 100%;
+    top: 50%;
+    position: fixed;
+    line-height: 56px;
+    z-index: 9999999;
+}
+
+    #loadings div {
+        height: 60px;
+        padding: 50px 0 0 0;
+        text-align: center;
+        color: #fff;
+        font-size: 15px;
+        background: #000 url(/images/load.gif) no-repeat 50% 30%;
+        opacity: 0.7;
+        -moz-border-radius: 20px;
+        -webkit-border-radius: 20px;
+        border-radius: 20px;
+        filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+        margin: auto;
+        width: 100px;
+    }
+
+.btn_back {
+    z-index: 1000;
+    position: absolute;
+    top: 15px;
+    left: 3px;
+    height: 25px;
+    line-height: 25px;
+    margin-left: 10px;
+    padding-left: 14px;
+    color: #fff;
+}
+
+.btn_back1 {
+    display: none;
+    z-index: 1001;
+}
+
+.btn_back:before {
+    content: ' ';
+    top: 5px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border: #ffffff solid;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    border-width: 0 0 3px 3px;
+    display: inline-block;
+    position: absolute;
+}
+/*图标*/
+.icon {
+    color: #fff;
+    font-family: 'iconic';
+}
+
+.icon-home {
+    z-index: 1000;
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    height: 25px;
+    line-height: 25px;
+}
+
+    .icon-home:before {
+        display: none;
+        font-size: 26px;
+        content: "\73";
+        position: absolute;
+        top: 3px;
+    }
+
+/*.icon-home:after {
+        width: 2px;
+        height: 22px;
+        background-color: #3183E9;
+        position: absolute;
+        content: ' ';
+        top: 3px;
+        left: 35px;
+        display: block;
+    }*/
+
+
+.icon-eject:before {
+    font-size: 22px;
+    content: "\e02c";
+}
+
+.icon-list:before {
+    content: "0";
+    color: #787878;
+}
+
+.icon-play:before {
+    content: "\e004";
+}
+
+.icon-search:before {
+    content: "G";
+    color: #787878;
+    font-size: 18px;
+}
+
+.icon-x:before {
+    content: "\5b";
+}
+
+.icon-checkmark:before {
+    content: "Y";
+}
+
+.icon-denied:before {
+    content: "\e032";
+}
+
+.icon-user:before {
+    content: ":";
+    color: #666666;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.icon-iphone:before {
+    content: ",";
+    color: #666666;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.icon-mail:before {
+    content: "N";
+}
+
+
+
+@font-face {
+    font-family: 'iconic';
+    src: url('../fonts/iconic.eot');
+    src: url('../fonts/iconic.eot?#iefix') format('embedded-opentype'), url('../fonts/iconic.svg#iconic') format('svg'), url('../fonts/iconic.woff') format('woff'), url('../fonts/iconic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/*遮掩层*/
+#bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    z-index: 9001;
+    -moz-opacity: 0.7;
+    opacity: .70;
+    filter: alpha(opacity=70);
+}
+/*返回按钮*/
+.back {
+    width: 40px;
+    margin-left: 20px;
+    border: 1px solid #D1D1D1;
+    text-align: center;
+    border-radius: 2px 2px 2px 2px;
+    cursor: pointer;
+    position: absolute;
+}
+/*分页*/
+.pagemore {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    display: none;
+}
+/* 登录按钮 */
+.login_btn {
+    color: #ffffff;
+    padding: 5px;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    font-size: 16px;
+}
+
+    .login_btn a {
+        color: #ffffff;
+    }
+
+.loginicon:before {
+    font-family: 'iconic';
+    content: "\e061";
+    font-size: 28px;
+    color: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.userName {
+    color: #ffffff;
+    padding: 5px;
+    position: absolute;
+    right: 12px;
+    top: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    display: none;
+}
+
+    .userName:before {
+        font-family: 'iconic';
+        content: "\e061";
+        font-size: 28px;
+    }
+/* 后台模板header */
+.login_out {
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    color: #ffffff;
+    padding: 0 5px;
+    right: 5px;
+    position: absolute;
+    font-size: 14px;
+    top: 8px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.left_menu {
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    color: #ffffff;
+    padding: 0 8px;
+    left: 10px;
+    position: absolute;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    top: 8px;
+}
+
+    .left_menu:before {
+        color: #ffffff;
+        font-family: 'iconic';
+        content: "0";
+    }
+/* 无数据时显示 */
+.error {
+    font-size: 14px;
+    padding-top: 60px;
+    padding-bottom: 80px;
+    background: #fff;
+}
+
+    .error .error_img {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        border: 6px solid #E7E7E7;
+        border-radius: 100px;
+        font-size: 76px;
+        text-align: center;
+        color: #E7E7E7;
+        box-shadow: 0 -1px #BCBABA,0 -1px #BCBABA inset;
+        text-shadow: 0 -1px #BCBABA;
+    }
+
+    .error .true_img {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        margin: 0 auto;
+        border: 6px solid green;
+        border-radius: 100px;
+        font-size: 76px;
+        text-align: center;
+        color: green;
+        box-shadow: 0 -1px green,0 -1px green inset;
+        text-shadow: 0 -1px green;
+    }
+
+    .error .error_msg {
+        text-align: center;
+        color: #888;
+        padding: 30px;
+        line-height: 30px;
+    }
+
+    .error .SimilarKeyWord {
+        color: red;
+        margin-right: 10px;
+    }
+/* 浮动按钮层 */
+.bottom_bg {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #DCE1E5;
+    width: 100%;
+    background: #f6fbff;
+    box-sizing: border-box;
+}
+
+    .bottom_bg .button1 {
+        position: relative;
+        margin-left: 10px;
+        background: #2376de;
+        color: #ffffff;
+        padding: 8px;
+        font-size: 14px;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        width: 80px;
+    }
+
+    .bottom_bg .button2 {
+        position: relative;
+        margin-left: 10px;
+        background: #ff8800;
+        color: #ffffff;
+        padding: 8px;
+        font-size: 14px;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        width: 150px;
+    }
+
+    .bottom_bg .button3 {
+        position: relative;
+        margin-left: 10px;
+        padding: 10px;
+        background: #CDD1D4;
+        color: #ffffff;
+        padding: 8px;
+        font-size: 14px;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        color: #333;
+        width: 80px;
+    }
+
+    .bottom_bg .button4 {
+        position: relative;
+        margin-left: 10px;
+        background: #0066CC;
+        color: #ffffff;
+        padding: 8px;
+        font-size: 14px;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        width: 80px;
+    }
+
+    .bottom_bg .Phone:before {
+        background: #0066CC;
+        color: #ffffff;
+        font-family: 'iconic';
+        content: "\e101";
+        font-size: 20px;
+        border-radius: 5px;
+        right: 15px;
+        position: absolute;
+        cursor: pointer;
+        height: 35px;
+        line-height: 35px;
+        top: 7px;
+        width: 35px;
+        text-align: center;
+    }
+
+    .bottom_bg .top:before {
+        color: #666666;
+        font-family: 'iconic';
+        content: "\e02c";
+        font-size: 14px;
+        right: 15px;
+        position: absolute;
+        cursor: pointer;
+    }
+/*企业显示*/
+.menu {
+    background-color: #eeeeee;
+    font-weight: bold;
+    padding-left: 20px;
+    font-size: 14px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.contact {
+    line-height: 25px;
+    padding-left: 20px;
+    font-size: 14px;
+    table-layout: fixed;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.EntFlItem {
+    float: left;
+    width: 23%;
+    margin: 0 2% 5px 0;
+    color: #333;
+    font-size: 12px;
+    height: 25px;
+    line-height: 25px;
+}
+
+    .EntFlItem img {
+        margin: 0 2px 2px 0;
+        width: 14px;
+    }
+
+.entname {
+    padding: 0 0 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+    .entname .PD {
+        font-size: 14px;
+        color: #ff9900;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        float: right;
+        padding: 0 10px;
+    }
+
+        .entname .PD:before {
+            content: "\e070";
+            font-family: "iconic";
+            font-size: 15px;
+            color: #ff9900;
+            margin-right: 5px;
+        }
+
+.icon-chat-alt-fill:before {
+    color: #666;
+    font-size: 14px;
+    content: "\55";
+    margin-right: 8px;
+}
+
+.icon-document-alt-fill:before {
+    color: #666;
+    font-size: 14px;
+    content: "\5e";
+    margin-right: 8px;
+}
+
+.icon-user:before {
+    font-family: 'iconic';
+    color: #666;
+    font-size: 14px;
+    content: "\3a";
+}
+
+.entmenu {
+    overflow: hidden;
+    width: 100%;
+    font-size: 14px;
+    border-top: 1px solid #dddddd;
+}
+
+    .entmenu div {
+        color: #666666;
+        border: 1px solid #dddddd;
+        border-top: 0;
+        border-right: 0;
+        overflow: hidden;
+        float: left;
+        text-align: center;
+        height: 35px;
+        width: 32.9%;
+        line-height: 35px;
+    }
+
+    .entmenu .selected {
+        border-bottom: 0;
+        font-weight: bold;
+    }
+
+.node {
+    position: relative;
+    border-bottom: 1px solid #eeeeee;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+    .node a {
+        color: #666666;
+    }
+
+    .node:after {
+        position: absolute;
+        content: ' ';
+        top: 50%;
+        right: 15px;
+        margin-top: -4px;
+        width: 6px;
+        height: 6px;
+        border: #cccccc solid;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        border-width: 2px 2px 0 0;
+        display: block;
+    }
+
+.map_search, #l-map {
+    overflow: hidden;
+    margin: 0;
+}
+
+.map_search {
+    position: relative;
+    zoom: 1;
+}
+
+#l-map {
+    position: relative;
+    z-index: 0;
+    text-align: left;
+}
+/*bus routes*/
+.map_search .show_panelBtn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -34px;
+    width: 15px;
+    height: 68px;
+    text-indent: -100px;
+    overflow: hidden;
+    -webkit-transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    zoom: 1;
+}
+
+    .map_search .show_panelBtn a {
+        width: 15px;
+        height: 68px;
+        display: block;
+        background: url("../images/BMapSlider.png") -35px -100px no-repeat;
+        text-indent: -999px;
+        outline: 0;
+        zoom: 1;
+    }
+
+.map_search .panel_wrap {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    -webkit-transition: all 0.5s ease-in-out;
+    background: #FCFCFC;
+    height: 100%;
+    width: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid #EEE;
+}
+
+    .map_search .panel_wrap .panel_wrap_alert {
+        width: 20px;
+        height: 200px;
+        margin: -100px 0 0 -10px;
+        color: #999;
+        position: absolute;
+        opacity: 0.5;
+        top: 50%;
+        left: 50%;
+    }
+
+.CloseMap {
+    background: #828282;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 50px;
+    font-style: normal;
+    height: 100px;
+    line-height: 100px;
+    position: absolute;
+    right: -52px;
+    text-align: left;
+    text-indent: 8px;
+    top: -50px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    width: 100px;
+}
+/* ajax 提示框*/
+#alertdiv1 {
+    position: fixed;
+    margin: auto;
+    width: 100%;
+    top: 50%;
+    display: none;
+    z-index: 2147483647;
+    text-align: center;
+}
+
+#alertdiv {
+    position: fixed;
+    margin: auto;
+    width: 100%;
+    top: 250px;
+    display: none;
+    z-index: 2147483647;
+}
+
+    #alertdiv div {
+        background-color: #000;
+        color: #ffffff;
+        padding: 20px 20px 20px 20px;
+        min-width: 100px;
+        opacity: 0.7;
+        min-height: 25px;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        border-width: 1px;
+        border-style: solid;
+        -moz-border-radius: 11px;
+        -khtml-border-radius: 11px;
+        -webkit-border-radius: 11px;
+        border-radius: 11px;
+        line-height: 150%;
+        width: 60%;
+        margin: auto;
+    }
+/*标题*/
+.ref_top {
+    line-height: 50px;
+    background-color: #eeeeee;
+    border-bottom: 1px solid #dddddd;
+    font-size: 16px;
+    position: relative;
+}
+
+    .ref_top .title {
+        margin-left: 10px;
+        color: #2182cc;
+        font-weight: bold;
+    }
+
+    .ref_top .tips {
+        right: 10px;
+        font-size: 12px;
+        color: #999999;
+        position: absolute;
+    }
+
+    .ref_top .openFilter {
+        right: 10px;
+        color: #999999;
+        position: absolute;
+        top: 0;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+        .ref_top .openFilter .ListIcon:after {
+            color: #2b78e4;
+            font-family: "iconic";
+            content: "\0027";
+            font-size: 14px;
+            margin: 0 5px 0 5px;
+        }
+
+    .ref_top .closeFilter {
+        right: 10px;
+        font-size: 12px;
+        position: absolute;
+        color: #2b78e4;
+        cursor: pointer;
+        font-size: 14px;
+    }
+/*弹出窗口*/
+#getjob_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    z-index: 9000;
+    -moz-opacity: 0.7;
+    opacity: .70;
+    filter: alpha(opacity=70);
+    display: none;
+}
+
+#GetJobs {
+    position: fixed;
+    margin: auto;
+    width: 90%;
+    top: 10%;
+    z-index: 9001;
+    display: none;
+}
+
+.getjob_Content {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    position: absolute;
+    margin-left: 15px;
+    z-index: 9002;
+    top: 0;
+    height: 400px;
+}
+
+#GetJobs #closebg {
+    position: absolute;
+    top: -30px;
+    right: -20px;
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    background: #fff;
+    border-radius: 20px;
+    padding: 2px;
+    z-index: 9003;
+}
+
+    #GetJobs #closebg #close {
+        background: #000;
+        border-radius: 20px;
+        width: 21px;
+        height: 21px;
+        display: block;
+        text-align: center;
+        font-size: 12px;
+        text-indent: -100px;
+        position: relative;
+    }
+
+        #GetJobs #closebg #close:before {
+            content: ' ';
+            position: absolute;
+            top: 50%;
+            margin-top: -6px;
+            right: 10px;
+            width: 2px;
+            height: 13px;
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            background: #FFF;
+        }
+
+        #GetJobs #closebg #close:after {
+            content: ' ';
+            position: absolute;
+            top: 50%;
+            margin-top: -6px;
+            right: 10px;
+            width: 2px;
+            height: 13px;
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            background: #FFF;
+        }
+/*应聘窗口*/
+.GetJob_top {
+    line-height: 25px;
+    background-color: #eeeeee;
+    border-bottom: 1px solid #dddddd;
+    font-size: 14px;
+    padding-left: 10px;
+    color: #2b78e4;
+    position: relative;
+}
+
+.GetJobList {
+    width: 100%;
+    margin: auto;
+    border-bottom: 1px solid #cccccc;
+    line-height: 30px;
+    padding: 5px 0 0 15px;
+    font-size: 14px;
+    color: #666666;
+    position: relative;
+}
+
+    .GetJobList .Ent_Name {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .GetJobList .VDate {
+        font-size: 12px;
+    }
+
+.entcontent {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 20px 10px 20px;
+    color: #333;
+}
+
+.reg {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    line-height: 60px;
+    box-shadow: 0 3px 5px #acacac;
+}
+
+    .reg a {
+        font-weight: bold;
+        font-size: 25px;
+        color: #fff;
+        display: block;
+    }
+
+/* 收到简历 */
+.SendInfoBg {
+    display: none;
+    background: #000;
+    opacity: 0.7;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+}
+
+.SendInfo {
+    width: 100%;
+    z-index: 9999;
+    padding-top: 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+/* 筛选 */
+.filter, .EditerBg {
+    float: right;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: #fff;
+    z-index: 9999;
+    position: fixed;
+    right: 0;
+    overflow: hidden;
+    overflow-y: auto;
+}
+/* 进度条 */
+.Bar {
+    border: 1px solid #0066CC;
+    display: inline-block;
+    height: 10px;
+    width: 100%;
+    margin-right: 5px;
+}
+
+    /* 百分百 */
+    .Bar .percent {
+        display: block;
+        background: #0066CC;
+        height: 100%;
+    }
+
+        .Bar .percent .num {
+            color: #fff;
+            float: right;
+            font-size: 10px;
+            line-height: 100%;
+            margin-right: 3px;
+        }
+
+/* 简历分数 */
+.scoreTips {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #CCCCCC;
+    border-radius: 30px;
+    display: none;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    text-indent: 0;
+    top: 4px;
+    width: 30px;
+    z-index: 1;
+    font-size: 10px;
+}
+/* 竞价操作 */
+.competeDiv {
+    float: right;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: #fff;
+    z-index: 5;
+    position: absolute;
+    right: 0;
+    line-height: 105px;
+    text-align: center;
+}
+
+    .competeDiv:after {
+        position: absolute;
+        content: ' ';
+        top: 50%;
+        left: 20px;
+        margin-top: -3px;
+        width: 6px;
+        height: 6px;
+        border: #999999 solid;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        border-width: 0 0 2px 2px;
+        display: block;
+    }
+
+.competeOperation {
+    text-align: center;
+    padding: 0 10px;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+}
+/* 列表时间分割样式 */
+.ListDateSplit {
+    text-align: center;
+    background: #eee;
+    font-size: 12px;
+    height: 25px;
+    line-height: 25px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* 返回信息结果 */
+.AudResult {
+    background: #ccc;
+    border-spacing: 1px;
+    width: 95%;
+    margin: auto;
+    font-size: small;
+}
+
+    .AudResult th {
+        line-height: 30px;
+        color: #111;
+    }
+
+    .AudResult td {
+        background: #fff;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    .AudResult .ErrorMsg {
+        color: red;
+    }
+
+
+#wxjifen_warp {
+    line-height: 25px;
+    padding-left: 20px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    display: none;
+    float: left;
+}
+
+    #wxjifen_warp #wxjifen_title {
+        width: 61px;
+        height: 20px;
+        border: #fd6802 solid 1px;
+        border-radius: 2px;
+        line-height: 20px;
+        text-indent: 14px;
+        color: #fff;
+        display: block;
+        background: url('/images/wxicon.png') no-repeat 3px 4px #fe9901;
+        float: left;
+    }
+
+    #wxjifen_warp #wxjifen_cont {
+        width: 39px;
+        height: 21px;
+        line-height: 20px;
+        color: #070101;
+        display: block;
+        background: url('/images/wxcont.png') no-repeat 0px 0px;
+        padding: 0px 5px 0px 7px;
+        text-align: center;
+        float: left;
+        margin-left: 4px;
+    }
+
+    #wxjifen_warp #wxjifen_question {
+        float: left;
+        margin-left: 5px;
+    }
+
+        #wxjifen_warp #wxjifen_question img {
+            height: 20px;
+        }
+
+.wxShareBtn {
+    width: 272px;
+    height: 57px;
+    display: block;
+    margin: 10px auto 60px;
+    background: url('/images/wxzhuanfa.png') no-repeat 17px 14px #eee;
+    border: #dadada solid 1px;
+    line-height: 57px;
+    font-size: 30px;
+    text-indent: 67px;
+    color: #ff9900;
+    text-shadow: 1px 2px 0px #fff;
+    position: relative;
+}
+
+    .wxShareBtn .tophr {
+        border: none;
+        border-top: solid 1px #fff;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 1px;
+        margin: 0;
+    }
+/*新分页*/
+#paging {
+    height: 40px;
+    margin: 10px 0 10px 0;
+}
+
+    #paging span {
+        float: left;
+        width: 20%;
+        text-align: center;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+
+    #paging a, #paging font {
+        position: relative;
+        display: block;
+        line-height: 30px;
+        font-size: 14px;
+        border: 1px solid #C3C2CA;
+        background: #ececec;
+        color: #666666;
+    }
+
+    #paging select {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    #paging font:after {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        content: '\00a0';
+        top: 12px;
+        right: 5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #474340 transparent transparent transparent;
+    }
+/*搜索提示层*/
+#suggest {
+    z-index: 9000;
+    position: absolute;
+}
+
+.mysearch {
+    border-radius: 3px;
+    background-color: #ffffff;
+    z-index: 999;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #c9c9c9;
+}
+
+    .mysearch ul {
+        margin: 0;
+        list-style: none;
+    }
+
+
+    .mysearch li {
+        line-height: 25px;
+        font-size: 14px;
+        margin: 0 20px 0 20px;
+        height: 45px;
+        line-height: 45px;
+        color: #000000;
+        border-bottom: 1px double #eeeeee;
+        list-style: none;
+    }
+
+.login_Kuan {
+    background: #2182cc;
+    color: #fff;
+    border-radius: 5px;
+    padding: 7px 15px;
+    font-size: 16px;
+}
+
+.ShareBtn {
+    width: 40%;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    background: #0184df;
+    margin: 0 auto 20px;
+}
+
+    .ShareBtn img {
+        margin: 0 10px 4px 0;
+        vertical-align: middle;
+        width: 22px;
+    }
+
+/* 返回顶部 */
+.back-to-top {
+    display: none;
+    position: fixed;
+    right: 10px;
+    bottom: 50px;
+    text-align: center;
+    z-index: 1;
+    box-sizing: content-box;
+}
+
+    .back-to-top a span {
+        padding-top: 5px;
+        background: #A1A4AA;
+        opacity: .5;
+        border-radius: 6px;
+        display: block;
+        height: 35px;
+        padding-top: 10px;
+        width: 45px;
+        margin-bottom: 5px; /*使用CSS3中的transition属性给<span>标签背景颜色添加渐变效果*/
+        box-sizing: content-box;
+    }
+
+.JobMore {
+    background-color: #f5f5f5;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+    .JobMore a {
+        color: #2276dd;
+        display: block;
+    }
+
+.WjfTipsBg {
+    background: #000000;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+    display: none;
+}
+
+    .WjfTipsBg .TipsContent {
+        width: 240px;
+        margin: -170px auto 0;
+        height: 320px;
+        background: #fff;
+        position: relative;
+        top: 50%;
+        border: 10px solid #cccccc;
+        padding: 10px 20px;
+        color: #7f7f7f;
+    }
+
+        .WjfTipsBg .TipsContent .Title {
+            color: #fe9900;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 40px;
+        }
+
+            .WjfTipsBg .TipsContent .Title img {
+                height: 15px;
+                margin: 0 10px;
+            }
+
+        .WjfTipsBg .TipsContent .Middle {
+            border: solid #eeeeee;
+            border-width: 1px 0;
+            padding: 20px 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+            .WjfTipsBg .TipsContent .Middle .Item {
+                width: 240px;
+                margin: auto;
+            }
+
+                .WjfTipsBg .TipsContent .Middle .Item .Left {
+                    float: left;
+                    height: 40px;
+                    margin: 10px 10px 10px 20px;
+                    width: 40px;
+                }
+
+                .WjfTipsBg .TipsContent .Middle .Item .Right {
+                    float: left;
+                    height: 40px;
+                    line-height: 18px;
+                    margin: 10px 0;
+                    width: 160px;
+                    font-size: 14px;
+                    text-align: left;
+                }
+
+            .WjfTipsBg .TipsContent .Middle .Score {
+                color: #fe9900;
+            }
+
+            .WjfTipsBg .TipsContent .Middle .BtnOperation {
+                width: 100px;
+                text-align: center;
+                height: 40px;
+                line-height: 40px;
+                color: #fff;
+                font-size: 14px;
+            }
+
+        .WjfTipsBg .TipsContent .Bottom {
+            width: 240px;
+            margin: 10px auto 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+.SlideDiv {
+    background: none repeat scroll 0 0 #fff;
+    display: none;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9001;
+}
+
+.btnCloseSlideDiv {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #eee;
+    color: #333;
+}
+
+.SearchHistory {
+    color: #838383;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    text-indent: 30px;
+    border: solid #eaeaec;
+    border-width: 1px 0;
+    margin-top: 20px;
+    position: relative;
+}
+
+    .SearchHistory .ClearHistory {
+        color: #2376dc;
+        position: absolute;
+        top: 0;
+        right: 10px;
+    }
+
+.SearchHistoryItem {
+    border-bottom: 1px solid #eeeeee;
+    text-indent: 50px;
+    height: 35px;
+    line-height: 35px;
+    background: #fff;
+    font-size: 14px;
+    position: relative;
+}
+
+    .SearchHistoryItem a {
+        display: block;
+        color: #2d2d2d;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 80%;
+    }
+
+    .SearchHistoryItem .DelIcon {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 20px;
+        top: 8px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        background-color: #FF6468;
+    }
+
+        .SearchHistoryItem .DelIcon:before {
+            content: ' ';
+            position: absolute;
+            top: 50%;
+            margin-top: -6px;
+            right: 9px;
+            width: 2px;
+            height: 13px;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            background: #FFF;
+        }
+
+        .SearchHistoryItem .DelIcon:after {
+            content: ' ';
+            position: absolute;
+            top: 50%;
+            margin-top: -6px;
+            right: 9px;
+            width: 2px;
+            height: 13px;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            background: #FFF;
+        }
+
+.DiyIcon {
+    float: left;
+    background: url(/images/diy.png) no-repeat;
+    background-size: 100%;
+    height: 20px;
+    width: 24px;
+    margin-left: 10px;
+}
+
+.DiyTips {
+    float: left;
+    background: url(/images/diyzi.png) no-repeat;
+    background-size: 100%;
+    height: 20px;
+    width: 88px;
+}
+
+.GetGeodist {
+    color: #2182cc;
+    width: 110px;
+    float: right;
+    padding-left: 0px;
+    padding-right: 8px;
+    height: 25px;
+    line-height: 26px;
+    -webkit-line-height: 26px;
+    font-size: 12px;
+    margin-top: 2px;
+    text-align: right;
+}
+
+.GetGeodist_vip {
+    font-size: 12px;
+    float: left;
+    width: 100px;
+    line-height: 28px;
+    padding-left: 10px;
+    font-weight: normal;
+    color: #fff;
+}
+
+.geo_warp span {
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
+.vip_geo_warp .GetGeodist_vip {
+    position: absolute;
+    left: 106px;
+    top: -5px;
+}
+
+.vipjob_geo_warp .GetGeodist_vip {
+    position: absolute;
+    width: 78px;
+    right: 0px;
+    text-align: center;
+    top: 49px;
+    font-size: 12px;
+    color: #ff9900;
+}
+
+.ChkEntMedals input {
+    display: none;
+}
+
+.ChkEntMedals label {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: small;
+    border: 1px solid #eee;
+    float: left;
+    margin: 0 5px 5px 0;
+}
+
+    .ChkEntMedals label.selected {
+        border: 1px solid #2182cc;
+        background: #2182cc;
+        color: #fff;
+    }
+
+.clearfix {
+    *zoom: 1;
+}
+
+    .clearfix:after {
+        content: " ";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
+.TalkBtn {
+    background: url(/images/News1.png) no-repeat #ff9900 5px 5px;
+    color: #fff;
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+    width: 80px;
+    display: inline-block;
+    border-radius: 3px;
+    text-indent: 25px;
+    font-size: 12px;
+    /*display: none;*/
+}
+
+.AdvBox {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #fff;
+    z-index: 99;
+}
+
+    .AdvBox .AdvTips {
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        width: 100%;
+        font-size: 14px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .AdvBox .CloseAdv {
+        background: #000;
+        color: #fff;
+        font-size: 40px;
+        height: 70px;
+        line-height: 90px;
+        opacity: 0.7;
+        position: absolute;
+        right: -50px;
+        text-align: center;
+        top: -20px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        width: 130px;
+    }
+
+    .AdvBox .AdvContent {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+.AdvBg {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #000;
+    opacity: 0.7;
+    z-index: 99;
+}
+
+.AdvImg {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+    .AdvImg img {
+        height: auto;
+        left: 50%;
+        max-height: 100%;
+        max-width: 100%;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+
+@font-face {
+    font-family: 'v1';
+    src: url('/fonts/v1.eot');
+    src: url('/fonts/v1.eot?#iefix') format('embedded-opentype'), url('/fonts/v1.svg#iconic') format('svg'), url('/fonts/v1.woff') format('woff'), url('/fonts/v1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.JobTips {
+    border: 1px solid #ff9900;
+    color: #ff9900;
+    text-align: center;
+    font-size: 12px;
+    height: 26px;
+    line-height: 26px;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 4px;
+}

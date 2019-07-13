@@ -1,0 +1,159 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户支付记录</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px; font-size:12px;}
+</style>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#result').bind('change',function(){
+		location.href='user_pay.php?result=' + $('#result').val() + '&search=' + $('#search').val();
+	});
+	$('#btnSearch').bind('click',function(){
+		location.href='user_pay.php?result=' + $('#result').val() + '&search=' + $('#search').val();
+	});
+getpage();
+});
+var curpage = [var.PageNum]; //当前页
+var pagesize = [var.PageSize]; //每页大小
+var totalrecord = [var.totalrecord]; //总记录数
+var pagecount = 1; //总页数
+
+function ShowOtherpage(p)
+{
+	location.href='user_pay.php?PageNum=' + p + '&result=' + $('#result').val() + '&search=' + $('#search').val();
+}
+
+function getpage()
+{
+	if(totalrecord==0) return;
+	if (totalrecord % pagesize == 0)
+		pagecount = totalrecord / pagesize;
+	else
+		pagecount = parseInt(totalrecord / pagesize, 10) + 1;
+	var spage = "";
+	var first; //第一页
+	var pre;  //前一页
+	var next; //下一页
+	var end; //最后一页
+	var currentlever,pvalue;
+	
+	if (curpage > 1) {
+		pvalue = curpage - 1;
+		pre = "<a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(" + pvalue + ")\"> < </a>";
+		first = "<a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(1)\"> << </a>";
+	}
+	else {
+		pre = "<span class=\"disabled\"> < </span>";
+		first = "<span class=\"disabled\"> << </span>";
+	}
+	if (curpage == pagecount) {
+		next = "<span class=\"disabled\"> > </span>";
+		end = "<span class=\"disabled\"> >> </span>";
+	}
+	else {
+		pvalue = curpage + 1;
+		next = "<a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(" + pvalue + ")\"> > </a>";
+		end = "<a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(" + pagecount + ")\"> >> </a>";
+	}
+
+	if (Math.floor(curpage / 10) == 0) {
+		currentlever = Math.floor(curpage / 10);
+	}
+	else {
+		if (curpage % 10 == 0) {
+			currentlever = Math.floor(curpage / 10) - 1;
+		}
+		else {
+			currentlever = Math.floor(curpage / 10);
+		}
+	}
+	spage = "";
+	if (curpage <= pagecount) {
+		for (p = 1; p <= 10; p++) {
+			value = p + currentlever * 10;
+			if (value > pagecount)
+				break;
+			if (curpage == value) {
+				spage += "<span class=\"current\">" + value + "</span>"
+			}
+			else {
+				spage += "<a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(" + value + ")\">" + value + "</a>";
+			}
+		}
+	}
+	var countstr = "&nbsp;共&nbsp;" + totalrecord + " 条&nbsp;&nbsp;第&nbsp;" + curpage + "/" + pagecount + "&nbsp;页&nbsp;&nbsp;";
+	var pagestr = "<div class=\"sabrosus\"><span>" + countstr + "</span>" + first + pre + spage + next + end + "</div>";
+	$("#tdpage").html(pagestr);
+}
+</script>
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="mybox">
+  <tr bgcolor="#F5F5F5">
+    <td colspan="11" id="title"><img src="./images/dot13.gif" border="0" align="absmiddle" hspace="3" />当前位置：代理平台 &gt; 用户支付管理 </td>
+  </tr>
+  <tr bgcolor="#F5F5F5">
+    <td height="30" colspan="11"><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <form id="search_form" action="" method="get">
+        <td>状态:</td>
+        <td><select name="result" size="1" id="result">
+          <option value="-1">全部</option>
+          <option value="1">成功</option>
+		  <option value="0">等待</option>
+          <option>[var.result;ope=html;select]</option>  
+        </select></td>
+        <td width="120" align="right">按用户名查找:</td>
+        <td><input name="search" class="inputs" type="text" id="search" size="10" value="[var.search]"></td>
+        <td width="86"><input type="button" name="btnSearch" id="btnSearch" value="查 询" class="button3" /></td></form>
+        </tr>
+    </table></td>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF" id='row'>
+    <th bgcolor="#FFFFFF">订单号</th>
+    <th bgcolor="#FFFFFF">用户名</th>
+    <th bgcolor="#FFFFFF">交易流水号</th>
+    <th align="right" bgcolor="#FFFFFF">支付金额</th>
+    <th bgcolor="#FFFFFF">支付时间</th>
+    <th bgcolor="#FFFFFF">接口返回时间</th>
+    <th bgcolor="#FFFFFF">状态</th>
+    <th>备注</th>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td>[tr.orderno;block=tr]</td>
+    <td><a href="javascript:ShowUserInfo('[tr.username]');" title="查看会员详情">[tr.username]</a></td>
+    <td>[tr.trxid;if [val]=''; then '-';else [val]]</td>
+    <td align="right">[tr.money;frm='0,000.00']</td>
+    <td>[tr.add_time]</td>
+    <td>[tr.return_time;if [val]=''; then '-';else [val]]</td>
+    <td>[tr.result;if [val]=1; then '<font color=red>成功</font>';else '等待']</td>
+    <td>[tr.mp]</td>
+  </tr>
+  <tr align="center" bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td>[tr.orderno;block=tr]</td>
+    <td><a href="javascript:ShowUserInfo('[tr.username]');" title="查看会员详情">[tr.username]</a></td>
+    <td>[tr.trxid;if [val]=''; then '-';else [val]]</td>
+    <td align="right">[tr.money;frm='0,000.00']</td>
+    <td>[tr.add_time]</td>
+    <td>[tr.return_time;if [val]=''; then '-';else [val]]</td>
+    <td>[tr.result;if [val]=1; then '<font color=red>成功</font>';else '等待']</td>
+    <td>[tr.mp]</td>
+  </tr>
+  <tr align="center">
+    <td height="50" colspan="10" class="nodata">[tr;block=tr;nodata]没符合条件的记录.</td>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF" [var.showPage;magnet=tr;mtype=m]>
+    <td height="25" colspan="10" id="tdpage">&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>下单</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./css/skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/cookie.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/SuggestServer_3_0_16.js" charset="gb2312"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	mon = setInterval(sysMoney,1000);
+			
+	
+	});
+	
+	var sysMoney = function(){
+				clearInterval(mon);
+				$.ajax({
+					type: 'GET',
+					url: './ajax.php?type=moneyall',
+					cache: false,
+					success:function(res){
+						info_data = res.split('^');
+						
+						
+						
+						$('#a_money').html(info_data[0]);
+						$('#a_zZymoney').html(info_data[1]);
+						$('#a_kyMoney').html(info_data[2]);
+						$('#a_baoCangXs').html(info_data[3]);
+						
+
+						$('#liveTime').html(info_data[4]);
+
+						mon = setInterval(sysMoney,1000);
+					}
+				});
+			}
+</script>
+
+
+</head>
+<body  style="background-image:url(/images/rzhong.png);"> 
+
+	<div style="width:100%; height:288px; background-color:#FFFFFF;">
+		<div style="width:100%; height:31px;background-image:url(/images/rtoubu.png);" >
+		
+		</div>
+		<div style="width:100%;height:257px;background-image:url(/images/rzhongjian.png); padding:10px 0 0 0;" >
+			<p style="margin:10px 0 0 10px;">股东代码：<span  >[var.xltm.user_info.username]</span></p>
+				<p style="margin:10px 0 0 10px;">账户资金：<span id="a_money" class="l_zMoney">--</span>元</p>
+				<p style="margin:10px 0 0 10px;">占用资金：<span id="a_zZymoney" class="l_zZymoney">--</span>&nbsp;元</p>
+				<p style="margin:10px 0 0 10px;">可用额度：<span class="l_kyMoney" id="a_kyMoney">--</span>元 </p>
+		</div>
+		
+	
+	</div>
+
+
+
+</body>
+</html>

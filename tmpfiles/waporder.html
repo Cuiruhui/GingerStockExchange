@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="" />
+<meta name="description" content="融资融券交易系统">
+<meta name="author" content="" />
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<link rel="apple-touch-icon-precomposed" href="images/favicon.ico">
+
+<link rel="stylesheet" href="http://gpto.pw/wap/jquery.mobile-1.3.2.min.css">
+<script src="http://gpto.pw/wap/jquery-1.8.3.min.js"></script>
+<script src="http://gpto.pw/wap/jquery.mobile-1.3.2.min.js"></script>
+<script type="text/javascript" src="http://gpto.pw/js/SuggestServer_3_0_16.js" charset="gb2312"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+		GetQuote('sz','000159');
+	var kstr = 'min';
+	GetCanNum();
+	
+	//股票查询事件
+	var suggestServer = new SuggestServer();
+	suggestServer.bind({
+		"input": "buy_code",
+		"value": "@2@",
+		"type": "",
+		"max": 10,
+		"width": 250,
+		"head": ["选项", "代码", "中文名称"],
+		"body": [-1, 2, 4],
+	    "fix": { "ie6" : [0, - 1], "ie7" : [0, - 1], "firefox" : [1, 1]},
+		"callback": null
+	});
+	
+	var initStockCode='000001'; 
+	$('#buy_code').val(initStockCode);
+	getstockname();
+	
+	$('#buy_code').blur(function(){
+    	getstockname();
+  	});	                  
+	
+});
+
+function getstockname()
+{
+	code=$('#buy_code').val();
+	if(code.length==6)
+	{
+		$.ajax({
+			type:'GET',
+			url:'http://gpto.pw/ajaxmobi.php?type=getstockname&stockcode=' + code,
+			success:function(res){
+				if(res.indexOf(',')!=-1)
+				{
+				//alert(res);
+					stock = res.split(',');
+					$('#buy_name').html(stock[2]);
+					$('#buy_dc').html(stock[9]+' ‰');
+					if(stock[3]=='1' || stock[4]=='1') //停牌或关盘
+					{
+						
+						$('#btnOk').attr('disabled','true');
+						
+					}
+					if(stock[7]=='0')
+					{
+						$('#can_bull_up').attr('disabled','true');
+					}
+					if(stock[8]=='0')
+					{
+						$('#can_bull_down').attr('disabled','true');
+					}
+					
+					
+					//显示行情K线图
+					ShowStocksPic();
+					//获取行情数据
+					GetQuote(stock[0],stock[1]);
+					
+				}
+			}
+		});
+	}
+}
+
+
+function ShowStocksPic() {
+	getProductKImage(kstr);
+}
+
+function GetCanNum()
+{
+	//当前价
+	var price = parseFloat($('#buy_1_price').val());
+	//可用金额
+	var cancash = parseFloat($('#spn_cancash').html());
+	//最多可以买多少手
+	var cannum = Math.floor(cancash / (100*price));
+	$('#bull_num').val(cannum);
+	
+}
+
+
+function GetQuote(t,c)
+{
+	$.ajax({
+		type: 'GET',
+		url: "http://gpto.pw/ajaxmobi.php?type=quote&stocktype=" + t + "&stockcode=" + c,
+		success:function(res)
+		{
+			if(res.indexOf(',')!=-1)
+			{
+				quote = res.split(',');
+				if(quote.length!=33)
+				{
+				//	parent.ymPrompt.alert({title:'系统提示',message:quote[0]+'股票可能退市了！'});
+				//	return false;
+				}
+
+				$('#sell_5_price').html('<font color="#ff0000">' + quote[30] + '</font>');
+				$('#sell_5_num').html(Math.floor(quote[29]/100));
+				$('#sell_4_price').html('<font color="#ff0000">' + quote[28] + '</font>');
+				$('#sell_4_num').html(Math.floor(quote[27]/100));
+				$('#sell_3_price').html('<font color="#ff0000">' + quote[26] + '</font>');
+				$('#sell_3_num').html(Math.floor(quote[25]/100));
+				$('#sell_2_price').html('<font color="#ff0000">' + quote[24] + '</font>');
+				$('#sell_2_num').html(Math.floor(quote[23]/100));
+				$('#sell_1_price').html('<font color="#ff0000">' + quote[22] + '</font>');
+				$('#sell_1_num').html(Math.floor(quote[21]/100));
+				
+				$('#cur_price').html(quote[12]);
+				
+				$('#buy_1_num').html(Math.floor(quote[11]/100));
+				$('#buy_1_price').html('<font color="#ff0000">' + quote[12] + '</font>');
+				$('#buy_2_num').html(Math.floor(quote[13]/100));
+				$('#buy_2_price').html('<font color="#ff0000">' + quote[14] + '</font>');
+				$('#buy_3_num').html(Math.floor(quote[15]/100));
+				$('#buy_3_price').html('<font color="#ff0000">' + quote[16] + '</font>');
+				$('#buy_4_num').html(Math.floor(quote[17]/100));
+				$('#buy_4_price').html('<font color="#ff0000">' + quote[18] + '</font>');
+				$('#buy_5_num').html(Math.floor(quote[19]/100));
+				$('#buy_5_price').html('<font color="#ff0000">' + quote[20] + '</font>');
+			}
+		}
+	});
+}
+
+function getProductKImage(kkstr) {
+	var kuangdu=$(document.body).width();
+	var area_str = "sh";
+	if (kkstr == "") { kstr = "min"; }
+	else { kstr = kkstr; }
+	var code = $("#buy_code").val();
+	if (code.substring(0, 1) == "6")
+	{ area_str = "sh"; }
+	if (code.substring(0, 1) == "0" || code.substring(0, 1) == "3")
+		area_str = "sz";
+	if (code != "" && code.length == 6) {
+		if (area_str != "") {
+			var picstr = "<table width='100%' border='0' cellpadding='0' style='border:1px solid #cccccc;'><tr><td><img id='pic_k_id' src='http://image2.sinajs.cn/newchart/" + kstr + "/n/" + area_str + code + ".gif?" + Math.random() * 100000 + "' border='0' width='"+kuangdu+"' /></td></tr></table>";
+			
+			document.getElementById("pic").innerHTML = picstr;
+			
+		}
+	}
+}
+
+
+</script>
+
+
+<style>
+.ui-block-a, 
+.ui-block-b, 
+.ui-block-c,
+.ui-block-d 
+{
+
+border: 1px ;
+height: 23px;
+
+text-align: center;
+
+}
+</style>
+
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header" >
+  <a href="#" data-role="button" data-icon="home">首页</a>
+    <h1>交易</h1>
+	<div data-role="navbar" data-position="inline">
+      <ul>
+        <li><a href="#" data-icon="plus">买入</a></li>
+       
+        <li><a href="#" data-icon="delete">平仓</a></li>
+       
+        <li><a href="#" data-icon="info">持仓</a></li>
+      </ul>
+   
+	</div>
+	
+  </div>
+
+<div data-role="content" >
+	<br/><br/>
+ 
+ 	
+  <div style="width:100%;">
+  	<div id="left" style="width:65%; float:left;border: 1px solid black;padding: 1px;">
+	 	<form method="post" action="">
+ 			<div style="width:100%;">
+			
+       		<div style="width:98%; "><label>可用额度：</label><label id="spn_cancash">[var.cancash]</label></div>
+			<div style="width:98%;">
+        	<input type="search" name="buy_code" id="buy_code" placeholder="代码"> <label id="buy_name"></label></div>
+			<div style="width:98%;"><label >点差：</label><label id="buy_dc"></label></div>      
+        	<div style="width:98%;">
+        	<input type="text" name="bull_num" id="bull_num" placeholder="股数"></div>
+			<div style="width:98%;">
+        	<fieldset data-role="controlgroup" data-type="horizontal">
+     			 
+       			 <label for="can_bull_up"><font color="#ff0000">买升↑</font></label>
+        		<input type="radio" name="gender" id="can_bull_up" value="1" />
+        		<label for="can_bull_down"> <font color="#006600">买跌↓</font></label>
+       			 <input type="radio" name="gender" id="can_bull_down" value="2">	
+      		</fieldset>
+			</div>
+      
+      		<div style="width:98%;"><input id="btnOk" type="submit"  value="买入"></div>
+	  		</div>
+   		</form>
+	</div>
+	
+	<div id="right" style="width:32%; float:right;padding: 1px; border:1px;border-bottom:#000000; border-right:#000000; border-top:#000000;">
+	  <div id="cur_price"></div>
+	  <div class="ui-grid-b">
+		<div  class="ui-block-a">卖5</div>
+		<div  class="ui-block-b"><div id="sell_5_price"></div></div>
+		<div  class="ui-block-c"><div id="sell_5_num"></div></div>
+		<div  class="ui-block-a">卖4</div>
+		<div  class="ui-block-b"><div id="sell_4_price"></div></div>
+		<div  class="ui-block-c"><div id="sell_4_num"></div></div>
+		<div  class="ui-block-a">卖3</div>
+		<div  class="ui-block-b"><div id="sell_3_price"></div></div>
+		<div  class="ui-block-c"><div id="sell_3_num"></div></div>
+		<div  class="ui-block-a">卖2</div>
+		<div  class="ui-block-b"><div id="sell_2_price"></div></div>
+		<div  class="ui-block-c"><div id="sell_2_num"></div></div>
+		<div  class="ui-block-a">卖1</div>
+		<div  class="ui-block-b"><div id="sell_1_price"></div></div>
+		<div  class="ui-block-c"><div id="sell_1_num"></div></div>
+		<div  class="ui-block-a">买1</div>
+		<div  class="ui-block-b"><div id="buy_1_price"></div></div>
+		<div  class="ui-block-c"><div id="buy_1_num"></div></div>
+		<div  class="ui-block-a">买2</div>
+		<div  class="ui-block-b"><div id="buy_2_price"></div></div>
+		<div  class="ui-block-c"><div id="buy_2_num"></div></div>
+		<div  class="ui-block-a">买3</div>
+		<div  class="ui-block-b"><div id="buy_3_price"></div></div>
+		<div  class="ui-block-c"><div id="buy_3_num"></div></div>
+		<div  class="ui-block-a">买4</div>
+		<div  class="ui-block-b"><div id="buy_4_price"></div></div>
+		<div  class="ui-block-c"><div id="buy_4_num"></div></div>
+		<div  class="ui-block-a">买5</div>
+		<div  class="ui-block-b"><div id="buy_5_price"></div></div>
+		<div  class="ui-block-c"><div id="buy_5_num"></div></div>
+	  </div>
+	</div>
+  </div>
+  
+  <div style="width:100%; border: 1px solid black;padding: 1px;">
+  
+	
+	  <div id="pic"> </div>
+	</div>
+</div>
+	
+
+
+
+
+
+  <div data-role="footer">
+	
+    <div data-role="navbar" data-position="fixed" data-fullscreen="true">
+      <ul>
+        <li style="height:35px;"><a href="#" >首页</a></li>
+        <li style="height:35px;"><a href="#" >下单</a></li>
+        
+        <li style="height:35px;"><a href="#" >行情</a></li>
+        <li style="height:35px;"><a href="#" >持仓</a></li>
+      </ul>
+    </div>
+  </div>
+</div> 
+
+</body>
+</html>

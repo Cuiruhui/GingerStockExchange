@@ -1,0 +1,38 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>阅读信息【[var.row.title]】</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+</head>
+<body style="background-image:url(/images/rzhong.png);"> 
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="table1">
+  <tr class="row_title">
+    <td colspan="2" align="center">短信息</td>
+  </tr>
+  <tr class="row1_odd">
+    <td width="30%" align="right">发送用户::</td>
+    <td class="gray">[var.row.username]</td>
+  </tr>
+  <tr class="row1_even">
+    <td width="30%" align="right">短信标题:</td>
+    <td class="gray">[var.row.title]</td>
+  </tr>
+  <tr class="row1_odd">
+    <td width="30%" align="right">短信内容:</td>
+    <td class="gray" style="line-height:20px;">[var.row.content]</td>
+  </tr>
+  <tr class="row1_even">
+    <td align="right">发送时间:</td>
+    <td class="gray">[var.row.add_time]</td>
+  </tr>
+</table>
+<table width="98%"  border="0" align="center" cellpadding="1" cellspacing="1">
+  <tr>
+    <td align="center"><a href="javascript:window.parent.ymPrompt.doHandler('error',true);"><img src="./images/btn_close.gif" border="0" alt="关闭窗口" /></a></td>
+  </tr>
+</table>
+</body>
+</html>

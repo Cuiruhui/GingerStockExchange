@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="融资融券交易系统">
+  <title>交割清单</title>
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="../js/new/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.date_input.js"></script>
+</head>
+
+<body background="#FFF" style="background:#FFF;-webkit-app-region: drag;">
+  <div class="onpay-container">
+    <div class="onpay-content">
+	<td width="50%" height="30" align="center" >[var.date_list]</td>
+      <form class="form-horizontal">
+        <table class="table table-hover table-striped">
+          <tr class="info">
+            <th>订单号</th>
+            <th>买入时间</th>
+			<th>卖出时间</th>
+            <th>股票代码</th>
+            <th>股票名称</th>
+            <th>买升/买跌</th>
+            <th>买入价格</th>
+			<th>卖出价格</th>
+            <th>股数</th>
+            <th>交易盈亏</th>
+          </tr>
+          <tr>
+            <td>[tr.id;block=tr;ondata=event_status]</td>
+            <td>[tr.bull_trust_time]</td>
+            <td>[tr.sell_trust_time]</td>
+            <td>[tr.stock_code]</td>
+			<td>[tr.stock_name]</td>
+            <td>[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升(多)</font>';else '<font color="#009900">买跌(空)</font>']</td>
+            <td>[tr.bull_price;frm='0.00']</td>
+			<td>[tr.sell_price;frm='0.00']</td>
+            <td>[tr.bull_num]手</td>
+            <td>￥[tr.sell_gain;frm='0,000.00']</td>
+          </tr>
+		  <tr>
+            <td>[tr.id;block=tr;ondata=event_status]</td>
+            <td>[tr.bull_trust_time]</td>
+            <td>[tr.sell_trust_time]</td>
+            <td>[tr.stock_code]</td>
+			<td>[tr.stock_name]</td>
+            <td>[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升(多)</font>';else '<font color="#009900">买跌(空)</font>']</td>
+            <td>[tr.bull_price;frm='0.00']</td>
+			<td>[tr.sell_price;frm='0.00']</td>
+            <td>[tr.bull_num]手</td>
+            <td>￥[tr.sell_gain;frm='0,000.00']</td>
+          </tr>
+          <tr>
+            <td>[tr;block=tr;nodata]暂无符合条件交易记录</td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</body>
+<style>
+body {
+    font-family: "Microsoft YaHei" ! important;
+  }
+  .onpay-container {
+    width: 100%;
+    height: 100%;
+  }
+  .onpay-head {
+    width: 100%;
+    height: 45px;
+    background-color: #D14E00;
+  }
+  .onpay-head img {
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .onpay-title {
+    float: left;
+    padding: 10px;
+  }
+  .onpay-span {
+    color: #fff;
+  }
+  .onpay-content {
+    margin-top: 30px;
+  }
+  .btn-sure {
+    width: 150px;
+  }
+  .prompt {
+    text-align: left !important;
+    margin-left: 145px !important;
+  }
+  .onpay-table {
+    width: 75%;
+    margin: 20px auto;
+  }
+  .onpay-money {
+    background-color: #D14E00;
+    color: #fff;
+  }
+  .table {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .table tr,th{
+    text-align: center;
+  }
+</style>
+
+</html>

@@ -1,0 +1,45 @@
+HTML {
+	SCROLLBAR-FACE-COLOR: #0f4f8c; SCROLLBAR-HIGHLIGHT-COLOR: #bdecfe; SCROLLBAR-SHADOW-COLOR: #fcfcfc; SCROLLBAR-3DLIGHT-COLOR: #fcfcfc; SCROLLBAR-ARROW-COLOR: #3f8cdc; SCROLLBAR-TRACK-COLOR: #bdecfe; SCROLLBAR-DARKSHADOW-COLOR: #66c0f4; SCROLLBAR-BASE-COLOR: #fcfcfc
+}
+A {
+	FONT-SIZE: 12px; COLOR: #016dc7; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+TD {
+	FONT-SIZE: 12px
+}
+DIV {
+	FONT-SIZE: 12px
+}
+DIV {
+	COLOR: #ffffff
+}
+.mytable {
+	BORDER-RIGHT: #00263d 1px solid; BORDER-LEFT: #00263d 1px solid; BORDER-BOTTOM: #00263d 1px solid
+}
+.table_menu {
+	BORDER-RIGHT: #0067be 1px solid; BORDER-LEFT: #0067be 1px solid; BORDER-BOTTOM: #0067be 1px solid
+}
+.left_menu_title {
+	COLOR: #ffffff
+}
+.inputForPwd {
+	WIDTH: 146px; HEIGHT: 15px
+}
+.btn1 {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; FONT-SIZE: 12px; BACKGROUND: url(../../img/btn1.gif); BORDER-BOTTOM-WIDTH: 0px; WIDTH: 41px; LINE-HEIGHT: 21px; HEIGHT: 21px; BORDER-RIGHT-WIDTH: 0px
+}
+.btn2 {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; FONT-SIZE: 12px; BACKGROUND: url(../../img/btn2.gif); BORDER-BOTTOM-WIDTH: 0px; WIDTH: 82px; LINE-HEIGHT: 21px; HEIGHT: 21px; BORDER-RIGHT-WIDTH: 0px
+}
+.table_main {
+	BORDER-RIGHT: #a5d2e3 1px solid; BORDER-TOP: #a5d2e3 1px solid; BORDER-LEFT: #a5d2e3 1px solid; BORDER-BOTTOM: #a5d2e3 1px solid; BACKGROUND-COLOR: #a5d2e3
+}
+.table_main .title {
+	COLOR: #ffffff; BACKGROUND-COLOR: #248fd7
+}
+.table_main TD {
+	BACKGROUND-COLOR: #ffffff
+}
+.table_main .td {
+	BACKGROUND-COLOR: #bdecfe
+}

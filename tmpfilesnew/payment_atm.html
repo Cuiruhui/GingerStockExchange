@@ -1,0 +1,227 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>在线出金</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="./tips/jquery-1.4.2.min.js"></script>
+
+<script type="text/javascript" src="./tips/jquery.poshytip.js"></script>
+
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+
+<script type="text/javascript" src="./js/noright.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	var isdemo = [var.isdemo];
+
+	if(isdemo==1)
+
+	{
+
+		//tb_show("系统提示","#TB_inline?width=400&height=120&inlineId=prohibit",false);
+
+		parent.ymPrompt.alert({title:'申请出金',message:'试玩帐户不能进行“申请出金”操作！请您注册我们的正式帐号！'});
+
+		$('#btnAtm').attr('value','试玩帐号不能提款操作');
+
+		$('#btnAtm').attr('disabled','true');
+
+		$('#money').attr('disabled','true');
+
+		$('#bank').attr('disabled','true');
+
+		$('#bankname').attr('disabled','true');
+
+		$('#bankno').attr('disabled','true');
+
+		$('#bankrealnam').attr('disabled','true');
+
+		$('#atmpwd').attr('disabled','true');
+
+	}
+
+	
+
+	$("#btnOK").click(function(){
+
+		tb_remove();
+
+	});
+
+	
+
+	$("#btnReg").click(function(){
+
+		tb_remove();
+
+		top.location.href='reg.php?utype=1';
+
+	});
+
+	$("#AtmForm").validate({
+
+		rules: {
+
+			money: {required:true, number:true, range:[1,[var.usercancash]]},
+
+			bankname: {required: true},
+
+			bankrealname: {required: true},
+
+			bankno: {required:true},
+
+			atmpwd: {required:true, number:true,remote: "atm.php?type=check_atmpwd"}
+
+		},
+
+		messages: {
+
+			money: {required: "请输入要出金的金额.", range: "出金金额必须在1-[var.usercancash]之间"},
+
+			bankname: {required: "请输入帐户开户行信息."},
+
+			bankrealname: {required: "请输入帐户名."},
+
+			bankno: {required:"请输入银行帐号."},
+
+			atmpwd: {required:"请输入提款密码.",number:"提款密码必须是数字.",remote: jQuery.format("[<b>提款密码</b>]:你输入的提款密码不正确.")}
+
+		},
+
+		//errorLabelContainer: $("#errorTo"),
+
+		//wrapper: 'li',
+
+		submitHandler: function(form) {
+
+			form.submit();
+
+		}
+
+	});
+
+});
+
+</script>
+
+<style>
+
+#TB_window {min-height:100px;}
+
+</style>
+
+</head>
+
+<body> 
+
+<form id="AtmForm" method="post" action="atm.php?type=AddAtm">
+
+  <table width="99%"  border="0" align="center" cellpadding="3" cellspacing="1"  class="mybox">
+
+    <tr bgcolor="#CCCCCC">
+
+      <th colspan="2">申请出金</th>
+
+    </tr>
+
+    <tr >
+
+      <td align="right" >友情提醒：</td>
+
+      <td>可出金时间为:开盘日的 <font color=red> 中午11:40-12:40 下午15:00-16:30</font> 其他时间不受理敬请谅解！<br>
+
+      <font color=red>温馨提示：入金后没操作或有留仓的会员一律不能出金。</font></td>
+
+    </tr>
+
+    <tr >
+
+      <td width="20%" align="right" >可出金金额：</td>
+
+      <td> <span class="money">￥[var.usercancash]</span></td>
+
+    </tr>
+
+    <tr >
+
+      <td align="right">本次出金金额：</td>
+
+      <td><input name="money" type="text" id="money" value="0" size="10"> 
+
+        &nbsp;<span class="gray">元(1~[var.usercancash]之间)</span></td>
+
+    </tr>
+
+    <tr >
+
+      <td align="right">收款银行：</td>
+
+      <td><input name="bank" type="text" id="bank" size="30" value="[var.Edit.bank]" readonly></td>
+
+    </tr>
+
+    <tr >
+
+      <td align="right">开 户 行：</td>
+
+      <td><input name="bankname" type="text" id="bankname" size="30" value="[var.Edit.bankname]" readonly> 
+
+        </td>
+
+    </tr>
+
+    <tr >
+
+      <td align="right">帐 户 名：</td>
+
+      <td><input name="bankrealname" type="text" id="bankrealname" size="30" value="[var.realname]" readonly> &nbsp;<span class="gray">不能修改(若想修改帐户名请联系管理员)</span></td>
+
+    </tr>
+
+    <tr >
+
+      <td align="right">银行帐号：</td>
+
+      <td><input name="bankno" type="text" id="bankno" size="30" value="[var.Edit.bankno]" readonly></td>
+
+    </tr>
+
+    <tr >
+
+      <td align="right">提款密码：</td>
+
+      <td><input name="atmpwd" type="password" id="atmpwd" size="5" maxlength="4" style="width:50px"> </td>
+
+    </tr>
+
+    <tr >
+
+      <td align="right">&nbsp;</td>
+
+      <td><input type="submit" name="Submit" id='btnAtm' value="确认出金" class="button3"></td>
+
+    </tr>
+
+  </table>
+
+</form>
+
+</body>
+
+</html>

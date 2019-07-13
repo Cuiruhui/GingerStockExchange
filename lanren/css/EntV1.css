@@ -1,0 +1,717 @@
+﻿body {
+    width: 100vw;
+}
+
+.fullscreen {
+    background: #f4f4f4;
+}
+
+.geo_warp {
+    position: relative;
+    padding-left: 12px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+    .geo_warp:before {
+        font-family: "v1";
+        content: "\B002";
+        color: #ff9900;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .geo_warp span {
+        color: #b8b8b8;
+        font-size: 12px;
+    }
+
+#wxjifen_warp {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    float: none;
+    font-size: 12px;
+    vertical-align: top;
+}
+
+    #wxjifen_warp #wxjifen_title {
+        text-indent: 13px;
+        width: 53px;
+        background: #fe9901 url("/images/wxicon.png") no-repeat scroll 2px 3px;
+        height: 18px;
+        line-height: 18px;
+    }
+
+    #wxjifen_warp #wxjifen_cont {
+        background: url("/images/wxcont.png") no-repeat scroll 0 0;
+        background-size: 100% 100%;
+        height: 20px;
+        line-height: 20px;
+        width: 25px;
+        margin: 0;
+    }
+
+    #wxjifen_warp #wxjifen_question img {
+        height: 18px;
+        margin-top: 1px;
+    }
+
+.DiyIcon {
+    float: none;
+    background-size: 100% 100%;
+    display: inline-block;
+    margin: 0 1px 0 5px;
+    vertical-align: top;
+    height: 18px;
+    width: 22px;
+}
+
+.VipIcon12 {
+    margin-left: -7px !important;
+}
+
+.WhiteBox {
+    padding: 15px;
+    background: #fff;
+    margin-bottom: 15px;
+}
+
+    .WhiteBox .EntTop {
+        padding: 10px 5px 10px 125px;
+        border-bottom: 1px solid #f4f4f4;
+        position: relative;
+        min-height: 46px;
+        font-size: 14px;
+        color: #666;
+        line-height: 23px;
+        position: relative;
+        display: block;
+    }
+
+        .WhiteBox .EntTop .Logo {
+            width: 110px;
+            height: 46px;
+            position: absolute;
+            left: 5px;
+            top: 10px;
+        }
+
+        .WhiteBox .EntTop .Name {
+            overflow: hidden;
+            height: 23px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            position: relative;
+            color: #666;
+            font-size: 14px;
+        }
+
+            .WhiteBox .EntTop .Name .Zheng {
+                background: #ff9900;
+                color: #fff;
+                font-size: 12px;
+                height: 16px;
+                line-height: 16px;
+                width: 16px;
+                text-align: center;
+                display: inline-block;
+                margin: 1px 0 0 5px;
+                vertical-align: top;
+            }
+
+            .WhiteBox .EntTop .Name .geo_warp {
+                position: absolute;
+                top: 0;
+                right: 5px;
+                padding-left: 14px;
+            }
+
+                .WhiteBox .EntTop .Name .geo_warp:before {
+                    top: 1px;
+                }
+
+        .WhiteBox .EntTop .Summary {
+            padding-right: 40px;
+            overflow: hidden;
+            height: 23px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            position: relative;
+            color: #999;
+            font-size: 14px;
+        }
+
+    .WhiteBox a.EntTop:before {
+        position: absolute;
+        right: 0;
+        top: 28px;
+        content: '';
+        border: solid #ccc;
+        border-width: 2px 2px 0 0;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+        height: 8px;
+        width: 8px;
+    }
+
+    .WhiteBox .EntInfo {
+        color: #b8b8b8;
+        padding: 10px 5px;
+    }
+
+        .WhiteBox .EntInfo .Item {
+            margin-right: 10px;
+            float: left;
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+            .WhiteBox .EntInfo .Item .EntRegNum:before {
+                font-family: "v1";
+                content: "\B003";
+                font-style: normal;
+                display: inline-block;
+                vertical-align: middle;
+                width: 22px;
+            }
+
+            .WhiteBox .EntInfo .Item .EntFoundDate:before {
+                font-family: "v1";
+                content: "\B004";
+                font-style: normal;
+                display: inline-block;
+                vertical-align: middle;
+                width: 17px;
+            }
+
+    .WhiteBox .EntTab {
+        border: 1px solid #2182cc;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 5px;
+    }
+
+        .WhiteBox .EntTab .Item {
+            float: left;
+            color: #2182cc;
+            font-size: 16px;
+            text-align: center;
+            width: 50%;
+        }
+
+            .WhiteBox .EntTab .Item.Selected {
+                color: #fff;
+                background: #2182cc;
+            }
+
+    .WhiteBox .swiper-container .pagination {
+        position: absolute;
+        width: 100%;
+        bottom: 5px;
+        left: 0;
+        text-align: center;
+    }
+
+        .WhiteBox .swiper-container .pagination .swiper-pagination-switch {
+            display: inline-block;
+            width: 20px;
+            height: 4px;
+            margin-right: 3px;
+            cursor: pointer;
+            overflow: hidden;
+            background: #ccc;
+            border-radius: 0;
+            border: none;
+        }
+
+        .WhiteBox .swiper-container .pagination .swiper-active-switch {
+            background: #ff9900;
+        }
+
+    .WhiteBox .Title {
+        border-bottom: 1px solid #f4f4f4;
+        font-size: 16px;
+        color: #666;
+        padding: 0 0 5px 30px;
+        height: 30px;
+        line-height: 30px;
+        position: relative;
+    }
+
+        .WhiteBox .Title.EntIntro:before {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            color: #2182cc;
+            font-family: "v1";
+            content: "\B005";
+            font-size: 18px;
+        }
+
+        .WhiteBox .Title.EntMedals:before {
+            position: absolute;
+            top: 0;
+            left: 8px;
+            color: #ff9900;
+            font-family: "v1";
+            content: "\B006";
+            font-size: 18px;
+        }
+
+        .WhiteBox .Title.EntContact:before {
+            position: absolute;
+            top: 0;
+            left: 12px;
+            color: #2182cc;
+            font-family: "v1";
+            content: "\B001";
+            font-size: 20px;
+        }
+
+        .WhiteBox .Title.Requirement:before {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            color: #2182cc;
+            font-family: "v1";
+            content: "\B009";
+            font-size: 20px;
+        }
+
+        .WhiteBox .Title.Orange:before {
+            color: #ff9900;
+        }
+
+        .WhiteBox .Title .Open, .WhiteBox .Title .Close {
+            font-size: 14px;
+            position: absolute;
+            right: 5px;
+            top: 0;
+            color: #999;
+        }
+
+            .WhiteBox .Title .Open i:after {
+                font-size: 14px;
+                border: solid #999;
+                border-width: 1px 1px 0 0;
+                height: 6px;
+                width: 6px;
+                content: '';
+                -webkit-transform: rotate(135deg);
+                -moz-transform: rotate(135deg);
+                -o-transform: rotate(135deg);
+                transform: rotate(135deg);
+                display: inline-block;
+                margin: 0 5px 3px 0;
+            }
+
+            .WhiteBox .Title .Close i:after {
+                font-size: 14px;
+                border: solid #999;
+                border-width: 1px 1px 0 0;
+                height: 6px;
+                width: 6px;
+                content: '';
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                display: inline-block;
+                margin: 0 5px 0 0;
+            }
+
+        .WhiteBox .Title .BaiduIcon {
+            background: #2182cc;
+            width: 26px;
+            height: 26px;
+            position: absolute;
+            right: 10px;
+            top: 0;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 4px;
+        }
+
+            .WhiteBox .Title .BaiduIcon:after {
+                color: #fff;
+                font-family: "v1";
+                content: "\B021";
+                font-size: 16px;
+            }
+
+    .WhiteBox .Content {
+        padding: 15px 10px 0 10px;
+        font-size: 14px;
+        color: #999;
+        line-height: 22px;
+        overflow: hidden;
+    }
+
+        .WhiteBox .Content a {
+            color: #2182cc;
+        }
+
+        .WhiteBox .Content .Mark {
+            color: #ff9900;
+        }
+
+        .WhiteBox .Content .Item {
+            position: relative;
+            color: #666;
+            padding-left: 70px;
+            font-size: 14px;
+        }
+
+            .WhiteBox .Content .Item .LeftTitle {
+                color: #999;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 70px;
+                text-align: right;
+                font-size: 14px;
+            }
+
+    .WhiteBox .Medals {
+        padding: 10px 0 0 0;
+    }
+
+        .WhiteBox .Medals .Item {
+            float: left;
+            width: 25%;
+            color: #999;
+            font-size: 14px;
+            line-height: 30px;
+            text-indent: 20px;
+            position: relative;
+        }
+
+            .WhiteBox .Medals .Item:before {
+                font-family: "v1";
+                content: "\B007";
+                position: absolute;
+                left: 4px;
+                top: 0;
+                text-indent: 0;
+                color: #bbb;
+            }
+
+    .WhiteBox .JobItem {
+        border-bottom: 1px solid #f4f4f4;
+        padding: 15px 5px;
+        position: relative;
+        height: 50px;
+        line-height: 20px;
+        display: block;
+    }
+
+        .WhiteBox .JobItem:last-child {
+            border: none;
+        }
+
+        .WhiteBox .JobItem .Name {
+            padding: 0 80px 0 0;
+            color: #666;
+            font-size: 16px;
+            height: 30px;
+            line-height: 30px;
+            font-weight: bold;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: left;
+        }
+
+        .WhiteBox .JobItem .Time {
+            position: absolute;
+            right: 5px;
+            top: 15px;
+            color: #999;
+            font-size: 14px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+            .WhiteBox .JobItem .Time .DateIcon:before {
+                font-family: "v1";
+                content: "\B010";
+                font-style: normal;
+                display: inline-block;
+                vertical-align: middle;
+                width: 17px;
+            }
+
+        .WhiteBox .JobItem .Expr {
+            float: left;
+            font-size: 14px;
+            color: #999;
+            margin-right: 20px;
+        }
+
+            .WhiteBox .JobItem .Expr .ExprIcon:before {
+                font-family: "v1";
+                content: "\B013";
+                font-style: normal;
+                display: inline-block;
+                vertical-align: middle;
+                width: 23px;
+                margin-top: -2px;
+            }
+
+        .WhiteBox .JobItem .EduBg {
+            float: left;
+            font-size: 14px;
+            color: #999;
+        }
+
+            .WhiteBox .JobItem .EduBg .EduIcon:before {
+                font-family: "v1";
+                content: "\B011";
+                font-style: normal;
+                display: inline-block;
+                vertical-align: middle;
+                width: 23px;
+            }
+
+        .WhiteBox .JobItem .Money {
+            float: right;
+            font-size: 14px;
+            color: #ff9900;
+        }
+
+    .WhiteBox .JobTop {
+        line-height: 30px;
+        padding: 5px 5px 10px;
+        border-bottom: 1px solid #f4f4f4;
+    }
+
+        .WhiteBox .JobTop .Name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+            .WhiteBox .JobTop .Name .PeopleCount {
+                font-size: 12px;
+            }
+
+        .WhiteBox .JobTop .Baike {
+            margin: 0 5px 2px 0;
+        }
+
+        .WhiteBox .JobTop .Time {
+            color: #ff9900;
+            font-size: 14px;
+        }
+
+            .WhiteBox .JobTop .Time .DateIcon:before {
+                font-style: normal;
+                display: inline-block;
+                vertical-align: middle;
+                width: 15px;
+                font-family: "v1";
+                content: "\B010";
+            }
+
+        .WhiteBox .JobTop .Item {
+            float: left;
+            margin-right: 10px;
+            line-height: 22px;
+            font-size: 14px;
+            color: #999;
+        }
+
+            .WhiteBox .JobTop .Item .WorkplaceIcon:before {
+                font-family: "v1";
+                content: "\B012";
+                font-style: normal;
+                display: inline-block;
+                vertical-align: middle;
+                width: 18px;
+                color: #2182cc;
+            }
+
+            .WhiteBox .JobTop .Item .ExprIcon:before {
+                font-family: "v1";
+                content: "\B013";
+                font-style: normal;
+                display: inline-block;
+                vertical-align: middle;
+                width: 18px;
+                margin-top: -2px;
+                color: #2182cc;
+            }
+
+            .WhiteBox .JobTop .Item .EduIcon:before {
+                font-family: "v1";
+                content: "\B011";
+                font-style: normal;
+                display: inline-block;
+                vertical-align: middle;
+                width: 18px;
+                color: #2182cc;
+            }
+
+            .WhiteBox .JobTop .Item .JobKindIcon:before {
+                font-family: "v1";
+                content: "\B014";
+                font-style: normal;
+                display: inline-block;
+                vertical-align: middle;
+                width: 15px;
+                color: #2182cc;
+            }
+
+    .WhiteBox .JobInfo {
+        line-height: 22px;
+        padding: 15px 5px 20px;
+        border-bottom: 1px solid #f4f4f4;
+        position: relative;
+    }
+
+        .WhiteBox .JobInfo .Item {
+            padding-left: 50px;
+            font-size: 14px;
+            color: #666;
+            position: relative;
+        }
+
+            .WhiteBox .JobInfo .Item .LTitle {
+                position: absolute;
+                left: 0;
+                top: 0;
+                text-align: right;
+                color: #999;
+                font-size: 14px;
+                width: 50px;
+            }
+
+        .WhiteBox .JobInfo .Money {
+            color: #ff9900;
+            font-size: 18px;
+            position: absolute;
+            right: 15px;
+            bottom: 20px;
+        }
+
+.Department {
+    padding: 5px 15px 10px;
+}
+
+    .Department .Item {
+        float: left;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #666;
+        background: #fff;
+        margin: 0 2% 2% 0;
+        width: 32%;
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+        .Department .Item:nth-child(3n) {
+            margin: 0 0 2% 0;
+        }
+
+        .Department .Item.Selected {
+            background: #2182cc;
+            color: #fff;
+        }
+
+.OtherJob {
+    padding: 0 25px 15px;
+}
+
+    .OtherJob .Title {
+        color: #666;
+        font-size: 16px;
+        line-height: 30px;
+        height: 30px;
+        margin-bottom: 5px;
+        padding-left: 28px;
+        position: relative;
+    }
+
+        .OtherJob .Title:before {
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            font-family: "v1";
+            content: "\B008";
+            color: #2182cc;
+        }
+
+    .OtherJob .Item {
+        float: left;
+        line-height: 22px;
+        text-align: center;
+        color: #ccc;
+        background: #fff;
+        margin: 0 2% 2% 0;
+        width: 32%;
+        font-size: 12px;
+        padding: 15px 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+        .OtherJob .Item:nth-child(3n) {
+            margin: 0 0 2% 0;
+        }
+
+        .OtherJob .Item .Name {
+            font-size: 14px;
+            color: #ff9900;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+    .OtherJob .More {
+        background: #fff;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 16px;
+        color: #666;
+        display: block;
+    }
+
+.Operation {
+    background: #0184df;
+    border-top: 1px solid #cbe6f9;
+    height: 45px;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+    .Operation .Item {
+        float: left;
+        height: 45px;
+        border-left: 1px solid #cbe6f9;
+        margin: 0 0 0 -1px;
+        color: #fff;
+        text-align: center;
+        font-size: 12px;
+        width: 20%;
+    }
+
+        .Operation .Item img {
+            height: 13px;
+            margin: 8px 0 2px;
+        }

@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>支付接口_新增</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.ajaxify.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#AddFrom").validate({
+		rules: {
+			name: {required: true},
+			payee: {required: true},
+			account: {required:true},
+			bankname: {required:true},
+			merid:{required:true},
+			secretkey:{required:true},
+			connecturl:{required:true},
+			callbackurl: {required:true}
+			safe: {required:true}
+		},
+		messages: {
+			name: {required: "[<b>平台名称</b>]:必须输入."},
+			payee: {required: "[<b>收款人</b>]:必须输入."},
+			account: {required: "[<b>银行帐号</b>]:必须输入."},
+			bankname: {required: "[<b>开户行</b>]:必须输入."},
+			merid: {required: "[<b>商户ID</b>]:必须输入."},
+			secretkey: {required: "[<b>商户密钥</b>]:必须输入."},
+			connecturl: {required: "[<b>连接地址</b>]:必须输入."},
+			callbackurl: {required: "[<b>返回地址</b>]:必须输入."}
+			safe: {required: "[<b>安全码</b>]:必须输入."}
+		},
+		focusCleanup: true,//被验证的元素获得焦点时移除错误信息
+		success: function(label){
+			label.html("<span style=\"color:green\">填写正确！</span>").addClass("success");
+		},
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+	$('#btnBack').click(function(){
+		history.go(-1);
+	});
+});
+
+function chgsystem(str)
+{
+	if(str=="0" && document.getElementById("systems"))
+	{
+		document.getElementById("systems").style.display='none';
+	}
+	else
+	{
+		document.getElementById("systems").style.display='block';
+	}
+}
+</script>
+</head>
+<body>
+<table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <form id="AddFrom" action="pay_interface.php?type=AddFrom" method="post"> 
+    <tr class="row_title"> 
+      <td colspan="2"><b>新增支付接口</b></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td width="15%" align="right">类型:</td> 
+      <td width="85%"><select name="accounttype" size="1" id="accounttype" onChange="return chgsystem(this.value);"> 
+          <option value="1" selected>第三方支付平台</option> 
+          <option value="0">直接汇款</option> 
+        </select> 
+        <input name="types" type="hidden" id="types" value="IN"></td> 
+    </tr> 
+    <tr class="row_ls" id="systems"> 
+      <td align="right">选择平台:</td> 
+      <td><select name="payinterfacename" size="1" id="payinterfacename"> 
+          <option value="易宝" selected>易宝支付</option> 
+		  <option value="智付">智付支付</option>
+		  <option value="环讯">环讯支付</option>
+          <option value="聚富通">聚富通支付</option>
+        </select></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td width="15%" align="right">所属代理商:</td> 
+      <td width="85%"> <select name="agent" size="1" style="width:80px;"> 
+          <option value="[tp.username;block=option]">[tp.username]</option> 
+        </select> 
+&nbsp;<font color='gray'>请选择所属代理商的用户名</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">平台名称:</td> 
+      <td><input name="name" type="text" id="name" size="35"></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">收款人:</td> 
+      <td><input name="payee" type="text" id="payee" size="35"></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">银行帐号:</td> 
+      <td><input name="account" type="text" id="account" size="35"></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">开户行:</td> 
+      <td><input name="bankname" type="text" id="bankname" size="35"></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">商户ID:</td> 
+      <td><input name="merid" type="text" id="merid" size="35"></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">商户密钥:</td> 
+      <td><input name="secretkey" type="text" id="secretkey" size="35"></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">连接地址:</td> 
+      <td><input name="connecturl" type="text" id="connecturl" size="35"></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">返回地址:</td> 
+      <td><input name="callbackurl" type="text" id="callbackurl" size="35"></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">备注:</td> 
+      <td><textarea name="remark" cols="50" rows="5" id="remark"></textarea></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">状态:</td> 
+      <td><select name="active" size="1" id="active"> 
+          <option value="1" style="color:red;" selected>开启</option> 
+          <option value="0">关闭</option> 
+        </select></td> 
+    </tr>
+    <tr class="row_ls">
+      <td align="right">设为默认:</td>
+      <td><select name="isdefault" size="1" id="isdefault">
+        <option value="1" style="color:red;">是</option>
+        <option value="0" selected>否</option>
+                        </select></td>
+    </tr> 
+	 <tr class="row_ls"> 
+      <td align="right">安全码:</td> 
+      <td><input type="password" name="safe" id="safe" value="" /> </td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="center">&nbsp;</td> 
+      <td><input type="submit" name="btnEnter" id="btnEnter" value="确定新增" class="btn1" />
+&nbsp;
+<input type="button" name="btnBack" id="btnBack" class="btn1" value="返　回" /></td> 
+    </tr> 
+  </form> 
+</table> 
+</body>
+</html>

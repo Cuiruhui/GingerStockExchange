@@ -1,0 +1,173 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户提款记录</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px; font-size:12px;}
+</style>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/jquery.ajaxify.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#ispay').bind('change',function(){
+		location.href='user_atm.php?ispay=' + $('#ispay').val() + '&search=' + $('#search').val();
+	});
+	$('#btnSearch').bind('click',function(){
+		location.href='user_atm.php?ispay=' + $('#ispay').val() + '&search=' + $('#search').val();
+	});
+	getpage();
+});
+var curpage = [var.PageNum]; //当前页
+var pagesize = [var.PageSize]; //每页大小
+var totalrecord = [var.totalrecord]; //总记录数
+var pagecount = 1; //总页数
+
+function ShowOtherpage(p)
+{
+	location.href='user_atm.php?PageNum=' + p + '&ispay=' + $('#ispay').val() + '&search=' + $('#search').val();
+}
+
+function getpage()
+{
+	if(totalrecord==0) return;
+	if (totalrecord % pagesize == 0)
+		pagecount = totalrecord / pagesize;
+	else
+		pagecount = parseInt(totalrecord / pagesize, 10) + 1;
+	var spage = "";
+	var first; //第一页
+	var pre;  //前一页
+	var next; //下一页
+	var end; //最后一页
+	var currentlever,pvalue;
+	
+	if (curpage > 1) {
+		pvalue = curpage - 1;
+		pre = "<a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(" + pvalue + ")\"> < </a>";
+		first = "<a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(1)\"> << </a>";
+	}
+	else {
+		pre = "<span class=\"disabled\"> < </span>";
+		first = "<span class=\"disabled\"> << </span>";
+	}
+	if (curpage == pagecount) {
+		next = "<span class=\"disabled\"> > </span>";
+		end = "<span class=\"disabled\"> >> </span>";
+	}
+	else {
+		pvalue = curpage + 1;
+		next = "<a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(" + pvalue + ")\"> > </a>";
+		end = "<a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(" + pagecount + ")\"> >> </a>";
+	}
+
+	if (Math.floor(curpage / 10) == 0) {
+		currentlever = Math.floor(curpage / 10);
+	}
+	else {
+		if (curpage % 10 == 0) {
+			currentlever = Math.floor(curpage / 10) - 1;
+		}
+		else {
+			currentlever = Math.floor(curpage / 10);
+		}
+	}
+	spage = "";
+	if (curpage <= pagecount) {
+		for (p = 1; p <= 10; p++) {
+			value = p + currentlever * 10;
+			if (value > pagecount)
+				break;
+			if (curpage == value) {
+				spage += "<span class=\"current\">" + value + "</span>"
+			}
+			else {
+				spage += "<a href=\"javascript:void(0);\" onclick=\"ShowOtherpage(" + value + ")\">" + value + "</a>";
+			}
+		}
+	}
+	var countstr = "&nbsp;共&nbsp;" + totalrecord + " 条&nbsp;&nbsp;第&nbsp;" + curpage + "/" + pagecount + "&nbsp;页&nbsp;&nbsp;";
+	var pagestr = "<div class=\"sabrosus\"><span>" + countstr + "</span>" + first + pre + spage + next + end + "</div>";
+
+	$("#tdpage").html(pagestr);
+}
+
+function Pay(id)
+{
+	self.location.href='user_atm.php?type=pay&id=' + id;
+}
+
+function Del(id)
+{
+	self.location.href='user_atm.php?type=del&id=' + id;
+}
+</script>
+</head>
+<body>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="mybox">
+  <tr bgcolor="#F5F5F5">
+    <td height="30" colspan="11" id="title"><img src="./images/dot13.gif" border="0" align="absmiddle" hspace="3" />当前位置：代理平台 &gt; 用户提款管理 </td>
+  </tr>
+  <tr bgcolor="#F5F5F5">
+    <td height="30" colspan="11"><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <form id="search_form" action="" method="get">
+        <td>状态:</td>
+        <td><select name="ispay" size="1" id="ispay">
+          <option value="999">全部</option>
+          <option value="1">已打款</option>
+		  <option value="0">未处理</option>
+		  <option value="0">回　退</option>
+          <option>[var.ispay;ope=html;select]</option>  
+        </select></td>
+        <td width="80" align="center">帐号查找:</td>
+        <td><input name="search" class="inputs" type="text" id="search" size="10" value="[var.search]"></td>
+        <td width="86"><input type="button" name="btnSearch" id="btnSearch" value="查询" class="button3" /></td>
+        <td width="120"><div id="load"></div></td>
+        </form>
+        </tr>
+    </table></td>
+  </tr>
+  <tr align="center" id='row'>
+    <th width="8%">ID</th>
+    <th width="8%" align="right">用户名</th>
+    <th width="8%" align="right">提款金额</th>
+    <th width="8%">打入银行</th>
+    <th>开户行</th>
+    <th>银行帐号/户名</th>
+    <th>状态</th>
+    <th>处理时间</th>
+    <th width="15%" align="right">操作</th>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td align="center">[tr.id;block=tr;ondata=event_row]</td>
+    <td align="right"><a href="javascript:ShowUserInfo('[tr.username]');" title="查看会员详情">[tr.username]</a></td>
+    <td align="right">[tr.money;frm='0.00']</td>
+    <td align="center">[tr.bank]</td>
+    <td align="left">[tr.bankname]</td>
+    <td align="left">[tr.bankno] / [tr.bankrealname]</td>
+    <td>[tr.status]</td>
+    <td align="center">[tr.pay_time; if [val]=''; then '-';else [val]]</td>
+    <td align="right"><input type="button" name="btnPay" onClick="return Pay('[tr.id]');"[tr.disabled] value="设置已打款" class="button3" /> <input type="button" name="btnDel" onClick="if(confirm('确定退回用户的提款申请？')){Del('[tr.id]');}else{return false;}"[tr.disabled] value="回退" class="button3" /></td>
+  </tr>
+  <tr align="center" bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td align="center">[tr.id;block=tr;ondata=event_row]</td>
+    <td align="right"><a href="javascript:ShowUserInfo('[tr.username]');" title="查看会员详情">[tr.username]</a></td>
+    <td align="right">[tr.money;frm='0.00']</td>
+    <td align="center">[tr.bank]</td>
+    <td align="left">[tr.bankname]</td>
+    <td align="left">[tr.bankno] / [tr.bankrealname]</td>
+    <td>[tr.status]</td>
+    <td align="center">[tr.pay_time; if [val]=''; then '-';else [val]]</td>
+    <td align="right"><input type="button" name="btnPay" onClick="return Pay('[tr.id]');"[tr.disabled] value="设置已打款" class="button3" /> <input type="button" name="btnDel" onClick="if(confirm('确定退回用户的提款申请？')){Del('[tr.id]');}else{return false;}"[tr.disabled] value="回退" class="button3" /></td>
+  </tr>
+  <tr align="center" bgcolor="#FFFFCC">
+    <td height="50" colspan="10" id='NoData'>[tr;block=tr;nodata]没符合条件的记录.</td>
+  </tr>
+</table>
+</body>
+</html>

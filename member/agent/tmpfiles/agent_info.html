@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>代理商信息</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#regform").validate({
+		rules: {
+			password_confirm: {
+				required: true,
+				rangelength: [4, 15],
+				equalTo: "#password"
+			}
+		},
+		messages: {
+			password_confirm: {
+				required: "[<b>确认密码</b>]:不能为空.",
+				rangelength: jQuery.format("[<b>确认密码</b>]:请输入 {0} 至 {1} 位的字符."),
+				equalTo: "[<b>登陆密码</b>] 与 [<b>确认密码</b>] 不一致,请重新输入."
+			}
+		},
+		submitHandler: function(form) {
+			form.subimt();
+		}
+	});
+});
+</script>
+ <table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="mybox"> 
+  <tr> 
+     <th colspan="2" id="title">代理商信息</th> 
+   </tr> 
+  <tr bgcolor="#FFFFFF"> 
+     <td width="250" align="right">登录帐号:</td> 
+     <td>[var.xltm.user_info.username]</td> 
+   </tr> 
+  <tr bgcolor="#FFFFFF">
+    <td align="right">代理推广URL:</td>
+    <td><span style="color:#FF0000">[var.xltm.user_info.domain]</span></td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+     <td align="right">买入手续费:</td> 
+     <td>[var.xltm.user_info.cost_bull]&nbsp;[<font color="#FF0000">[var.cost_bull]‰</font>]</td> 
+   </tr> 
+  <tr bgcolor="#FFFFFF"> 
+     <td align="right">卖出手续费:</td> 
+     <td>[var.xltm.user_info.cost_sell]&nbsp;[<font color="#FF0000">[var.cost_sell]‰</font>]</td> 
+   </tr> 
+  <tr bgcolor="#FFFFFF"> 
+     <td align="right">留仓费:</td> 
+     <td>[var.xltm.user_info.cost_save]&nbsp;[<font color="#FF0000">[var.cost_save]‰</font>]</td> 
+   </tr> 
+  <tr bgcolor="#FFFFFF"> 
+     <td align="right">最大留仓天数:</td> 
+     <td>[var.xltm.config.cost_save_day] 天</td> 
+   </tr> 
+  <tr bgcolor="#FFFFFF"> 
+     <td align="right">会员人数:</td> 
+     <td class="red">[var.xltm.user_info.mem_num] 人</td> 
+   </tr> 
+  <tr bgcolor="#FFFFFF"> 
+     <td align="right">最小手数:</td> 
+     <td>[var.xltm.user_info.num_min]</td> 
+   </tr> 
+  <tr bgcolor="#FFFFFF"> 
+     <td align="right">最大手数:</td> 
+     <td>[var.xltm.user_info.num_max]</td> 
+   </tr> 
+</table> 
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#cccccc" class="mybox"> 
+  <tr bgcolor="#FFFFFF" id="title"> 
+    <th colspan="2">修改密码</th> 
+  </tr> 
+  <form id="regform" action="agent_info.php?type=regform" method="post"> 
+    <tr bgcolor="#FFFFFF"> 
+      <td width="250" align="right">新密码:</td> 
+      <td> <input name="password" type="password" id="password" style="width:100px;" maxlength="15" /> </td> 
+    </tr> 
+    <tr bgcolor="#FFFFFF"> 
+      <td align="right">确认密码:</td> 
+      <td><input name="password_confirm" type="password" id="password_confirm" style="width:100px;" maxlength="15" /></td> 
+    </tr> 
+    <tr bgcolor="#FFFFFF"> 
+      <td align="right">&nbsp;</td> 
+      <td><input type="submit" name="button" id="button" value="确定修改" class="button3" /></td> 
+    </tr> 
+  </form> 
+</table> 
+</body>
+</html>

@@ -1,0 +1,277 @@
+<script type="text/javascript">
+$(function() {
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+	$('#dateList span').AjaxLoad({
+		target:'#html',
+		loading_target:'#load_text',
+		loading_txt:'数据加载中...'
+	});
+	$("#reportForm").validate({
+		rules: {
+			start_date: {
+				required: true,
+				dateISO: true
+			},
+			end_date: {
+				required: true,
+				dateISO: true
+			}
+		},
+		messages: {
+			start_date: {
+				required: "请输入一个开始日期.",
+				dateISO: "请输一个正确的日期 例如:2009-02-03."
+			},
+			end_date: {
+				required: "请输入一个结束日期.",
+				dateISO: "请输一个正确的日期 例如:2009-02-03."
+			}
+		},
+		errorLabelContainer: $("#errorTo"),
+		wrapper: 'li',
+		submitHandler: function(form) {
+			$('#reportForm').AjaxLoad({
+				event:'submit',
+				link:'bill.php',
+				method:'GET',
+				target: '#html',
+				loading_target:'#load_text',
+				loading_txt:'请稍后...',
+				forms:'#reportForm'
+			});
+		}
+	});
+});
+function detail(id)
+{
+	$.ajax({
+		type:'GET',
+		url:'bill.php?detail=1&id=' + id,
+		success:function(response){
+			$('#html').html(response);
+		}
+	});
+}
+
+function chg_date(range,num1,num2){
+	if(range=='t' || range=='w' || range=='lw' || range=='r' || range=='m' || range=='lm'){
+		reportForm.start_date.value ='[var.xltm.sys_date]';
+		reportForm.end_date.value =reportForm.start_date.value;
+	}
+
+	if(range!='t'){
+		if(reportForm.start_date.value!=reportForm.end_date.value){
+			reportForm.start_date.value ='[var.xltm.sys_date]';
+			reportForm.end_date.value =reportForm.start_date.value;
+		}
+		var aStartDate = reportForm.start_date.value.split('-');
+		var newStartDate = new Date(parseInt(aStartDate[0], 10),parseInt(aStartDate[1], 10) - 1,parseInt(aStartDate[2], 10) + num1);
+		//alert('ddd'+((newStartDate.getMonth() + 1)));
+		reportForm.start_date.value = newStartDate.getFullYear()+ '-' + (newStartDate.getMonth() + 1)+ '-' + (newStartDate.getDate());
+		var aEndDate = reportForm.end_date.value.split('-');
+		var newEndDate = new Date(parseInt(aEndDate[0], 10),parseInt(aEndDate[1], 10) - 1,parseInt(aEndDate[2], 10) + num2);
+		reportForm.end_date.value = newEndDate.getFullYear()+ '-' + (newEndDate.getMonth() + 1)+ '-' + (newEndDate.getDate());
+	}
+}
+</script>
+<style type="text/css">
+<!--
+#history {
+	background-color: #CCA3AE;
+}
+#history #menu {
+	background-color: #FFCCD9;
+	font-weight: bold;
+	height: 20px;
+}
+#history tr {
+	background-color: #FFF7FB;
+	height: 20px;
+}
+#history td {padding:3px;}
+#dateList {
+	background-color: #9FB2B9;
+}
+#dateList #title {
+	background-color: #C4D6E5;
+	height: 20px;
+	color: #64645C;
+}
+#dateList tr {
+	background-color: #F6FFF7;
+}
+#dateList span {
+	cursor:pointer;
+}
+.date_selector, .date_selector * {
+  width: auto;
+  height: auto;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+}
+.date_selector {
+  background: #F2F2F2;
+  border: 1px solid #bbb;
+  padding: 5px;
+  margin: -1px 0 0 0;
+  position: absolute;
+  z-index: 100000;
+  display: none;
+}
+.date_selector_ieframe {
+  position: absolute;
+  z-index: 99999;
+  display: none;
+}
+  .date_selector .nav {
+    width: 17.5em; /* 7 * 2.5em */
+  }
+  .date_selector .month_nav, .date_selector .year_nav {
+    margin: 0 0 3px 0;
+    padding: 0;
+    display: block;
+    position: relative;
+    text-align: center;
+  }
+  .date_selector .month_nav {
+    float: left;
+    width: 55%;
+  }
+  .date_selector .year_nav {
+    float: right;
+    width: 35%;
+    margin-right: -8px; /* Compensates for cell borders */
+  }
+  .date_selector .month_name, .date_selector .year_name {
+    font-weight: bold;
+    line-height: 20px;
+  }
+  .date_selector .button {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    line-height: 17px;
+    font-weight: bold;
+    color: #003C78;
+    text-align: center;
+    font-size: 120%;
+    overflow: hidden;
+    border: 1px solid #F2F2F2;
+  }
+    .date_selector .button:hover, .date_selector .button.hover {
+      background: none;
+      color: #003C78;
+      cursor: pointer;
+      border-color: #ccc;
+    }
+  .date_selector .prev {
+    left: 0;
+  }
+  .date_selector .next {
+    right: 0;
+  }
+  .date_selector table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    clear: both;
+  }
+    .date_selector th, .date_selector td {
+      width: 2.5em;
+      height: 2em;
+      padding: 0;
+      text-align: center;
+      color: black;
+    }
+    .date_selector td {
+      border: 1px solid #ccc;
+      line-height: 2em;
+      text-align: center;
+      white-space: nowrap;
+      color: #003C78;
+      background: white;
+    }
+    .date_selector td.today {
+      background: #FFFEB3;
+    }
+    .date_selector td.unselected_month {
+      color: #ccc;
+    }
+    .date_selector td.selectable_day {
+      cursor: pointer;
+    }
+    .date_selector td.selected {
+      background: #D8DFE5;
+      font-weight: bold;
+    }
+    .date_selector td.selectable_day:hover, .date_selector td.selectable_day.hover {
+      background: #003C78;
+      color: white;
+    }
+-->
+</style>
+<div id="errorTo"></div>
+<table width="100%" border="0" cellspacing="1" cellpadding="2" id="history">
+  <tr id="menu">
+    <td colspan="2">资金明细</td>
+  </tr>
+  <tr>
+    <td width="14%" align="right">查询日期:</td>
+    <form id="reportForm" action="" method="post">
+    <td width="86%"><input name="start_date" type="text" id="start_date" class="datepicker" value="[var.start_date]">
+      至
+     <input name="end_date" type="text" id="end_date" class="datepicker" value="[var.end_date]">
+     <input type="submit" name="button" id="reportForm" value="查询" />
+     <input type="Button" class="za_button" onClick="chg_date('t',0,0)" value="今天">
+     <input type="Button" class="za_button" onClick="chg_date('l',-1,-1)" value="昨天">
+     <input type="Button" class="za_button" onClick="chg_date('w',-[var.week1],6-[var.week1])" value="本周">
+     <input type="Button" class="za_button" onClick="chg_date('lw',-[var.week1]-7,6-[var.week1]-7)" value="上周">
+	 <input type="Button" class="za_button" onClick="chg_date('m',-[var.day1]+1,[var.day2]-[var.day1])" value="本月">
+	 <input type="Button" class="za_button" onClick="chg_date('lm',-[var.day3]-[var.day1]+1,-[var.day1])" value="上月">
+	 </td>
+      </form>
+  </tr>
+  <tr>
+    <td colspan="2"><table width="100%" border="0" cellspacing="1" cellpadding="2" id="dateList">
+        <tr align="center" id="title">
+          <td width="10%">ID</td>
+          <td width="20%">日期</td>
+          <td>用户名</td>
+          <td width="15%">总盈亏</td>
+          <td width="10%">操作</td>
+        </tr>
+        <tr>
+          <td align="center">[tr.id;block=tr;aggregate=money:sum;ondata=bill_event;]</td>
+          <td align="center">[tr.add_time;frm='yyyy-M-d']</td>
+          <td align="center">[tr.username]</td>
+          <td align="center"><font color='[tr.color]'>[tr.money;frm='0,000.00';]</font></td>
+          <td align="center">[<a href="javascript:void(0);" onClick="detail([tr.id]);return false;" style="color:#006699; text-decoration:underline">查看详情</a>]</td>
+        </tr>
+        <tr align="center">
+          <td height="50" colspan="5">[tr;block=tr;nodata]暂无符合条件的记录.</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="right">合计:</td>
+          <td colspan="2">[tr.money:sum;frm='0,000.00']</td>
+        </tr>
+	  <tr> 
+		 <td colspan="5" align="right"><table border="0" align="right" cellpadding="2" cellspacing="0"> 
+			 <tr align="center"> 
+			  <td><span style="background-color:#A8DFFF; " class="page" id='page_first' value="[var..script_name]?PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</span></td> 
+			  <td><span style="background-color:#A8DFFF; " class="page" id='page_prev' value="[var..script_name]?PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</span></td> 
+			  <td><span style="background-color:#A8DFFF; " class="page" id='page_page' value="[var..script_name]?PageNum=[nv.page;block=td;navsize=10;navpos=centred]">[nv.page]</span></td> 
+			  <td><div style="border-style:inset; border-width:1px; border-top-width:1px; border-left-width:1px; border-right-width:1px; border-bottom-width:1px; background-color:#A8DFFF; height:16px;width : 15px; ">[nv.page;block=td;currpage]</div></td> 
+			  <td><span style="background-color:#A8DFFF; " class="page" id='page_next' value="[var..script_name]?PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</span></td> 
+			  <td><span style="background-color:#A8DFFF; " class="page" id='page_last' value="[var..script_name]?PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</span></td> 
+			</tr> 
+		   </table></td> 
+	   </tr> 
+        </table></td>
+  </tr>
+</table>

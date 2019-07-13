@@ -1,0 +1,6 @@
+2019-04-13 23:38:26 Database error message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '39}' at line 1
+SQL = SELECT * FROM `user_config`
+URL = /wypayment.php
+2019-04-13 23:38:32 Database error message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '39}' at line 1
+SQL = SELECT * FROM `user_config`
+URL = /wypayment.php

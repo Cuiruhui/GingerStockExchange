@@ -1,0 +1,6 @@
+2017-06-16 14:12:14 183.18.35.171 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='5.01',sell_cost_money='1',dc_money='0',sell_money='501',sell_trust_id='12892',sell_gain='-15',gain='-22.82',agent_sell_money='0',sell_trust_date='2017-06-16',sell_trust_time='2017-06-16 14:12:14' where id='00005809'
+2017-06-16 14:12:14 183.18.35.171 UPDATE `user_users` set money=money+501+-15-1-0-0,cash=cash+-15-1-0-0 where username='uceshi'
+2017-06-16 14:12:21 183.18.35.171 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='9.03',sell_cost_money='1.81',dc_money='0',sell_money='903',sell_trust_id='12893',sell_gain='-8',gain='-17.42',agent_sell_money='0',sell_trust_date='2017-06-16',sell_trust_time='2017-06-16 14:12:21' where id='00005808'
+2017-06-16 14:12:21 183.18.35.171 UPDATE `user_users` set money=money+903+-8-1.81-0-0,cash=cash+-8-1.81-0-0 where username='uceshi'
+2017-06-16 14:12:25 183.18.35.171 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='5',sell_cost_money='1',dc_money='0',sell_money='500',sell_trust_id='12894',sell_gain='1',gain='-6.79',agent_sell_money='0',sell_trust_date='2017-06-16',sell_trust_time='2017-06-16 14:12:25' where id='00005805'
+2017-06-16 14:12:25 183.18.35.171 UPDATE `user_users` set money=money+500+1-1-0-0,cash=cash+1-1-0-0 where username='uceshi'

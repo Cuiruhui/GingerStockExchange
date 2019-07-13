@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>新增信息</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#add_form").validate({
+		rules: {
+			title: "required",
+			content: "required"
+		},
+		messages: {
+			title: "请输入标题！",
+			content: "请输入内容!"
+		},
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+	$('#btnBack').click(function(){
+		history.go(-1);
+	});
+});
+</script>
+<style>
+.table1 td p {line-height:20px; margin:0px;}
+
+</style>
+</head>
+<body>
+<form method="post" name="add_form" id="add_form" action="?type=addok">
+<input type="hidden" name="id" value="[var.id]">
+
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="table1">
+  <tr class="row_title">
+    <td colspan="2" align="center">新增短信息</td>
+  </tr>
+  <tr class="row1_odd">
+    <td width="15%" align="right">接收人:</td>
+    <td class="gray">[var.row.username]([var.row.alias])</td>
+  </tr>
+  <tr class="row1_even">
+    <td align="right">短信标题:</td>
+    <td class="gray">
+		<input type="text" name="title" id="title" size=35>
+	</td>
+  </tr>
+  <tr class="row1_odd">
+    <td align="right">短信内容:</td>
+    <td class="gray" style="line-height:20px;">
+		<textarea name="content" id="content" rows="5" cols="60"></textarea>
+	</td>
+  </tr>
+  <tr class="row1_odd">
+    <td align="right"></td>
+    <td class="gray" style="line-height:20px;">
+		<input type="submit" name="btnEnter" class="btn1" id="btnEnter" value="新增" /> 
+	</td>
+  </tr>
+</table>
+
+</form>
+</body>
+</html>

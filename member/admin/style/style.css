@@ -1,0 +1,51 @@
+body { background:#ffffff; font-family:'宋体'; font-size:12px; color:#212528; margin:0px; padding:0px;}
+input{margin:0; color:#404040; vertical-align:middle; font-size:12px/16px; font-family:'Arial', 'Helvetica', 'sans-serif'; }
+textarea {margin:0px; color:#404040; vertical-align:middle; }
+input[type='text'],input[type='password'] { border:1px solid #7F9DB9;}
+a{color:#5f676e; text-decoration:none;}
+a:hover{color:#ea5504;}
+img{border:0;}
+html {overflow-x:hidden; overflow-y:auto;}
+
+.btn { width:93px; height:33px; line-height:33px; color:#335E74; font-weight:bold; background:url(../images/btn_bg.gif) no-repeat; text-align:center; border:0px; cursor:pointer; font-size:14px; font-family:"微软雅黑","黑体","宋体" ; letter-spacing:2px; }
+.btn1 { width:60px; height:24px; line-height:24px; background:url(../images/btn_bg1.gif) no-repeat; text-align:center; border:0px; cursor:pointer; padding:0px;}
+.btn2 { width:90px; height:26px; line-height:26px; background:url(../images/btn_bg2.gif) no-repeat; text-align:center; border:0px; cursor:pointer; padding:0px;}
+a.btn3 { display:inline-block; float:left; margin:0px 3px; width:70px; height:23px; line-height:24px; background:url(../images/btn_bg3.gif) no-repeat; text-align:center; border:0px; cursor:pointer; padding:0px; color:#ffffff;}
+a.btn3:hover { display:block; float:left; margin:0px 3px; width:70px; height:23px; line-height:24px; background:url(../images/btn_bg3_hover.gif) no-repeat; text-align:center; border:0px; cursor:pointer; padding:0px; color:#ffffff;}
+a.btn4 { display:block; float:left; margin:0px 3px; width:70px; height:23px; line-height:24px; background:url(../images/btn_bg4.gif) no-repeat; text-align:center; border:0px; cursor:pointer; padding:0px; color:#ffffff;}
+.top_menu {height:60px; overflow:hidden; background:url(../images/top_bg.jpg) repeat-x;}
+
+.menu {width:200px; overflow:hidden;}
+.menu td {height:22px; line-height:22px; background:url(../images/menu_dot.gif) no-repeat 10px center; text-align:left; padding-left:25px; color:#505A61;}
+.menu td a {color:#505A61;}
+.menu td a:hover {color:#ea5504; text-decoration:underline;}
+.menu td a.add {color:#AFB6BD;}
+.menu td.menu_main {height:26px; line-height:31px; overflow:hidden; background:url(../images/menu_bg.gif) no-repeat; text-align:left; padding-left:25px; font-size:14px; font-weight:bold;}
+
+.table1 {border:1px solid #BECDD8; margin:3px auto; background:#ffffff; font-size:12px;}
+.table1 td {padding:3px; height:20px; line-height:20px; font-size:12px;}
+.table1 .row_title { height:25px; line-height:25px; background:url(../images/title_bg.jpg) repeat-x; font-weight:bold; padding-left:5px;}
+.table1 .row_ls {background:#FBFBFC;}
+.table1 .row1_old {background:#FBFBFC;}
+.table1 .row1_even {background:#E5EFF7;}
+.table1 .nodata {height:50px; line-height:50px; color:gray; background:#FFF8EA; }
+.table1 td span {cursor:pointer;}
+.table1 a {color:#6390B6; text-decoration:underline;}
+.table1 a:hover {color:#ff0000; text-decoration:none;}
+.table1 .tips {background:url(../images/tips.gif) left center no-repeat; padding-left:20px; color:gray;}
+.table1 .gray {color:gray;}
+
+.pagelist td  { font-family:'Arial'; font-size:14px;}
+.pagelist a {text-decoration:underline;}
+.pagelist a:hover {text-decoration:none;}
+.pagelist a.cur {color:#ff0000;}
+.pagelist { PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 3px; PADDING-TOP: 3px; TEXT-ALIGN: center}
+.pagelist A { BORDER-RIGHT: #9aafe5 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #9aafe5 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #9aafe5 1px solid; COLOR: #2e6ab1; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #9aafe5 1px solid; TEXT-DECORATION: none}   
+.pagelist A:hover { BORDER-RIGHT: #2b66a5 1px solid; BORDER-TOP: #2b66a5 1px solid; BORDER-LEFT: #2b66a5 1px solid; COLOR: #000; BORDER-BOTTOM: #2b66a5 1px solid; BACKGROUND-COLOR: lightyellow}   
+
+.datepicker {width:85px; background:url(../images/datePicker.gif) right center no-repeat;}
+
+/*表单验证样式*/
+input.error,select.error,textarea.error {border:1px solid #FE9C4A; color:#ff0000;}
+label.error { margin-left:3px; height:20px; line-height:20px; color:#ff0000; background:url(../images/icon_error.gif) no-repeat; padding-left:13px;}
+label.success {margin-left:3px; color:#006600; background:url(../images/icon_ok.gif) no-repeat; padding-left:18px;}

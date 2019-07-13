@@ -1,0 +1,32 @@
+2016-07-15 01:05:35 Database error message: &Oacute;&Eacute;&Oacute;&Uacute;&Auml;&iquest;&plusmn;&ecirc;&frac14;&AElig;&Euml;&atilde;&raquo;&uacute;&raquo;&yacute;&frac14;&laquo;&frac34;&Uuml;&frac34;&oslash;&pound;&not;&Icirc;&THORN;&middot;&uml;&Aacute;&not;&frac12;&Oacute;&iexcl;&pound;
+
+SQL = 
+URL = /
+2016-07-15 01:05:39 Database error message: &Oacute;&Eacute;&Oacute;&Uacute;&Auml;&iquest;&plusmn;&ecirc;&frac14;&AElig;&Euml;&atilde;&raquo;&uacute;&raquo;&yacute;&frac14;&laquo;&frac34;&Uuml;&frac34;&oslash;&pound;&not;&Icirc;&THORN;&middot;&uml;&Aacute;&not;&frac12;&Oacute;&iexcl;&pound;
+
+SQL = SELECT * FROM `user_config`
+URL = /
+2016-07-15 01:05:46 Database error message: &Oacute;&Eacute;&Oacute;&Uacute;&Auml;&iquest;&plusmn;&ecirc;&frac14;&AElig;&Euml;&atilde;&raquo;&uacute;&raquo;&yacute;&frac14;&laquo;&frac34;&Uuml;&frac34;&oslash;&pound;&not;&Icirc;&THORN;&middot;&uml;&Aacute;&not;&frac12;&Oacute;&iexcl;&pound;
+
+SQL = 
+URL = /
+2016-07-15 01:05:50 Database error message: &Oacute;&Eacute;&Oacute;&Uacute;&Auml;&iquest;&plusmn;&ecirc;&frac14;&AElig;&Euml;&atilde;&raquo;&uacute;&raquo;&yacute;&frac14;&laquo;&frac34;&Uuml;&frac34;&oslash;&pound;&not;&Icirc;&THORN;&middot;&uml;&Aacute;&not;&frac12;&Oacute;&iexcl;&pound;
+
+SQL = SELECT * FROM `user_config`
+URL = /
+2016-07-15 06:16:26 Database error message: &Oacute;&Eacute;&Oacute;&Uacute;&Auml;&iquest;&plusmn;&ecirc;&frac14;&AElig;&Euml;&atilde;&raquo;&uacute;&raquo;&yacute;&frac14;&laquo;&frac34;&Uuml;&frac34;&oslash;&pound;&not;&Icirc;&THORN;&middot;&uml;&Aacute;&not;&frac12;&Oacute;&iexcl;&pound;
+
+SQL = 
+URL = /
+2016-07-15 06:16:30 Database error message: &Oacute;&Eacute;&Oacute;&Uacute;&Auml;&iquest;&plusmn;&ecirc;&frac14;&AElig;&Euml;&atilde;&raquo;&uacute;&raquo;&yacute;&frac14;&laquo;&frac34;&Uuml;&frac34;&oslash;&pound;&not;&Icirc;&THORN;&middot;&uml;&Aacute;&not;&frac12;&Oacute;&iexcl;&pound;
+
+SQL = SELECT * FROM `user_config`
+URL = /
+2016-07-15 15:08:59 Database error message: &Oacute;&Eacute;&Oacute;&Uacute;&Auml;&iquest;&plusmn;&ecirc;&frac14;&AElig;&Euml;&atilde;&raquo;&uacute;&raquo;&yacute;&frac14;&laquo;&frac34;&Uuml;&frac34;&oslash;&pound;&not;&Icirc;&THORN;&middot;&uml;&Aacute;&not;&frac12;&Oacute;&iexcl;&pound;
+
+SQL = 
+URL = /
+2016-07-15 15:09:03 Database error message: &Oacute;&Eacute;&Oacute;&Uacute;&Auml;&iquest;&plusmn;&ecirc;&frac14;&AElig;&Euml;&atilde;&raquo;&uacute;&raquo;&yacute;&frac14;&laquo;&frac34;&Uuml;&frac34;&oslash;&pound;&not;&Icirc;&THORN;&middot;&uml;&Aacute;&not;&frac12;&Oacute;&iexcl;&pound;
+
+SQL = SELECT * FROM `user_config`
+URL = /

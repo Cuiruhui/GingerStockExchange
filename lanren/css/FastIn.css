@@ -1,0 +1,347 @@
+﻿.fullscreen {
+    background: #ededed;
+    padding-bottom: 20px;
+}
+
+.FastInHead {
+    height: 53px;
+    width: 100%;
+    overflow: hidden;
+    background: #f5f5f5;
+    color: #666666;
+    font-size: 14px;
+}
+
+    .FastInHead .Industrys {
+    }
+
+        .FastInHead .Industrys .Item {
+            float: left;
+            padding: 0 15px;
+            height: 50px;
+            line-height: 50px;
+            border-bottom: 3px solid #f5f5f5;
+            width: auto;
+        }
+
+            .FastInHead .Industrys .Item.Selected {
+                color: #ff8200;
+                border-bottom: 3px solid #ff8200;
+            }
+
+    .FastInHead .FastInMore {
+        width: 81px;
+        text-align: center;
+        height: 53px;
+        line-height: 55px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: url(/images/drop-down-btn.png) no-repeat;
+        background-size: auto 100%;
+        text-indent: 22px;
+        z-index: 2;
+    }
+
+        .FastInHead .FastInMore:after {
+            content: "\e068";
+            font-family: "iconic";
+            font-size: 16px;
+            color: #2276dd;
+        }
+
+.DropDownIndustry {
+    padding-top: 10px;
+    background: #f5f5f5;
+    border: solid #c3c3c3;
+    border-width: 1px 0;
+    display: none;
+}
+
+    .DropDownIndustry .Item {
+        width: 30%;
+        margin: 0 0 10px 2.5%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        color: #666666;
+        border: 1px solid #e2e2e2;
+        border-radius: 3px;
+        float: left;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+        .DropDownIndustry .Item.Selected {
+            color: #ff8200;
+        }
+
+.Fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+.FastInSearch {
+    background: #e0e0e0;
+    padding: 15px;
+}
+
+.FastInJobItem {
+    width: 100%;
+    margin-top: 20px;
+    background: #fff;
+    position: relative;
+}
+
+    .FastInJobItem .Money {
+        position: absolute;
+        top: 9px;
+        right: 15px;
+        font-size: 18px;
+        color: #2276dd;
+        line-height: 30px;
+    }
+
+    .FastInJobItem .Content {
+        padding: 10px 15px 5px;
+        line-height: 30px;
+        border-bottom: 1px solid #ebebeb;
+        display: block;
+    }
+
+        .FastInJobItem .Content .JobName {
+            color: #2182cc;
+            font-size: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 65%;
+        }
+
+        .FastInJobItem .Content .EntName {
+            color: #909090;
+            font-size: 15px;
+        }
+
+        .FastInJobItem .Content .EntFl {
+            float: left;
+            width: 23%;
+            margin: 5px 2% 5px 0;
+            background: #e2e2e2;
+            color: #515151;
+            text-align: center;
+            font-size: 12px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .FastInJobItem .Content .Region {
+            font-size: 13px;
+            color: #909090;
+            float: left;
+        }
+
+            .FastInJobItem .Content .Region:before {
+                content: "\e069";
+                font-family: "iconic";
+                font-size: 15px;
+                color: #ff8200;
+                margin-right: 5px;
+            }
+
+        .FastInJobItem .Content .TimeLeft {
+            font-size: 13px;
+            color: #909090;
+            float: right;
+        }
+
+            .FastInJobItem .Content .TimeLeft:before {
+                content: "\e070";
+                font-family: "iconic";
+                font-size: 15px;
+                color: #f55f47;
+                margin-right: 5px;
+                position: relative;
+                top: 1px;
+            }
+
+        .FastInJobItem .Content .Djl {
+            font-size: 13px;
+            color: #909090;
+            float: left;
+        }
+
+    .FastInJobItem .TimeLeft1 {
+        font-size: 13px;
+        color: #909090;
+        right: 15px;
+        bottom: 50px;
+        position: absolute;
+        cursor: pointer;
+    }
+
+        .FastInJobItem .TimeLeft1:before {
+            content: "\e070";
+            font-family: "iconic";
+            font-size: 15px;
+            color: #f55f47;
+            margin-right: 5px;
+            position: relative;
+            top: 1px;
+        }
+
+    .FastInJobItem .CompeteType {
+        font-size: 12px;
+        color: #fff;
+        background: #ff9900;
+        width: 20px;
+        text-align: center;
+        height: 20px;
+        line-height: 20px;
+        right: 15px;
+        bottom: 50px;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    .FastInJobItem .BtnOper {
+        float: left;
+        height: 40px;
+        line-height: 40px;
+        margin: 0 0 0 -1px;
+        text-align: center;
+        font-size: 14px;
+        color: #929292;
+        position: relative;
+    }
+
+        .FastInJobItem .BtnOper:before {
+            position: absolute;
+            width: 2px;
+            height: 22px;
+            border: solid #ebebeb;
+            border-width: 0 0 0 1px;
+            top: 9px;
+            left: 0;
+            content: '';
+        }
+
+        .FastInJobItem .BtnOper .ZF:after {
+            content: "\e071";
+            font-family: "iconic";
+            font-size: 14px;
+            color: #929292;
+            margin-right: 8px;
+            font-style: normal;
+        }
+
+        .FastInJobItem .BtnOper .SC:after {
+            content: "\e072";
+            font-family: "iconic";
+            font-size: 16px;
+            color: #929292;
+            margin-right: 8px;
+            font-style: normal;
+        }
+
+        .FastInJobItem .BtnOper .YP:after {
+            content: "\e073";
+            font-family: "iconic";
+            font-size: 16px;
+            color: #929292;
+            margin-right: 5px;
+            font-style: normal;
+        }
+
+        .FastInJobItem .BtnOper.Selected {
+            color: #ff8200;
+        }
+
+            .FastInJobItem .BtnOper.Selected .ZF:after {
+                color: #ff8200;
+            }
+
+            .FastInJobItem .BtnOper.Selected .SC:after {
+                color: #ff8200;
+                content: "\e074";
+            }
+
+            .FastInJobItem .BtnOper.Selected .YP:after {
+                color: #ff8200;
+            }
+
+    .FastInJobItem .Hot {
+        height: 25px;
+        margin-top: 40px;
+    }
+
+        .FastInJobItem .Hot:after {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #ededed;
+            background: #2276dd;
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            line-height: 51px;
+            content: "HOT";
+            display: block;
+            position: absolute;
+            top: -28px;
+            left: 15px;
+            font-size: 16px;
+        }
+
+.InputBg {
+    background: #fff;
+    border: #e2e2e2;
+    border-radius: 3px;
+    height: 40px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+    .InputBg .InputSearch {
+        width: 70%;
+        margin-left: 10px;
+        font-size: 14px;
+        height: 40px;
+    }
+
+    .InputBg .BtnSearch {
+        background: #ff8200;
+        border-radius: 0 3px 3px 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 80px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+        font-size: 16px;
+    }
+
+        .InputBg .BtnSearch:before {
+            content: "G";
+            font-family: "iconic";
+            font-size: 16px;
+            color: #fff;
+            margin-right: 5px;
+        }
+
+.Hide {
+    display: none;
+}
+
+.FastInShareBg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}

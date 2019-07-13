@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>卖出股票</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//修改当前价颜色
+	var buy_type = [var.deal.buy_type];
+	var bull_price = [var.deal.bull_price];
+	var cur_price = [var.cur_price];
+	if(buy_type == 1) //买升
+	{
+		 cur_price > bull_price ? $('#span_cur_price').css('color','red') : $('#span_cur_price').css('color','green');
+	}
+	else
+	{
+		cur_price < bull_price ? $('#span_cur_price').css('color','red') : $('#span_cur_price').css('color','green');
+	}
+	
+	$("#sell_stock").validate({
+		rules: {
+			num: {required:true, digits:true, range:[1,[var.deal.can_sell_num]]}
+		},
+		messages: {
+			num: {required: "请输入要卖出的数量.",digits: "必须输入整数", range: "卖出数量必须大于0小于[var.deal.can_sell_num]手."}
+		},
+		submitHandler: function(form) {
+			$('#btnsell').attr('value','提交中，请稍候…');
+			$('#btnsell').attr('disabled','true');
+			form.submit();
+		}
+	});
+});
+</script>
+<style>
+body {
+    font-family: "Microsoft YaHei" ! important;
+  }
+
+.button {border:1px solid #cccccc; filter:none;}
+</style>
+</head>
+<body>
+  <table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" class="mybox" style="margin-top:5px;">
+   <h3><center>确定卖出股票[var.deal.stock_name]吗？</center></h3>
+  <form name="sell_stock" id="sell_stock" method="post" action="?act=sell">
+    <tr bgcolor="#FFFFFF">
+      <td align="right">卖出价格：</td>
+      <td><table  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><input name="price_type" type="radio" value="1" checked="checked" style="vertical-align:middle;" onclick="$('#span_price').css('display','none');" />
+市价 </td>
+          <td><span id="span_price" style="display:none; float:left;">
+      <input name="sell_price" type="text" id="sell_price" size="5" value="[var.cur_price]" readonly></span></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">卖出数量：</td>
+      <td><input type="text" name="num" id="num" value="[var.deal.can_sell_num]" size="5" readonly></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">&nbsp;</td>
+      <td><button name="Submit" id="btnsell" onclick="if(confirm('确定卖出吗？')){document.sell_stock.submit();}else{return false;}" class="button_small">卖出</button>
+      <input name="id" type="hidden" id="id" value="[var.id]" />
+      <div id="msg"></div></td>
+    </tr>
+	</form>
+  </table>
+
+</body>
+</html>

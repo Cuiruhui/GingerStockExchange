@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="utf-8" />
+	<title>SST-4交易平台</title>
+
+
+	<link href="css/form/login.css" rel="stylesheet" media="screen" type="text/css" />
+	<script type="text/javascript"> 
+      function changeImg(){ 
+        var a=document.getElementById("captchaImg");
+        a.src='validate.php?'+Math.random();
+      }
+    
+      function loginSub()
+      {
+		
+        var username = document.loginForm.username.value;
+        var password = document.loginForm.password.value;
+        var validate = document.loginForm.validate.value;
+		
+        if(username == null || username == '' || username.length ==0){
+            alert("用户名不能为空");
+            document.loginForm.username.select();
+            return false;
+        }
+        else if(password == null || password == '' || password.length ==0){
+            alert("密码不能为空");
+            document.loginForm.password.select();
+            return false;
+        }
+    
+        else if(validate == null || validate == '' || validate.length ==0){
+            alert("请输入验证码");
+            document.loginForm.validate.select();
+            return false;
+        }
+        document.loginForm.submit();
+      }
+    </script>
+
+
+	
+</head>
+<body class="easyui-layout body-default">
+	<div id="header"></div>
+	<div id="content">
+		<div class="content_top"></div>
+		<div class="content_login">
+			<div class="marginauto loginauto relative">
+				<div class="login">
+                <form id="loginForm" name="loginForm" action="login_from.php?type=login" method="post">
+                	<div class="group">
+                            <input  type="text" id="username" name="username" class="username username-txt" />
+							<span class="ok"></span><span class="error"></span> <div class="prompt hide"></div>
+					</div>
+					<div class="group">
+	
+						<input type="password" name="password" class="password password-check" maxlength="11">
+						<span class="ok"></span><span class="error"></span> <div class="prompt hide"></div>
+					</div>                
+					<div class="group">
+							<input type="text" class="verfiry fl verfiry-jy" id="validate" name="validate" value="" maxlength="4"> 
+                            <img align="absmiddle" title="看不清，点击换一张" id="captchaImg" src="validate.php"  onclick="changeImg();">
+							
+							<div class="prompt hide"></div>
+					</div>
+					<div class="group button-group">
+						
+                            <input type="button" onclick="loginSub();"   id="submitbutton" name="submitbutton" value="" class="button">
+							<input type="button" onclick="javascript:location.href='reg.php'" class="button_reg">
+					</div> 
+                    
+
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="content_footer">
+			<div class="marginauto loginauto content_copy relative">
+				<p class="con_info">Copyright&nbsp;(c)&nbsp;&nbsp;2013-2014&nbsp;&nbsp;鼎泰国际（香港）有限公司</p>
+			</div>
+		</div>
+		<div class="content_line"></div>
+	</div>
+	<div id="footer">
+		<div class="marginauto">
+			<ul class="link">
+				<li><a target="_blank" href="/">返回首页</a>|</li>
+				<li><a onClick="SetHome(window.location)" href="javascript:void(0)">设为首页</a>|</li>
+				<li><a target="_blank" href="rules_n.php">交易规则</a>|</li>
+                <li><a href="reg.php" >开设帐户</a></li>
+			</ul>
+			<div class="clear"></div>
+			<div class="copyright">
+				<div class="ft_logo"></div>
+				<div class="ft_copy">
+					<p class="first">Copyright© 2013 鼎泰国际公司版权所有，不得转载</p>
+					<p>ICP备案号：粤ICP备11108534号 FCA:NO194519 </p>
+                  
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

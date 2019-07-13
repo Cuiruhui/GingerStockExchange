@@ -1,0 +1,78 @@
+body{ width:1335px; margin:0 auto;background:#828d97 url(../images/topbg.gif) top repeat-x; padding:0;font-size:12px;}
+input,textarea{padding:0;margin:0;}
+a{color:#5f676e; text-decoration:none;}
+a:hover{color:#ea5504;}
+img{border:0;}
+.Top{width:100%; overflow:hidden;height:106px;margin:0;background:url(../images/topbg.gif) top left repeat-x;}
+.Exit{ float:left; width:275px; height:53px; margin-top:35px;padding:8px 0 0 0;background:url(../images/exit.gif) top left no-repeat; font-size:12px;}
+.Nav{ float:left;width:1020px;}
+.Con{ float:left; width:1335px;}
+.LeftNavCon{ float:left; width:191px;margin-bottom:10px;}
+.RightBg{margin:0; padding:9px; background-color:#afb8bf;}
+.RightTabBot{padding:15px;color:#4c555d;border:1px #99a0a8 solid; background-color:#e7eaee;}
+.RightTab{ margin-bottom:10px;padding:15px;color:#4c555d;border:1px #99a0a8 solid; background-color:#e7eaee;}
+.RightTabCon{background-color:#e7eaee; color:4c555d;}
+.fB{ font-weight:bold;}
+.CBlue{color:#0066CC}
+.CRed{color:#990000}
+.GLray{background:#e7eaee;}
+.LText{color:#e0e4ed;}
+.DText{color:#4c555d;}
+.Exit .ExitLeft{ float:left;padding-left:35px; width:180px; display:block}
+.Exit .ExitRit{ float:left;padding:0 5px auto 0;width:50px; display:block}
+
+.Logo{ float:left; display:inline; width:940px;height:51px;margin:18px auto auto 26px; background:url(../images/LOGO.gif) top left no-repeat;}
+.LeftNav{ float:left; display:inline; width:191px; height:29px; margin-top:5px; margin-left:9px;}
+.LeftNavbot{ float:left; display:inline; margin-left:9px;}
+
+.SideBar{float:left; display:inline;width:189px; height:500px;border:1px #b9bfc4 solid;margin-left:9px;background-color:#e7eaee;}
+.SideBar .SideCon{ width:189px; height:181px; border:none;}
+.SideBar .NavBG{background:url(../images/Leftnav_1.gif) left top repeat-x;width:189px; height:27px;}
+.SideBar .NavBGTwo{ height:30px;}
+.SideBar .NavCon{ height:15px; width:189px;}
+
+.SideBar .NavIcon{ width:28px; text-align:right;}
+.SideBar .NavText{ padding-left:6px; font-weight:bold;}
+.SideBar .NavIconTwo{width:43px; text-align:right;height:26px;line-height:26px;}
+.SideBar .NavTextTwo{padding-left:6px;height:26px;line-height:26px;}
+.SideBar .Dline{ background:#bbc3cb; height:1px;}
+.SideBar .Lline{ background:#f2f3f3; height:1px;}
+
+
+.RightCon{ float:left; width:83%;padding:6px; margin-left:15px; _margin-left:7px; background-color:#636f78;}
+.RightCon h2{margin:0 auto; font-size:16px; font-weight:700; padding-left:50px;}
+
+.Login{width:498px; height:320px; margin:0 auto; margin-top:113px;padding-top:118px;background:url(../images/LoginBg.gif) left top no-repeat;}
+.Enter{ width:165px; float:left; padding-left:140px;}
+.Username{width:165px; height:25px; margin-bottom:20px;}
+.LogIcon{ float:left; width:79px; height:68px; margin:2px auto auto 50px;}
+.Username input{width:165px; height:20px; color:#404040; padding:2px 0 0 7px;}
+.Tel{ float:left; width:420px;padding:50px 0 0 70px; color:#233f51;}
+
+.ThrTit{ height:20px; padding-top:10px;}
+.ThrClass{ background:#fff; border:1px #99a0a8 solid; padding:3px; padding-bottom:5px;}
+.ThrClass a{display:block;float:left;width:60px;height:22px;line-height:22px; padding:0 10px 0 15px;text-decoration:none;}
+
+.AddRightBg{width:600px;padding:9px; background-color:#afb8bf; margin:0 auto; margin-top:30px;margin-bottom:30px;}
+.AddRightTab{padding:15px;color:#4c555d;border:1px #99a0a8 solid; background-color:#e7eaee;}
+.Fd{ width:800px; height:20px; line-height:20px; border:1px #99a0a8 solid;padding:10px 20px; z-index:2;position:absolute; background:#e7eaee; margin:10px 0}
+.Fd span{ padding-left:20px;}
+.Pointer{ cursor:pointer;}
+
+.rcc_szfdxl{ width:400px; border:1px #5b6674 solid; background:#c9cdd2;}
+.rcc_szfdxl td{ height:35px; line-height:35px;}
+.rcc_szfdxl input{ margin-top:5px;}
+
+.AddRightTable{ width:340px; float:left;padding:0 12px 10px 12px;}
+.clear{clear:both;height:0;font-size:0;line-height:0;}
+.AddRightTable table{ margin:5px auto;}
+
+#helper{position:relative;}
+.helper{width:200px;}
+.helper .Tips{position:absolute; z-index:2; width:200px;padding:3px 0; margin:0;background:#fff;border:1px #7f9db9 solid; border-top:none;  color:#5f676e; left:0; top:0;}
+.helper .Tips ul{ height:22px; line-height:22px; width:195px; text-align:left; display:block; padding-left:3px;margin:0;}
+
+.red{color:#FF0000;}
+.baioti{ margin-bottom:5px; line-height:20px;}
+.baioti a{ text-decoration:none;}
+.green{color:#009900;}

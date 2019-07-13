@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>提款管理</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/jquery.formCheckbox_choose.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#agent,#pay_type').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+});
+</script>
+</head>
+<body> 
+ <table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <thead> 
+     <tr class="row_ls"> 
+      <td colspan="10"><table border="0" cellspacing="0" cellpadding="0"> 
+          <form name="frmSearch" id="frmSearch" action="atm_log.php" method="get"> 
+            <tr>
+              <td>代理商:
+                <select name="agent" size="1" id="agent">
+				<option value="">全部</option>
+              <option value="[ag.username]">[ag.username;block=option;]</option>
+				<option>[var.agent;ope=html;select]</option> 
+              </select></td> 
+              <td>&nbsp;状态:
+                <select name="pay_type" id="pay_type"> 
+                  <option value="999">全部</option> 
+                  <option value="1">已打款</option> 
+                  <option value="0">未打款</option> 
+				  <option value="-1">已回退</option> 
+                  <option>[var.pay_type;ope=html;select]</option> 
+              </select></td> 
+              <td>&nbsp;用户名:</td> 
+              <td><input name="search" type="text" id="search" value="[var.search]" size="15"></td> 
+              <td><input type="submit" class="btn1" name="btnSearch" id="btnSearch" value="查 询"></td> 
+            </tr> 
+          </form> 
+        </table></td> 
+    </tr> 
+     <tr class="row_title">
+       <td align="center">删除</td>
+       <td align="center">用户名</td>
+      <td align="center">代理商</td>
+       <td align="center">申请日期</td> 
+      <td align="center">打款日期</td>
+       <td align="center">金额</td> 
+      <td align="center">银行</td> 
+      <td width="150" align="center">开户行</td> 
+      <td width="150" align="center">帐号/姓名</td> 
+      <td align="center">状态</td> 
+    <td width="100" align="right">操作</td>
+    </tr> 
+   </thead> 
+  <tr class="row1_odd">
+    <td align="center"><input name="dcID[]" type="checkbox" id="dcID[]" value="[tr.id;block=tr;ondata=event_row]" /></td>  
+ 
+    <td align="center"><a href="javascript:ShowUserInfo('[tr.username]');">[tr.username;]</a></td> 
+     <td align="center">[tr.agent]</td>
+     <td align="center">[tr.add_time]</td> 
+     <td align="center">[tr.pay_time;if [val]=''; then '-';else [val]]</td>
+     <td align="center">￥[tr.money].00</td> 
+     <td align="center">[tr.bank]</td> 
+     <td align="center">[tr.bankname]</td> 
+     <td align="center">[tr.bankno]&nbsp;[tr.bankrealname]</td> 
+     <td align="center">[tr.status]</td> 
+   <td align="center"><input name="btnPay" type="button" id="btnPay" value="设置已打款" class="btn2" onClick="self.location.href='?type=pay&id=[tr.id]';" [tr.disabled] />
+    <input name="btnDel" type="button" id="btnDel" value="回退" class="btn1" onClick="self.location.href='?type=del&id=[tr.id]';" [tr.disabled] /></td>
+  </tr> 
+  <tr class="row1_even">
+    <td align="center"><input name="dcID[]" type="checkbox" id="dcID[]" value="[tr.id;block=tr;ondata=event_row]" /></td>  
+    <td align="center"><a href="javascript:ShowUserInfo('[tr.username]');">[tr.username]</a></td> 
+     <td align="center">[tr.agent]</td>
+     <td align="center">[tr.add_time]</td> 
+     <td align="center">[tr.pay_time;if [val]=''; then '-';else [val]]</td>
+     <td align="center">￥[tr.money].00</td> 
+     <td align="center">[tr.bank]</td> 
+     <td align="center">[tr.bankname]</td> 
+     <td align="center">[tr.bankno]&nbsp;[tr.bankrealname]</td> 
+     <td align="center">[tr.status]</td> 
+   <td align="center"><input name="btnPay2" type="button" id="btnPay2" value="设置已打款" class="btn2" onClick="self.location.href='?type=pay&id=[tr.id]';" [tr.disabled] />
+     <input name="btnDel2" type="button" id="btnDel2" value="回退" class="btn1" onClick="self.location.href='?type=del&id=[tr.id]';" [tr.disabled] /></td>
+  </tr> 
+  <tr align="center" class="nodata"> 
+     <td height="50" colspan="10">[tr;block=tr;nodata]暂无用户提款记录.</td> 
+   </tr> 
+    <tr class="row_ls"> 
+      <td colspan="10"><a href="javascript:void(0);" onclick="$(document).formCheckbox_choose({value:1})">全选</a> <a href="javascript:void(0);" onclick="$(document).formCheckbox_choose({value:-1})">反选</a> <a href="javascript:void(0);" onclick="$(document).formCheckbox_choose({value:0})">取消</a> 
+        <input type="button" name="btnSet" id="btnSet" value="删除" class="btn1" onclick="remove_btn()"/> 
+		</td> 
+    </tr> 
+<script type="text/javascript">
+<!--
+	function remove_btn(){
+		
+		var chks = "";
+		$(":checkbox:checked").each(function(){
+				chks += ',' + $(this).val()
+			});
+		chks = chks.substr(1);
+		if ( chks == "" ){
+			alert("请先选择！"); return;
+		}
+		if (!confirm("是否确定删除？")) return;
+		self.location.href='?type=remove&ids='+ chks;
+
+	}
+//-->
+</script>
+  <tr class="row_ls"> 
+     <td colspan="10"><table border="0" align="center" cellpadding="2" cellspacing="0" class="pagelist">
+       <tr align="center" >
+         <td><a id='page_first' href="[var..script_name]?agent=[var.agent]&pay_type=[var.pay_type]&search=[var.search]&PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td>
+         <td><a id='page_prev' href="[var..script_name]?agent=[var.agent]&pay_type=[var.pay_type]&search=[var.search]&PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td>
+         <td><a id='page_page' href="[var..script_name]?agent=[var.agent]&pay_type=[var.pay_type]&search=[var.search]&PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td>
+         <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td>
+         <td><a id='page_next' href="[var..script_name]?agent=[var.agent]&pay_type=[var.pay_type]&search=[var.search]&PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td>
+         <td><a id='page_last' href="[var..script_name]?agent=[var.agent]&pay_type=[var.pay_type]&search=[var.search]&PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td>
+       </tr>
+     </table></td>
+  </tr> 
+</table> 
+</body>
+</html>

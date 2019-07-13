@@ -1,0 +1,102 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>委托中/撤单</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./css/skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px;}
+</style>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript">
+var s;
+$(document).ready(function(){
+	s = window.setTimeout("getQuote()",3000);
+});
+
+function getQuote()
+{
+	clearTimeout(s);
+	code = $('#codelist').html();
+	if(code)
+	{
+		$.ajax({
+			type:'GET',
+			url:'./ajax.php?type=price&stockcode='+code,
+			timeout:10000,
+			success:function(res){
+				if(!res)
+				{
+				 return false;
+				}
+				price = res.split(',');
+				for(i=0;i<price.length;i++)
+				{
+					$('#price_'+(i+1)).html(price[i]);
+					$('#price_'+(i+1)).css('color','#ff0000');
+				}
+				s = window.setTimeout("getQuote()",3000);
+			}
+		});
+	}
+	else
+	{
+		s = window.setTimeout("getQuote()",3000);
+	}
+}
+</script>
+</head>
+<body style="background-color: #FFFBFF" > 
+<div id="codelist" style="display:none;">[var.codelist]</div>
+<form name="frmentrust" method="post" action="entrust.php" id="frmentrust"> 
+<table width='98%' border='0' align="center" cellpadding='3' cellspacing='1' bgcolor="#CCCCCC" class="mybox">
+  <tr align='center'>
+    <th>订单号</th>
+    <th>下单时间</th>
+    <th>股票代码</th>
+    <th>股票名称</th>
+    <th>买/卖</th>
+    <th>升/跌</th>
+    <th>挂单价格</th>
+    <th>当前价</th>
+    <th>股数</th>
+    <th>状态</th>
+    <th>操作</th>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td>[tr.id;block=tr]</td>
+    <td>[tr.stock_trust_time]</td>
+    <td><a href="javascript:ShowKline('[tr.code]');">[tr.code]</a></td>
+    <td><a href="javascript:ShowKline('[tr.code]');">[tr.name]</a></td>
+    <td>[tr.trust_type;if [val]=1; then '买';else '卖']</td>
+    <td>[tr.buy_type;if [val]=1; then '<font color=red>升</font>';else '<font color=green>跌</font>']</td>
+    <td>[tr.price;frm='0.00']</td>
+    <td id="price_[tr.#]">--</td>
+    <td>[tr.num]手</td>
+    <td>委托中</td>
+    <td><input type="button" name="Submit" value="撤单" onClick="return cancel_trust('[tr.code]','[tr.name]','[tr.id]');" class="button3"></td>
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td>[tr.id;block=tr]</td>
+    <td>[tr.stock_trust_time]</td>
+    <td><a href="javascript:ShowKline('[tr.code]');">[tr.code]</a></td>
+    <td><a href="javascript:ShowKline('[tr.code]');">[tr.name]</a></td>
+    <td>[tr.trust_type;if [val]=1; then '买';else '卖']</td>
+    <td>[tr.buy_type;if [val]=1; then '<font color=red>升</font>';else '<font color=green>跌</font>']</td>
+    <td>[tr.price;frm='0.00']</td>
+    <td id="price_[tr.#]">--</td>
+    <td>[tr.num]手</td>
+    <td>委托中</td>
+    <td><input type="button" name="Submit" value="撤单"onClick="return cancel_trust('[tr.code]','[tr.name]','[tr.id]');" class="button3"></td>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF">
+    <td height="100" colspan="11">[tr;block=tr;nodata]<span class="gray">暂无委托记录.</span></td>
+    </tr>
+</table>
+</form> 
+</body>
+</html>

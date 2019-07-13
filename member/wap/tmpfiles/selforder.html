@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自选股票</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./style/thickbox.css" rel="stylesheet" type="text/css" />
+<link href="./style/impromptu.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px;}
+</style>
+<script type="text/javascript" src="./js/autostocks.js"></script>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/SuggestServer_3_0_16.js" charset="gb2312"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//股票查询事件
+	var suggestServer = new SuggestServer();
+	suggestServer.bind({
+		"input": "stockcode",
+		"value": "@2@",
+		"type": "",
+		"max": 10,
+		"width": 250,
+		"head": ["选项", "代码", "中文名称"],
+		"body": [-1, 2, 4],
+	    "fix": { "ie6" : [0, - 1], "ie7" : [0, - 1], "firefox" : [1, 1]},
+		"callback": null
+	});
+	
+	GetUserFav();
+	var interveltime = "3";
+	var refresh = null;
+	window.setInterval(function() {
+		if (refresh == null)
+		refresh = window.setInterval(function() { GetUserFav(); }, parseInt(interveltime, 10) * 1000);
+	}, 10000);
+});
+</script>
+</head>
+<body style="background-color: #FFFBFF" > 
+<form name="frmselforder" method="post" action="selforder.php" id="frmselforder"> 
+    <table width="99%" align="center" cellpadding="3" cellspacing="1" style="margin-top:5px; border:1px solid #CCCCCC; height:35px;"> 
+      <tr>
+        <td align="left">
+        <table cellpadding="0" cellspacing="0" style="color:#000; line-height:35px;">
+         
+		  <tr>
+          <td id="tdstocksname">股票：</td>
+            <td id="tdstocksname" >
+            <input name="stockcode" type="text" id="stockcode" value="代码/名称/拼音" size="12" maxlength="12" style="position:relative; " autocomplete="off" />
+               </td>
+             <td><input name="button" id="btnAdd" type="button" class="button3" onclick="AddStock();" value="加入自选" />
+</td>
+             <td>
+            	<input type="button" name="btn_delete" onClick="productDelete();" value="删除自选" class="button3" />
+        	</td>
+          </tr>
+        </table>
+		</td> 
+      </tr> 
+  </table> 
+    <div id="divstockslist"> 
+	  <span class="loading"><img src="./images/loading.gif" border="0" align="absmiddle" hspace="3" />加载中...</span>
+    </div> 
+  <div id="divstocks" style="display:none;"></div> 
+</form> 
+</body>
+</html>

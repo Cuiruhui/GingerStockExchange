@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="" />
+<meta name="description" content="融资融券交易系统">
+<meta name="author" content="" />
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<meta content="telephone=no" name="format-detection">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="wap/jquery.mobile-1.3.2.min.css">
+		 <link href="css/skin/ymPrompt.css" rel="stylesheet" type="text/css">
+<script src="assets/js/jquery-1.8.2.min.js"></script>
+<script src="wap/jquery.mobile-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/me_function.js"></script>
+ <script type="text/javascript" src="js/ymPrompt.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	GetwapFav();
+	var interveltime = "10";
+	var refresh = null;
+	window.setInterval(function() {
+		if (refresh == null)
+		refresh = window.setInterval(function() { GetwapFav(); }, parseInt(interveltime, 10) * 1000);
+	}, 10000);
+	
+		
+});
+
+
+function wapproductDelete() {
+	var object;
+	var objectID;
+	var productIDList = "";
+	var url = "";
+	var returnVal = "";
+	var tempList = "";
+
+
+	object = $("[name='check_name']");
+	
+	for (i = 0; i < object.length; i++) {
+		if (object[i].checked == true) {
+			productIDList +=  object[i].value + ","
+		}
+	}
+	
+
+	if (productIDList == "") {
+		ymPrompt.errorInfo({title:'系统提示',message:"请先选择要删除的股票！"});
+		return;
+	}
+
+	productIDList = productIDList.substring(0, productIDList.length - 1);
+	
+	ymPrompt.confirmInfo({ message: "确实要删除选定自选股票记录吗？", handler: function(fn) {
+		if (fn == "ok") {
+			var res = ajaxUrl("ajax.php?type=delfav&stockcode=" + productIDList);
+			if (res != null && res != undefined) {
+				if (res.indexOf('true')!=-1) {
+					ymPrompt.succeedInfo({title:'系统提示', message: "删除成功", handler: function() {
+						GetwapFav();
+					}
+					});
+				}
+				else {
+					ymPrompt.errorInfo({title:'系统提示',message: res.value});
+				}
+			}
+		}
+	}
+	});
+}
+
+function GetwapFav() {
+	$.ajax({
+		type: 'GET',
+		url:  'ajax.php?type=getwapfav',
+		cache: false,
+		success:function(res)
+		{
+			$("#divstockslist").html(res);
+		}
+	});
+}
+
+
+function ajaxUrl(url)
+{
+	var res;
+	$.ajax({
+		url: url,
+		type:'GET',
+		timeout:5000,
+		async:false,
+		success:function(data){
+			if(data==undefined || data=='')
+				res = '';
+			else
+				res = data;
+		}
+	});
+	return res;
+}
+
+</script>
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div data-role="page" id="pagetwo" >
+
+
+
+
+  <div data-role="header" data-theme="b">
+  	<a href="./wapindex.php" data-role="button"  data-ajax="false">欢迎您，[var.username]</a>
+    <h1>自选股</h1>
+	<a href="./waplogin.php" data-role="button"  data-ajax="false">退出</a>
+  </div>
+
+  <div data-role="content" >
+    
+		<div id="divstockslist"> 
+	  		<span class="loading"><img src="./images/loading.gif" border="0" align="absmiddle" hspace="3" />加载中...</span>
+    	</div> 
+		<div >
+			
+           <div > <input type="button" id="btn_delete" onClick="wapproductDelete()" value="批量取消关注股票" class="button3" /></div>     
+		</div>
+	
+  </div>
+
+  <div data-role="footer" data-theme="b">
+    <div data-role="navbar" data-position="fixed" data-fullscreen="true">
+      <ul>
+        <li style="height:35px;"><a href="./wapindex.php" data-ajax="false">首页</a></li>
+        <li style="height:35px;"><a href="./waporder.php" data-ajax="false">下单</a></li>
+        
+        <li style="height:35px;"><a href="./waphangqing.php" data-ajax="false">行情</a></li>
+        <li style="height:35px;"><a href="/waptrade.php"data-ajax="false" >持仓</a></li>
+      </ul>
+    </div>
+  </div>
+</div> 
+    </body>
+
+</html>
+
+

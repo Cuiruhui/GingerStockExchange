@@ -1,0 +1,77 @@
+<script type="text/javascript">
+$(document).ready(function() {
+ $('#back').click(function()
+ {
+ 	$.ajax({
+		url: 'bill.php?rnd=' + Math.random(),
+		success:function(response){
+			$('#html').html(response);
+		}
+	});
+ });
+});
+</script>
+<style type="text/css">
+<!--
+#history {
+	background-color: #CCA3AE;
+}
+#history #menu {
+	background-color: #FFCCD9;
+	font-weight: bold;
+	height: 20px;
+}
+#history tr {
+	background-color: #FFF7FB;
+	height: 20px;
+}
+#history td {padding:3px;}
+#dateList {
+	background-color: #9FB2B9;
+}
+#dateList #title {
+	background-color: #C4D6E5;
+	height: 20px;
+	color: #64645C;
+}
+#dateList tr {
+	background-color: #F6FFF7;
+}
+#dateList span {
+	cursor:pointer;
+}
+-->
+</style>
+<div id="errorTo"></div>
+<table width="100%" border="0" cellspacing="1" cellpadding="2" id="history">
+  <tr id="menu">
+    <td colspan="2">[var.date]资金明细</td>
+  </tr>
+  <tr>
+    <td colspan="2"><table width="100%" border="0" cellspacing="1" cellpadding="2" id="dateList">
+        <tr align="center" id="title">
+          <td width="10%">流水号</td>
+          <td width="10%">类型</td>
+          <td width="15%">发生金额</td>
+          <td>说明</td>
+          <td width="20%">时间</td>
+        </tr>
+        <tr>
+          <td align="center">[tr.id;block=tr;aggregate=money:sum]</td>
+          <td align="center">[tr.bill_type]</td>
+          <td align="center">[tr.money;frm='0,000.00']</td>
+          <td>[tr.remark]</td>
+          <td align="center">[tr.add_time]</td>
+        </tr>
+        <tr align="center">
+          <td height="50" colspan="5">[tr;block=tr;nodata]暂无符合条件的记录.</td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right">合计：</td>
+          <td align="center" style="color:#ff0000; font-weight:bold">[tr.money:sum;frm='0,000.00']</td>
+          <td>[<a href="javascript:void(0);" id="back" style="color:#003399">返回资金汇总</a>]</td>
+          <td align="center">&nbsp;</td>
+        </tr>
+        </table></td>
+  </tr>
+</table>

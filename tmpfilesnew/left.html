@@ -1,0 +1,158 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link  rel="stylesheet"  type="text/css" href="css/layout.css">
+    <title>左侧记录</title>
+
+	<script type="text/javascript" src="js/jquery1.3.2.js"></script>
+    <script type="text/javascript" src="js/me_function.js"></script>
+ 
+    <script type="text/javascript" src="js/ymPrompt.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		mon = setInterval(sysMoney,1000);
+		b = setInterval(sysBC,18000);
+		setInterval(zhishu,3000);
+	});
+
+
+	var sysMoney = function(){
+				clearInterval(mon);
+				$.ajax({
+					type: 'GET',
+					url: './ajax.php?type=moneyall',
+					cache: false,
+					success:function(res){
+						info_data = res.split('^');
+						
+						
+						
+						$('#a_money').html(info_data[0]);
+						$('#a_zZymoney').html(info_data[1]);
+						$('#a_kyMoney').html(info_data[2]);
+						$('#a_baoCangXs').html(info_data[3]);
+						if(Number(info_data[3])>=70){
+						$('#sound_baoCangXs').html('<EMBED src="./wav/08.wav" hidden="true" volume="0" type="audio/x-ms-wma" /><audio autoplay="autoplay" ><source src="./wav/01.wav" type="audio/wav" ></audio>');
+						}
+
+						$('#liveTime').html(info_data[4]);
+
+						mon = setInterval(sysMoney,1000);
+					}
+				});
+			}
+
+	
+
+var sysBC = function(){
+	clearInterval(b);
+	//res = ajaxUrl('./ajax.php?type=baocang');
+	$.ajax({
+		type: 'GET',
+		url: './ajax.php?type=baocang',
+		cache: false,
+		success:function(res){
+			if(parseInt(res)>0)
+			{
+				$('#sound_bc').html('<EMBED src="./wav/1.wav" hidden="true" volume="0" type="audio/x-ms-wma" />');
+				$('#a_bc').css('color','#000000');
+			}
+			else
+			{
+				$('#a_bc').css('color','#000000');
+			}
+			$('#a_bc').html('爆仓[' + res + ']');
+			b = setInterval(sysBC, 20000);
+		}
+	});
+}
+	//loadStckinfo();
+
+function zhishu(){
+	
+	$.ajax({
+		type: 'GET',
+		url: './ajax.php?type=zhishu',
+		success:function(res){
+			
+			sh=res.split("#");
+			 sharr=sh[0].split(",");
+			 szarr=sh[1].split(",");
+			 shb=parseInt(sharr[4]);
+			szb=parseInt(szarr[4]);
+		
+			$("#sh").html(shb);
+			$("#sz").html(szb);
+			
+			
+			
+		}	
+	});
+}	
+
+
+</script>
+
+
+	
+	
+
+    <base target="stockMain" />
+</head>
+<body>
+
+<div id="test" style="padding:20px;"></div>
+
+
+
+
+<div id="sidebar" class="">
+		<div class="sidebar_list">
+	<div class="sidebar_top">
+		<h3 class="username">[var.xltm.user_info.realname] </h3>
+	</div>
+	<div class="sidebar_con">
+		<div class="">
+				<p class="curr"  style="color: #000000;"><span id="liveTime" style="font-size: 14px; ">--</span></p>
+				<p style="color: #000000;">账户资金：<span id="a_money" class="l_zMoney">--</span>元</p>
+				<p class="curr" style="color:#000000;">占用资金：<span id="a_zZymoney" class="l_zZymoney">--</span>&nbsp;元</p>
+				<p class="curr" style="color:#000000;">可用额度：<span class="l_kyMoney" id="a_kyMoney">--</span>元 </p>
+				
+				
+				
+				
+				<!--<p class="curr">爆仓比例：<span class="l_baoCangXs" id="a_baoCangXs">--</span>% (系统：90%)</p>-->
+
+			<span id="sound_baoCangXs" style="display: none;"></span>
+			<p class="curr"><a href="message.php" id="a_bc" style="color: #000000;" target="stockMain">爆仓:[0]</a></p>
+		
+		
+		<div class="sidebar_con" style=" height:91px;background-image: url(./img/sh.png);   ">
+			<div style=" height:40px; width:218px;"><div id="shzdf"></div></div>
+			<font color="#FFFFFF" ><h5><div  id="sh" style="float:right;width:140px;font-size:36px;">--</div></h5></font> 
+		</div>	
+		
+		<div class="sidebar_con" style=" height:91px;background-image: url(./img/sz.png);  ">
+			<div style=" height:40px; width:218px;"><div id="szzdf"></div></div>
+			<font color="#FFFFFF" ><h5><div  id="sz" style="float:right; width:140px;font-size:36px;">--</div></h5></font> 
+		</div>
+			
+			
+			
+			<div class="clear"></div>
+		</div>
+		<div id="left_muen">
+			
+			<div id="pic1"></div>
+			<div id="pic2"></div>
+
+		</div>
+	</div>
+	</div>		
+   
+</div>
+    
+ </body>
+</html>

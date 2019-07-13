@@ -1,0 +1,226 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="极客"></meta>
+<meta name="description" content=""></meta>
+<link rel="Shortcut Icon" href="http://www.jkjy88.com/Static/default/images/favicon.ico">
+<link href="http://www.jkjy88.com/Static/default/css/pagestyle.css" rel="stylesheet" type="text/css" />
+
+<link href="http://www.jkjy88.com/Static/default/css/shipan.css" rel="stylesheet" type="text/css" />
+<link href="http://www.jkjy88.com/Static/default/css/lrtk2.css" type="text/css" rel="stylesheet">
+
+<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/jquery.js"></script>
+<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/jquery.kinMaxShow-1.1.min.js" ></script>
+<script type="text/javascript" src="http://www.jkjy88.com/Static/lhgdialog-4.2.0/lhgdialog.js?skin=iblue"></script>
+<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/global.js"></script>
+	<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/msgbox.js"></script>
+<script type="text/javascript">
+var ROOT = '';
+function loginout()
+{
+	$.get("/index/user/loginout.html",function(result){
+		window.location.reload();
+		});
+}
+</script>
+
+<script type="text/javascript" src="http://www.jkjy88.com/Static/default/js/gerensort.js"></script>
+<script src="http://www.jkjy88.com/Static/default/js/jquery.kinMaxShow-1.1.min.js" type="text/javascript"></script>
+
+<title>规则介绍</title>
+</head>
+<body>
+
+<!------头部------->
+<div class="pagehead">
+    <div class="w1000">
+        <div class="pagehead_left"><a href="/index/index/index.html"><img class="logo" src="http://www.jkjy88.com/Static/default/images/logo.jpg" /></a></div>
+        <div class="pagehead_left2"><img class="logo" src="http://www.jkjy88.com/Static/default/images/ggy.png" /></div>
+        <!------头部右侧内容------->
+        <div class="pagehead_right">
+            <!------头部右侧电话------->
+            <div class="phone">
+                <span><img src="http://www.jkjy88.com/Static/default/images/top_phoneicon.png" /></span>
+                <span class="phonebig">0591-83259166</span>
+                <span class="phonesmall">服务时间  ( 9:00-17:00 )</span>
+            </div>
+            <!------头部右侧导航------->
+             <div class="load">
+                <!--<span class="load_button"><a href="/index/user/registerx.html">注册</a></span>-->
+                <!--<span class="load_button"><a href="/index/help/index/id/8.html">帮助</a></span>-->
+                <span class="load_button"><a href="login2.php">登陆</a></span>
+                <!--<span class="load_button"><a href="/index/usercenter/index.html">个人中心</a></span>-->
+
+                                    <span class="pub_button tuichu"><a href="reg.php" >注册</a></span>            	            </div>
+
+        </div>
+    </div>
+</div>
+<div class="clearborth"></div>
+<!------导航------->
+<div class="menu ">
+    <div class="w1000">
+        <ul id="nav">
+            <li style=" border-left:none" class="active">
+                <a href="index.php">
+                    <p class="big">首页</p>
+                    <p class="small text_arial">Home</p>
+                </a>            </li>
+            <!--<li >
+                <a href="order.php">
+                    <p><span class="big">A股T+0</span><span> <img src="http://www.jkjy88.com/Static/default/images/more.png" /></span></p>
+                    <p class="small text_arial">My Security</p>
+                </a>
+                <ul>
+                    <li><a href="/index/stock/index.html">我的交易</a></li>
+                    <li><a href="/index/stock/pool.html">券源中心</a></li>
+                   
+                </ul>
+            </li>-->
+            <li >
+                <a href="jianjie.html">
+                    <p><span class="big">关于我们</span><span> <img src="http://www.jkjy88.com/Static/default/images/more.png" /></span></p>
+                    <p class="small text_arial">Tutorial</p>
+                </a>
+                <ul>
+                    <li><a href="jianjie.html">平台简介</a></li>
+                    <li><a href="zhinan.html">使用指南</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#nav li').hover(function() {
+            $('ul', this).slideDown(200);
+            $(this).children('a:first').addClass("hov");
+        }, function() {
+            $('ul', this).slideUp(100);
+            $(this).children('a:first').removeClass("hov");
+        });
+    });
+</script>
+
+<div class="clearborth"></div>
+
+    <div class="nbody">
+        <div class="nw1000">
+            <div class="content">
+                <div class="news_left">
+                    <div class="big">帮助中心</div>
+                    <div class="small">Guidelines</div>
+                    <div class="subNavBox">
+                    <div class="subNav ">关于我们</div>
+                        <ul class="navContent"  >
+                            <li ><a  href="jianjie.html" >平台简介</a></li>                        </ul><div class="subNav currentDd currentDt">使用指南</div>
+                        <ul class="navContent" style="display:block" >
+                            <li ><a class="ada" href="zhinan.html" >规则介绍</a></li>                       
+						</ul>                    
+					</div>
+                </div>
+                <!------右侧内容------->
+                <div class="news_right">
+                    <div class="homediv">
+                        <span><a href="index.php">极客平台首页</a> > <a href="/index/help/index/id/8.html">帮助中心</a> > <a class="hsa">规则介绍</a></span>
+                        <span><img src="http://www.jkjy88.com/Static/default/images/home.png" width="17" height="17" /></span>
+                    </div>
+
+                    <div class="wenzhang">
+                        <div class="wenzhang_fenlei">规则介绍</div>
+                        <div class="cont">
+                            <p style="text-align:left;"><br/><img alt="" src="http://www.jkjy88.com/Public/attachment/image/20161229/20161229113104_93036.jpg"/> </p><p><br/>1、看涨时间段：交易日9：30：00-14：52：00<br/><br/>2、看跌时间段：交易日9：30：00-14：55：00</p><p><br/><img alt="" src="http://www.jkjy88.com/Public/attachment/image/20161229/20161229113129_78130.jpg"/> <br/><br/>1、平台券源中心所提供的沪深A股；<br/><br/>2、股票当前价格上涨至9%时，将无法看跌开仓；股票当前价格下跌至-9%时，将无法看涨开仓；<br/><br/>3、每个交易日只有五次限价委托撤单机会（<span style="color: rgb(255, 0, 0);"><strong>限价委托成交则不计入次数</strong></span>），限价委托撤单机会使用完后，只可进行市价委托；</p><p><br/>4、单笔开仓市值不得低于3万元。（<span style="color: rgb(255, 0, 0);"><strong>活动期间暂不限制</strong></span>）<br/></p><p><br/><img alt="" src="http://www.jkjy88.com/Public/attachment/image/20161229/20161229113140_73796.jpg"/> </p><p><br/>开仓所需的交易综合费用为开仓市值的0.45%，包括券商交易佣金（0.1%），印花税（0.1%）、管理费（0.15%）、过户费等综合费用，冻结履约保证金为开仓市值的3.33%，交易综合费用一次性收取，平仓无费用。（<span style="color: rgb(255, 0, 0);"><strong>最低交易综合费用20元</strong></span>）</p><p><strong>*活动期间（<strong style="white-space: normal;">3月16日起，结束时间另行公告<strong style="white-space: normal;">）</strong></strong>，交易综合费用为开仓市值的<span style="color: rgb(255, 0, 0);">0.39%</span>，其中管理费低至<span style="color: rgb(255, 0, 0);">6折</span>（原价0.15%，优惠价仅需<span style="color: rgb(255, 0, 0);">0.09%</span>）。<br/></strong><strong><br/></strong><img alt="" src="/Public/attachment/image/20161229/20161229113150_33882.jpg"/></p><p><br/><strong><span style="color:#003399;">1、止损平仓</span></strong><br/><br/>股票触及止损价（<strong><span style="color: rgb(255, 0, 0);">止损价为开仓价格*（1±2.33%），即履约保证金剩余开仓市值的1%</span></strong>），系统将自动平仓股票，结算价格按券商成交回报价格结算。</p><p><br/><strong><span style="color:#003399;">2、结算平仓</span></strong><br/><br/>a、看涨持仓在交易日14:52分前未主动平仓的，系统将自动平仓结算；<br/><br/>b、看跌持仓在交易日14:55分前未主动平仓的，系统将自动平仓结算。</p><p><br/><strong><span style="color:#003399;">3、风控平仓</span></strong><br/><br/>a、当股票价格触及9%时，系统将自动平仓看跌持仓；<br/><br/>b、当股票价格触及-9%时，系统将自动平仓看涨持仓。</p><p><br/><img alt="" src="/Public/attachment/image/20161229/20161229113201_92579.jpg"/> </p><p><br/><strong><span style="color:#003399;">1、平仓异常特殊处理</span></strong><br/><br/>股票收盘后仍未平仓成功，则自动补交履约保证金至结算市值的10%。补交保证金后未触及止损价的持仓，将延期至下一交易日；若补交保证金后触及止损价的，则下一交易日系统将在开盘集合竞价自动平仓结算。</p><p><br/><strong><span style="color:#003399;">2、停牌特殊处理</span></strong><br/><br/>a、用户持仓股票停牌的则在停牌当日盘中补交保证金至结算市值的20%<br/><br/>①补交保证金至结算市值的20%，用户继续持有，管理费按开仓市值的0.075%收取；<br/><br/>②未补交保证金至结算市值的20%，则视为用户放弃，即按开仓市值10%扣除违约风险金，股票归平台所有，复牌超出亏损，用户无需承担。<br/><br/>b、当用户持有的停牌股票进行除权除息时，平台会<strong><span style="color: rgb(255, 0, 0);">在除权除息日</span></strong>把相应的分红股、股息平摊到用户的持股成本中，持仓成本将发生变化。<br/><br/><span style="color:#002060"><strong>3、零股处理<br/><br/></strong></span>当用户持仓有零股，选择平仓时，整数部分正常委托平仓，零股部分系统将以当前价格回收。（例如用户持有550股，500股正常委托平仓，零股50股系统以当前价格回收）</p><p><br/><img alt="" src="/Public/attachment/image/20161229/20161229113212_22985.jpg"/><br/></p><p><br/>平台仅收取用户交易盈利的5%作为平台风险保证金（活动期间暂不收取），剩余盈利均归用户所有，除用户放弃停牌股归平台所有的约定外，用户交易亏损自负。</p>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<div class="clearborth"></div>
+<!------底部------->
+<div class="footer" style="margin-top:0">
+	<div class="w1000">
+        <div class="footcaleft">
+            <ul>
+                <li class="top">关于我们</li>
+                <li><a href="jianjie.html">公司简介</a></li>
+                <!--<li><a href="/index/help/index/id/243.html">关于我们</a></li>-->
+                <!--<li><a href="/index/help/index/id/5.html">联系我们</a></li>-->
+            </ul>
+        </div>
+        <div class="footcaleft foothelp">
+            <ul>
+                <li class="top">使用指南</li>
+                <li><a href="zhinan.html">规则介绍</a></li>
+                <!--<li><a href="/index/help/index/id/8.html">常见问题</a></li>-->
+            </ul>
+        </div>
+        <div class="footcaleft">
+            <img class="weixing-ma" src="http://www.jkjy88.com/Static/default/images/qqqun.jpg" alt="加入QQ群" />
+            <p>欢迎加入QQ群123456789</p>
+        </div>
+        <div class="footcb">
+        	<div class="contact">
+            	<div class="phone">客服电话（每天9:00-17:00）<p class="text_red number">0591-83259166</p></div>
+                <div class="mail">客服邮箱：123456789@11.com</div>
+            </div>
+            <div class="w2">
+       	  		<!--<img src="/Static/default/images/wx.jpg" alt="微信二维码" />-->
+                <!--<p>&nbsp;&nbsp;扫描添加微信号</p>-->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--暂时去掉
+<div class="footer1">
+ <div class="footer11">合作机构：
+ 	</div>
+</div>-->
+<div class="footer2">
+    <!--<div class="w1000" style="display: none">-->
+        <!--<div class="left2">-->
+            <!--<span>关注我们</span>-->
+            <!--<a class="txwb" href="#"></a>-->
+            <!--<a class="xlwb" href="#"></a>-->
+            <!--<a class="txwx" href="#"></a>-->
+        <!--</div>-->
+        <!--<div class="footcc">-->
+              <!--<dd>-->
+                  <!--<img src="/Static/default/images/m01.png" />-->
+                  <!--<img src="/Static/default/images/m02.png" />-->
+                  <!--&lt;!&ndash;<img src="/Static/default/images/m03.png" />&ndash;&gt;-->
+                  <!--<img src="/Static/default/images/m04.png" />-->
+                  <!--<img src="/Static/default/images/m05.png" />-->
+              <!--</dd>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--客服QQ-->
+    <div class="w1000">
+        <table width="1000" class="kf_qq" align="center" style="text-align:center;">
+            <tr>
+                <td>
+                    <i class="online" ><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><img src="http://www.jkjy88.com/Static/default/images/mqq.png" alt="qq" title="马上交谈" /> 在线客服1：123456789</a></i>
+                </td><td>
+                    <i class="online" ><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><img src="http://www.jkjy88.com/Static/default/images/mqq.png" alt="qq" title="马上交谈" /> 在线客服2：123456789</a></i>
+                </td>               <!--<td><img src="/Static/default/images/mqq1.png" alt="qq" /> 在线客服3：QQ576669885</td>-->
+                <!--<td><img border="0" src="http://wpa.qq.com/pa?p=2:3027829426:41" alt="点击这里给我发消息" title="点击这里给我发消息"/>在线客服5：QQ576669885</td>-->
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="footer3">
+    <div class="footer33"><p>
+	<br />
+</p></div>
+</div>
+
+</body>
+</html>

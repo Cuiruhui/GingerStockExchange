@@ -1,0 +1,2 @@
+2017-10-09 14:59:25 183.158.10.25 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='11.29',sell_cost_money='2.26',dc_money='1.11',sell_money='1129',sell_trust_id='13637',sell_gain='17',gain='9.19',agent_sell_money='0',sell_trust_date='2017-10-09',sell_trust_time='2017-10-09 14:59:25' where id='00006170'
+2017-10-09 14:59:25 183.158.10.25 UPDATE `user_users` set money=money+1129+17-2.26-0-0,cash=cash+17-2.26-0-0 where username='u123456'

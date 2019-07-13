@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>[var.stockcode]K线图</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./tips/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./tips/jquery.poshytip.js"></script>
+<script type="text/javascript" src="./js/noright.js"></script>
+<script type="text/javascript">
+var kstr='min';
+var productID="[var.stockcode]";
+var area_str="[var.stocktype]"; 
+
+function ShowStocksPic()
+{
+  getProductKImage(kstr);
+}
+
+//取产品K线图
+function getProductKImage(kkstr)
+{
+if(kkstr==""){
+	kstr="min";
+}
+else{
+	kstr=kkstr;
+}
+
+var picstr="<table width='546px' border='1px' cellpadding='0'><tr><td  class='message_data'><img id='pic_k_id' src='http://image2.sinajs.cn/newchart/"+kstr+"/n/[var.stocktype][var.stockcode].gif?"+Math.random()*100000+"' style='width:545px;height:326px'/></td></tr></table>";
+document.getElementById("stock_index_pic").innerHTML=picstr;  
+}
+</script>
+</head>
+<body> 
+ <div align="center">
+  <table width="556px" border="0" cellpadding="0">
+<tr><td height="2px"></td></tr>
+<tr><td height="10px"  align="center">
+&nbsp;&nbsp;&nbsp;&nbsp;<button  class="button_small" onclick='getProductKImage("min");'>分时线</button>
+&nbsp;&nbsp;&nbsp;&nbsp;<button  class="button_small" onclick='getProductKImage("daily");'>日K线</button>
+&nbsp;&nbsp;&nbsp;&nbsp;<button  class="button_small" onclick='getProductKImage("weekly");'>周K线</button>
+&nbsp;&nbsp;&nbsp;&nbsp;<button  class="button_small" onclick='getProductKImage("monthly");'>月K线</button>
+</td></tr>
+<tr><td height="2px"></td></tr>
+<tr><td id="stock_index_pic">  
+ </td></tr>
+</table>
+</div>
+<script  language="javascript" type="text/javascript">
+ShowStocksPic();
+</script>
+</body>
+</html>

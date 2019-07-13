@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自选股票</title>
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px;}
+</style>
+<script type="text/javascript" src="./js/autostocks.js"></script>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/me_function_wap.js"></script>
+<script type="text/javascript" src="./js/SuggestServer_3_0_18.js" charset="gb2312"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	GetUserFav();
+	var interveltime = "30000";
+	var refresh = null;
+	window.setInterval(function() {
+		if (refresh == null)
+		refresh = window.setInterval(function() { GetUserFav(); }, parseInt(interveltime, 10) * 1000);
+	}, 10000);
+});
+</script>
+</head>
+<body style="background-color: #FFFBFF; width:300px;" > 
+<form name="frmselforder" method="post" action="selforder.php" id="frmselforder"> 
+    <div id="divstockslist"> 
+	  <span class="loading"><img src="./images/loading.gif" border="0" align="absmiddle" hspace="3" />加载中...</span>
+    </div> 
+  <div id="divstocks" style="display:none;"></div> 
+</form> 
+</body>
+</html>

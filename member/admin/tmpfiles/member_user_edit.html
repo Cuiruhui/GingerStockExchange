@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>用户管理_编辑</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#regform").validate({
+		rules: {
+			alias: "required",
+			password_confirm: {
+				minlength: 4,
+				equalTo: "#password"
+			},
+			cost_bull: {
+				required: true,
+				range: [[var.Min_cost_bull], [var.Max_cost_bull]]
+			},
+			cost_sell: {
+				required: true,
+				range: [[var.Min_cost_sell], [var.Max_cost_sell]]
+			},
+			cost_save: {
+				required: true,
+				range: [[var.Min_cost_save], [var.Max_cost_save]]
+			},
+			num_min:{
+					required: true,
+					min: [var.MAX_num_min]
+			},
+			num_max:{
+					required: true,
+					max: [var.MAX_NUM_Max]
+			},
+			money_max:{required: true, digits: true }
+		},
+		messages: {
+			alias: "请输入别名!!",
+			password_confirm: {
+				minlength: jQuery.format("请输入 {0} 位或以上的密码!!"),
+				equalTo: "两个密码不一致!!"
+			},
+			cost_bull: {
+				required: '请输入 [<b>买入手续费</b>]',
+				range: jQuery.format('请在 [<b>买入手续费</b>] 输入 {0} 至 {1} 的数值')
+			},
+			cost_sell: {
+				required: '请输入 [<b>卖出手续费</b>]',
+				range: jQuery.format('请在 [<b>卖出手续费</b>] 输入 {0} 至 {1} 的数值')
+			},
+			cost_save: {
+				required: '请输入 [<b>留仓费用</b>]',
+				range: jQuery.format('请在 [<b>留仓费用</b>] 输入 {0} 至 {1} 的数值')
+			},
+			num_min: {
+					required: '[<b>最小手数</b>]:不能为空.',
+					min: jQuery.format('[<b>最小手数</b>]:不能小于 {0}.')
+			},
+			num_max: {
+					required: '[<b>最大手数</b>]:不能为空.',
+					max: jQuery.format('[<b>最大手数</b>]:不能大于 {0}.')
+			},
+			money_max: { required: '[<b>最大持仓量</b>]:不能为空.', digits: '[<b>最大持仓量</b>]:必须为整数.'}
+		},
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+	$('#btnBack').click(function(){
+		history.go(-1);
+	});
+});
+</script>
+</head>
+<body> 
+<table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <form id="regform" action="member_user.php?type=editsubmit" method="post"> 
+    <tr class="row_title"> 
+      <td colspan="2"><b>修改会员账号</b></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">代理商:</td> 
+      <td><select name="agent" size="1" id="agent"> 
+          <option value="[l1.username]">[l1.username;block=option][[l1.alias]]</option> 
+          <option>[var.Edit.agent;ope=html;select]</option> 
+        </select> 
+        <input name="agent1" type="hidden" id="agent1" value="[var.Edit.agent]">
+        <input name="id" type="hidden" id="id" value="[var.Edit.id]"></td> 
+    </tr> 
+    <tr class="row_ls">
+      <td align="right">上线用户名:</td>
+      <td><input name="referr_name" type="text" id="referr_name" style="width:150px;" value="[var.Edit.referr_name]" size="15" />
+      <font color="#999999">不指定上线用户可放空</font></td>
+    </tr>
+    <tr class="row_ls"> 
+      <td width="15%" align="right">登陆账号:</td> 
+      <td width="85%"><input name="username" type="text" id="username"  style="width:150px;" value="[var.Edit.username]" size="15" maxlength="20" disabled /></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">账号名称:</td> 
+      <td><input name="alias" type="text" id="alias" style="width:150px;" value="[var.Edit.alias]" size="15" maxlength="30" /> 
+        <font color="#999999">输入范围 [var.xltm.config.user_name_min] 至 [var.xltm.config.user_name_max] 位字符</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">登陆密码:</td> 
+      <td><input name="password" type="password" id="password" size="15" maxlength="20" style="width:150px;" /> 
+        <font color="#999999">不修改密码则不用输入</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">确认密码:</td> 
+      <td><input name="password_confirm" type="password" id="password_confirm" size="15" maxlength="20" style="width:150px;" /></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">帐号类型:</td> 
+      <td><select name="demo" size="1" id="demo"> 
+          <option value="0" style="color:red;">正式</option> 
+          <option value="1">试玩</option> 
+          <option>[var.Edit.demo;ope=html;select]</option> 
+        </select></td> 
+    </tr> 
+    <tr class="row_ls">
+      <td align="right">下线权限:</td>
+      <td><select name="referrals" size="1" id="referrals">
+        <option value="1" style="color:red;">开通</option>
+        <option value="0">关闭</option>
+		<option>[var.Edit.referrals;ope=html;select]</option>
+      </select></td>
+    </tr>
+    <tr class="row_ls">
+      <td align="right">支付接口:</td>
+      <td> <select name="payid" size="1" id="payid">
+	  		<option value="0">默认接口</option>
+            <option value="[py.id]">[py.name;block=option;]</option>
+			<option>[var.Edit.payid;ope=html;select]</option> 
+            </select>
+			<font color="#999999">设置成“默认接口”是指由“支付接口”菜单处指定的默认接口.</font>
+	</td>
+    </tr>
+    <tr class="row_ls"> 
+      <td align="right">买入手续费:</td> 
+      <td><input name="cost_bull" type="text" id="cost_bull" style="width:50px;" value="[var.Edit.cost_bull]" size="15" maxlength="20" /> 
+        <font color="#999999">[var.Min_cost_bull] 至 [var.Max_cost_bull]</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">卖出手续费:</td> 
+      <td><input name="cost_sell" type="text" id="cost_sell" style="width:50px;" value="[var.Edit.cost_sell]" size="15" maxlength="20" /> 
+        <font color="#999999">[var.Min_cost_sell] 至 [var.Max_cost_sell]</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">留仓费用:</td> 
+      <td><input name="cost_save" type="text" id="cost_save" style="width:50px;" value="[var.Edit.cost_save]" size="15" maxlength="20" /> 
+        <font color="#999999">[var.Min_cost_save] 至 [var.Max_cost_save]</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">可用资金:</td> 
+      <td><input name="money" type="text" id="money" style="width:50px;" value="[var.cancash]" size="15" maxlength="9" /></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">保 证 金:</td> 
+      <td><input name="cash" type="text" id="cash" style="width:50px;" value="[var.Edit.cash]" size="15" maxlength="9" /></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">最小手数:</td> 
+      <td><input name="num_min" type="text" id="num_min" style="width:50px;" value="[var.Edit.num_min]" size="15" maxlength="5" /> 
+        <font color="#999999">不能少于:[var.MAX_num_min]</font></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">最大手数:</td> 
+      <td><input name="num_max" type="text" id="num_max" style="width:50px;" value="[var.Edit.num_max]" size="15" maxlength="5" /> 
+        <font color="#999999">不能超出:[var.MAX_NUM_Max]</font></td> 
+    </tr> 
+    <tr class="row_ls">
+      <td align="right">最大持仓量:</td>
+      <td><input name="money_max" type="text" id="money_max" style="width:50px;" value="[var.Edit.money_max]" size="15" maxlength="5" />
+	  	<font color="#999999">每只股票最大持仓量,0为不限制(单位:万)</font>
+	  </td>
+    </tr>
+    <tr class="row_ls"> 
+      <td align="right">真实姓名:</td> 
+      <td><input name="realname" type="text" id="realname" style="width:50px;" value="[var.Edit.realname]" size="20" maxlength="5" /></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">手机号码:</td> 
+      <td><input name="mobile" type="text" id="mobile" style="width:150px;" value="[var.Edit.mobile]" size="15" maxlength="11" /></td> 
+    </tr> 
+    <tr class="row_ls"> 
+      <td align="right">取款密码:</td> 
+      <td><input name="atmpwd" type="text" id="atmpwd" style="width:150px;" value="[var.Edit.atmpwd]" size="15" maxlength="4" /></td> 
+    </tr> 
+    <tr class="row_ls" style="display:none"> 
+      <td align="right">email:</td> 
+      <td><input name="email" type="text" id="email" style="width:150px;" value="[var.Edit.email]" size="15" maxlength="100" /></td> 
+    </tr>
+    <tr class="row_ls"> 
+      <td align="right">QQ:</td> 
+      <td><input name="qq" type="text" id="qq" style="width:150px;" value="[var.Edit.qq]" size="15" maxlength="100" /></td> 
+    </tr>
+	<tr class="row_ls">
+      <td align="right">是否自动满仓:</td>
+      <td><select name="is_man" size="1" id="is_man">
+        <option value="1" style="color:red;">是</option>
+        <option value="0">否</option>
+		<option>[var.Edit.is_man;ope=html;select]</option>
+      </select></td>
+    </tr>
+
+    <tr class="row_ls"> 
+      <td align="center">&nbsp;</td> 
+      <td><input type="submit" name="btnEnter" class="btn1" id="btnEnter" value="确定修改" /> 
+&nbsp;<input type="button" name="btnBack" id="btnBack" class="btn1" value="返　回" /></td> 
+    </tr> 
+  </form> 
+</table> 
+</body>
+</html>

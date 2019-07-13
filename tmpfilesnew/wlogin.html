@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="融资融券交易系统">
+
+    </head>
+
+    <body background="#FFF">
+<div id="login-div" style=" position:fixed;top:24%;left:33%;width:98%;font-family:微软雅黑; background:#FFF;-webkit-app-region:drag;">
+        <div  style="width:380px; height:340px;">
+            <div style="height:120px; width:400px;"><img src="img/loginbg.png"/>
+			<div style="height:10px; width:10px;margin-top:1px;margin-right:1px"><img src="img/X.png"/>
+			</div>
+			</div>
+			
+           	<div style="height:200px; width:440px; text-align:center; "> 
+		   		<form id="loginForm" name="loginForm" action="login_from.php?type=wlogin" method="post" data-ajax="false">
+				
+                <div style="height:37px; width:400px; margin-top:10px; ">	<input type="text" name="username" class="username" placeholder="用户名"  style=" height:40px; width:260px;"></div>
+                <div style="height:37px; width:400px; margin-top:10px;"><input type="password" name="password" class="password" placeholder="密码" style=" height:40px; width:260px;"></div>
+				 <div style="height:45px; width:400px; margin-top:10px;">
+				 	<div style="float:left;height:45px; width:225px; text-align:right;">
+				 <input type="validate" name="validate"  placeholder="验证码" style=" height:42px; width:150px;">	
+				 	</div>
+					<div style="float:left; width:100px;height:45px; margin-top:2px;"><img  width="106px" height="45px" id="validateImg" name="validateImg" src="validate.php" /></div>
+				 </div>
+				
+                <div style="height:40px; margin-top:10px;width:400px;"><button type="submit" style=" height:40px; width:260px; background-color:#3399FF;"><font size="+1" color="#FFFFFF">登陆</font></button></div>
+               
+            	</form>
+           	</div>
+        </div>
+		
+  
+</div>
+    </body>
+
+</html>
+
+

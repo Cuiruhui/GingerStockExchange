@@ -1,0 +1,17 @@
+﻿<?php
+//if (!defined('QUADODO_IN_SYSTEM')) {
+//exit;
+//}
+
+define('SYSTEM_INSTALLED', true);
+$database_prefix = 'user_';
+$database_type = 'MySQL';
+$database_server_name = 'localhost';
+$database_username = 'jingtai_data';
+$database_password = 'TX2TFVtju4z4nXsQ';
+$database_name = 'data_gupiao_jingtai';
+$database_port = 3306;
+$activation_code="aassddffgghh";
+//是否永久链接?
+$database_persistent = false;
+?>

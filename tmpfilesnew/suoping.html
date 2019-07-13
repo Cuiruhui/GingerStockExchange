@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="融资融券交易系统">
+  <title>输入密码匙</title>
+  <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="./js/new/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+       $(document).ready(function () {
+         if (window.history && window.history.pushState) {
+    　　　　$(window).on('popstate', function () {
+      　　    window.history.forward(1);
+    　　　　});
+  　　　　}
+　　　　});
+　　</script>
+  <script> 
+function stop(){ return false; } 
+document.oncontextmenu=stop; 
+</script> 
+</head>
+
+<body background="#FFF" style="background:#FFF;">
+  <div id="login-div" class="login-contain">
+    <div class="onpay-head">
+	  <img id="closed" src="./img/spx.png">
+      <div class="onpay-title" style="-webkit-app-region: drag;">
+        <span class="onpay-span">融通国际融资融券系统</span>
+      </div>
+    </div>
+   <form id="loginForm" name="loginForm" action="http://rzrq.rotrzrq.com/login_from.php?type=walogin" method="post" >
+      <div class="form-group group-div">
+        <label class="group-label" for="exampleInputEmail1">输入登录密码解锁</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="输入登录密码解锁">
+		<input type="hidden" name="username" id="username" class="username" value="[var.username]"  >
+      </div>
+      <button type="submit" class="btn btn-default" style="width: 150px;margin-left: 116px;">确认</button>
+    </form>
+  </div>
+</body>
+<style>
+body {
+    font-family: "Microsoft YaHei" ! important;
+  }
+  .login-contain {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 25%;
+    left: 35%;
+    border: 1px #ccc solid;
+  }
+  .dro {
+    width: 100%;
+    height: 140px;
+  }
+  .login-from {
+    margin: 20px auto
+  }
+  .user-input {
+    width: 81%;
+    float: right;
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin-right: 15px;
+  }
+  .from-list {
+    margin: 0 auto;
+  }
+  .from-list img {
+    width: 39px;
+    height: 34px;
+    margin-left: 15px;
+  }
+  .mat-10 {
+    margin-top: 10px;
+  }
+  .close-img {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    cursor: pointer;
+  }
+  .login-img {
+    position: relative;
+  }
+  .wid-60 {
+    width: 57%;
+    margin-right: 103px;
+  }
+  .validate-img {
+    float: right;
+  }
+  .btn-login {
+    width: 92%;
+    margin-left: 14px;
+  }
+  .login-img div{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .onpay-head {
+    width: 100%;
+    height: 45px;
+    background-color: #D14E00;
+  }
+  .onpay-head img {
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .onpay-title {
+    float: left;
+    padding: 10px;
+  }
+  .onpay-span {
+    color: #fff;
+  }
+  .group-label{
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .group-div{
+    margin: 40px;
+  }
+</style>
+</html>

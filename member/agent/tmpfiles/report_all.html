@@ -1,0 +1,61 @@
+<script type="text/javascript">
+var params='start_date=[var.start_date]&end_date=[var.end_date]&sell=[var.sell]';
+$(document).ready(function() {
+	$('.navigate').AjaxLoad({
+		loading_target:'#load',
+		loading_txt:'工作中...',
+		target: '#main',
+		params:'&'+params,
+		method:'GET'
+	});
+	$('.ToUser').AjaxLoad({
+		loading_target:'#load',
+		loading_txt:'工作中...',
+		target: '#main',
+		params:'type=login2&'+params,
+		method:'GET'
+	});
+	$('#ToBack').AjaxLoad({
+		loading_target:'#load',
+		loading_txt:'返回中...',
+		target: '#main',
+		method:'GET'
+	});
+});
+</script>
+<table border="0" cellspacing="1" cellpadding="2" id="go_main">
+    <tr>
+      <td colspan="8" id="title"><table  border="0" cellspacing="1" cellpadding="2" id='menuNV'>
+        <tr>
+          <td width="70">报表查询</td>
+          <td>&nbsp;类型:</td>
+          <td>&nbsp;[var.sell;if [val]=1;then '已平仓';else if [val]=0; '未平仓';else '全部']</td>
+          <td>&nbsp;&nbsp;&nbsp;帐号类型:</td>
+          <td>&nbsp;[var.demos]</td>
+          <td>&nbsp;日期:</td>
+          <td>&nbsp;[var.start_date] 至 [var.end_date]</td>
+          <td width="70" align="right"><span id="ToBack" value="report.php?start_date=[var.start_date]&end_date=[var.end_date]&sell=[var.sell]">返回上页</span></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr id="row">
+      <td width="100" height="25" align="center">代理</td>
+      <td width="70" align="right">交易笔数</td>
+      <td width="70" align="right">买入金额</td>
+      <td width="70" align="right">卖出金额</td>
+      <td width="75" align="right">手续费</td>
+      <td width="70" align="right">留仓费</td>
+      <td width="70" align="right">股票盈亏</td>
+      <td width="70" align="right">本级盈利</td>
+    </tr>
+    <tr>
+      <td height="25" align="center">[var.MyUser]</td>
+      <td align="right">[var.count]</td>
+      <td align="right">[var.bull_money;frm='0.00']</td>
+      <td align="right">[var.sell_money;frm='0.00']</td>
+      <td align="right">[var.totalcost;frm='0.00']</td>
+      <td align="right">[var.save_money;frm='0.00']</td>
+      <td align="right">[var.totalgain;frm='0.00']</td>
+      <td align="right"><strong><u>[var.totalagentcost;frm='0.00']</u></strong></td>
+    </tr>
+</table>

@@ -1,0 +1,113 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>下线持仓</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./css/skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px;}
+</style>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+	$('#PageSize').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+});
+</script>
+</head>
+<body style="background-color: #FFFBFF" > 
+<table width="98%" align="center" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF" style="margin-top:5px;border:1px solid #CCCCCC;">
+  <tr>
+    <td height="30" bgcolor="#F5F5F5"><form name="frmSearch" id="frmSearch" method="get" action="referrals_deal.php">
+&nbsp;每页显示:
+        <select name="PageSize" size="1" id="PageSize" style="vertical-align:middle;">
+            <option value="20">20条</option>
+            <option value="30">30条</option>
+            <option value="40">40条</option>
+            <option value="50">50条</option>
+            <option value="60">60条</option>
+            <option value="70">70条</option>
+            <option value="80">80条</option>
+            <option value="90">90条</option>
+            <option value="100">100条</option>
+            <option value="99999">全部</option>
+			 <option>[var.PageSize;ope=html;select]</option>
+        </select>　
+          用户名:
+          <input name="username" type="text" id="username" value="[var.username]" size="10">　
+          查询日期:
+          <input name="start_date" id="start_date" type="text" value="[var.start_date]" class="datepicker"/> 至 <input name="end_date" id="end_date" type="text" value="[var.end_date]" class="datepicker"/>
+    <input type="submit" name="Submit" value="查 询" class="button3">
+  </form></td>
+  </tr>
+</table>
+<table width='98%' border='0' align="center" cellpadding='3' cellspacing='1' bgcolor="#CCCCCC" class="mybox">
+  <tr align='center'>
+    <th>订单号</th>
+    <th>用户</th>
+    <th>买入时间</th>
+    <th>代码/名称</th>
+    <th>升/跌</th>
+    <th align="right">留仓价</th>
+    <th align="right">当前价</th>
+    <th align="right">数量(手)</th>
+    <th align="right">金额</th>
+    <th align="right">留仓</th>
+    <th align="right">手续费</th>
+    <th align="right">浮盈</th>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td>[tr.id;block=tr]</td>
+    <td>[tr.username]</td>
+    <td>[tr.bull_trust_date]</td>
+    <td><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_code]/[tr.stock_name]</a></td>
+    <td>[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升(多)</font>';else '<font color="#009900">买跌(空)</font>']</td>
+    <td align="right">[tr.save_price;frm='0.00']</td>
+    <td align="right">[tr.cur_price;frm='0.00']</td>
+    <td align="right">[tr.save_num]</td>
+    <td align="right">[tr.save_money;frm='0.00']</td>
+    <td align="right">[tr.save_day]</td>
+    <td align="right">[tr.cost_bull_money;frm='0.00']</td>
+    <td align="right">[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td>[tr.id;block=tr]</td>
+    <td>[tr.username]</td>
+    <td>[tr.bull_trust_date]</td>
+    <td><a href="javascript:ShowKline('[tr.stock_code]');">[tr.stock_code]/[tr.stock_name]</a></td>
+    <td>[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升(多)</font>';else '<font color="#009900">买跌(空)</font>']</td>
+    <td align="right">[tr.save_price;frm='0.00']</td>
+    <td align="right">[tr.cur_price;frm='0.00']</td>
+    <td align="right">[tr.save_num]</td>
+    <td align="right">[tr.save_money;frm='0.00']</td>
+    <td align="right">[tr.save_day]</td>
+    <td align="right">[tr.cost_bull_money;frm='0.00']</td>
+    <td align="right">[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF">
+    <td height="100" colspan="12">[tr;block=tr;nodata]<span class="gray">暂无符合条件持仓记录.</span></td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+   <td colspan="12" align="center"><table border="0" align="center" cellpadding="2" cellspacing="0" class="pagelist">
+      <tr align="center" >
+        <td><a id='page_first' href="[var..script_name]?start_date=[var.start_date]&username=[var.username]&PageSize=[var.PageSize]&PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td>
+        <td><a id='page_prev' href="[var..script_name]?start_date=[var.start_date]&username=[var.username]&PageSize=[var.PageSize]&PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td>
+        <td><a id='page_page' href="[var..script_name]?start_date=[var.start_date]&username=[var.username]&PageSize=[var.PageSize]&PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td>
+        <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td>
+        <td><a id='page_next' href="[var..script_name]?start_date=[var.start_date]&username=[var.username]&PageSize=[var.PageSize]&PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td>
+        <td><a id='page_last' href="[var..script_name]?start_date=[var.start_date]&username=[var.username]&PageSize=[var.PageSize]&PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

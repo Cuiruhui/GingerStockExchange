@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>代理收益</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+<link href="./skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px;}
+</style>
+<script type="text/javascript" src="./tips/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./tips/jquery.poshytip.js"></script>
+<script type="text/javascript" src="./js/function.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#tips_user').poshytip({
+		className: 'tip-violet',
+		bgImageFrameSize: 9
+	});
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+});
+</script>
+</head>
+<body> 
+<table width="98%" align="center" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF" style="margin-top:5px;border:1px solid #CCCCCC;" class="mybox">
+  <tr bgcolor="#F5F5F5">
+    <td width="53%" height="30"><img src="./images/dot13.gif" border="0" align="absmiddle" hspace="3" />当前位置：代理平台 &gt; 结算记录</td>
+  </tr>
+</table>
+<table width='98%' border='0' align="center" cellpadding='3' cellspacing='1' bgcolor="#CCCCCC" class="mybox">
+  <tr align='center'>
+    <th>序号</th>
+    <th>结算周期</th>
+    <th align="right">金额</th>
+  <th align="center">是否支付</th>
+  <th align="center">支付日期</th>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td>[tr.id;block=tr;aggregate=money:sum]</td>
+    <td>[tr.start_date]~[tr.end_date]</td>
+    <td align="right">￥[tr.money;frm='0.00']</td>
+  <td align="center">[tr.ispay;if [val]=1;then '<font color=red>已支付</font>';else '等待支付'] </td>
+  <td align="center">[tr.pay_date;if [val]='';then '-';else [val]] </td>
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td>[tr.id;block=tr;aggregate=money:sum]</td>
+    <td>[tr.start_date]~[tr.end_date]</td>
+    <td align="right">￥[tr.money;frm='0.00']</td>
+  <td align="center">[tr.ispay;if [val]=1;then '<font color=red>已支付</font>';else '等待支付'] </td>
+  <td align="center">[tr.pay_date;if [val]='';then '-';else [val]] </td>
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td height="50" colspan="5" bgcolor="#FFFFFF">[tr;block=tr;nodata]<span class="gray">暂无任何结算记录.</span></td>
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td height="20" colspan="5" align="right" bgcolor="#FFFFFF">合计：￥[tr.money:sum;frm='0,000.00']</td>
+  </tr>
+</table>
+</body>
+</html>

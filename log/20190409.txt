@@ -1,0 +1,2 @@
+2019-04-09 13:20:58 112.96.196.156 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='8.28',sell_cost_money='82.8',dc_money='210.25',sell_money='41400',sell_trust_id='1174',sell_gain='650',gain='230.8',agent_sell_money='0',sell_trust_date='2019-04-09',sell_trust_time='2019-04-09 13:20:58' where id='00000551'
+2019-04-09 13:20:58 112.96.196.156 UPDATE `user_users` set money=money+41400+650-82.8-0-0,cash=cash+650-82.8-0-0 where username='u137026'

@@ -1,0 +1,2 @@
+2017-05-12 11:22:58 183.18.35.171 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='8.82',sell_cost_money='1.76',dc_money='0',sell_money='882',sell_trust_id='12879',sell_gain='19',gain='14.47',agent_sell_money='0',sell_trust_date='2017-05-12',sell_trust_time='2017-05-12 11:22:58' where id='00005804'
+2017-05-12 11:22:58 183.18.35.171 UPDATE `user_users` set money=money+882+19-1.76-0-0,cash=cash+19-1.76-0-0 where username='uceshi'

@@ -1,0 +1,97 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>下线会员列表</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./css/skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px;}
+</style>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+	$('#PageSize').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+	$('#btnAll').click(function(){
+		$('#username').val('');
+		$('#start_date').val('2010-01-01');
+		$('#frmSearch').submit();
+	});
+	$('#btnReg').click(function(){
+		location.href = 'referrals_member_register.php';
+	});
+});
+</script>
+</head>
+<body style="background-color: #FFFBFF" > 
+<table width="98%" align="center" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF" style="margin-top:5px;border:1px solid #CCCCCC;">
+  <tr>
+    <td height="30" bgcolor="#F5F5F5"><form name="frmSearch" id="frmSearch" method="get" action="referrals_member.php">
+&nbsp;用户名:
+          <input name="username" type="text" id="username" value="[var.username]" size="10">　
+          注册日期:
+          <input name="start_date" id="start_date" type="text" value="[var.start_date]" class="datepicker"/> 至 <input name="end_date" id="end_date" type="text" value="[var.end_date]" class="datepicker"/>
+          <input type="submit" name="Submit" value="查 询" class="button3">
+		  <input name="btnAll" type="button" id="btnAll" value="显示全部" class="button3" />
+		  <input name="btnReg" type="button" id="btnReg" value="注册帐号" class="button3" />
+  </form></td>
+  </tr>
+</table>
+<table width='98%' border='0' align="center" cellpadding='3' cellspacing='1' bgcolor="#CCCCCC" class="mybox">
+  <tr align='center'>
+    <th>序号</th>
+    <th>帐号</th>
+    <th>姓名</th>
+    <th>注册日期</th>
+    <th align="center">上次登录</th>
+    <th align="right">保证金</th>
+    <th align="right">可用资金</th>
+    <th align="center">状态</th>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td>[tr.id;block=tr;ondata=list_event]</td>
+    <td>[tr.username]</td>
+    <td>[tr.realname]</td>
+    <td>[tr.regdate]</td>
+    <td align="center">[tr.last_login;frm='mm-dd / hh:nn']</td>
+    <td align="right">[tr.cash;frm='0,000.00']</td>
+    <td align="right">[tr.money;frm='0.00']</td>
+    <td align="center">[tr.onlineTime;htmlconv=no]</td>
+  </tr>
+  <tr align='center' bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td>[tr.id;block=tr;ondata=list_event]</td>
+    <td>[tr.username]</td>
+    <td>[tr.realname]</td>
+    <td>[tr.regdate]</td>
+    <td align="center">[tr.last_login;frm='mm-dd / hh:nn']</td>
+    <td align="right">[tr.cash;frm='0,000.00']</td>
+    <td align="right">[tr.money;frm='0.00']</td>
+    <td align="center">[tr.onlineTime;htmlconv=no]</td>
+  </tr>
+  <tr align='center' bgcolor="#FFFFFF">
+    <td height="100" colspan="8">[tr;block=tr;nodata]<span class="gray">暂无符合条件会员记录.</span></td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+   <td colspan="8" align="center"><table border="0" align="center" cellpadding="2" cellspacing="0" class="pagelist">
+      <tr align="center" >
+        <td><a id='page_first' href="[var..script_name]?start_date=[var.start_date]&username=[var.username]&PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td>
+        <td><a id='page_prev' href="[var..script_name]?start_date=[var.start_date]&username=[var.username]&PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td>
+        <td><a id='page_page' href="[var..script_name]?start_date=[var.start_date]&username=[var.username]&PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td>
+        <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td>
+        <td><a id='page_next' href="[var..script_name]?start_date=[var.start_date]&username=[var.username]&PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td>
+        <td><a id='page_last' href="[var..script_name]?start_date=[var.start_date]&username=[var.username]&PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

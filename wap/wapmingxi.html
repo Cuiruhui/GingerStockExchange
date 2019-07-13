@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="" />
+<meta name="description" content="融资融券交易系统">
+<meta name="author" content="" />
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<meta content="telephone=no" name="format-detection">
+
+
+<link rel="stylesheet" href="wap/jquery.mobile-1.3.2.min.css">
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+<script src="assets/js/jquery-1.8.2.min.js"></script>
+<script src="wap/jquery.mobile-1.3.2.min.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/cookie.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./tips/jquery.poshytip.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	showgain();
+	$('#tips_gain,#tips_gain1,#tips_cost,#tips_cc').poshytip({
+		className: 'tip-violet',
+		bgImageFrameSize: 9
+	});
+});
+</script>
+
+
+<style>
+.ui-block-a, 
+.ui-block-b, 
+.ui-block-c,
+.ui-block-d,
+.ui-block-e  
+{
+border: 1px;
+border-bottom-color:#000000;
+height: 40px;
+
+
+}
+.button3
+{
+	height:30px;
+}
+</style>
+
+</head>
+<body>
+
+<div data-role="page" id="pagetwo">
+
+
+
+
+  <div data-role="header" data-theme="b">
+  	<a href="./wapindex.php" data-role="button"  data-ajax="false">欢迎您，[var.username]</a>
+    <h1>平仓历史</h1>
+  </div>
+
+  <div data-role="content" >
+    
+	
+
+<table width="99%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF" class="mybox" style="border:1px solid #cccccc;">
+  <tr align="center" bgcolor="#F5F5F5">
+   
+   
+    <td width="13%">买入手续费：<span class="gray">[var.cost_bull]‰</span></td>
+    <td width="13%">卖出手续费：<span class="gray">[var.cost_sell]‰</span></td>
+    <td width="13%">留仓费率：<span class="gray">[var.cost_save]‰ /天 </span></td>
+    
+    <td><span style="float:left; display:inline; margin-left:20px;">可用额度：</span><span class="money" style="display:inline;">￥[var.canmoney;frm='0.00']</span></td>
+  </tr>
+</table>
+<table width="99%" border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#cccccc" class="mybox" style="margin-top:10px;">
+  <tr>
+    <th colspan="10" bgcolor="#C5E2FB">平仓单</th>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td rowspan="2" align="center" bgcolor="#FFFFFF">订单号</td>
+    <td rowspan="2" align="center" bgcolor="#FFFFFF">代码/名称</td>
+   
+    <td colspan="2" align="center">卖</td>
+    <td rowspan="2" align="center">升/跌</td>
+    <td rowspan="2" align="right">数量(手)</td>
+   
+ 
+   
+    <td rowspan="2" align="right">盈亏<a id='tips_gain1' href="javascript:void(0);" title="1、买升计算公式:盈亏=卖出金额-买入金额-买入手续费-卖出手续费-留仓费-点差费 <br />2、买跌计算公式:盈亏=买入金额-卖出金额-买入手续费-卖出手续费-留仓费-点差费">(?)</a></td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    
+    <td align="center" bgcolor="#FFFFFF"> 下单时间 </td>
+    <td align="right" bgcolor="#FFFFFF">成交价</td>
+   
+
+  </tr>
+  <tr bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td align="center">[tr.id;block=tr;ondata=event_sum;aggregate=gain:sum]</td>
+    <td align="center">[tr.stock_code] / [tr.stock_name]</td>
+    
+   
+   
+    <td align="center">[tr.sell_trust_time;frm='mm/dd hh:nn:ss']</td>
+    <td align="right">[tr.sell_price;frm='0.00']</td>
+    <td align="center">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+    <td align="right">[tr.bull_num]</td>
+
+    
+   
+    <td align="right">[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td align="center">[tr.id;block=tr;ondata=event_sum;aggregate=gain:sum]</td>
+    <td align="center">[tr.stock_code;block=tr;ondata=event_sum] / [tr.stock_name]</td>
+    
+   
+    
+    <td align="center">[tr.sell_trust_time;frm='mm/dd hh:nn:ss']</td>
+    <td align="right">[tr.sell_price;frm='0.00']</td>
+    <td align="center">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+    <td align="right">[tr.bull_num]</td>
+   
+   
+   
+    <td align="right">[tr.gain;frm='0.00']</td>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF">
+    <td height="30" colspan="14" class="gray">[tr;block=tr;nodata]暂无符合条件的记录.</td>
+  </tr>
+  <tr align="right" bgcolor="#FFFFFF">
+    <td height="30" colspan="14"><span id="pcgain" style="display:none;">[tr.gain:sum]</span>平仓盈亏小计：<span class="money1">[tr.gain:sum;if [val] >0;then '<font color=red>';else '<font color=green>']￥[tr.gain:sum;frm='0.00']</font></span></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+	
+  </div>
+
+  <div data-role="footer" data-theme="b">
+    <div data-role="navbar" data-position="fixed" data-fullscreen="true">
+      <ul>
+        <li style="height:35px;"><a href="./wapindex.php" data-ajax="false">首页</a></li>
+        <li style="height:35px;"><a href="./waporder.php" data-ajax="false">下单</a></li>
+        
+        <li style="height:35px;"><a href="./waphangqing.php" data-ajax="false">行情</a></li>
+        <li style="height:35px;"><a href="/waptrade.php"data-ajax="false" >持仓</a></li>
+      </ul>
+    </div>
+  </div>
+</div> 
+
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>下线会员_注册</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./css/skin/parent.ymPrompt.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px;}
+</style>
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/parent.ymPrompt.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript">
+var stype = "1"; //0为免费试玩帐号  1 为正式帐号
+var bfchar = "u"; //前缀字符
+function obj(element) {
+    if (typeof element == 'string')
+        element = document.getElementById(element);
+    return element;
+}
+function SubChk() {
+	if (obj("username").value == '') {
+		parent.ymPrompt.alert({title: "下线会员注册", message: "请输入帐号！", handler: function () {
+			obj("username").focus();
+		}
+		});
+		return false;
+	}
+	if (obj("username").value.length > 20 || obj("username").value.length < 4) {
+		parent.ymPrompt.alert({title: "下线会员注册", message: "帐号：请输入4-10个字符, 仅可输入英文字母以及数字的组合!", handler: function () {
+			obj("username").focus();
+		}
+		});
+		return false;
+	}
+	if (obj("password").value == '' || obj("password").value.length<6 ||  obj("password").value.length>12) {
+		parent.ymPrompt.alert({title: "下线会员注册", message: "密码长度必须在6-12个字符之间!!", handler: function () {
+			obj("password").focus();
+		}
+		});
+		return false;
+	}
+	if (obj("password1").value == '') {
+		parent.ymPrompt.alert({title: "下线会员注册", message: "确认新密码!!", handler: function () {
+			obj("password1").focus();
+		}
+		});
+		return false;
+	}
+	if (obj("password").value != obj("password1").value) {
+		parent.ymPrompt.alert({title: "下线会员注册", message: "确认密码错误！,请重新输入!!", handler: function () {
+			obj("password1").focus();
+		}
+		});
+		return false;
+	}
+
+	if (obj("realname").value == '') {
+		parent.ymPrompt.alert({title: "下线会员注册", message: "请输入真实姓名!!", handler: function () {
+			obj("realname").focus();
+		}
+		});
+		return false;
+	}
+
+	if (obj("mobile").value == '') {
+		parent.ymPrompt.alert({title: "下线会员注册", message: "手机与取款密码为取款金额时的凭证,请会员务必填写详细资料。!!", handler: function () {
+			obj("mobile").focus();
+		}
+		});
+		return false;
+	}
+
+	if (obj("mobile").value.replace(/[\uFF00-\uFFFF]/g, '**').length > 12) {
+		parent.ymPrompt.alert({title: "下线会员注册", message: '手机栏位错误，请检查！', handler: function () {
+			obj("mobile").focus();
+		}
+		});
+		return false;
+	}
+	
+	obj("atmpwd").value = obj("atmpwd1").value + obj("atmpwd2").value + obj("atmpwd3").value + obj("atmpwd4").value;
+	if(obj("atmpwd").value =='0000' && stype==1)
+	{
+		parent.ymPrompt.alert({title: "下线会员注册", message: "取款密码请不要使用初始0000！", handler: function () {
+			obj("atmpwd1").focus();
+		}
+		});
+		return false;
+	}
+	if (!/^[a-zA-Z0-9_\-.]{0,}[a-zA-Z0-9_\-]{1,}@[a-zA-Z0-9_\-]{1,}\.[a-zA-Z0-9_\-.]{1,}$/.test(document.all.email.value)) {
+		parent.ymPrompt.alert({title: "下线会员注册", message: "E-mail格式不正确!", handler: function () {
+			obj("email").focus();
+		}
+		});
+		return false;
+	}
+	document.regfrm.submit();
+}
+
+function check_user() {
+	var username_value = obj("username").value
+	if (username_value == 'x' || username_value=='u') {
+		parent.ymPrompt.alert({title: "下线会员注册", message: "请输入帐号！!!", handler: function () {
+			obj("username").focus();
+		}
+		});
+		return false;
+	} else {
+		$.ajax({
+			type:'GET',
+			url:'referrals_member_register.php?type=chkuser&username=' + username_value,
+			cache:false,
+			async:false,
+			success:function(msg){
+				if(msg.indexOf('true')!=-1)
+				{
+					parent.ymPrompt.succeedInfo({title: "下线会员注册", message: "帐号可用", handler: function () {
+						obj("username").focus();
+					}
+					});
+				}
+				else
+				{
+					parent.ymPrompt.alert({title: "下线会员注册", message: "帐号已存在，不可用！", handler: function () {
+						obj("username").focus();
+					}
+					});
+				}
+			}
+		 });
+	}
+}
+
+function CheckNumField() {
+	if ((event.keyCode < 48 || event.keyCode > 57)) {
+		return false;
+	}
+}
+function check_length(obj, str, len) {
+	if (str.length > len) {
+		parent.ymPrompt.alert({ message: '帐号：请输入4-20个字符, 仅可输入英文字母以及数字的组合!', handler: function () {
+			document.getElementById(obj.id).focus();
+			document.getElementById(obj.id).select();
+		}
+		});
+		return false;
+	}
+}
+
+
+function TriggerBtnSubmit(btn) {//监听提交按钮
+	var e = event.srcElement;
+	if (event.keyCode == 13) {
+		event.keyCode = 9;
+		document.getElementById(btn).click();
+		return false;
+	}
+}
+var _uno = "";
+function ShowMonFirst() {
+	_uno = obj("username").value;
+	if (_uno.length == 0 || _uno.substr(0, 1) != bfchar)
+		obj("username").value = bfchar;
+}
+</script>
+</head>
+<body style="background-color: #FFFBFF" > 
+<form name="regfrm" method="post" action="?type=regsubmit">
+  <table width='98%' border='0' align="center" cellpadding='3' cellspacing='1' bgcolor="#CCCCCC" class="mybox">
+    <tr>
+      <th colspan="2">下线会员帐号注册</th>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td width="30%" align="right">帐　　号：</td>
+      <td><input name="username" type="text" id="username" value="u" size="20" onKeyUp="ShowMonFirst()" onBlur="return check_length(this,this.value,20);" />
+      <input type="button" name="Submit3" value="检查帐号" onClick="check_user();" /></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">密　　码：</td>
+      <td><input name="password" type="password" id="password" size="20"></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">确认密码：</td>
+      <td><input name="password1" type="password" id="password1" size="20"></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right"> 真实姓名：</td>
+      <td><input name="realname" type="text" id="username3" size="20" maxlength="4">
+        注册后不能修改(必须与您的银行帐户名称相同，否则不能出款!)</td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">手机号码：</td>
+      <td><input name="mobile" type="text" id="realname" size="20" maxlength="11">
+	  此为您取回登入密码的唯一途径, 请注意安全, 务必真实!</td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">取款密码：</td>
+      <td><select name="atmpwd1" size="1" id="atmpwd1">
+        <option value="0">0</option>
+        <option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+      </select>
+<select name="atmpwd2" size="1" id="atmpwd2">
+        <option value="0">0</option>
+        <option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+      </select>
+<select name="atmpwd3" size="1" id="atmpwd3">
+        <option value="0">0</option>
+        <option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+      </select>
+<select name="atmpwd4" size="1" id="atmpwd4">
+        <option value="0">0</option>
+        <option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+      </select>
+	  提款认证必须，请务必记住!
+<input name="atmpwd" type="hidden" id="atmpwd">
+
+	  </td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">E-mail：</td>
+      <td><input name="email" type="text" id="username4" size="20"></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td align="right">&nbsp;</td>
+      <td><input type="button" name="Submit" value="提 交" class="button3" onClick="SubChk()" />
+      <input type="reset" name="Submit2" value="重置" class="button3"></td>
+    </tr>
+  </table>
+</form>
+<p>&nbsp;</p>
+</body>
+</html>

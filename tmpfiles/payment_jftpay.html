@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+	.mybox td{
+			background-color:#EDF8FF
+}
+
+</style>
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./style/thickbox.css" rel="stylesheet" type="text/css" />
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="./tips/jquery-1.4.2.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/js_admin.js"></script>
+<script type="text/javascript" src="./js/thickbox.js"></script>
+
+</head>
+
+<body>
+<script language="javascript">
+ function checks()
+ {
+  if(reform.p3_Amt.value=="")
+   {
+     alert("请输入充值金额!");
+	 reform.p3_Amt.focus();
+	 return false;
+   }else if(parseFloat(reform.p3_Amt.value)< [var.r6])
+   {
+     alert("充值金额不能小于[var.r6]元!");
+	 reform.p3_Amt.focus();
+	 return false;
+   }else if(reform.payvia.value=="")
+   {
+     alert("请选择支付方式!");
+	 reform.payvia.focus();
+	 return false;
+   }else
+   {
+    reform.fsubmit.value=" 正在提交您的支付信息.. ";
+    reform.fsubmit.disabled=true;
+    return true;
+
+   }
+ }
+function Isnum()
+{
+  return ((event.keyCode >= 48) && (event.keyCode <= 57));
+}
+
+      </script>
+	  
+	  <script language="javascript">
+ function checkm()
+{
+	 var fm1 = document.getElementById('fm1');
+	if (fm1.p3_Amt.value< [var.r6])
+	{
+		alert('存入金额至少为[var.r6]元');
+		return false
+	}
+	else
+	{
+		
+	
+		tb_show("在线存款","#TB_inline?width=480&height=200&inlineId=info",false);
+		fm1.submit();
+		return true;
+	}
+}
+
+$(function(){
+	//付款完成，返回付款历史页面
+	$('#btnOKpay').click(function(){
+		self.location.href='payment.php?type=log';
+	});
+	$('#btnFail').click(function(){
+		self.location.href='payment.php?type=fail';
+	});
+	$('#back').click(function(){
+		tb_remove();
+		self.location.href='payment.php';
+	});	
+})
+
+
+</script>
+
+    <form action="/online_pay.php"  method=post name=fm1 target="_blank" id=fm1>
+        <table width="99%"  border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" class="mybox">
+            <tr>
+              <th colspan="4">会员在线充值</th>
+            </tr>
+            <tr>
+                <td height="26" align="center" class="fb12"  style="text-align: left;" colspan="4">
+                &nbsp;&nbsp;<strong>本系统支持各大银行卡网上支付，支付冲值即时到帐!</strong><BR/>
+                &nbsp;&nbsp;1.输入充值金额后，选择所支付的银行，按&quot;在线支付&quot;进入银行支付系统！<BR/>
+                &nbsp;&nbsp;2.认真填写卡号密码完成支付!<BR/>
+                &nbsp;&nbsp;3.支付成功后请不要关闭网页,点击会员资料或[存款历史]查看是否充值到账成功!<BR/>
+                &nbsp;&nbsp;<span style="color:red">注意:充值过程中请记下订单号,如有任何充值不成功的情况请第一时间联系客服! </span>				  </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input name="username" type="hidden" value="[var.currentusername]" />
+                    <input type="submit" value="在线支付" />
+                </td>
+            </tr>
+                    
+                    <!--<tr>
+                      <td width="100" height="26" align="right"><strong>会员帐号<span class="textalign">：</span></strong></td>
+                      <td align="left"><span class="style5">
+                        [var.currentusername]
+	                    <a href="payment.php?type=log">存款历史</a>
+<input name="username" type="hidden" id="username" value="[var.currentusername]" />
+
+
+&lt;!&ndash; 以下为 聚富通 参数 &ndash;&gt;
+
+&lt;!&ndash; 支付人姓名 &ndash;&gt;&lt;!&ndash; 支付人联系方式 &ndash;&gt;
+
+
+
+
+                        </span> 　
+                        </td>
+          </tr>
+                    <tr>
+                      <td height="23" align="right" class="fb12">
+						<strong>充值金额<span class="textalign">：</span></strong></td>
+                      <td align="left">
+						<input name="money" type="text" class="input" id="p3_Amt" onKeyPress="event.returnValue=Isnum();" size="10">                        
+                        元
+                        <input  name="image"  type="button"  border="0"  value="在线支付"    onclick="checkm()"  class="button3"/> 
+                        (充值金额不能小于<font color="#FF0000">
+  						[var.r6]
+</font>元) (<font color="red">卡类支付必须为充值卡的金额</font>)
+</td>
+          </tr>
+                    
+                    <tr>
+				
+                      <td class="textalign" align="right"><strong>选择银行：</strong></td>
+                      <td class="zhifu_method" align=left><table  border="0" cellspacing="10" cellpadding="0">
+                        <tr>
+                          <td align="center" width="30" height="35"><input  type="radio" checked="checked"  name="ka_type" value="1100" />                          </td>
+                          <td><img align="absmiddle" src="bank/ICBC-NET.png" width="154" height="33" alt="中国工商银行" border="0" /> </td>
+                          <td align="center" width="30" height="35"><input  type="radio" name="ka_type" value="1104" />                          </td>
+                          <td width="30"><img align="absmiddle" src="bank/ECITIC-NET.png" width="154" height="33" alt="中信银行" border="0" /> </td>
+                          <td align="center"><input  type="radio" name="ka_type" value="1101" />                          </td>
+                          <td><img align="absmiddle" src="bank/ABC-NET.png" width="154" height="33" alt="中国农业银行" border="0" /> </td>
+                        </tr>
+                        <tr>
+                          <td align="center" width="30" height="35"><input  type="radio" name="ka_type" value="1102" />                          </td>
+                          <td><img align="absmiddle" src="bank/CMBCHINA-NET.png" width="154" height="33" alt="中国招商银行" border="0" /> </td>
+                          <td align="center"><input  type="radio" name="ka_type" value="1113" />                          </td>
+                          <td><img align="absmiddle" src="bank/BCCB-NET.png" width="154" height="33" alt="北京银行" border="0" /> </td>
+                          <td align="center" width="30" height="35"><input  type="radio" name="ka_type" value="1107" />                          </td>
+                          <td><img align="absmiddle" src="bank/BOC-NET.png" width="154" height="33" alt="中国银行" border="0" /> </td>
+                        </tr>
+                        <tr>
+                          <td align="center" width="30" height="35"><input  type="radio" name="ka_type" value="1103" />                          </td>
+                          <td><img align="absmiddle" src="bank/CIB-NET.png" width="154" height="33" alt="兴业银行" border="0" /> </td>
+                          <td align="center" width="30" height="35"><input  type="radio" name="ka_type" value="1111" />                          </td>
+                          <td><img align="absmiddle" src="bank/huaxia.gif" width="140" height="42" alt="华夏银行" border="0" /> </td>
+                          <td align="center"><input  type="radio" name="ka_type" value="1112" />                          </td>
+                          <td><img align="absmiddle" src="bank/guangda.gif" width="154" height="33" alt="光大银行" border="0" /> </td>
+                        </tr>
+                        <tr>
+                          <td align="center" width="30" height="35"><input  type="radio" name="ka_type" value="1115" />                          </td>
+                          <td><img align="absmiddle" src="bank/nanjing.gif" width="154" height="33" alt="南京银行" border="0" /> </td>
+                          <td align="center"><input  type="radio" name="ka_type" value="1119" />                          </td>
+                          <td><img align="absmiddle" src="bank/POST-NET.png" width="154" height="33" alt="中国邮政" border="0" /> </td>
+                          <td align="center"><input  type="radio" name="ka_type" value="1114" />                          </td>
+                          <td><img align="absmiddle" src="bank/GDB-NET.png" width="154" height="33" alt="广东发展银行" border="0" /> </td>
+                        </tr>
+                        <tr>
+                          <td align="center"><input  type="radio" name="ka_type" value="1106" />                          </td>
+                          <td><img align="absmiddle" src="bank/CCB-NET.png" width="154" height="33" alt="建设银行" border="0" /> </td>
+                          <td align="center" width="30" height="35"><input  type="radio" name="ka_type" value="1117" />                          </td>
+                          <td><img align="absmiddle" src="bank/hangzhou.gif" width="154" height="33" alt="杭州银行" border="0" /> </td>
+                          <td align="center" width="30" height="35"><input  type="radio" name="ka_type" value="1110" />                          </td>
+                          <td><img align="absmiddle" src="bank/1001009.png" width="154" height="33" alt="中国民生银行民生卡" border="0" /> </td>
+                        </tr>
+                        
+                        <tr>
+                          <td align="center"><input  type="radio" name="ka_type" value="1116" />                          </td>
+                          <td><img align="absmiddle" src="bank/shanghaibank.gif" width="154" height="33" alt="上海银行" border="0" /> </td>
+                          <td align="center"><input  type="radio" name="ka_type" value="1109" />                          </td>
+                          <td><img align="absmiddle" src="bank/shangpufa.gif" width="154" height="33" alt="浦发银行" border="0" /> </td>
+                          <td align="center"><input  type="radio" name="ka_type" value="1121" />                          </td>
+                          <td><img align="absmiddle" src="bank/pingan.gif" width="154" height="33" alt="平安银行" border="0" /> </td>
+                        </tr>
+						
+						  <tr>
+                          <td align="center"><input  type="radio" name="ka_type" value="1123" />                          </td>
+                          <td><img align="absmiddle" src="bank/buohai.gif" width="154" height="33" alt="渤海银行" border="0" /> </td>
+                          <td align="center"><input  type="radio" name="ka_type" value="1124" />                          </td>
+                          <td><img align="absmiddle" src="bank/nongcunshangye.gif" width="154" height="33" alt="北京农商行" border="0" /> </td>
+                          <td align="center"><input  type="radio" name="ka_type" value="1118" />                          </td>
+                          <td><img align="absmiddle" src="bank/ningbo.gif" width="154" height="33" alt="宁波银行" border="0" /> </td>
+                        </tr>
+                        
+                      </table></td>
+          </tr>-->
+</table>
+            </form>
+<br><br>
+
+<div id="info" style="display:none;">
+ <p><img src="./images/i.gif" border="0" align="absmiddle" />&nbsp;存款完成前请不要关闭此窗口。完成存款后请根据你的情况点击下面的按钮：</p>
+ <p><b>请在新开页面完成付款后再选择。</b></p>
+ <p>&nbsp;</p>
+ <p align="center"><input type="button" id="btnOKpay" name="btnOKpay" value="已完成付款">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="btnFail" name="btnFail" value="付款遇到问题" /></p>
+ <p style="height:35px; line-height:35px;"><a href="javascript:void(0);" id="back" style="color:#0077FF;">
+	返回重新输入付款金额</a></p>
+</div>
+
+</body>
+</html>

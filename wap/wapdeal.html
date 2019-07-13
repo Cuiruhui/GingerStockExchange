@@ -1,0 +1,122 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>持股/卖出</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<link href="./css/skin/ymPrompt.css" rel="stylesheet" type="text/css" />
+<link href="./tips/tip-violet.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox td {padding:3px; line-height:18px;}
+</style>
+<script src="assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/cookie.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+<script type="text/javascript" src="./tips/jquery.poshytip.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	showgain();
+	
+	 setInterval(sysBC,7000);
+function sysBC(){
+	
+	//res = ajaxUrl('./ajax.php?type=baocang');
+	$.ajax({
+		type: 'GET',
+		url: 'ajax.php?type=baocang',
+		cache: false,
+		success:function(res){
+			if(parseInt(res)>0)
+			{
+				
+				alert("您已爆仓，亏损额度大于保证金90%；");
+				self.location.reload();
+			}
+			else
+			{
+				
+			}
+			
+			
+		}
+	});
+}
+
+	
+	
+});
+</script>
+</head>
+
+</head>
+<body>
+
+
+    
+	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="mybox" style="border:1px solid #cccccc;">
+  <tr align="center" bgcolor="#F5F5F5">
+    
+   
+    <td width="25%">买手续费：<span class="gray">[var.cost_bull]‰</span></td>
+    <td width="25%">卖手续费：<span class="gray">[var.cost_sell]‰</span></td>
+    <!--<td width="25%">留仓费：<span class="gray">[var.cost_save]‰  </span></td>-->
+     
+    <td ><span style="float:left; display:inline; margin-left:6px;">可用额度：</span><span class="money" style="display:inline;">￥[var.canmoney;frm='0.00']</span></td>
+	
+  </tr>
+</table>
+
+<table width="100%"  border="0" align="center"  bgcolor="#CCCCCC" class="mybox" style="margin-top:5px;">
+  
+  <tr align="center" bgcolor="#C5E2FB">
+    <td width="15%" height="20" style="display:none;">订单号</td>
+   
+    <td width="15%">代码</td>
+    <td width="15%">升/跌</td>
+   
+    <td width="20%" align="right">金额</td>
+   
+    <td width="15%" align="right">现价</td>
+    <td width="20%" align="right">盈亏<a id='tips_gain' href="javascript:void(0);" title="1、买升计算公式:盈亏=卖出金额-买入金额-买入手续费-留仓费-点差费 <br />2、买跌计算公式:盈亏=买入金额-卖出金额-买入手续费-留仓费-点差费<br />3、盈亏数值仅做参考，最终以日报数据为准。">(?)</a></td>
+    <td width="15%">操作</td>
+  </tr>
+  <tr bgcolor="#FFFFFF" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#FFFFFF';">
+    <td align="center" style="display:none;" id="inf_[tr1.#]" value="[tr1.bull_price],[tr1.buy_type],[tr1.bull_num],[tr1.bull_cost_money],[tr1.sell_cost],[tr1.save_money],[tr1.dc_money]">[tr1.id;block=tr;ondata=E_buy1]</td>
+   
+    <td align="center"> [tr1.stock_name]</td>
+    <td align="center">[tr1.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+   
+    <td align="right">[tr1.bull_money;frm='0.00']</td>
+   
+    <td align="right" id="cur_price_[tr1.#]">--</td>
+    <td align="right" id="gain_[tr1.#]">--</td>
+    <td align="center"><input type="button" name="Submit" value="平仓" onClick="sale_buy('[tr1.stock_code]','[tr1.stock_name]','[tr1.bull_num]','[tr1.id]','[var.xltm.config.sel_max_time]','[var.xltm.config.cost_sell_limit]');" class="button3" [tr1.candeal] /></td>
+  </tr>
+  <tr bgcolor="#F5F5F5" onMouseOver="this.style.background='#FDF0D7';" onMouseOut="this.style.background='#F5F5F5';">
+    <td align="center" style="display:none;" id="inf_[tr1.#]" value="[tr1.bull_price],[tr1.buy_type],[tr1.bull_num],[tr1.bull_cost_money],[tr1.sell_cost],[tr1.save_money],[tr1.dc_money]">[tr1.id;block=tr;ondata=E_buy1]</td>
+    
+    <td align="center">[tr1.stock_name]</td>
+    <td align="center">[tr1.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td>
+   
+    <td align="right">[tr1.bull_money;frm='0.00']</td>
+   
+   <td align="right" id="cur_price_[tr1.#]">--</td>
+    <td align="right" id="gain_[tr1.#]">--</td>
+    <td align="center"><input type="button" name="Submit" value="平仓" onClick="sale_buy('[tr1.stock_code]','[tr1.stock_name]','[tr1.bull_num]','[tr1.id]','[var.xltm.config.sel_max_time]','[var.xltm.config.cost_sell_limit]');" class="button3" [tr1.candeal] /></td>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF">
+    <td height="30"  colspan="7"><span class="gray">[tr1;block=tr;nodata]暂无留仓和持仓单.</span></td>
+  </tr>
+  <tr align="center" bgcolor="#FFFFFF">
+    <td height="30"  colspan="3" align="right"><a href="javascript:void(0);" id="tips_cc" title="留仓/持仓金额=当前价 * 数量(手) * 100">(?)</a>留仓总金额：<span id="span_lcmoney" class="money1">￥0.00</span></td>
+  <td height="30"  colspan="2" align="right">留仓盈亏合计：</td>
+  <td width="36" height="30" colspan="3" align="left"><span id="span_lcgain" class="money1">￥0.00</span>   </td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+
+</body>
+</html>

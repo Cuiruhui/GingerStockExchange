@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript">
+    function CheckAllBox(language) {
+        if ($("#txt_U_name").val() == "") {
+            alert("帳號不能為空，請輸入");
+            document.getElementById("txt_U_Name").focus();
+            return false;
+        }
+        if ($("#txt_U_Password").val() == "") {
+            alert("密碼不能為空，請輸入");
+             document.getElementById("txt_U_Password").focus();
+            return false;
+        }
+        if ($("#txt_validate").val() == "") {
+            alert("校驗碼不能為空，請正確輸入");
+             document.getElementById("txt_validate").focus();
+            return false;
+        }
+		document.loginfrm.submit();
+    }
+	 function ChangeValidate() {
+        $("#imgCheckNum").attr('src','/validate.php?ts=' + Math.random());
+    }
+	
+    function TriggerBtnSubmit(btn) {
+        var e = event.srcElement;
+        if (event.keyCode == 13) {
+            event.keyCode = 9;
+            document.getElementById(btn).click();
+            return false;
+        }
+    }
+</script>
+</head>
+<body bgcolor="#F1F1F1">
+ <form name="loginfrm" method="post" action="login_from.php?type=login"> 
+  <div class="loginBg" align="center"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="login_T"> 
+      <tr> 
+        <td width="70"><div align="right">用户名：</div></td> 
+        <td><div align="left"> 
+            <input maxlength="20" id="txt_U_name" name="username" class="yhm" type="text" onkeydown="TriggerBtnSubmit('btnlogin')" /> 
+          </div></td> 
+      </tr> 
+      <tr> 
+        <td><div align="right">密&nbsp;&nbsp;码：</div></td> 
+        <td align="left"> <input name="password" class="yhm" type="password" maxlength="50" id="txt_U_Password" onkeydown="TriggerBtnSubmit('btnlogin')"  /> </td> 
+      </tr> 
+      <tr> 
+        <td><div align="right">验证码：</div></td> 
+        <td nowrap="nowrap" align="left"> <input type="text" class="yzm" id="txt_validate" name="validate" onkeydown="TriggerBtnSubmit('btnlogin')" maxlength="4" size="4" /> 
+          <a href="#" onclick="ChangeValidate();" style="text-decoration: none;"> <img id="imgCheckNum" align="middle" alt="刷新验证码…"  border="0" src="validate.php" /></a></td> 
+      </tr> 
+      <tr align="center"> 
+        <td colspan="2"><input class="btn_red" id="btnlogin" type="button" onclick="return CheckAllBox('1');" value="登录" /> 
+        <input class="btn_gray" id="zc" type="button" value="注册" onclick="top.location.href = '[var.register_url1]';" />
+        <input name="ref_domain" type="hidden" id="ref_domain" value="[var.ref_domain]" /> </td> 
+      </tr> 
+      <tr align="center"> 
+        <td height="15" colspan="2"><a href="[var.register_url]" style="color:#C4102B; text-decoration:underline; margin-right:15px;" target="_top">注册试玩帐号</a> <a href="[var.help_url]" target="_top">新开户流程</a></td> 
+      </tr> 
+    </table> 
+  </div> 
+</form>
+</body>
+</html>

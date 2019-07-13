@@ -1,0 +1,78 @@
+
+function show_time()
+{
+	clearTimeout(show_s);
+	$.ajax({
+		url:'showTime.php?rand='+Math.random(),
+		type:'GET',
+		timeout:1000,
+		success:function(data){
+			$('#liveTime').html(data);
+		}
+	});
+	show_s=window.setTimeout('show_time()', 1000);
+}
+
+function ajaxUrl(url)
+{
+	var res;
+	$.ajax({
+		url: url,
+		type:'GET',
+		timeout:5000,
+		async:false,
+		success:function(data){
+			if(data==undefined || data=='')
+				res = '';
+			else
+				res = data;
+		}
+	});
+	return res;
+}
+
+function Trim(str) {
+	return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+
+/*
+interval ：D表示查询精确到天数的之差
+interval ：H表示查询精确到小时之差
+interval ：M表示查询精确到分钟之差
+interval ：S表示查询精确到秒之差
+interval ：T表示查询精确到毫秒之差
+*/
+function dateDiff(interval, date1, date2)
+{
+	var objInterval = {'D' : 1000 * 60 * 60 * 24, 'H' : 1000 * 60 * 60, 'M' : 1000 * 60, 'S' : 1000, 'T' : 1};
+	interval = interval.toUpperCase();
+	try
+	{
+		return Math.round((date2 - date1) / ('(objInterval.' + interval + ')'));
+	}
+	catch (e)
+	{
+		return e.message;
+	}
+} 
+function countDealGain(code)
+{
+	
+}
+
+function ShowKline(stockcode) {
+	var are_str;
+	if(stockcode.substring(0, 1) == "6"){ 
+		area_str = "sh"; 
+	}else if(stockcode.substring(0, 1) == "0"){
+		area_str = "sz";
+	}
+	parent.ymPrompt.win({title:'股票 ' + stockcode + ' 的K线图', message: "kline.php?stockcode=" + stockcode + "&stocktype=" + area_str, width: 580, height: 420, maxBtn: true, iframe: true, winPos: [(screen.width-580)/2, 80], handler: null });
+}
+
+function KillErros()
+{
+		return true;
+}
+
+//window.onerror = KillErros;

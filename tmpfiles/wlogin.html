@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>腾煌国际融资融券交易中心</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" type="text/css" href="css/service.css" />
+<STYLE type=text/css> {
+	MARGIN: 0px auto
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; FONT: 12px Arial, Helvetica, sans-serif; PADDING-TOP: 0px
+}
+P {
+	TEXT-INDENT: 0px
+}
+</STYLE>
+
+<script type="text/javascript"> 
+  function changeImg(){ 
+  	var a=document.getElementById("validateImg");
+  	a.src='validate.php?'+Math.random();
+  }
+
+  function loginSub()
+  {
+  	var username = document.loginForm.username.value;
+  	var password = document.loginForm.password.value;
+  	var validate = document.loginForm.validate.value;
+	if(username == null || username == '' || username.length ==0){
+		alert("用户名不能为空");
+		document.loginForm.username.select();
+		return false;
+	}
+	else if(password == null || password == '' || password.length ==0){
+		alert("密码不能为空");
+		document.loginForm.password.select();
+		return false;
+	}
+
+	else if(validate == null || validate == '' || validate.length ==0){
+		alert("请输入验证码");
+		document.loginForm.validate.select();
+		return false;
+	}
+	document.loginForm.submit();
+  }
+</script>
+</head>
+<body class="bg">
+<center>
+<form id="loginForm" name="loginForm" action="login_from.php?type=wlogin" method="post"  target="_self">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTEzMTM1NzYyOWQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFEmxvZ2luJEltYWdlQnV0dG9uMy0NjYnqE1OQ0s3BRaepPTI38NBN" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBAKw5sjAAQK+xbefDAK5moqnBwLE2NmXBQmznIc2kAYJW1PuDS53/X8WKSd6" />
+</div>
+<OBJECT id=cssweb height=0 width=0 
+classid=CLSID:1BC4E1F9-758D-4BDA-A7DE-A9E1DA7D1E41></OBJECT>
+<DIV class=service_body_bg1></DIV>
+<DIV class=service_body_bg2></DIV>
+<DIV class=service_body_bg3></DIV>
+<TABLE cellSpacing=0 cellPadding=0 width=1004 border=0>
+  <TBODY>
+  <TR>
+    <TD class=centent_logo_left rowSpan=2></TD>
+    <TD rowSpan=2><IMG src="log_img/logo.jpg"></TD>
+    <TD class=nav_top_img></TD>
+    <TD class=centent_logo_rig rowSpan=2></TD></TR>
+  <TR>
+    <TD><IMG src="log_img/nav_img1.jpg" 
+      name=k_line_title></TD>
+  </TR></TBODY></TABLE>
+
+<TABLE cellSpacing=0 cellPadding=0 width=1004 border=0>
+  <TBODY>
+  <TR>
+    <TD class=centent_left_bg></TD>
+    <TD class=centent_banner_bg>
+     
+      <!--<![endif]--></OBJECT></TD>
+    <TD class=centent_login_bg>
+      <DIV id=inf_1>
+      
+	  
+	  
+ <TABLE class=login_tab_warp cellSpacing=0 cellPadding=0 width="100%" 
+      border=0>
+        <TBODY>
+    
+      
+        <TR>
+          <TD class=left width=62><SPAN id=accountName>会员帐号</SPAN>：</TD>
+          <TD class=left width=198><input   type="text" id="username" name="username"  class="login_input2" style="WIDTH: 148px" /></TD></TR>
+        <TR id=servicePwdId>
+          <TD class=left>用户密码：</TD>
+          <TD class=left width=198><input  type="password" id="password" name="password"  class="login_input" style="WIDTH: 148px" /></TD></TR>
+                <TR id=searchPwdId style="DISPLAY: none">
+          <TD class=left>查询密码：</TD>
+          <TD class=left><INPUT class=login_input 
+            onkeypress="keypress1('vcode',event.keyCode);" id=trdpwd 
+            style="WIDTH: 148px" type=password name=trdpwd></TD></TR>
+        <TR>
+          <TD class=left>验 证 码：</TD>
+          <TD class=left><INPUT class=login_input3 
+            type="text" id="validate" name="validate"  onkeydown="if(event.keyCode==13){loginSub();}"
+            style="WIDTH: 72px" maxLength=4 >&nbsp; <IMG 
+             id="validateImg" name="validateImg" src="validate.php" 
+            style="MARGIN-LEFT: 5px; CURSOR: pointer"  onclick="changeImg();"
+            src="validate.php" align=absMiddle> </TD></TR>
+        <TR class=left>
+          <TD class="pd_t10 pd_b20" colSpan=2>
+            <DIV>
+            <DIV class=float_left><A 
+            href="#">
+			<input type="image"  onclick="loginSub();"   id="submitbutton" name="submitbutton" src="log_img/login_bot.jpg" style="border-width:0px;" /><A 
+            href="#">   &nbsp;&nbsp;  &nbsp;&nbsp;
+			<!-- <input type="image" name="close" onmouseout="this.className='btn1 margL'" onmouseover="this.className='btn2 margL'" onclick="javascript:location.href='reg.php'"     src="log_img/login_bot2.jpg" style="border-width:0px;" /> -->
+			  <a target="_self" href="wreg.php" ><IMG src="log_img/login_bot2.jpg" /></a> 
+			</DIV>
+            </DIV></TD></TR>
+        </TBODY></TABLE>
+	  
+	  </DIV>
+    
+     
+      
+      <DIV class=white_content id=light3>
+      <DIV 
+      style="MARGIN-TOP: 240px; Z-INDEX: 1; WIDTH: 100%; POSITION: absolute; HEIGHT: 297px">
+      <DIV style="WIDTH: 638px" align=right></DIV></DIV></DIV>
+      <DIV class=black_overlay id=fade3></DIV></TD>
+    <TD class=centent_right_bg></TD></TR></TBODY></TABLE>
+<DIV class=service_bot_img></DIV><!-- 
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="font_bottom_left"></td>
+    <td class="font_bottom_centent">
+    1、请不要在网吧等公共场所的电脑上进行网上交易；2、请在自己的电脑中安装杀毒软件和防火墙； 3、易记的密码也许对于盗用者来说也是很好破译的，所以尽量不要有规律。<br/>
+    4、加强版登录（适用于ie浏览器）：网上营业厅登录默认加强版登录，采用安全控件方式，保障登录安全（适用于ie浏览器，非ie浏览器用户，系统将自动切换到标准登录）。
+    </td>
+    <td class="font_bottom_rig"></td>
+  </tr>
+</table>
+ -->
+<DIV class=service_bot_bg_bot></DIV>
+
+<DIV id=doOver></DIV>
+
+
+
+
+</table>
+<div class="copyright">
+   Copyright © 2012 - 2019
+  </div>
+   
+
+</div>
+
+</form>
+</center>
+
+</body>
+</html>
+

@@ -1,0 +1,3 @@
+2019-03-09 13:39:44 Database error message: Can't connect to MySQL server on 'localhost' (10061)
+SQL = 
+URL = /ajax.php

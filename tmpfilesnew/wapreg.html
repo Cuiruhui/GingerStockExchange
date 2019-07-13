@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<META HTTP-EQUIV="expires" CONTENT="0">
+<meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="" />
+<meta name="description" content="融资融券交易系统">
+<meta name="author" content="" />
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<meta content="telephone=no" name="format-detection">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/supersized.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/skin/ymPrompt.css" />
+<script src="assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="./js/ymPrompt.js"></script>
+		
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	$("#regfrm").submit(function(){
+		var username = $('#reg_username').val();
+		var password = $('#reg_password').val();
+		var repassword=$('#reg_password1').val();
+		var demo=$('#demo').val();
+		var realname=$('#realname').val();
+		var mobile=$('#mobile').val();
+		var qq=$('#qq').val();
+		alert(username+password);
+        if ( username == '') {
+            ymPrompt.alert({title:'开户注册', message: "请输入帐号！", handler: function () {
+                $("#reg_username").focus();
+            }
+            });
+            return false;
+        }
+        if (username.length > 20 || username.length < 4) {
+            ymPrompt.alert({title:'开户注册', message: "帐号：请输入4-10个字符, 仅可输入英文字母以及数字的组合!", handler: function () {
+                $("#reg_username").focus();
+            }
+            });
+            return false;
+        }
+		
+        if (password == '' || password.length<6 ||  password.length>12) {
+            ymPrompt.alert({title:'开户注册', message: "密码长度必须在6-12个字符之间!!", handler: function () {
+                $("#reg_password").focus();
+            }
+            });
+            return false;
+        }
+        if (repassword == '') {
+            ymPrompt.alert({title:'开户注册', message: "确认新密码!!", handler: function () {
+                $("#reg_password1").focus();
+            }
+            });
+            return false;
+        }
+        if (repassword != password) {
+            ymPrompt.alert({title:'开户注册', message: "确认密码错误！,请重新输入!!", handler: function () {
+                $("#reg_password1").focus();
+            }
+            });
+            return false;
+        }
+
+       
+
+        if (realname == '') {
+            ymPrompt.alert({title:'开户注册', message: "请输入真实姓名!!", handler: function () {
+                $("#realname").focus();
+            }
+            });
+            return false;
+        }
+
+        if (mobile == '') {
+            ymPrompt.alert({title:'开户注册', message: "手机与取款密码为取款金额时的凭证,请会员务必填写手机。!!", handler: function () {
+                $("#mobile").focus();
+            }
+            });
+            return false;
+        }
+
+        if (mobile.replace(/[\uFF00-\uFFFF]/g, '**').length != 11) {
+            ymPrompt.alert({title:'开户注册', message: '手机栏位错误，请检查！', handler: function () {
+                $("#mobile").focus();
+            }
+            });
+            return false;
+        }
+		
+		var atmpwd = '0000';
+       	$.post("wapreg.php", {type:"save", username:''+username+'', password: ''+password+'',repassword:''+repassword+'',demo:''+demo+'',realname:''+realname+'', mobile:''+mobile+'', qq:''+qq+'', atmpwd:''+atmpwd+'' },
+			function(data){
+				res = data.split('|');
+				if(res[0]=='true')
+				{
+					if(res[1].indexOf('注册成功')!=-1)
+					{
+						alert('注册成功');
+						$('#btnOk').button("enable");
+					}
+					
+				}
+				else
+				{
+					alert('注册失败');
+					$('#btnOk').button("enable");
+				}
+				//$('#Msg').html(data);
+		});
+	
+	});
+	
+});
+			
+
+		
+</script>
+		
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="page-container">
+            <h1>注册</h1>
+           <form name="regfrm" method="post" action="./wapreg.php?act=save"> 
+			<input type="hidden" name="demo" id="demo" value="0" />
+			<input type="text" name="reg_username" id="reg_username"  maxlength="12"  placeholder="用户名" />
+			
+        
+		<input type="password" id="reg_password" name="reg_password"   maxlength="12" placeholder="密码"/>	
+		<input type="password" id="reg_password1" name="reg_password1"   maxlength="12" placeholder="确认密码"/>	
+		 <input name="realname" type="text" id="realname"  maxlength="12"  placeholder="真实名字"/>
+		 <input type="text" id="mobile" name="mobile"   maxlength="11" placeholder="手机号" />
+	
+		 <input type="text" id="qq" name="qq"  maxlength="20"  placeholder="QQ号"/>
+       		
+						
+		 <input  type="submit" id="btnOK" name="btnOK"  value="确定注册"  />
+			</form>
+       <p></p>    
+        </div>
+		
+        <!-- Javascript -->
+       
+        <script src="assets/js/supersized.3.2.7.min.js"></script>
+        <script src="assets/js/supersized-init.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+    </body>
+
+</html>
+
+

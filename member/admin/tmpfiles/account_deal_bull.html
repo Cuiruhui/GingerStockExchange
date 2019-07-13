@@ -1,0 +1,225 @@
+<script type="text/javascript">
+$('.page').AjaxLoad({
+	event:'click',
+	loading_target:'#loadtxt',
+	loading_txt:'数据加载中...',
+	params:'type=deal_bull',
+	target: '#account_main'
+});
+var totla=0;
+var gain_totla=0;
+$.ajax({
+	type: "GET",
+	url: 'account.php?type=Get_bull&demo=[var.demo]&page=[var.PageNum]&PageSize=[var.PageSize]&rand='+Math.random(),
+	success: function(data){
+		var stocks = data.split('|*|');
+		for(var i=1; i<stocks.length-1; i++){
+			var content = stocks[i];
+			var id = content.split(',')[0]; //代码
+			var curr_f = content.split(',')[5]; //最新卖出价格
+			var sell_price=curr_f;
+			var inf=($('#inf_'+id).attr('value')).split(',');
+			var bus_price =inf[0]; //买入价格
+			var bus_type=inf[1]; //升/跌
+			var bus_num=inf[2]; //买入数量
+			var bus_cost=inf[3]; //买入手续费
+			var sell_cost=inf[4]; //卖出手续费率
+			var save_day=inf[5]; //留仓天数
+			var save_cost=inf[6]; //留仓费率
+			var dc_money = inf[7]; //点差费金额
+			var bull_money=(bus_price*bus_num*100).toFixed(2); //买入金额
+			var sell_money=(sell_price*bus_num*100).toFixed(2); //卖出金额
+			var sell_cost_money=(sell_money*sell_cost).toFixed(2); //卖出手续费
+			var save_cost_money=(sell_money)*(save_cost)*(save_day); //留仓手续费
+			//总手续费 (买入手续费+卖出手续费+留仓费+点差费)
+			var all_cost_money=parseFloat(bus_cost)+parseFloat(sell_cost_money)+parseFloat(save_cost_money)+parseFloat(dc_money);
+
+			var bull_price=$('#bull_price_'+id).attr('value'); //买入价格
+			var bull_type=$('#buy_type_'+id).attr('value');  //买入类型
+			var bull_num =$('#bull_num_'+id).attr('value');  //买入数量
+			var bull_cost =$('#cost_'+id).text();
+			if(bull_type==2)//差价
+			{
+				//浮盈(买入金额-卖出金额-总手续费)
+				var gain=(parseFloat(bull_money)-parseFloat(sell_money)-parseFloat(all_cost_money)).toFixed(2); //浮盈
+				var difference = (bull_price)-(curr_f);
+			}else{
+				//浮盈(卖出金额-买入金额-总手续费)
+				var gain=(parseFloat(sell_money)-parseFloat(bull_money)-parseFloat(all_cost_money)).toFixed(2); //浮盈
+				var difference = (curr_f)-(bull_price);
+			}
+			//总浮盈
+			gain_totla =(parseFloat(gain_totla)+parseFloat(gain)).toFixed(2);
+			var extent = ((difference)/(bull_price)*100).toFixed(2)+'%';
+			//var gain =(parseFloat(difference)*(100)*parseFloat(bull_num)).toFixed(2);
+			//totla=parseFloat(totla)+parseFloat(gain);
+			if(parseFloat(gain) > 0) {
+				$('#extent_'+id).css({ color: "#ff0011",'font-weight':"bold"});
+				$('#gain_'+id).css({ color: "#ff0011",'font-weight':"bold"});
+			}else if(parseFloat(gain) < 0){
+				$('#extent_'+id).css({ color: "green",'font-weight':"bold"});
+				$('#gain_'+id).css({ color: "green",'font-weight':"bold"});
+			}
+			$('#extent_'+id).text(extent);
+			$('#gain_'+id).text(gain);
+			$('#price_'+id).val(curr_f);
+			if(parseFloat(curr_f)>0){
+				$('#price_'+id).html(curr_f);
+			}else{
+				$('#price_'+id).html('停牌');
+			}
+		}
+		$('#totla').html(parseFloat(gain_totla).toFixed(2));
+		if(parseFloat(totla)>0){
+			$('#totla').css({ color: "#ff0011",'font-weight':"bold"});
+		}else{
+			$('#totla').css({ color: "green",'font-weight':"bold"});
+		}
+	}
+});
+$('#demo').AjaxLoad({
+	event:'change',
+	method:'GET',
+	target: '#account_main',
+	loading_target:'#loadtxt',
+	loading_txt:'处理中,请稍后...',
+	link:'account.php',
+	params:'type=deal_bull',
+	forms:'#formdemo'
+});
+function sale_buy(code,name,buy_num,buy_id)
+{
+	var sell_price=$('#price_'+buy_id).val();
+	var txt = '平仓价格: <input name="sell_price" type="text" id="sell_price" value="'+sell_price+'" size="6">&nbsp;平仓时间: <input name="sell_time" type="text" id="sell_time" value="[var.xltm.sys_time]" size="18" /><br>确定要平仓 '+buy_num+' 手 ['+code+'] '+sell_price+' 股票交易??<br>';
+	$.prompt(txt,{
+		callback: function(v,m,f){
+			if(v){
+				$.ajax({
+					url:'account.php?type=deal_bull&act=sell&id='+buy_id+'&sell_price='+f.sell_price+'&sell_time='+f.sell_time,
+					type:'GET',
+					timeout:3000,
+					success:function(data){
+						$("#account_main").html(data);
+					}
+				}
+				)
+			}else{}
+		},
+		buttons: { '确定':true, '取消': false  }
+	});
+}
+function bull_view(id) {
+	var price=$('#price_'+id).val();
+	$.openPopupLayer({
+		name: "bull_view",
+		width: 606,
+		url: "account.php?type=bull_view&id="+id+'&price='+price
+	});
+}
+</script>
+<style type="text/css">
+<!--
+.STYLE1 {color: #FF0000}
+-->
+</style>
+<table width="100%" border="0" cellpadding="2" cellspacing="1" class="table1" id="trust_list"> 
+  <tr class="row_title"> 
+    <td width="7%" align="center">ID</td> 
+    <td width="8%" align="right">用户</td> 
+    <td width="8%" align="center">买入时间</td> 
+    <td width="7%" align="right">代码</td> 
+    <td width="8%" align="right">名称</td> 
+    <td width="7%" align="right">买入价</td> 
+    <td width="6%" align="right">当前价</td> 
+    <td width="6%" align="center">升/跌</td> 
+    <td width="8%" align="right">数量(手)</td> 
+    <td width="6%" align="right">点差费</td> 
+    <td width="8%" align="right">手续费</td> 
+    <td width="9%" align="right">股票浮盈</td> 
+    <td width="6%" align="right">涨跌幅</td> 
+    <td width="6%" align="right">平仓</td> 
+  </tr> 
+  <thead> 
+    <tr class="row_ls"> 
+      <form action="" id="formdemo" method="get"> 
+        <td colspan="14">帐号类型: 
+          <select name="demo" id="demo" size="1"> 
+            <option value="-1">全部</option> 
+            <option value="0">正式</option> 
+            <option value="1">试玩</option> 
+            <option>[var.demo;ope=html;select]</option> 
+          </select></td> 
+      </form> 
+    </tr> 
+  </thead> 
+  <tbody id="buy_tr"> 
+    <tr class="row1_odd"> 
+      <td align="center" id="[tr.id;block=tr;aggregate=bull_num:sum,bull_money:sum,dc_money:sum,bull_cost_money:sum]"><a href="javascript:;" onclick="bull_view('[tr.id]')" title="点击查看详细">[tr.id]</a></td> 
+      <td align="right" id="inf_[tr.id]" value="[tr.bull_price],[tr.buy_type],[tr.bull_num],[tr.bull_cost_money],[tr.sell_cost],[tr.save_day],[tr.save_cost],[tr.dc_money]">[tr.user]</td> 
+      <td align="center">[tr.bull_trust_time;frm='hh:nn:ss']</td> 
+      <td align="right">[tr.stock_type][tr.stock_code]</td> 
+      <td align="right">[tr.stock_name]</td> 
+      <td align="right" id="bull_price_[tr.id]" value="[tr.bull_price]"><font color="#FF0000">[tr.bull_price]</font></td> 
+      <td align="right" id="price_[tr.id]"></td> 
+      <td align="center" id="buy_type_[tr.id]" value="[tr.buy_type]">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td> 
+      <td align="right" id="bull_num_[tr.id]" value="[tr.bull_num]">[tr.bull_num]</td> 
+      <td align="right" id="dc_[tr.id]">[tr.dc_money]</td> 
+      <td align="right" id="cost_[tr.id]" title="代理商:[tr.agent_bull_money]">[tr.bull_cost_money]</td> 
+      <td align="right" id="gain_[tr.id]">&nbsp;</td> 
+      <td align="right" id="extent_[tr.id]">&nbsp;</td> 
+      <td align="right"><span id="[tr.id]" onClick="javascript:sale_buy('[tr.stock_code]','[tr.stock_name]','[tr.bull_num]','[tr.id]');">平仓</span></td> 
+    </tr> 
+    <tr class="row1_even"> 
+      <td align="center" id="[tr.id;block=tr;aggregate=bull_num:sum,bull_money:sum,dc_money:sum,bull_cost_money:sum]"><a href="javascript:;" onclick="bull_view('[tr.id]')" title="点击查看详细">[tr.id]</a></td> 
+      <td align="right" id="inf_[tr.id]" value="[tr.bull_price],[tr.buy_type],[tr.bull_num],[tr.bull_cost_money],[tr.sell_cost],[tr.save_day],[tr.save_cost],[tr.dc_money]">[tr.user]</td> 
+      <td align="center">[tr.bull_trust_time;frm='hh:nn:ss']</td> 
+      <td align="right">[tr.stock_type][tr.stock_code]</td> 
+      <td align="right">[tr.stock_name]</td> 
+      <td align="right" id="bull_price_[tr.id]" value="[tr.bull_price]"><font color="#FF0000">[tr.bull_price]</font></td> 
+      <td align="right" id="price_[tr.id]"></td> 
+      <td align="center" id="buy_type_[tr.id]" value="[tr.buy_type]">[tr.buy_type;if [val]=1;then '<font color="#FF0000">买升</font>';else '<font color="#009900">买跌</font>']</td> 
+      <td align="right" id="bull_num_[tr.id]" value="[tr.bull_num]">[tr.bull_num]</td> 
+      <td align="right" id="dc_[tr.id]">[tr.dc_money]</td> 
+      <td align="right" id="cost_[tr.id]" title="代理商:[tr.agent_bull_money]">[tr.bull_cost_money]</td> 
+      <td align="right" id="gain_[tr.id]">&nbsp;</td> 
+      <td align="right" id="extent_[tr.id]">&nbsp;</td> 
+      <td align="right"><span id="[tr.id]" onClick="javascript:sale_buy('[tr.stock_code]','[tr.stock_name]','[tr.bull_num]','[tr.id]');">平仓</span></td> 
+    </tr> 
+  </tbody> 
+  <tr class="error"> 
+    <td height="50" colspan="14" align="center">[tr;block=tr;nodata]找不到符合条件的买入交易记录.</td> 
+  </tr> 
+  <tr> 
+    <td colspan="14" align="right"><table width="500" border="0" cellspacing="1" class="totla" cellpadding="2"> 
+        <tr class="totla_title"> 
+          <td width="60">本页合计</td> 
+          <td width="60">买入金额</td> 
+          <td width="60">数量(手)</td> 
+          <td width="60">点差费</td> 
+          <td width="60">手续费</td> 
+          <td width="60">股票浮盈</td> 
+        </tr> 
+        <tr class="totla_row"> 
+          <td>&nbsp;</td> 
+          <td align="right"><font color="#FF0000">[tr.bull_money:sum;frm='0,000.00']</font></td> 
+          <td align="right">[tr.bull_num:sum]</td> 
+          <td align="right"><font color="#FF0000">[tr.dc_money:sum;frm='0,000.00']</font></td> 
+          <td align="right"><font color="#FF0000">[tr.bull_cost_money:sum;frm='0,000.00']</font></td> 
+          <td align="right" id="totla">&nbsp;</td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <tr class="row_ls"> 
+    <td colspan="14" [var.showPage;magnet=tr;mtype=m]><table border="0" align="right" cellpadding="2" cellspacing="0"> 
+        <tr align="center" > 
+          <td><span style="background-color:#A8DFFF; " class="page" id='page_first' value="[var..script_name]?PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</span></td> 
+          <td><span style="background-color:#A8DFFF; " class="page" id='page_prev' value="[var..script_name]?PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</span></td> 
+          <td><span style="background-color:#A8DFFF; " class="page" id='page_page' value="[var..script_name]?PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</span></td> 
+          <td><div style="border-style:inset; border-width:1px; border-top-width:1px; border-left-width:1px; border-right-width:1px; border-bottom-width:1px; background-color:#A8DFFF; height:16px;width : 15px; ">[nv.page;block=td;currpage]</div></td> 
+          <td><span style="background-color:#A8DFFF; " class="page" id='page_next' value="[var..script_name]?PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</span></td> 
+          <td><span style="background-color:#A8DFFF; " class="page" id='page_last' value="[var..script_name]?PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</span></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+</table> 
+<div id="bull_view"></div> 

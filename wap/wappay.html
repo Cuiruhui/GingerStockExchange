@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="" />
+<meta name="description" content="融资融券交易系统">
+<meta name="author" content="" />
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<meta content="telephone=no" name="format-detection">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="wap/jquery.mobile-1.3.2.min.css">
+		<link type="text/css" rel="stylesheet" href="wap/include/wap_zfhy6.css" />
+<script src="assets/js/jquery-1.8.2.min.js"></script>
+<script src="wap/jquery.mobile-1.3.2.min.js"></script>
+
+		<style>
+.ui-block-a, 
+.ui-block-b
+{
+border: 1px ;
+text-align: center;
+}
+</style>
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+<div data-role="page" id="pageone" >
+
+
+
+
+  <div data-role="header" data-theme="b">
+  	<a href="./wapindex.php" data-role="button"  data-ajax="false">欢迎您，[var.xltm.user_info.username]</a>
+    <h1>在线存款</h1>
+	<a href="./waplogin.php" data-role="button"  data-ajax="false">退出</a>
+	<div data-role="navbar" data-position="inline">
+      <ul>
+        <li><a href="./wappay.php" data-ajax="false">在线存款</a></li>
+       
+        <li><a href="./wapatm.php" data-ajax="false">在线提款</a></li>
+       
+        
+      </ul>
+   
+	</div>
+  </div>
+
+  <div data-role="content" >
+    
+		<iframe src="wappay2.php" width="99%" height="420px"></iframe>
+	
+  </div>
+
+  <div data-role="footer" data-theme="b">
+    <div data-role="navbar" data-position="fixed" data-fullscreen="true">
+      <ul>
+        <li style="height:35px;"><a href="./wapindex.php" data-ajax="false">首页</a></li>
+        <li style="height:35px;"><a href="./waporder.php" data-ajax="false">下单</a></li>
+        
+        <li style="height:35px;"><a href="./waphangqing.php" data-ajax="false">行情</a></li>
+        <li style="height:35px;"><a href="/waptrade.php"data-ajax="false" >持仓</a></li>
+      </ul>
+    </div>
+  </div>
+</div> 
+
+<div data-role="page" id="pagetwo" >
+  <div data-role="header" data-theme="b">
+    <h1>支付二维码扫一扫</h1>
+  </div>
+
+  <div data-role="content" data-theme="b" style="text-align:center;">
+    <p><img src="assets/img/zhifu.jpg"  width="100%"/></p>
+    <a href="#pageone">转到上一页</a>
+  </div>
+
+  <div data-role="footer" data-theme="b">
+  <h1>恒金融资融券系统</h1>
+  </div>
+</div> 
+
+    </body>
+
+</html>
+
+

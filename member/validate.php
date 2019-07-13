@@ -1,0 +1,29 @@
+<?php
+error_reporting(7);
+require_once(dirname(__FILE__)."/common.php");
+session_start();
+header('Content-Type:image/png');
+$im=imagecreate(63,22);
+$bgcolor=imagecolorallocate($im,245,239,250);
+imagefill($im,0,0,$bgcolor);
+$nums=array('A','B','C','D','E','F','G','H','J','K','4','5','6','7','2','3','8','9');//18
+$codes='';
+for($i=0;$i<40;$i++)
+{
+	$color=imagecolorallocate($im,rand(0,255),rand(0,255),rand(0,255));
+	imagesetpixel($im,rand(0,50),rand(0,20),$color);
+}
+
+
+for($i=0;$i<4;$i++)
+{
+	$fontcolor=imagecolorallocate($im,rand(0,160),rand(0,160),rand(0,160));
+	$num=$nums[rand(0,17)];
+	$codes.=$num;
+	imagestring($im,5,$i*10+6,rand(2,4),$num,$fontcolor);
+}
+$codes=strtolower($codes);
+$_SESSION[$session_prefix.'validate']=$codes;
+imagepng($im);
+imagedestroy($im);
+?>

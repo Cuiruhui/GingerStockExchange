@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>股票代码列表</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="./style/style.css" rel="stylesheet" type="text/css" />
+<style>
+.mybox th {font-size:12px; font-weight:normal; color:#fff;}
+.mybox td {padding:3px; line-height:18px; font-size:12px;}
+DIV.sabrosus {
+PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 3px; PADDING-TOP: 3px; TEXT-ALIGN: center
+}
+DIV.sabrosus A {
+BORDER-RIGHT: #9aafe5 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #9aafe5 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #9aafe5 1px solid; COLOR: #2e6ab1; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #9aafe5 1px solid; TEXT-DECORATION: none
+}   
+DIV.sabrosus A:hover {
+BORDER-RIGHT: #2b66a5 1px solid; BORDER-TOP: #2b66a5 1px solid; BORDER-LEFT: #2b66a5 1px solid; COLOR: #000; BORDER-BOTTOM: #2b66a5 1px solid; BACKGROUND-COLOR: lightyellow
+}   
+DIV.pagination A:active {
+BORDER-RIGHT: #2b66a5 1px solid; BORDER-TOP: #2b66a5 1px solid; BORDER-LEFT: #2b66a5 1px solid; COLOR: #000; BORDER-BOTTOM: #2b66a5 1px solid; BACKGROUND-COLOR: lightyellow
+}
+DIV.sabrosus SPAN.current {
+BORDER-RIGHT: navy 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: navy 1px solid; PADDING-LEFT: 5px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; BORDER-LEFT: navy 1px solid; COLOR: #fff; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: navy 1px solid; BACKGROUND-COLOR: #990000
+}
+DIV.sabrosus SPAN.disabled {
+BORDER-RIGHT: #929292 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #929292 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #929292 1px solid; COLOR: #929292; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #929292 1px solid
+}
+</style>
+
+<script type="text/javascript" src="./js/jquery1.3.2.js"></script>
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript" src="./js/SuggestServer_3_0_16.js" charset="gb2312"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	//加载股票代码
+	LoadStockList();
+
+});
+
+
+
+function LoadStockList()
+{
+	var loading = '<span style="text-align:center; height:50px; line-height:50px; "><img src="/images/loading.gif" border="0" align="absmiddle" hspace="3" />加载中…</span>';
+	totalrecord = 0;
+	var nothing = '<tr ><td height="50" align="center"  colspan="9">暂无符合条件的记录！</td></tr>';
+	var res = '<table width="100%" cellspacing="0" cellpadding="0" >';
+	res += '<tr height=25 align="center"><th width="20%">代码</th><th width="20%">名称</th><th width="20%">多方开仓</th><th width="20%">空方开仓</th><th width="20%">交易禁止</th></tr>';
+	//var html = ajaxUrl('ajax.php?type=stocklist&stype=' + stype + '&page=' + curpage + '&pagesize=' + pagesize + '&stockcode=' + stockcode + '&bkname=' + bkname);
+	$('#tdstocklist').html(loading);
+	
+	goUrl = 'ajax.php?type=allstocklist';
+	$.ajax({
+		type: 'GET',
+		url: goUrl,
+		success:function(html)
+		{
+			data = html.split('^');
+			if(data.length==2)
+			{
+				
+				if(data[1]!=null) //绑定
+				{
+					stocklist = data[1].split('$');
+					for(i=0;i<stocklist.length;i++)
+					{
+						stock = stocklist[i].split('|');
+						stop_pai = stock[2]=='1' ? '<font color=red>开放</font>' : '<font color=white>禁止</font>';
+						duokai = stock[3]=='1' ? '<font color="#00CCFF">允许</font>' : '不允许';
+						kongkai =stock[4]=='1' ? '<font color="#00CCFF">允许</font>' : '不允许';
+						bgcolor = (i+1) % 2 ==0 ? '#111111' : '#000000';
+						res += '<tr height=25 align="center" bgcolor="' + bgcolor + '" onMouseOver="this.style.background=\'#bbbbbb\';" onMouseOut="this.style.background=\'' + bgcolor + '\';"><td><font color="#FFFF00">' + stock[0] + '</font></td><td><font color="#FFFF00">' + stock[1] + '</font></td><td>' + duokai + '</td><td>' + kongkai + '</td> <td>'+stop_pai +'</td></tr>';
+					}
+					
+				}
+				else
+				{
+					res += nothing;
+					
+				}
+			}
+			else
+			{
+				res += nothing;
+			
+			}
+			res += '</table>';
+			$('#tdstocklist').html(res);
+			parent.document.all("marinframe").style.height = document.body.scrollHeight;
+		}
+	});
+}
+</script>
+</head>
+<body style="background-color: #000000;color:#FFFFFF;" > 
+
+  <table width="99%"  border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr align="center" bgcolor="#000000">
+      <td colspan="9" id="tdstocklist">加载中…</td>
+    </tr>
+   
+  </table>
+
+
+</body>
+</html>

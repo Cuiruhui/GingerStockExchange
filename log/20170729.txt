@@ -1,0 +1,72 @@
+2017-07-29 09:11:32 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /ajax.php
+2017-07-29 09:12:02 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-07-29 09:12:21 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-07-29 09:12:40 Database error message: Access denied for user 'vzb05ljr38'@'localhost' (using password: NO)
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /ajax.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /ajax.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = 
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php
+2017-07-29 09:13:04 Database error message: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (11)
+SQL = SELECT * FROM `user_config`
+URL = /user_info.php

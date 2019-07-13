@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>充值管理</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<link href="./style/date_input.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.date_input.js"></script>
+<script type="text/javascript" src="./js/jquery.formCheckbox_choose.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#start_date").date_input();
+	$("#end_date").date_input();
+	$('#agent,#result,#PageSize').bind('change',function(){
+		$('#frmSearch').submit();
+	});
+});
+
+function PayOk(id)
+{
+	if(confirm('是否确定设置已到帐？'))
+	{
+		$.ajax({
+			type:'GET',
+			url:'./ajax.php?type=payok&id=' + id,
+			success:function(res){
+				if(res!=undefined && res=='true')
+				{
+					parent.ymPrompt.succeedInfo({title:'充值管理',message:'设置订单状态为已到帐成功！',handler:function(){self.location.href=self.location.href;}});
+				}
+				else
+				{
+					parent.ymPrompt.errorInfo({title:'充值管理',message:'设置订单状态为已到帐失败！'});
+				}
+			}
+		});
+	}
+}
+</script>
+</head>
+<body> 
+ <table width="98%" border="0" align="center" cellpadding="2" cellspacing="1" class="table1"> 
+  <thead> 
+     <tr class="row_ls"> 
+      <td colspan="11"><table border="0" cellspacing="0" cellpadding="0"> 
+          <form id="frmSearch" action="pay_log.php" method="get"> 
+		  <input name="id" type="hidden" value="[var.id]" />
+		  <input name="PageNum" type="hidden" value="[var.PageNum]" />
+            <tr>
+              <td height="30">代理商:
+                <select name="agent" size="1" id="agent">
+				<option value="">全部</option>
+              <option value="[ag.username]">[ag.username;block=option;]</option>
+				<option>[var.agent;ope=html;select]</option> 
+              </select></td> 
+              <td>&nbsp;状态:
+                <select name="result" id="result"> 
+                  <option value="-1">全部</option> 
+                  <option value="1">支付成功</option> 
+                  <option value="0">等待打款</option> 
+                  <option>[var.result;ope=html;select]</option> 
+              </select></td> 
+            <td>每页显示:
+			<select name="PageSize" size="1" id="PageSize">
+            <option value="20">20条</option>
+            <option value="30">30条</option>
+            <option value="40">40条</option>
+            <option value="50">50条</option>
+            <option value="60">60条</option>
+            <option value="70">70条</option>
+            <option value="80">80条</option>
+            <option value="90">90条</option>
+            <option value="100">100条</option>
+            <option value="99999">全部</option>
+			 <option>[var.PageSize;ope=html;select]</option>
+          </select></td>
+              <td>&nbsp;用户名:</td> 
+              <td><input name="search" type="text" id="search" value="[var.search]" size="15"></td> 
+              <td>从
+              <input name="start_date" type="text" id="start_date" value="[var.start_date]" class="datepicker" />
+			  至
+			  <input name="end_date" type="text" id="end_date" value="[var.end_date]" class="datepicker">
+			  </td>
+              <td><input type="submit" class="btn1" name="btnSearch" id="btnSearch" value="查 询"></td> 
+		    </tr> 
+			
+          </form> 
+        </table></td> 
+    </tr> 
+     <tr class="row_title">
+       <td align="center">删除</td>
+       <td align="center">支付接口</td>
+       <td align="center">订单号</td> 
+      <td align="center">用户名</td>
+       <td align="center">代理商</td> 
+      <td align="center">支付时间</td>
+       <td width="10%" align="center">金额</td> 
+      <td align="center">接口返回时间</td> 
+      <td align="center">状态</td> 
+	  <td>备注</td>
+    <td align="center">操作</td>
+    </tr> 
+   </thead> 
+  <tr class="row1_odd">
+    <td align="center"><input name="dcID[]" type="checkbox" id="dcID[]" value="[tr.id;]" /></td>  
+
+    <td align="center">[tr.payname][[tr.payid]]</td>
+    <td align="center">[tr.orderno;block=tr;aggregate=money:sum]</td> 
+     <td align="center">[tr.username]</td>
+     <td align="center">[tr.agent]</td> 
+     <td align="center">[tr.add_time]</td>
+     <td align="center">[tr.money;frm='0,000.00']</td> 
+     <td align="center">[tr.return_time;if [val]=''; then '-';else [val]]</td> 
+     <td align="center">[tr.result;if [val]=1; then '<font color=red>支付成功</font>';else '等待打款']</td> 
+	 <td style="word-break:break-all;">&nbsp;</td>
+   <td align="center" style="word-break:break-all;"><input name="btnPayOK" type="button" id="btnPayOK" value="已到帐" onClick="return PayOk('[tr.id]');" style="display:[tr.result;if [val]=1; then 'none';els 'block']" class="btn1" /></td>
+  </tr> 
+  <tr class="row1_even">
+    <td align="center"><input name="dcID[]" type="checkbox" id="dcID[]" value="[tr.id;]" /></td>  
+
+    <td align="center">[tr.payname][[tr.payid]]</td>
+    <td align="center">[tr.orderno;block=tr;aggregate=money:sum]</td> 
+     <td align="center">[tr.username]</td>
+     <td align="center">[tr.agent]</td> 
+     <td align="center">[tr.add_time]</td>
+     <td align="center">[tr.money;frm='0,000.00']</td> 
+     <td align="center">[tr.return_time;if [val]=''; then '-';else [val]]</td> 
+     <td align="center">[tr.result;if [val]=1; then '<font color=red>支付成功</font>';else '等待打款']</td> 
+	 <td>&nbsp;</td>
+   <td align="center"><input name="btnPayOK2" type="button" id="btnPayOK2" value="已到帐" onClick="return PayOk('[tr.id]');" style="display:[tr.result;if [val]=1; then 'none';els 'block']" class="btn1" /></td>
+  </tr> 
+  <tr align="center" class="nodata"> 
+     <td height="50" colspan="11">[tr;block=tr;nodata]暂无符合条件的记录.</td> 
+  </tr> 
+    <tr class="row_ls"> 
+      <td colspan="10"><a href="javascript:void(0);" onclick="$(document).formCheckbox_choose({value:1})">全选</a> <a href="javascript:void(0);" onclick="$(document).formCheckbox_choose({value:-1})">反选</a> <a href="javascript:void(0);" onclick="$(document).formCheckbox_choose({value:0})">取消</a> 
+        <input type="button" name="btnSet" id="btnSet" value="删除" class="btn1" onclick="remove_btn()"/> 
+		</td> 
+    </tr> 
+<script type="text/javascript">
+<!--
+	function remove_btn(){
+		
+		var chks = "";
+		$(":checkbox:checked").each(function(){
+				chks += ',' + $(this).val()
+			});
+		chks = chks.substr(1);
+		if ( chks == "" ){
+			alert("请先选择！"); return;
+		}
+		if (!confirm("是否确定删除？")) return;
+		self.location.href='?type=remove&ids='+ chks;
+
+	}
+//-->
+</script>
+
+  <tr class="row_ls">
+    <td colspan="5" align="right">合计：</td>
+  <td colspan="5" class="money1">[tr.money:sum;frm='0.00']</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr class="row_ls"> 
+     <td colspan="11" [var.showPage;magnet=tr;mtype=m]><table border="0" align="center" cellpadding="2" cellspacing="0" class="pagelist">
+       <tr align="center" >
+         <td><a id='page_first' href="[var..script_name]?agent=[var.agent]&result=[var.result]&search=[var.search]&PageSize=[var.PageSize]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.first;endpoint;magnet=span;mtype=m]">首页</a></td>
+         <td><a id='page_prev' href="[var..script_name]?agent=[var.agent]&result=[var.result]&search=[var.search]&PageSize=[var.PageSize]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.prev;endpoint;magnet=span;mtype=m]">上页</a></td>
+         <td><a id='page_page' href="[var..script_name]?agent=[var.agent]&result=[var.result]&search=[var.search]&PageSize=[var.PageSize]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.page;block=td;navsize=5;navpos=centred]">[nv.page]</a></td>
+         <td><a class="cur" href="javascript:void(0);">[nv.page;block=td;currpage]</a></td>
+         <td><a id='page_next' href="[var..script_name]?agent=[var.agent]&result=[var.result]&search=[var.search]&PageSize=[var.PageSize]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.next;endpoint;magnet=span;mtype=m]">下页</a></td>
+         <td><a id='page_last' href="[var..script_name]?agent=[var.agent]&result=[var.result]&search=[var.search]&PageSize=[var.PageSize]&start_date=[var.start_date]&end_date=[var.end_date]&PageNum=[nv.last;endpoint;magnet=span;mtype=m]">尾页</a></td>
+       </tr>
+     </table></td>
+  </tr>
+  </div> 
+</table> 
+ <p>&nbsp;</p>
+</body>
+</html>

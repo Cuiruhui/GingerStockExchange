@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<META HTTP-EQUIV="expires" CONTENT="0">
+<meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="" />
+<meta name="description" content="融资融券交易系统">
+<meta name="author" content="" />
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<meta content="telephone=no" name="format-detection">
+
+
+<link rel="stylesheet" href="wap/jquery.mobile-1.3.2.min.css">
+
+<script src="assets/js/jquery-1.8.2.min.js"></script>
+<script src="wap/jquery.mobile-1.3.2.min.js"></script>
+
+<script type="text/javascript" src="./js/me_function.js"></script>
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+	
+	var m='min';
+	getProductKImage(m);  
+	
+	$("#fenshi").on("tap",function(){
+    	m='min';
+		getProductKImage(m); 
+ 	});                
+    
+	$("#ri").on("tap",function(){
+    	m='daily';
+		getProductKImage(m); 
+  	});                
+  	
+	$("#zhou").on("tap",function(){
+    	m='weekly';
+		getProductKImage(m); 
+  	});                
+  
+  	$("#yue").on("tap",function(){
+    	m='monthly';
+		getProductKImage(m); 
+  	});                       
+	
+});
+
+
+function PrefixInteger(num, n) {
+            return (Array(n).join(0) + num).slice(-n);
+}
+
+function getProductKImage(kkstr) {
+	var kuangdu=$(document.body).width();
+	var area_str = "sh";
+	if (kkstr == "") { kstr = "min"; }
+	else { kstr = kkstr; }
+	
+	var codea = [var.codeall];
+	alert(codea);
+	
+	if (code != "" && code.length == 6) {
+		if (area_str != "") {
+			var picstr = "<img id='pic_k_id' src='http://image2.sinajs.cn/newchart/" + kstr + "/n/"  + codea + ".gif?" + Math.random() * 1000 + "' border='0' width='"+kuangdu+"' />";
+			
+			var picstr2 ="<a href=\"waporder.php?code=" + code + "\" data-ajax=\"false\"  ><img src=\"assets/img/xiadan.png\" /></a> " ;
+			var picstr3 ="<a href=\"\" onClick=\"return AddStock1(\'" + code + "\');  \" data-ajax=\"false\" ><img src=\"assets/img/zixuan.png\" /></a> " ;
+			$('#pic').html(picstr);
+			$('#xiadan').html(picstr2+picstr3);
+	    }
+	}              
+	
+}
+
+</script>
+
+<style>
+a{text-decoration:none}
+
+.ui-block-a, 
+.ui-block-b, 
+.ui-block-c,
+.ui-block-d 
+{
+border: 1px ;
+height: 32px;
+background-color: lightgray;
+border: 1px solid black;
+font-weight: bold;
+text-align: center;
+}
+</style>
+
+</head>
+<body>
+
+<div data-role="page" id="pagetwo" data-theme="b">
+
+
+
+
+  <div data-role="header" data-theme="b">
+  	<a href="./wapindex.php" data-role="button"  data-ajax="false">欢迎您，[var.username]</a>
+    <h1>行情</h1>
+  </div>
+
+  <div data-role="content" >
+     	 <div id="pic"></div>
+		 <div id="control">
+		 	<div id="xiadan"  style="text-align:center; height:36px;">
+				
+    		</div>
+			
+		 	<div data-role="controlgroup" data-type="horizontal" style="text-align:center;">
+    		
+    			<div   data-role="button" id="fenshi">分时图</div>
+    			<div  data-role="button" id="ri">日线</div>
+    			<div  data-role="button" id="zhou">周线</div>
+				<div  data-role="button" id="yue">月线</div>
+			
+    		</div>
+			
+		 </div>
+		 
+	
+  </div>
+
+  <div data-role="footer" data-theme="b">
+    <div data-role="navbar" data-position="fixed" data-fullscreen="true">
+      <ul>
+        <li style="height:35px;"><a href="./wapindex.php" data-ajax="false">首页</a></li>
+        <li style="height:35px;"><a href="./waporder.php" data-ajax="false">下单</a></li>
+        
+        <li style="height:35px;"><a href="./waphangqing.php" data-ajax="false">行情</a></li>
+        <li style="height:35px;"><a href="/waptrade.php"data-ajax="false" >持仓</a></li>
+      </ul>
+    </div>
+  </div>
+</div> 
+
+</body>
+</html>

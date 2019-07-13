@@ -1,0 +1,2 @@
+2017-08-18 13:53:17 115.152.4.158 Update `buy_deal` set sell='1',can_sell_num='0',sell_price='8.33',sell_cost_money='8.33',dc_money='4.17',sell_money='4165',sell_trust_id='13500',sell_gain='-30',gain='-71.03',agent_sell_money='0',sell_trust_date='2017-08-18',sell_trust_time='2017-08-18 13:53:17' where id='00006053'
+2017-08-18 13:53:17 115.152.4.158 UPDATE `user_users` set money=money+4165+-30-8.33-0-4.17,cash=cash+-30-8.33-0-4.17 where username='uceshi'
